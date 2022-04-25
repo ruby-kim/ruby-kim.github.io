@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>잡동사니</title>
+  
+  <subtitle>☁ Cloud Engineer ☁</subtitle>
+  <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://ruby-kim.github.io/"/>
+  <updated>2022-04-25T13:02:09.236Z</updated>
+  <id>http://ruby-kim.github.io/</id>
+  
+  <author>
+    <name>Ruby Kim</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[AWS] Route53: DNS 서비스</title>
+    <link href="http://ruby-kim.github.io/2022/03/26/AWS/Route53/"/>
+    <id>http://ruby-kim.github.io/2022/03/26/AWS/Route53/</id>
+    <published>2022-03-26T14:44:35.000Z</published>
+    <updated>2022-04-25T13:02:09.236Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;route53.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;목적-도메인-주소를-구매-후-의미-있는-url-이름-부여&quot;&gt;&lt;a href=&quot;#목적-도메인-주소를-구매-후-의미-있는-url-이름-부여&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="Route53" scheme="http://ruby-kim.github.io/tags/Route53/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AWS] EC2: Elastic Compute Cloud (EC2)</title>
+    <link href="http://ruby-kim.github.io/2022/03/24/AWS/EC2/"/>
+    <id>http://ruby-kim.github.io/2022/03/24/AWS/EC2/</id>
+    <published>2022-03-24T14:44:35.000Z</published>
+    <updated>2022-04-25T13:02:13.967Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;EC2.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;목적-유연한-cloud-크기-변동&quot;&gt;&lt;a href=&quot;#목적-유연한-cloud-크기-변동&quot; class=&quot;headerlink&quot; title=&quot;목적: 유연한 cloud 크기 변동&quot;&gt;&lt;/a&gt;목적:</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="EC2" scheme="http://ruby-kim.github.io/tags/EC2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</title>
+    <link href="http://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/"/>
+    <id>http://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</id>
+    <published>2022-03-18T15:44:35.000Z</published>
+    <updated>2022-04-25T07:54:42.914Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Github blog에 글을 업로드하면 다른 블로그들도 자동 업로드가 되도록 세팅해주기 위해 데이터 분석이 필요하다.&lt;br&gt;&lt;strong&gt;rss&lt;/strong&gt;는 최신 글 업로드 현황을 파악하는 용도로,</summary>
+        
+      
+    
+    
+    
+    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
+    
+    
+    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
+    
+    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
+    
+    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</title>
+    <link href="http://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/"/>
+    <id>http://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/</id>
+    <published>2022-03-17T15:44:35.000Z</published>
+    <updated>2022-04-25T01:51:55.852Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;프로젝트를 하다보면 private repository에 로컬에서 접근을 해야하는 경우가 있다.&lt;br&gt;또는 로컬에서 repository issue를 생성하는 등 다양한 이유가 있는데, Github에서 Personal Access Token을</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Personal Access Token" scheme="http://ruby-kim.github.io/tags/Personal-Access-Token/"/>
+    
+    <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
+    
+    <category term="Repository" scheme="http://ruby-kim.github.io/tags/Repository/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github Actions: 환경변수 등록하기</title>
+    <link href="http://ruby-kim.github.io/2022/03/17/Etc/Github-Actions-env/"/>
+    <id>http://ruby-kim.github.io/2022/03/17/Etc/Github-Actions-env/</id>
+    <published>2022-03-16T17:44:35.000Z</published>
+    <updated>2022-04-25T01:51:55.849Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;API를 사용하다보면 자신의 개인정보(Authentication)을 이용해야 하는데, 대놓고 깃허브에 업로드하면 개인정보가 털릴 수 있으므로 조심해야 한다.&lt;/p&gt;
+&lt;p&gt;이러한 민감한 정보를 아무도 모르게 사용할 수 있는, Github</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Github Actions" scheme="http://ruby-kim.github.io/tags/Github-Actions/"/>
+    
+    <category term=".env" scheme="http://ruby-kim.github.io/tags/env/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Automatic Tech Blog Management] Tistory API 발급받기</title>
+    <link href="http://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/"/>
+    <id>http://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</id>
+    <published>2022-03-16T15:44:35.000Z</published>
+    <updated>2022-04-25T01:51:55.861Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;티스토리 자동화를 위해서는 API가 필요한데, 이 API를 사용하기 위해서는 OpenAPI 신청과 매번 새로운 access token이 필요하다. (access token의 유효시간은 1시간이다)&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
+    
+    
+    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
+    
+    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
+    
+    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python3에서 환경변수 .env 사용하기</title>
+    <link href="http://ruby-kim.github.io/2022/03/16/Etc/Python-env/"/>
+    <id>http://ruby-kim.github.io/2022/03/16/Etc/Python-env/</id>
+    <published>2022-03-15T17:44:35.000Z</published>
+    <updated>2022-04-25T01:51:55.858Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;프로젝트를 진행하다 보면 코드에 서버 접속 정보를 기입해야 하는 상황이 올 때가 있다.&lt;br&gt;이는 정보보안에 있어서 매우 민감한 문제인데, 외부에 이 정보들을 감추고 싶을 때 환경변수를 설정해서 코드에 import하여</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term=".env" scheme="http://ruby-kim.github.io/tags/env/"/>
+    
+    <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Automatic Tech Blog Management] Intro</title>
+    <link href="http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/"/>
+    <id>http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</id>
+    <published>2022-03-15T15:12:35.000Z</published>
+    <updated>2022-04-25T07:51:27.531Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;블로그가 여러 개다 보니 관리하기가 너무 귀찮아졌다.&lt;br&gt;하지만 나는 욕심 많은 사람. 개발자 블로그로 유명한 플랫폼들을 모두 운영하고 싶다.&lt;br&gt;그래서 준비한 이번 프로젝트: Github Actions를 이용한 포스트 자동 관리 시스템</summary>
+        
+      
+    
+    
+    
+    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Github Actions" scheme="http://ruby-kim.github.io/tags/Github-Actions/"/>
+    
+    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
+    
+    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
+    
+    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
+    
+    <category term="Project" scheme="http://ruby-kim.github.io/tags/Project/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[LeetCode] 189. Rotate Array (Python3)</title>
+    <link href="http://ruby-kim.github.io/2022/03/14/Algorithm/LeetCode/189/"/>
+    <id>http://ruby-kim.github.io/2022/03/14/Algorithm/LeetCode/189/</id>
+    <published>2022-03-14T06:01:35.000Z</published>
+    <updated>2022-04-25T01:51:55.847Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given an array,</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
+    
+    <category term="Two Pointers" scheme="http://ruby-kim.github.io/tags/Two-Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[LeetCode] 977. Squares of a Sorted Array (Python3)</title>
+    <link href="http://ruby-kim.github.io/2022/03/14/Algorithm/LeetCode/977/"/>
+    <id>http://ruby-kim.github.io/2022/03/14/Algorithm/LeetCode/977/</id>
+    <published>2022-03-14T05:50:35.000Z</published>
+    <updated>2022-04-25T01:51:55.848Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given an integer</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
+    
+    <category term="Two Pointers" scheme="http://ruby-kim.github.io/tags/Two-Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[이론] Stable Sort</title>
+    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/Theory/StableSort/"/>
+    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/Theory/StableSort/</id>
+    <published>2022-03-13T14:10:35.000Z</published>
+    <updated>2022-04-25T01:51:55.849Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Stable-sort란&quot;&gt;&lt;a href=&quot;#Stable-sort란&quot; class=&quot;headerlink&quot; title=&quot;Stable sort란&quot;&gt;&lt;/a&gt;Stable sort란&lt;/h2&gt;&lt;p&gt;중복된 키를 순서대로 정렬하는 정렬 알고리즘을</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="Stable Sort" scheme="http://ruby-kim.github.io/tags/Stable-Sort/"/>
+    
+    <category term="Insertion Sort" scheme="http://ruby-kim.github.io/tags/Insertion-Sort/"/>
+    
+    <category term="Merge Sort" scheme="http://ruby-kim.github.io/tags/Merge-Sort/"/>
+    
+    <category term="Bubble Sort" scheme="http://ruby-kim.github.io/tags/Bubble-Sort/"/>
+    
+    <category term="Counting Sort" scheme="http://ruby-kim.github.io/tags/Counting-Sort/"/>
+    
+    <category term="Sort" scheme="http://ruby-kim.github.io/tags/Sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[LeetCode] 35. Search Insert Position (Python3)</title>
+    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/"/>
+    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/</id>
+    <published>2022-03-13T14:10:35.000Z</published>
+    <updated>2022-04-25T01:51:55.848Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a sorted array</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
+    
+    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[LeetCode] 278. First Bad Version (Python3)</title>
+    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/278/"/>
+    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/278/</id>
+    <published>2022-03-13T13:50:35.000Z</published>
+    <updated>2022-04-25T01:51:55.847Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;솔직히 이거 문제 처음에 이해 못했다. 두 번째 입력되는 숫자 그대로 반환하면 값 그대로 나오기 때문이다.&lt;br&gt;알고보니 주어진 함수 자체에 bad 파라미터 값이 세팅되어 있지 않아 어쩔수 없이 코딩을 복잡하게 해야했다.&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
+    
+    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[LeetCode] 704. Binary Search (Python3)</title>
+    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/704/"/>
+    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/704/</id>
+    <published>2022-03-13T13:44:35.000Z</published>
+    <updated>2022-04-25T01:51:55.848Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given an array of</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
+    
+    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AWS] IAM: Identity and Access Management</title>
+    <link href="http://ruby-kim.github.io/2022/03/10/AWS/IAM/"/>
+    <id>http://ruby-kim.github.io/2022/03/10/AWS/IAM/</id>
+    <published>2022-03-10T14:44:35.000Z</published>
+    <updated>2022-04-25T13:02:17.033Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;IAM.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;목적-사용자-관리&quot;&gt;&lt;a href=&quot;#목적-사용자-관리&quot; class=&quot;headerlink&quot; title=&quot;목적: 사용자 관리&quot;&gt;&lt;/a&gt;목적: 사용자</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="IAM" scheme="http://ruby-kim.github.io/tags/IAM/"/>
+    
+  </entry>
+  
+</feed>
