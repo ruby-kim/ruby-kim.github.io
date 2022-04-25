@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-04-25T13:02:09.236Z</updated>
+  <updated>2022-04-25T14:49:15.451Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Automatic Tech Blog Management] Github Blog &amp; Tistory 연결해보기 (글 하나 업로드)</title>
+    <link href="http://ruby-kim.github.io/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/"/>
+    <id>http://ruby-kim.github.io/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/</id>
+    <published>2022-03-27T15:44:35.000Z</published>
+    <updated>2022-04-25T14:49:15.451Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;지금까지 작성한 코드가 잘 작동하는지 확인해보는겸 글 하나를 타겟으로 티스토리에 업로드를 해본다.&lt;/p&gt;
+&lt;h2 id=&quot;사전-준비물&quot;&gt;&lt;a href=&quot;#사전-준비물&quot; class=&quot;headerlink&quot; title=&quot;사전 준비물&quot;&gt;&lt;/a&gt;사전</summary>
+        
+      
+    
+    
+    
+    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
+    
+    
+    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
+    
+    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
+    
+    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
+    
+  </entry>
   
   <entry>
     <title>[AWS] Route53: DNS 서비스</title>
@@ -128,9 +158,9 @@
     
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
-    <category term="Personal Access Token" scheme="http://ruby-kim.github.io/tags/Personal-Access-Token/"/>
-    
     <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
+    
+    <category term="Personal Access Token" scheme="http://ruby-kim.github.io/tags/Personal-Access-Token/"/>
     
     <category term="Repository" scheme="http://ruby-kim.github.io/tags/Repository/"/>
     
@@ -228,7 +258,7 @@
     <link href="http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/"/>
     <id>http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</id>
     <published>2022-03-15T15:12:35.000Z</published>
-    <updated>2022-04-25T07:51:27.531Z</updated>
+    <updated>2022-04-25T14:12:15.809Z</updated>
     
     
       
