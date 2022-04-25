@@ -319,36 +319,6 @@
   </entry>
   
   <entry>
-    <title>[LeetCode] 35. Search Insert Position (Python3)</title>
-    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/"/>
-    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/</id>
-    <published>2022-03-13T14:10:35.000Z</published>
-    <updated>2022-04-25T01:51:55.848Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given a sorted array</summary>
-        
-      
-    
-    
-    
-    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
-    
-    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
-    
-    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[이론] Stable Sort</title>
     <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/Theory/StableSort/"/>
     <id>http://ruby-kim.github.io/2022/03/13/Algorithm/Theory/StableSort/</id>
@@ -382,6 +352,36 @@
     <category term="Counting Sort" scheme="http://ruby-kim.github.io/tags/Counting-Sort/"/>
     
     <category term="Sort" scheme="http://ruby-kim.github.io/tags/Sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[LeetCode] 35. Search Insert Position (Python3)</title>
+    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/"/>
+    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/</id>
+    <published>2022-03-13T14:10:35.000Z</published>
+    <updated>2022-04-25T01:51:55.848Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Given a sorted array</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
+    
+    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
     
   </entry>
   
