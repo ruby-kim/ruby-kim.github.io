@@ -483,12 +483,12 @@
             <div id="articleContent">
                 <p>지금까지 작성한 코드가 잘 작동하는지 확인해보는겸 글 하나를 타겟으로 티스토리에 업로드를 해본다.</p>
 <h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><ul>
-<li><a href="/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/" title="[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기">[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</a></li>
-<li><a href="/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/" title="[Automatic Tech Blog Management] Tistory API 발급받기">[Automatic Tech Blog Management] Tistory API 발급받기</a></li>
+<li><a href="https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/">[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</a></li>
+<li><a href="https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/">[Automatic Tech Blog Management] Tistory API 발급받기</a></li>
 </ul>
 <br>
 
-<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre class="line-numbers language-none"><code class="language-none">from gitblog import *
+<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">from gitblog import *
 from tistory import *
 from markdown2 import Markdown
 from sys import platform
@@ -518,6 +518,7 @@ if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
 
     tistory.get_access_token()
     tistory.posting(head[&#39;title&#39;], markdowner.convert(body), head[&#39;categories&#39;], head[&#39;tags&#39;])</code></pre>
+
 <ul>
 <li><code>python-markdown2</code> 패키지를 사용하여 <code>.md</code> 파일을 <code>.html</code>로 변경 후 tistory에 업로드한다.</li>
 <li>각자 로컬에서 실행하는 개발환경이 다른 점을 고려하여 platform 설정도 넣어놨다. (아래에 tistory 클래스 변경사항 참고)<ul>
@@ -529,7 +530,7 @@ if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
 </ul>
 <br>
 
-<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre class="line-numbers language-none"><code class="language-none">import requests
+<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from urllib.parse import unquote
@@ -608,14 +609,17 @@ class Tistory:
             print(response.text)
         except:
             print(&quot;Error while uploading post in Tistory!&quot;)
-    ...</code></pre>
+    ...
+
+</code></pre>
+
 <ul>
 <li>OS에 따른 chromedriver 세팅을 하면서 자잘한 파라미터 값들을 수정한다.</li>
 <li>tistory 글을 업로드 할 수 있는 <code>posting()</code>을 만든다. <img src="1.png"></li>
 </ul>
 <br>
 
-<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre class="line-numbers language-none"><code class="language-none">class GithubBlog:
+<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:
     def __init__(self, blogUrl):
         self.url &#x3D; blogUrl
         self.xml &#x3D; blogUrl + &quot;&#x2F;atom.xml&quot;
@@ -632,10 +636,12 @@ class Tistory:
         file &#x3D; get_repo_specific_file_content(repo, target_path)
         self.md_head, self.md_body &#x3D; preprocess(file, target_path)
         return self.md_head, self.md_body                                                       # 변경</code></pre>
+
 <p>기존의 코드에서는 .md의 header와 body를 반환하지 않아 GithubBlog 내부에서만 활용할 수 있는데, 직관적인 코드를 위해 return으로 변경해준다.</p>
 <br>
 
-<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre class="line-numbers language-none"><code class="language-none">python3 run.py</code></pre>
+<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python3 run.py</code></pre>
+
 <ul>
 <li>결과물이 다음과 같이 나오면 성공적으로 티스토리에 업로드 된 것을 확인할 수 있다.<ul>
 <li><code>&#123;&quot;tistory&quot;:&#123;&quot;status&quot;:&quot;200&quot;,&quot;postId&quot;:&quot;12&quot;,&quot;url&quot;:&quot;https:\/\/dev-rubykim.tistory.com\/12&quot;&#125;&#125;</code> <img src="2.png"></li>
@@ -650,7 +656,8 @@ class Tistory:
 <li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/e6277ecf2fe8e32fc2aca466e969caf75a16c4b3/gitblog.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/gitblog.py</a></li>
 </ul>
 <p><br><br></p>
-<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><a href="/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/" title="[Automatic Tech Blog Management] Intro">[Automatic Tech Blog Management] Intro</a>
+<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
+
                 
             </div>
             <hr/>
