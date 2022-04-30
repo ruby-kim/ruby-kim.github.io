@@ -497,13 +497,13 @@
 <br>
 
 <ol start="3">
-<li>먼저 본인 정보에 맞게 아래의 주소를 변경하고 접속한다.<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;www.tistory.com&#x2F;oauth&#x2F;authorize?client_id&#x3D;&#123;App ID&#125;&amp;redirect_uri&#x3D;&#123;블로그 주소&#125;&amp;response_type&#x3D;code&amp;state&#x3D;&#123;state-param&#125;</code></pre>
-<img src="tistory4.png"><br>그러면 위의 페이지가 뜨는데 ‘허가하기’ 버튼을 눌러주면 된다.<br>허가하기를 누르면 본인 블로그로 보내지는데, 이때 그 상태의 주소창 주소를 잘 기억하자. (Code값이 필요함)<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;&#123;티스토리 설정 주소&#125;.tistory.com&#x2F;?code&#x3D;&#123;여기 값을 기억하자&#125;&amp;state&#x3D;&#123;state-param&#125;</code></pre></li>
+<li>먼저 본인 정보에 맞게 아래의 주소를 변경하고 접속한다. <pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;www.tistory.com&#x2F;oauth&#x2F;authorize?client_id&#x3D;&#123;App ID&#125;&amp;redirect_uri&#x3D;&#123;블로그 주소&#125;&amp;response_type&#x3D;code&amp;state&#x3D;&#123;state-param&#125;</code></pre>
+<img src="tistory4.png"><br>그러면 위의 페이지가 뜨는데 ‘허가하기’ 버튼을 눌러주면 된다.<br>허가하기를 누르면 본인 블로그로 보내지는데, 이때 그 상태의 주소창 주소를 잘 기억하자. (Code값이 필요함) <pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;&#123;티스토리 설정 주소&#125;.tistory.com&#x2F;?code&#x3D;&#123;여기 값을 기억하자&#125;&amp;state&#x3D;&#123;state-param&#125;</code></pre></li>
 </ol>
 <br>
 
 <ol start="4">
-<li>아래의 주소로 다시 접속해서 access-token을 발급받는다.<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;www.tistory.com&#x2F;oauth&#x2F;access_token?client_id&#x3D;&#123;App ID&#125;&amp;client_secret&#x3D;&#123;Secret Key&#125;&amp;redirect_uri&#x3D;&#123;블로그 주소&#125;&amp;code&#x3D;&#123;3번 결과값에서 code부분&#125;&amp;grant_type&#x3D;authorization_code</code></pre>
+<li>아래의 주소로 다시 접속해서 access-token을 발급받는다. <pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;www.tistory.com&#x2F;oauth&#x2F;access_token?client_id&#x3D;&#123;App ID&#125;&amp;client_secret&#x3D;&#123;Secret Key&#125;&amp;redirect_uri&#x3D;&#123;블로그 주소&#125;&amp;code&#x3D;&#123;3번 결과값에서 code부분&#125;&amp;grant_type&#x3D;authorization_code</code></pre>
 Network(F12)를 확인하면 access_token을 확인할 수 있다.<br><img src="tistory5.png"></li>
 </ol>
 <br>
@@ -512,17 +512,18 @@ Network(F12)를 확인하면 access_token을 확인할 수 있다.<br><img src="
 <ul>
 <li>참고: <a target="_blank" rel="noopener" href="https://tistory.github.io/document-tistory-apis/auth/authorization_code.html">https://tistory.github.io/document-tistory-apis/auth/authorization_code.html</a></li>
 </ul>
-<h3 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
+<h3 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from urllib.parse import unquote
 import time
 import os</code></pre>
+</code></pre>
 <ul>
 <li>페이지를 동적으로 가져오기 위해 selenium을 import함</li>
 <li>중간에 파싱(code, access_token)할 때 인코딩 에러가 발생해서 이를 위해 unquote를 import함</li>
 </ul>
-<h3 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Tistory:
+<h3 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Tistory:
     def __init__(self, blogUrl):
         self.app_id &#x3D; &quot;발급받은 App ID&quot;
         self.secret_key &#x3D; &quot;발급받은 Secret Key&quot;
@@ -538,11 +539,12 @@ import os</code></pre>
         # selenium setting params
         self.webdriver_options &#x3D; webdriver.ChromeOptions()
         self.webdriver_options.add_argument(&#39;headless&#39;)</code></pre>
+</code></pre>
 <ul>
 <li>프로그램 제작에 있어 기본적인 변수들을 선언</li>
 <li>webdriver_options는 webdriver 창 나오는거 방지를 위해 작성</li>
 </ul>
-<h3 id="티스토리-카카오-로그인"><a href="#티스토리-카카오-로그인" class="headerlink" title="티스토리 카카오 로그인"></a>티스토리 카카오 로그인</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Tistory:
+<h3 id="티스토리-카카오-로그인"><a href="#티스토리-카카오-로그인" class="headerlink" title="티스토리 카카오 로그인"></a>티스토리 카카오 로그인</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Tistory:
     def __init__(self, blogUrl): (...)
 
     def login_kakao(self, browser):
@@ -562,6 +564,7 @@ import os</code></pre>
         browser.find_element(By.CLASS_NAME, &quot;btn_confirm&quot;).click()
         time.sleep(5)
         browser.get(browser.current_url)</code></pre>
+</code></pre>
 <ul>
 <li>selenium을 이용한 티스토리 카카오 로그인 코드</li>
 <li>selenium으로 하다보니 코드 로딩 전에 프로그램이 진행되어 정확한 값이 나오지 않아 오류가 발생하는 경우가 있어 중간에 sleep을 넣어줌</li>

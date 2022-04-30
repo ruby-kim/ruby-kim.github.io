@@ -485,13 +485,13 @@
 <h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><p>Github blog를 분석하기 위해서는 먼저 Personal Access Token을 이용해 Github repository 접근 권한을 가져와야 한다.<br>아래의 url을 통해 발급부터 세팅까지 해보자.<br><a href="https://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/">Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</a></p>
 <br>
 
-<h2 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pytz
+<h2 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pytz
 from bs4 import BeautifulSoup
 from datetime import datetime
 import requests
 import os
 from github import Github</code></pre>
-
+</code></pre>
 <br>
 
 <h2 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:
