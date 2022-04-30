@@ -488,7 +488,7 @@
 </ul>
 <br>
 
-<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">from gitblog import *
+<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre class="line-numbers language-none"><code class="language-none">from gitblog import *
 from tistory import *
 from markdown2 import Markdown
 from sys import platform
@@ -529,7 +529,7 @@ if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
 </ul>
 <br>
 
-<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
+<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre class="line-numbers language-none"><code class="language-none">import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from urllib.parse import unquote
@@ -608,16 +608,14 @@ class Tistory:
             print(response.text)
         except:
             print(&quot;Error while uploading post in Tistory!&quot;)
-    ...
-
-</code></pre>
+    ...</code></pre>
 <ul>
 <li>OS에 따른 chromedriver 세팅을 하면서 자잘한 파라미터 값들을 수정한다.</li>
 <li>tistory 글을 업로드 할 수 있는 <code>posting()</code>을 만든다. <img src="1.png"></li>
 </ul>
 <br>
 
-<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:
+<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre class="line-numbers language-none"><code class="language-none">class GithubBlog:
     def __init__(self, blogUrl):
         self.url &#x3D; blogUrl
         self.xml &#x3D; blogUrl + &quot;&#x2F;atom.xml&quot;
@@ -637,7 +635,7 @@ class Tistory:
 <p>기존의 코드에서는 .md의 header와 body를 반환하지 않아 GithubBlog 내부에서만 활용할 수 있는데, 직관적인 코드를 위해 return으로 변경해준다.</p>
 <br>
 
-<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python3 run.py</code></pre>
+<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre class="line-numbers language-none"><code class="language-none">python3 run.py</code></pre>
 <ul>
 <li>결과물이 다음과 같이 나오면 성공적으로 티스토리에 업로드 된 것을 확인할 수 있다.<ul>
 <li><code>&#123;&quot;tistory&quot;:&#123;&quot;status&quot;:&quot;200&quot;,&quot;postId&quot;:&quot;12&quot;,&quot;url&quot;:&quot;https:\/\/dev-rubykim.tistory.com\/12&quot;&#125;&#125;</code> <img src="2.png"></li>
