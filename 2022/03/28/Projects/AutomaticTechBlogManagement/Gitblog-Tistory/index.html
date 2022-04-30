@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="[Automatic Tech Blog Management] Github Blog &amp; Tistory 연결해보기 (글 하나 업로드), 잡동사니">
+    <meta name="keywords" content="[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기, 잡동사니">
     <meta name="description" content="Tistory API를 이용하여 Github Blog 포스트를 자동으로 하나 업로드 해보기">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -28,7 +28,7 @@
 </script>
 
 
-    <title>[Automatic Tech Blog Management] Github Blog &amp; Tistory 연결해보기 (글 하나 업로드) | 잡동사니</title>
+    <title>[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기 | 잡동사니</title>
     <link rel="icon" type="image/png" href="../../../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../../../libs/awesome/css/all.min.css">
@@ -308,7 +308,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">[Automatic Tech Blog Management] Github Blog &amp; Tistory 연결해보기 (글 하나 업로드)</h1>
+                    <h1 class="description center-align post-title">[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기</h1>
                 </div>
             </div>
         </div>
@@ -490,14 +490,46 @@
 
 <h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">from gitblog import *
 from tistory import *
-from markdown2 import Markdown
+import markdown2
 from sys import platform
 
 
 def personal_setting(head, body):
-    if &quot;&#123;% post_link &#39;AWS&#x2F;intro&#39; %&#125;&quot; in body:
-        body &#x3D; body[:body.index(&quot;&#123;% post_link &#39;AWS&#x2F;intro&#39; %&#125;&quot;)] + &quot;&lt;p&gt;https:&#x2F;&#x2F;ruby-kim.github.io&#x2F;2022&#x2F;03&#x2F;15&#x2F;AWS&#x2F;intro&#x2F;&lt;&#x2F;p&gt;&quot;
-    return head, body
+    def code_line(text):
+        text &#x3D; text.split(&#39;\n&#39;)
+        for idx, b in enumerate(text):
+            if &quot;&#96;&#96;&#96;&quot; in b:
+                if &quot;&lt;pre&gt;&lt;code&gt;&quot; in b:
+                    text[idx] &#x3D; b[:11]
+                else:
+                    if len(b) &#x3D;&#x3D; 3:
+                        text[idx] &#x3D; &quot;&quot;
+        return &#39;\n&#39;.join(text)
+
+    return head, code_line(body)
+
+
+def create_post(githubBlog, tistory):
+flag &#x3D; 0
+for g_content in githubBlog.contents:
+    for t_content in tistory.contents:
+        if t_content[&quot;title&quot;] &#x3D;&#x3D; g_content[&quot;title&quot;]:
+            flag &#x3D; 1
+    if flag:
+        flag &#x3D; 0
+        continue
+    else:
+        path &#x3D; &#39;&#x2F;&#39; + &#39;&#x2F;&#39;.join(g_content[&quot;link&quot;].split(&#39;&#x2F;&#39;)[6:-1]) + &quot;.md&quot;
+        head, body &#x3D; githubBlog.parsing_md(path)
+        body &#x3D; markdown2.markdown(body)
+        head, body &#x3D; personal_setting(head, body)
+
+        tistory.posting(
+            head[&#39;title&#39;],
+            body,
+            head[&#39;categories&#39;],
+            head[&#39;tags&#39;],
+        )
 
 
 if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
@@ -509,24 +541,35 @@ if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
     elif platform &#x3D;&#x3D; &quot;win32&quot;:
         target_os &#x3D; &quot;_win.exe&quot;
     
-    markdowner &#x3D; Markdown()
     githubBlog &#x3D; GithubBlog(&quot;https:&#x2F;&#x2F;ruby-kim.github.io&quot;)
     tistory &#x3D; Tistory(&#39;https:&#x2F;&#x2F;dev-rubykim.tistory.com&#x2F;&#39;, target_os)
 
-    head, body &#x3D; githubBlog.parsing_md(&quot;&#x2F;AWS&#x2F;EC2.md&quot;)   # 각자 .md path 참고
-    head, body &#x3D; personal_setting(head, body)
-
     tistory.get_access_token()
-    tistory.posting(head[&#39;title&#39;], markdowner.convert(body), head[&#39;categories&#39;], head[&#39;tags&#39;])</code></pre>
+    githubBlog.parsing_xml()
+    tistory.parsing_rss()
+    tistory.toc_post()
+
+    create_post(githubBlog, tistory)</code></pre>
 </code></pre>
 <ul>
-<li><code>python-markdown2</code> 패키지를 사용하여 <code>.md</code> 파일을 <code>.html</code>로 변경 후 tistory에 업로드한다.</li>
+<li>전체적인 알고리즘은 <code>python-markdown2</code> 패키지를 사용하여 <code>.md</code> 파일을 <code>.html</code>로 변경 후 tistory에 업로드 하는 것이다.</li>
 <li>각자 로컬에서 실행하는 개발환경이 다른 점을 고려하여 platform 설정도 넣어놨다. (아래에 tistory 클래스 변경사항 참고)<ul>
 <li>따라서 Windows가 아닌 Linux, OS X를 사용하는 개발자는 자신의 개발환경에 맞춰 chromedriver 파일을 넣어준다.</li>
 </ul>
 </li>
-<li>hexo 백업용 repository의 <code>/source/_posts</code> 내의 데이터를 참고하여 <code>githubBlog.parsing_md</code>의 파라미터를 세팅해준다.</li>
-<li><code>personal_setting()</code>은 말 그대로 각자 작성한 <code>.md</code> 변환 결과물에서 변경되지 않은 부분이 있을 시 직접 세팅해주는 함수이다.</li>
+<li><code>create_post()</code> 함수는 github blog과 tistory의 포스트를 비교 후 해당 포스트가 없을 시 자동생성 및 업로드 해주는 코드이다.<ul>
+<li>코드 중 flag가 바로 중복 포스트 체크를 위한 변수이다.</li>
+<li>hexo 백업용 repository의 <code>/source/_posts</code> 내의 데이터에 접근하기 위해 각자의 github url을 파악 후 알맞게 세팅해준다.<ul>
+<li>현재 사용 중인 github blog는 **<a href="https://ruby-kim.github.io/YYYY/MM/DD/[.md%ED%8C%8C%EC%9D%BC">https://ruby-kim.github.io/YYYY/MM/DD/[.md파일</a> path]**로 되어 있으므로, 이에 따라 path를 다음과 같이 설정했다.</li>
+</ul>
+</li>
+<li><code>personal_setting()</code>은 말 그대로 각자 작성한 <code>.md</code> 변환 결과물에서 변경되지 않은 부분이 있을 시 직접 세팅해주는 함수이다.<ul>
+<li>56번째 줄의 결과물을 출력해보면 markdown에서 html로 변환 시 코드블럭에 관한 전처리가 덜 되어있음을 확인할 수 있다. (&#96;&#96;&#96;가 추가됨)</li>
+<li>따라서 해당 부분을 전처리하는 함수 <code>code_line()</code>를 <code>personal_setting()</code>에 선언 및 처리한다.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <br>
 
@@ -644,16 +687,16 @@ class Tistory:
 </code></pre>
 <ul>
 <li>결과물이 다음과 같이 나오면 성공적으로 티스토리에 업로드 된 것을 확인할 수 있다.<ul>
-<li><code>&#123;&quot;tistory&quot;:&#123;&quot;status&quot;:&quot;200&quot;,&quot;postId&quot;:&quot;12&quot;,&quot;url&quot;:&quot;https:\/\/dev-rubykim.tistory.com\/12&quot;&#125;&#125;</code> <img src="2.png"></li>
+<li><code>&#123;&quot;tistory&quot;:&#123;&quot;status&quot;:&quot;200&quot;,&quot;postId&quot;:&quot;12&quot;,&quot;url&quot;:&quot;https:\/\/dev-rubykim.tistory.com\/12&quot;&#125;&#125;</code><br><img src="2.png"></li>
 </ul>
 </li>
 </ul>
 <br>
 
 <h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/e6277ecf2fe8e32fc2aca466e969caf75a16c4b3/run.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/run.py</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/e6277ecf2fe8e32fc2aca466e969caf75a16c4b3/tistory.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/tistory.py</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/e6277ecf2fe8e32fc2aca466e969caf75a16c4b3/gitblog.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/gitblog.py</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/run.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/run.py</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/tistory.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/tistory.py</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/gitblog.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/gitblog.py</a></li>
 </ul>
 <p><br><br></p>
 <h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
@@ -813,9 +856,9 @@ class Tistory:
                 <a href="">
                     <div class="card-image">
                         
-                        <img src="../../../../../../coverImages/base.png" class="responsive-img" alt="[Automatic Tech Blog Management] Github Blog &amp; Tistory 연결해보기 (글 하나 업로드)">
+                        <img src="../../../../../../coverImages/base.png" class="responsive-img" alt="[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기">
                         
-                        <span class="card-title">[Automatic Tech Blog Management] Github Blog &amp; Tistory 연결해보기 (글 하나 업로드)</span>
+                        <span class="card-title">[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
