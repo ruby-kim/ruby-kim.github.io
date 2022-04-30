@@ -489,12 +489,13 @@
 <p>k값을 기준으로 리스트 슬라이싱을 하면 쉽게 풀리는데, 이때 단순히 이것만 생각하고 코딩을 하면 문제가 발생한다.</p>
 <p>리스트 길이 때문에 답이 <code>[1]</code>이 아닌 <code>[1, 1]</code>로 나오는 등의 경우를 볼 수 있는데, 이를 방지하기 위해 k만 사용하는 것이 아닌 <code>len(nums)</code>를 이용하면 정확한 길이까지 세팅할 수 있다.</p>
 <p>마지막으로, 파이썬 고인물들의 스킬로 <code>[:]</code>를 사용하면 in-place로 알고리즘을 구현할 수 있다. <del>나도 이제 고인물</del><br>대부분의 코딩 언어들은 컴파일 전에 임의 값을 할당하는데 (c언어에서는 변수 선언 시 무조건 변수형-int 등을 선언해야 함) 파이썬은 컴파일 이후 값을 할당하기 때문에 nums[:]를 하면 예쁘게 in-place로 값을 할당할 수 있다.</p>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
     def rotate(self, nums: List[int], k: int) -&gt; None:
         &quot;&quot;&quot;
         Do not return anything, modify nums in-place instead.
         &quot;&quot;&quot;
         nums[:] &#x3D; nums[-k % len(nums):] + nums[:-k % len(nums)]</code></pre>
+</code></pre>
 
                 
             </div>
