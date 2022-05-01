@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-04-30T18:04:51.742Z</updated>
+  <updated>2022-05-01T16:02:18.795Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,95 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[AWS] S3: Simple Storage Service</title>
+    <link href="http://ruby-kim.github.io/2022/04/03/AWS/S3/"/>
+    <id>http://ruby-kim.github.io/2022/04/03/AWS/S3/</id>
+    <published>2022-04-03T14:44:35.000Z</published>
+    <updated>2022-05-01T16:02:18.795Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;s3.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드&quot;&gt;&lt;a href=&quot;#목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSL/TSL 개념과 기본 동작 원리</title>
+    <link href="http://ruby-kim.github.io/2022/03/30/NS/SSLTSL/"/>
+    <id>http://ruby-kim.github.io/2022/03/30/NS/SSLTSL/</id>
+    <published>2022-03-30T14:44:35.000Z</published>
+    <updated>2022-05-01T15:54:55.065Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SSL-Secure-Socket-Layer&quot;&gt;&lt;a href=&quot;#SSL-Secure-Socket-Layer&quot; class=&quot;headerlink&quot; title=&quot;SSL (Secure Socket Layer)&quot;&gt;&lt;/a&gt;SSL (Secure</summary>
+        
+      
+    
+    
+    
+    <category term="🔐 Network/Security" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
+    
+    
+    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
+    
+    <category term="Security" scheme="http://ruby-kim.github.io/tags/Security/"/>
+    
+    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AWS] RDS: Relational DB Service</title>
+    <link href="http://ruby-kim.github.io/2022/03/28/AWS/RDS/"/>
+    <id>http://ruby-kim.github.io/2022/03/28/AWS/RDS/</id>
+    <published>2022-03-28T14:44:35.000Z</published>
+    <updated>2022-05-01T14:22:06.168Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;rds.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;목적-관계형-데이터베이스&quot;&gt;&lt;a href=&quot;#목적-관계형-데이터베이스&quot; class=&quot;headerlink&quot; title=&quot;목적: 관계형 데이터베이스&quot;&gt;&lt;/a&gt;목적: 관계형</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="RDS" scheme="http://ruby-kim.github.io/tags/RDS/"/>
+    
+  </entry>
   
   <entry>
     <title>[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기</title>
@@ -286,6 +375,35 @@
     <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
     
     <category term="Project" scheme="http://ruby-kim.github.io/tags/Project/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AWS] Intro</title>
+    <link href="http://ruby-kim.github.io/2022/03/15/AWS/Intro/"/>
+    <id>http://ruby-kim.github.io/2022/03/15/AWS/Intro/</id>
+    <published>2022-03-15T14:44:35.000Z</published>
+    <updated>2022-05-01T15:28:08.727Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;아래 리스트에서 원하는 AWS 설명 url을 클릭하세요.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IAM: &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
   </entry>
   
