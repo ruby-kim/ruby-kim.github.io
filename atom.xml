@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-05-01T16:02:18.795Z</updated>
+  <updated>2022-05-04T15:05:41.559Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,107 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Hexo] Github Blog 백업하기</title>
+    <link href="http://ruby-kim.github.io/2022/04/15/Hexo/Backup/"/>
+    <id>http://ruby-kim.github.io/2022/04/15/Hexo/Backup/</id>
+    <published>2022-04-15T14:44:35.000Z</published>
+    <updated>2022-05-04T15:05:41.559Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;기본적인 블로그 세팅이 끝났다.&lt;br&gt;이전 포스트를 따라 블로그 세팅을 했다면, 실질적으로 .md파일이 저장되는 repository가 없음을 확인할 수 있다.&lt;br&gt;즉 다른 컴퓨터 환경에서 블로그 포스트를 이어서 작성할 수 없으며,</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Github Blog 테마를 자유롭게 선택 및 수정해보자</title>
+    <link href="http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/"/>
+    <id>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</id>
+    <published>2022-04-12T14:44:35.000Z</published>
+    <updated>2022-05-04T13:41:04.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;이번에는 github blog에 원하는 테마를 적용할건데, Hexo에서 가장 유명한 테마인 icarus를 활용할 예정이다.&lt;br&gt;다른 테마를 원한다면 github에 hexo를 검색해보거나 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Hexo theme 추천 리스트</title>
+    <link href="http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/"/>
+    <id>http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/</id>
+    <published>2022-04-11T14:44:35.000Z</published>
+    <updated>2022-05-04T13:29:03.818Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;기본적으로 github에 hexo를 검색하면 &lt;code&gt;hexo-theme-프로젝트명&lt;/code&gt;으로 다양한 테마를 확인할 수 있는데, 그 중 괜찮아 보이는 것 몇 개를 소개해보고자 한다.&lt;br&gt;각 테마마다 설치해야 할 package가 다르니</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Markdown으로 Github Blog를 만들어보자</title>
+    <link href="http://ruby-kim.github.io/2022/04/07/Hexo/Install/"/>
+    <id>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</id>
+    <published>2022-04-07T14:44:35.000Z</published>
+    <updated>2022-05-04T08:22:55.224Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Github로 블로그를 운영할 때 어떤 기술을 사용해야 하는지, 아니면 어떻게 시작을 할지 고민하는 사람들을 위해 이번 포스팅을 해본다.&lt;/p&gt;
+&lt;h2 id=&quot;Hexo란&quot;&gt;&lt;a href=&quot;#Hexo란&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>[AWS] S3: Simple Storage Service</title>
@@ -67,11 +168,11 @@
     <category term="🔐 Network/Security" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
     
     
+    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
+    
     <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
     
     <category term="Security" scheme="http://ruby-kim.github.io/tags/Security/"/>
-    
-    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
     
   </entry>
   
@@ -247,9 +348,9 @@
     
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
-    <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
-    
     <category term="Personal Access Token" scheme="http://ruby-kim.github.io/tags/Personal-Access-Token/"/>
+    
+    <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
     
     <category term="Repository" scheme="http://ruby-kim.github.io/tags/Repository/"/>
     
@@ -468,43 +569,6 @@
   </entry>
   
   <entry>
-    <title>[이론] Stable Sort</title>
-    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/Theory/StableSort/"/>
-    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/Theory/StableSort/</id>
-    <published>2022-03-13T14:10:35.000Z</published>
-    <updated>2022-04-30T17:25:24.401Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Stable-sort란&quot;&gt;&lt;a href=&quot;#Stable-sort란&quot; class=&quot;headerlink&quot; title=&quot;Stable sort란&quot;&gt;&lt;/a&gt;Stable sort란&lt;/h2&gt;&lt;p&gt;중복된 키를 순서대로 정렬하는 정렬 알고리즘을</summary>
-        
-      
-    
-    
-    
-    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
-    
-    <category term="Stable Sort" scheme="http://ruby-kim.github.io/tags/Stable-Sort/"/>
-    
-    <category term="Insertion Sort" scheme="http://ruby-kim.github.io/tags/Insertion-Sort/"/>
-    
-    <category term="Merge Sort" scheme="http://ruby-kim.github.io/tags/Merge-Sort/"/>
-    
-    <category term="Bubble Sort" scheme="http://ruby-kim.github.io/tags/Bubble-Sort/"/>
-    
-    <category term="Counting Sort" scheme="http://ruby-kim.github.io/tags/Counting-Sort/"/>
-    
-    <category term="Sort" scheme="http://ruby-kim.github.io/tags/Sort/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[LeetCode] 35. Search Insert Position (Python3)</title>
     <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/"/>
     <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/</id>
@@ -531,96 +595,6 @@
     <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
     
     <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[LeetCode] 278. First Bad Version (Python3)</title>
-    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/278/"/>
-    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/278/</id>
-    <published>2022-03-13T13:50:35.000Z</published>
-    <updated>2022-04-30T17:25:13.979Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;솔직히 이거 문제 처음에 이해 못했다. 두 번째 입력되는 숫자 그대로 반환하면 값 그대로 나오기 때문이다.&lt;br&gt;알고보니 주어진 함수 자체에 bad 파라미터 값이 세팅되어 있지 않아 어쩔수 없이 코딩을 복잡하게 해야했다.&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
-    
-    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
-    
-    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[LeetCode] 704. Binary Search (Python3)</title>
-    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/704/"/>
-    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/704/</id>
-    <published>2022-03-13T13:44:35.000Z</published>
-    <updated>2022-04-30T17:25:17.255Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given an array of</summary>
-        
-      
-    
-    
-    
-    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
-    
-    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
-    
-    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[AWS] IAM: Identity and Access Management</title>
-    <link href="http://ruby-kim.github.io/2022/03/10/AWS/IAM/"/>
-    <id>http://ruby-kim.github.io/2022/03/10/AWS/IAM/</id>
-    <published>2022-03-10T14:44:35.000Z</published>
-    <updated>2022-04-30T17:23:10.862Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;IAM.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;목적-사용자-관리&quot;&gt;&lt;a href=&quot;#목적-사용자-관리&quot; class=&quot;headerlink&quot; title=&quot;목적: 사용자 관리&quot;&gt;&lt;/a&gt;목적: 사용자</summary>
-        
-      
-    
-    
-    
-    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
-    
-    
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
-    
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
-    
-    <category term="IAM" scheme="http://ruby-kim.github.io/tags/IAM/"/>
     
   </entry>
   
