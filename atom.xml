@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-05-04T15:05:41.559Z</updated>
+  <updated>2022-05-04T15:20:09.188Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Github Wiki에서 TOC 만들기 </title>
+    <link href="http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/"/>
+    <id>http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/</id>
+    <published>2022-04-20T17:44:35.000Z</published>
+    <updated>2022-05-04T15:20:09.188Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;2.png&quot;&gt;&lt;br&gt;종종 프로젝트를 하다보면 wiki의 크기가 커지는 경우가 많은데, 문서 가시성을 위해 wiki에서 TOC(Table Of Content, 목차)를 만드는 방법을 소개해보고자 한다.&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[Hexo] Github Blog 백업하기</title>
     <link href="http://ruby-kim.github.io/2022/04/15/Hexo/Backup/"/>
     <id>http://ruby-kim.github.io/2022/04/15/Hexo/Backup/</id>
     <published>2022-04-15T14:44:35.000Z</published>
-    <updated>2022-05-04T15:05:41.559Z</updated>
+    <updated>2022-05-04T15:20:52.248Z</updated>
     
     
       
@@ -39,6 +67,10 @@
     
     <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
   </entry>
   
   <entry>
@@ -46,7 +78,7 @@
     <link href="http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/"/>
     <id>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</id>
     <published>2022-04-12T14:44:35.000Z</published>
-    <updated>2022-05-04T13:41:04.850Z</updated>
+    <updated>2022-05-04T15:20:48.737Z</updated>
     
     
       
@@ -64,6 +96,10 @@
     
     <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
   </entry>
   
   <entry>
@@ -71,7 +107,7 @@
     <link href="http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/"/>
     <id>http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/</id>
     <published>2022-04-11T14:44:35.000Z</published>
-    <updated>2022-05-04T13:29:03.818Z</updated>
+    <updated>2022-05-04T15:20:57.598Z</updated>
     
     
       
@@ -89,6 +125,10 @@
     
     <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
   </entry>
   
   <entry>
@@ -96,7 +136,7 @@
     <link href="http://ruby-kim.github.io/2022/04/07/Hexo/Install/"/>
     <id>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</id>
     <published>2022-04-07T14:44:35.000Z</published>
-    <updated>2022-05-04T08:22:55.224Z</updated>
+    <updated>2022-05-04T15:20:38.764Z</updated>
     
     
       
@@ -114,6 +154,10 @@
     
     
     <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
     
   </entry>
   
@@ -565,36 +609,6 @@
     <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
     
     <category term="Two Pointers" scheme="http://ruby-kim.github.io/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[LeetCode] 35. Search Insert Position (Python3)</title>
-    <link href="http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/"/>
-    <id>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/35/</id>
-    <published>2022-03-13T14:10:35.000Z</published>
-    <updated>2022-04-30T17:25:05.147Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given a sorted array</summary>
-        
-      
-    
-    
-    
-    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
-    
-    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
-    
-    <category term="Binary Search" scheme="http://ruby-kim.github.io/tags/Binary-Search/"/>
     
   </entry>
   
