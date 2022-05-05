@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-05-04T15:20:09.188Z</updated>
+  <updated>2022-05-05T14:59:19.626Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[React.js] React 라이프 사이클</title>
+    <link href="http://ruby-kim.github.io/2022/04/22/Reactjs/ReactLifeCycle/"/>
+    <id>http://ruby-kim.github.io/2022/04/22/Reactjs/ReactLifeCycle/</id>
+    <published>2022-04-22T14:44:35.000Z</published>
+    <updated>2022-05-05T14:59:19.626Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;React-Life-Cycle&quot;&gt;&lt;a href=&quot;#React-Life-Cycle&quot; class=&quot;headerlink&quot; title=&quot;React Life Cycle&quot;&gt;&lt;/a&gt;React Life Cycle&lt;/h2&gt;&lt;p&gt;Reacts는</summary>
+        
+      
+    
+    
+    
+    <category term="✨ React.js" scheme="http://ruby-kim.github.io/categories/%E2%9C%A8-React-js/"/>
+    
+    
+    <category term="React" scheme="http://ruby-kim.github.io/tags/React/"/>
+    
+    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>Github Wiki에서 TOC 만들기 </title>
@@ -65,11 +92,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -94,11 +121,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -123,11 +150,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -153,11 +180,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -566,36 +593,6 @@
         
     <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Given an array,</summary>
-        
-      
-    
-    
-    
-    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
-    
-    
-    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
-    
-    <category term="LeetCode" scheme="http://ruby-kim.github.io/tags/LeetCode/"/>
-    
-    <category term="Two Pointers" scheme="http://ruby-kim.github.io/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[LeetCode] 977. Squares of a Sorted Array (Python3)</title>
-    <link href="http://ruby-kim.github.io/2022/03/14/Algorithm/LeetCode/977/"/>
-    <id>http://ruby-kim.github.io/2022/03/14/Algorithm/LeetCode/977/</id>
-    <published>2022-03-14T05:50:35.000Z</published>
-    <updated>2022-05-05T13:28:02.601Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Given an integer</summary>
         
       
     

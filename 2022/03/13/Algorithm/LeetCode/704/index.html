@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -453,9 +455,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -468,24 +467,24 @@
 <p><img src="704.png"></p>
 <h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>O(log n)에 맞춰 풀어야 하는 문제로, 배열이 정렬됐기 때문에 binary search를 이용하면 쉽게 풀리는 문제이다.<br>기본적인 binary search 구현을 하면 된다.</p>
 <ul>
-<li>left &#x3D; 0 (최소 index 값), right &#x3D; list의 길이 - 1(리스트에서 최대 index 값)</li>
+<li>left = 0 (최소 index 값), right = list의 길이 - 1(리스트에서 최대 index 값)</li>
 <li>left가 right 값 이하일 때 조건에서,</li>
-<li>pivot이라는 값을 설정해 (left + right) &#x2F; 2의 값으로 세팅을 해준 후</li>
+<li>pivot이라는 값을 설정해 (left + right) / 2의 값으로 세팅을 해준 후</li>
 <li>list[pivot]값에 따라 left와 right를 조정해준다.</li>
 <li>이때 left와 right는 pivot ± 1로 설정해주면 된다.</li>
 </ul>
 <h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
     def search(self, nums: List[int], target: int) -&gt; int:
-        left, right &#x3D; 0, len(nums) - 1
-        while left &lt;&#x3D; right:
-            pivot &#x3D; (left + right) &#x2F;&#x2F; 2
-            if nums[pivot] &#x3D;&#x3D; target:
+        left, right = 0, len(nums) - 1
+        while left &lt;= right:
+            pivot = (left + right) // 2
+            if nums[pivot] == target:
                 return pivot
             elif nums[pivot] &lt; target:
-                left &#x3D; pivot + 1
+                left = pivot + 1
             else:
-                right &#x3D; pivot - 1
-        return -1</code></pre>
+                right = pivot - 1
+        return -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

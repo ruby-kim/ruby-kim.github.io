@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -453,9 +455,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -471,10 +470,10 @@
 <p>마지막으로, 파이썬 고인물들의 스킬로 <code>[:]</code>를 사용하면 in-place로 알고리즘을 구현할 수 있다. <del>나도 이제 고인물</del><br>대부분의 코딩 언어들은 컴파일 전에 임의 값을 할당하는데 (c언어에서는 변수 선언 시 무조건 변수형-int 등을 선언해야 함) 파이썬은 컴파일 이후 값을 할당하기 때문에 nums[:]를 하면 예쁘게 in-place로 값을 할당할 수 있다.</p>
 <h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
     def rotate(self, nums: List[int], k: int) -&gt; None:
-        &quot;&quot;&quot;
+        """
         Do not return anything, modify nums in-place instead.
-        &quot;&quot;&quot;
-        nums[:] &#x3D; nums[-k % len(nums):] + nums[:-k % len(nums)]</code></pre>
+        """
+        nums[:] = nums[-k % len(nums):] + nums[:-k % len(nums)]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

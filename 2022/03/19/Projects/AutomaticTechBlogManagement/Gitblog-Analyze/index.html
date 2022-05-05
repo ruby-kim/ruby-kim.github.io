@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -453,9 +455,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -470,18 +469,18 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import requests
 import os
-from github import Github</code></pre>
+from github import Github<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <br>
 
 <h2 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:
     def __init__(self, blogUrl):
-        self.url &#x3D; blogUrl
-        self.xml &#x3D; blogUrl + &quot;&#x2F;atom.xml&quot;
-        self.contents &#x3D; []
-        self.curTime &#x3D; datetime.now(pytz.utc).isoformat()
-        self.md_head &#x3D; &#123;&#125;
-        self.md_body &#x3D; &quot;&quot;</code></pre>
+        self.url = blogUrl
+        self.xml = blogUrl + "/atom.xml"
+        self.contents = []
+        self.curTime = datetime.now(pytz.utc).isoformat()
+        self.md_head = {}
+        self.md_body = ""<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>xml 사이트 분석 후 데이터를 저장하기 위한 <code>contents</code></li>
@@ -498,19 +497,19 @@ from github import Github</code></pre>
     def __init__(self, blogUrl): (...)
 
     def parsing_xml(self):
-        html &#x3D; requests.get(self.xml)
-        soup &#x3D; BeautifulSoup(html.text, &quot;html.parser&quot;)
-        for elem in soup.find_all(&quot;entry&quot;):
-            article &#x3D; &#123;
-                &quot;title&quot;: elem.find(&quot;title&quot;).get_text(),
-                &quot;link&quot;: elem.find(&quot;link&quot;).get(&quot;href&quot;),
-                &quot;published&quot;: elem.find(&quot;published&quot;).get_text(&quot;published&quot;),
-                &quot;updated&quot;: elem.find(&quot;updated&quot;).get_text(&quot;updated&quot;),
-                &quot;category&quot;: elem.find(&quot;category&quot;).get(&quot;term&quot;).replace(&quot;\u200d&quot;, &quot;&quot;),
-                &quot;tags&quot;: [c.get(&quot;term&quot;)
-                        for idx, c in enumerate(elem.find_all(&quot;category&quot;)) if idx !&#x3D; 0],
-            &#125;
-            self.contents.append(article)</code></pre>
+        html = requests.get(self.xml)
+        soup = BeautifulSoup(html.text, "html.parser")
+        for elem in soup.find_all("entry"):
+            article = {
+                "title": elem.find("title").get_text(),
+                "link": elem.find("link").get("href"),
+                "published": elem.find("published").get_text("published"),
+                "updated": elem.find("updated").get_text("updated"),
+                "category": elem.find("category").get("term").replace("\u200d", ""),
+                "tags": [c.get("term")
+                        for idx, c in enumerate(elem.find_all("category")) if idx != 0],
+            }
+            self.contents.append(article)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>xml을 살펴보면 다음과 같이 구성되어 있다.<br>글 자동 생성 및 중복 여부를 파악하기 위해서는 최소 노란색 하이라이트 친 부분의 정보를 가져와야 한다.<img src="2.png"></li>
@@ -527,27 +526,27 @@ from github import Github</code></pre>
 
 <h2 id="Github-Blog-md-파일-분석하기"><a href="#Github-Blog-md-파일-분석하기" class="headerlink" title="Github Blog: .md 파일 분석하기"></a>Github Blog: .md 파일 분석하기</h2><h3 id="Gihub-repository-관련-함수-세팅"><a href="#Gihub-repository-관련-함수-세팅" class="headerlink" title="Gihub repository 관련 함수 세팅"></a>Gihub repository 관련 함수 세팅</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python"># github repository 접근
 def get_github_repo(access_token, repo_name):
-    g &#x3D; Github(access_token)
-    repository &#x3D; g.get_user().get_repo(repo_name)
+    g = Github(access_token)
+    repository = g.get_user().get_repo(repo_name)
     return repository
 
 # .md파일 내용 불러오기
 def get_repo_specific_file_content(repository, file_path):
-    target_file &#x3D; repository.get_contents(&quot;source&#x2F;_posts&quot; + file_path)
-    raw_content &#x3D; target_file.decoded_content
-    return raw_content.decode(&#39;utf-8&#39;)</code></pre>
+    target_file = repository.get_contents("source/_posts" + file_path)
+    raw_content = target_file.decoded_content
+    return raw_content.decode('utf-8')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>위에서 발급받는 Personal Access Token과 해당 함수들을 이용하면 github repository에 접근 및 파일 해독이 가능하다.</li>
-<li><code>raw_content</code>를 decode없이 가져올 시 한글이 전부 깨져 나오기 때문에 <code>&#39;utf-8&#39;</code> 설정은 필수</li>
+<li><code>raw_content</code>를 decode없이 가져올 시 한글이 전부 깨져 나오기 때문에 <code>'utf-8'</code> 설정은 필수</li>
 </ul>
 <h3 id="Github-repository에서-특정-파일-md-을-찾아-전처리"><a href="#Github-repository에서-특정-파일-md-을-찾아-전처리" class="headerlink" title="Github repository에서 특정 파일(.md)을 찾아 전처리"></a>Github repository에서 특정 파일(.md)을 찾아 전처리</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:
     def __init__(self, blogUrl): (...)
 
     def parsing_md(self, target_path):
-        repo &#x3D; get_github_repo(&quot;Gihub에서 발급받은 Personal Access Token&quot;, &quot;repository 이름&quot;)
-        file &#x3D; get_repo_specific_file_content(repo, target_path)
-        self.md_head, self.md_body &#x3D; preprocess(file, target_path) # preprocess 코드는 다음 항목에 있음</code></pre>
+        repo = get_github_repo("Gihub에서 발급받은 Personal Access Token", "repository 이름")
+        file = get_repo_specific_file_content(repo, target_path)
+        self.md_head, self.md_body = preprocess(file, target_path) # preprocess 코드는 다음 항목에 있음<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>불러올 repository는 hexo로 구성된 github blog 백업 repository</li>
@@ -558,38 +557,38 @@ def get_repo_specific_file_content(repository, file_path):
 <h3 id="md파일-전처리"><a href="#md파일-전처리" class="headerlink" title=".md파일 전처리"></a>.md파일 전처리</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">def preprocess(content, target_path):
     def rindex(lst, val):
         lst.reverse()
-        i &#x3D; lst.index(val)
+        i = lst.index(val)
         lst.reverse()
         return len(lst) - i - 1
 
     # separate head and body part
     content_head_row \
-        &#x3D; content[0:content.rfind(&quot;---&quot;) + 3].replace(&quot;---&quot;, &quot;&quot;).strip().split(&quot;\n&quot;)
-    content_body_split_start &#x3D; rindex(content.split(&quot;\n&quot;), &quot;---&quot;)
-    content_body_row &#x3D; content.split(&quot;\n&quot;)[content_body_split_start + 1:]
+        = content[0:content.rfind("---") + 3].replace("---", "").strip().split("\n")
+    content_body_split_start = rindex(content.split("\n"), "---")
+    content_body_row = content.split("\n")[content_body_split_start + 1:]
 
     # head preprocessing
-    content_head &#x3D; &#123;&#125;
+    content_head = {}
     for head in content_head_row:
-        colon &#x3D; head.find(&#39;:&#39;)
-        key &#x3D; head[:colon]
-        value &#x3D; head[colon + 1:].replace(&#39;&quot;&#39;, &#39;&#39;).replace(&quot;\u200d&quot;, &#39;&#39;).strip()
+        colon = head.find(':')
+        key = head[:colon]
+        value = head[colon + 1:].replace('"', '').replace("\u200d", '').strip()
 
-        if key &#x3D;&#x3D; &#39;img&#39;:
-            value &#x3D; f&quot;https:&#x2F;&#x2F;github.com&#x2F;ruby-kim&#x2F;ruby-kim.github.io&#x2F;blob&#x2F;master&#123;value&#125;?raw&#x3D;true&quot;
-        content_head[key] &#x3D; value
+        if key == 'img':
+            value = f"https://github.com/ruby-kim/ruby-kim.github.io/blob/master{value}?raw=true"
+        content_head[key] = value
 
     # body preprocessing
-    content_body &#x3D; []
-    target_path_name &#x3D; &#39;&#x2F;&#39;.join(target_path.split(&quot;&#x2F;&quot;)[1:]).replace(&quot;.md&quot;, &quot;&quot;)
+    content_body = []
+    target_path_name = '/'.join(target_path.split("/")[1:]).replace(".md", "")
     for body in content_body_row:
-        if &#39;![]&#39; in body and &#39;.png)&#39; in body:
-            uploaded_date &#x3D; content_head[&quot;date&quot;].split()[0].replace(&#39;-&#39;, &#39;&#x2F;&#39;)
-            img_filename &#x3D; body.replace(&quot;![](&quot;, &quot;&quot;).replace(&quot;)&quot;, &quot;&quot;)
-            body &#x3D; body.replace(img_filename, f&quot;https:&#x2F;&#x2F;github.com&#x2F;ruby-kim&#x2F;ruby-kim.github.io&#x2F;blob&#x2F;master&#x2F;&quot;
-                                            f&quot;&#123;uploaded_date + &#39;&#x2F;&#39; + target_path_name + &#39;&#x2F;&#39; + img_filename&#125;?raw&#x3D;true&quot;)
+        if '![]' in body and '.png)' in body:
+            uploaded_date = content_head["date"].split()[0].replace('-', '/')
+            img_filename = body.replace("![](", "").replace(")", "")
+            body = body.replace(img_filename, f"https://github.com/ruby-kim/ruby-kim.github.io/blob/master/"
+                                            f"{uploaded_date + '/' + target_path_name + '/' + img_filename}?raw=true")
         content_body.append(body)
-    return content_head, &#39;\n&#39;.join(content_body)</code></pre>
+    return content_head, '\n'.join(content_body)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>위에 hexo 블로그 .md파일 구조를 살펴보면 <code>---</code>로 감싸진 부분에 글의 정보가 담겨있고, 그 아래로는 내용이 있다.</li>

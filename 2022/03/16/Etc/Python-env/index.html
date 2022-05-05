@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -449,9 +451,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -462,7 +461,7 @@
 <br>
 
 <ol>
-<li><strong>dotenv</strong>를 설치한다. <pre class="line-numbers language-python" data-language="python"><code class="language-python">pip3 install python-dotenv</code></pre></li>
+<li><strong>dotenv</strong>를 설치한다. <pre class="line-numbers language-python" data-language="python"><code class="language-python">pip3 install python-dotenv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <br>
 
@@ -472,8 +471,8 @@
 <br>
 
 <ol start="3">
-<li><strong>.env</strong>파일에 사용하고자 하는 변수들을 정의한다. <pre class="line-numbers language-none"><code class="language-none">APP_ID&#x3D;&quot;1234567890&quot;
-SECRET_KEY&#x3D;&quot;I hate Coding&quot;</code></pre></li>
+<li><strong>.env</strong>파일에 사용하고자 하는 변수들을 정의한다. <pre class="line-numbers language-none"><code class="language-none">APP_ID="1234567890"
+SECRET_KEY="I hate Coding"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <br>
 
@@ -483,14 +482,14 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-app_id &#x3D; os.environ.get(&quot;APP_ID&quot;)
-secret_key &#x3D; os.environ.get(&quot;SECRET_KEY&quot;)</code></pre></li>
+app_id = os.environ.get("APP_ID")
+secret_key = os.environ.get("SECRET_KEY")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <br>
 
 <ol start="5">
 <li>.env를 .gitignore에 추가한다. <pre class="line-numbers language-none"><code class="language-none"># .gitignore
-.env</code></pre></li>
+.env<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 
                 

@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -453,9 +455,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -499,8 +498,8 @@
 </ul>
 <p><br><br></p>
 <h2 id="S3-Data-Consistency-Model"><a href="#S3-Data-Consistency-Model" class="headerlink" title="S3 Data Consistency Model"></a>S3 Data Consistency Model</h2><ul>
-<li>Read after Write Consistency (PUT): S3에 올라갔다면 파일을 바로 사용 가능 &#x3D; delay X</li>
-<li>Eventual Consistency (UPDATE, DELETE): S3에서 파일을 업데이트하거나 삭제 시 바로 사용 불가능 &#x3D; delay O</li>
+<li>Read after Write Consistency (PUT): S3에 올라갔다면 파일을 바로 사용 가능 = delay X</li>
+<li>Eventual Consistency (UPDATE, DELETE): S3에서 파일을 업데이트하거나 삭제 시 바로 사용 불가능 = delay O</li>
 </ul>
 <p><br><br></p>
 <h2 id="S3-스토리지"><a href="#S3-스토리지" class="headerlink" title="S3 스토리지"></a>S3 스토리지</h2><ul>
@@ -549,18 +548,18 @@
 <ul>
 <li>GB당</li>
 <li>PUT, GET, COPY 요청 시 횟수당</li>
-<li>데이터 다운로드 시 &#x2F; 다른 리소스로 전송 시</li>
+<li>데이터 다운로드 시 / 다른 리소스로 전송 시</li>
 <li>Metadata (Object Tag)</li>
 </ul>
 <p><br><br></p>
 <h2 id="S3-사용-용례"><a href="#S3-사용-용례" class="headerlink" title="S3 사용 용례"></a>S3 사용 용례</h2><ul>
 <li>파일 저장소(로그, 다양한 파일들 - 이미지, 비디오, 압축파일 등)</li>
-<li>웹사이트 호스팅: html, css 파일 등을 저장 &#x2F; Route53으로 연결</li>
+<li>웹사이트 호스팅: html, css 파일 등을 저장 / Route53으로 연결</li>
 <li>CORS</li>
 </ul>
 <p><br><br></p>
 <h2 id="S3-버킷-생성-시-주의점"><a href="#S3-버킷-생성-시-주의점" class="headerlink" title="S3 버킷 생성 시 주의점"></a>S3 버킷 생성 시 주의점</h2><ul>
-<li>최초 S3 bucket 생성 시 비공개(PRIVATE)로 설정됨 &#x3D; 외부에서 접근 시 Access deny</li>
+<li>최초 S3 bucket 생성 시 비공개(PRIVATE)로 설정됨 = 외부에서 접근 시 Access deny</li>
 <li>비공개 된 bucket을 일부에게 open하는 방법<ul>
 <li>Bucket 정책 변경 (Bucket Policy): json 파일로 조작</li>
 <li>접근 제어 리스트 변경 (Access Control List)<ul>
@@ -573,7 +572,7 @@
 </ul>
 <p><br><br></p>
 <h2 id="S3-암호화"><a href="#S3-암호화" class="headerlink" title="S3 암호화"></a>S3 암호화</h2><ul>
-<li><p>파일 업로드 &#x2F; 다운로드 시: SSL &#x2F; TLS</p>
+<li><p>파일 업로드 / 다운로드 시: SSL / TLS</p>
 </li>
 <li><p>가만히 있을 시</p>
 <ul>
@@ -584,16 +583,16 @@
 </li>
 <li><p>예시</p>
 <ul>
-<li>PUT 요청이 생성<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PUT &#x2F;ruby-image.png HTTP&#x2F;1.1
+<li>PUT 요청이 생성<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PUT /ruby-image.png HTTP/1.1
 Host: RubyBucket.s3.&lt;Region&gt;.amazonaws.com
 Date: Sun, 3 Apr 2022 03:00:23 GMT
 Authorization: authorization string
-Content-Type: text&#x2F;plain
+Content-Type: text/plain
 Content-Length: 82253
 x-amz-meta-author: Ruby
 Expect: 100-continue
 x-amz-server-side-encryption-parameter: AES-256
-[82253 bytes of object data]</code></pre>
+[82253 bytes of object data]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>x-amz-server-side-encryption-parameter: PUT요청에 해당 파라미터가 있으면 암호화가 실행됨<ul>
 <li>Bucket 정책 설정을 통해 암호화 되지 않은 파일의 upload를 통제할 수 있음</li>
@@ -788,16 +787,16 @@ x-amz-server-side-encryption-parameter: AES-256
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
                     <a href="../../../../../tags/Github/">
                         <span class="chip bg-color">Github</span>
                     </a>
                     
                     <a href="../../../../../tags/Markdown/">
                         <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                    <a href="../../../../../tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>

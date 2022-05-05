@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>[React.js] React 라이프 사이클</title>
+      <link href="/2022/04/22/Reactjs/ReactLifeCycle/"/>
+      <url>/2022/04/22/Reactjs/ReactLifeCycle/</url>
+      
+        <content type="html"><![CDATA[<h2 id="React-Life-Cycle"><a href="#React-Life-Cycle" class="headerlink" title="React Life Cycle"></a>React Life Cycle</h2><p>Reacts는 컴포넌트(component) 기반의 View를 중심으로 한 라이브러리이다.<br>따라서 각각의 컴포넌트에는 라이프사이클, 즉 컴포넌트의 <code>수명 주기</code>가 존재하는데, 컴포넌트의 수명은 보통 <strong>페이지에서 렌더링되기 전인 준비 과정에서 시작하여 페이지에서 사라질 때 끝난다</strong>.</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = <span class="function">() =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>, <span class="built_in">document</span>.querySelector(<span class="string">"#root"</span>));</span><br></pre></td></tr></tbody></table></figure><p>아래의 사진이 바로 리엑트 라이프 사이클을 나타낸 것이다.<br>(사이트는 <a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">여기</a> 참고)<br><img src="1.png"></p><p><br><br></p><h2 id="Mount-생성될-때"><a href="#Mount-생성될-때" class="headerlink" title="Mount (생성될 때)"></a>Mount (생성될 때)</h2><ol><li><p>constructor</p><ul><li>페이지 로드 되고 컴포넌트가 만들어질 때 처음으로 실행됨</li><li>초기 state 설정이 필요할 때 사용됨</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> {</span><br><span class="line">        <span class="built_in">super</span>(props);</span><br><span class="line">        <span class="built_in">this</span>.state = { <span class="attr">count</span>: <span class="number">0</span> };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    <span class="keyword">const</span> [count,setCount] = useState(<span class="number">0</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li><li><p>static getDerivedStateFromProps(nextProps, prevState)</p><ul><li>React 16.3버전 이후에 생긴 메서드</li><li>props로 받아 온 값을 state에 동기화시키는 용도</li><li>컴포넌트가 마운트, 업데이트될 때 호출됨</li><li>리턴타입을 Javascript Object로 설정해야 함</li><li>리턴된 Object는 State에 반영됨</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">getDerivedStateFromProps</span>(<span class="params">nextProps, prevState</span>)</span> {</span><br><span class="line">        <span class="keyword">if</span> (nextProps.value !== prevState.value) {</span><br><span class="line">            <span class="keyword">return</span> value: nextProps.value;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li><li><p>Render()</p><ul><li>React component의 유일한 필수 메서드</li><li>state 변경이 있으면 side effect 발생</li><li>함수형 컴포넌트에서는 render 사용 없이 렌더링 가능</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>컴포넌트<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> example = <span class="function">() =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>컴포넌트<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li><li><p>componentDidMount()</p><ul><li>컴포넌트가 DOM에 추가 된 후 실행</li><li>DOM과 상호작용하거나 서드파티 라이브러리들을 사용하는 코드들을 여기서 작성 (ajax 등)</li><li>함수형 Hooks에서는 useEffect를 활용하여 구현<ul><li>useEffect의 [] 의존성 배열을 지워야 똑같은 메소드로 구현할 수 있음</li></ul></li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">componentDidMount</span>(<span class="params"></span>)</span> {</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> {</span><br><span class="line">        ...</span><br><span class="line">    }, []);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li></ol><p><br><br></p><h2 id="Update-업데이트-할-때"><a href="#Update-업데이트-할-때" class="headerlink" title="Update (업데이트 할 때)"></a>Update (업데이트 할 때)</h2><ol><li><p>static getDerivedStateFromProps(nextProps, prevState)</p><ul><li>Mount 단계와 동일</li></ul></li><li><p>shouldComponentUpdate</p><ul><li>리턴 타입은 True, False</li><li>리턴되는 결과에 따라 DOM에 리 렌더링을 여부를 결정</li><li>성능 개선을 위해 사용이 가능</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">shouldComponentUpdate</span>(<span class="params">nextProps</span>)</span> {</span><br><span class="line">        <span class="keyword">return</span> nextProps.value !== <span class="built_in">this</span>.props.value</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = React.memo(<span class="function">() =&gt;</span> {</span><br><span class="line">        ...</span><br><span class="line">    }, <span class="function">(<span class="params">prevProps, nextProps</span>) =&gt;</span> {</span><br><span class="line">        <span class="keyword">return</span> nextProps.value === prevProps.value</span><br><span class="line">    }</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure></li><li><p>Render()</p><ul><li>Mount 단계와 동일</li></ul></li><li><p>getSnapshotBeforeUpdate</p><ul><li>Virtual DOM이 실제 DOM에 반영되기 직전에 실행됨</li><li>이전과 현재의 props와 state애 접근 가능</li><li>return으로 넘겨진 값은 componentDidUpdate의 3번째 인자로 전달됨</li><li>채팅 화면처럼 스크롤 위치를 따로 처리하는 작업이 필요한 UI에서 주로 사용</li><li>함수형에서는 아직 이 기능을 대처할만한 hook이 없음</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">getSnapshotBeforeUpdate</span>(<span class="params">prevProps, prevState</span>)</span> {</span><br><span class="line">        <span class="keyword">if</span> (prevProps.list.length &lt; <span class="built_in">this</span>.props.list.length) {</span><br><span class="line">            <span class="keyword">const</span> list = <span class="built_in">this</span>.listRef.current</span><br><span class="line">            <span class="keyword">return</span> list.scrollHeight - list.scrollTop</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li><li><p>componentDidUpdate</p><ul><li>매 업데이트마다 UI sync와 서드파티 라이브러리를 사용하는 코드 작성</li><li>리랜더링을 완료 후 실행: 업데이트가 끝난 직후이므로 DOM관련 처리를 해도 무방</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">componentDidUpdate</span>(<span class="params">prevProps, prevState</span>)</span> {</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> {</span><br><span class="line">        ...</span><br><span class="line">    });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li></ol><p><br><br></p><h2 id="UnMount-제거할-때"><a href="#UnMount-제거할-때" class="headerlink" title="UnMount (제거할 때)"></a>UnMount (제거할 때)</h2><ol><li><p>ComponentWillUnMount</p><ul><li>DOM에서 컴포넌트가 지워질때 실행</li><li>컴포넌트와 관련된 것을 정리하는데 사용<br>ex) 로그아웃시 주 구성 Component를 해제하기 전에 사용자 세부정보와 모든 인증 토큰을 지운다거나 setInterval을 clear하는 등에 사용</li><li>함수영 컴포넌트에서는 useEffect CleanUp 함수로 구현</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">coomponentWillUnmount</span>(<span class="params"></span>)</span> {</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="function">() =&gt;</span> {</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">    }, []);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li><li><p>componentDidCatch</p><ul><li>컴포넌트 렌더링 도중 에러가 발생했을 때 어플리케이션을 멈추지 않고 오류 UI를 보여줌</li><li>곧 Hooks에 해당 라이프 사이클 메서드 추가 예정</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">componentDidCatch</span>(<span class="params">error, info</span>)</span> {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Error'</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✨ React.js </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Github Wiki에서 TOC 만들기 </title>
+      <link href="/2022/04/21/Etc/Github-Wiki-TOC/"/>
+      <url>/2022/04/21/Etc/Github-Wiki-TOC/</url>
+      
+        <content type="html"><![CDATA[<p><img src="2.png"><br>종종 프로젝트를 하다보면 wiki의 크기가 커지는 경우가 많은데, 문서 가시성을 위해 wiki에서 TOC(Table Of Content, 목차)를 만드는 방법을 소개해보고자 한다.</p><h2 id="repository-wiki에-접속-후-sidebar-추가하기"><a href="#repository-wiki에-접속-후-sidebar-추가하기" class="headerlink" title="repository wiki에 접속 후 sidebar 추가하기"></a>repository wiki에 접속 후 sidebar 추가하기</h2><p><img src="1.png"></p><p><br><br></p><h2 id="아래의-형태로-원하는-항목-작성"><a href="#아래의-형태로-원하는-항목-작성" class="headerlink" title="아래의 형태로 원하는 항목 작성"></a>아래의 형태로 원하는 항목 작성</h2><pre class="line-numbers language-none"><code class="language-none"># My menu* [목차1][home]* [목차2][techdocs]* [목차3][usermanual][home]: https://github.com/myproject/wiki/목차1[techdocs]: https://github.com/myproject/wiki/목차2[usermanual]: https://github.com/myproject/wiki/목차3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>위의 코드가 이해가 안된다면 기존의 마크다운처럼 작성 후 변경 에디터로 코드를 변경하자: <a href="https://ecotrust-canada.github.io/markdown-toc/">https://ecotrust-canada.github.io/markdown-toc/</a><ul><li>변경한 코드에서 <code>&lt;small&gt; ... &lt;/small&gt;</code> 부분은 지워도 괜찮다.</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 💾 Etc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo] Github Blog 백업하기</title>
+      <link href="/2022/04/15/Hexo/Backup/"/>
+      <url>/2022/04/15/Hexo/Backup/</url>
+      
+        <content type="html"><![CDATA[<p>기본적인 블로그 세팅이 끝났다.<br>이전 포스트를 따라 블로그 세팅을 했다면, 실질적으로 .md파일이 저장되는 repository가 없음을 확인할 수 있다.<br>즉 다른 컴퓨터 환경에서 블로그 포스트를 이어서 작성할 수 없으며, .md파일들을 백업하지 않는 이상 해당 데이터들이 손실됐을 때 저 스틱스 강에 영원한 쎄이굿바이를 외쳐야 한다.<br>테마도 마찬가지다. 오픈소스 특징으로 테마도 항상 업데이트되는데, 모두가 사람인지라 코드가 항상 완벽할 수 없다. 그래서 프로그램을 구동하다보면 치명적인 에러가 발생하는 경우가 많다.</p><p>이러한 불상사를 막기 위해 .md파일과 테마를 백업할 수 있도록 세팅을 진행해보자.</p><h2 id="사전-준비"><a href="#사전-준비" class="headerlink" title="사전 준비"></a>사전 준비</h2><ul><li><a href="https://ruby-kim.github.io/2022/04/07/Hexo/Install/">[Hexo] Markdown으로 Github Blog를 만들어보자</a></li><li><a href="https://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/">[Hexo] Github Blog 테마를 자유롭게 선택 및 수정해보자</a></li></ul><p><br><br></p><h2 id="백업-Repository-생성하기"><a href="#백업-Repository-생성하기" class="headerlink" title="백업 Repository 생성하기"></a>백업 Repository 생성하기</h2><p>각자의 github에 접속하여 2개의 repository를 생성한다.</p><ul><li>theme를 저장할 repository</li><li>.md파일을 저장할 repository</li></ul><p><br><br></p><h2 id="theme-백업하기"><a href="#theme-백업하기" class="headerlink" title="theme 백업하기"></a>theme 백업하기</h2><p><code>themes/테마명</code> 내에서 다음의 명령어들을 실행한다.</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 원격 저장소 변경(theme url로 된 세팅을 자신의 repository url로 재세팅)git remote set-url origin "theme를 저장할 repository 주소"# 테마 내용 백업git commit -m "theme backup"git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><br><br></p><h2 id="md-파일-백업하기"><a href="#md-파일-백업하기" class="headerlink" title=".md 파일 백업하기"></a>.md 파일 백업하기</h2><p>hexo blog 디렉토리에서 .md파일을 저장할 repository를 세팅해준다.</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># git 초기화git init# 원격 저장소 등록git remote add origin ".md파일을 저장할 repository 주소"# 현재 내용 백업git add .git commit -m "blog backup"git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><br><br></p><h2 id="선택-theme폴더-submodule-추가"><a href="#선택-theme폴더-submodule-추가" class="headerlink" title="(선택) theme폴더 submodule 추가"></a>(선택) theme폴더 submodule 추가</h2><ul><li>이제부턴 다른 환경에서 이 백업파일들을 클론하면 .md파일들과 테마들이 그대로 유지된다.<br>다만 git clone을 두 번 써야 한다는 불편함이 있는데, 한 번의 git clone으로 theme도 자동으로 클론할 수 있도록 세팅을 해준다.<br>이 작업은 hexo blog 디렉토리에서 진행한다. 아래의 명령어를 잘 입력하면 자동으로 theme <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 기존의 &lt;themes/테마명&gt;를 삭제rm -rf themes/테마명 # 백업해둔 theme repository를 submodule로 추가git submodule add "theme를 저장한 repository 주소"# 현재 내용 백업git add .git commit -m "blog theme submodule"git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li>앞으로 새로운 환경에서 블로그를 다시 운영할 때 아래의 명령어로 기존 환경을 재구성해준다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">git clone --recursive ".md파일을 저장한 repository 주소" blogcd blognpm install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🏹 Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo] Github Blog 테마를 자유롭게 선택 및 수정해보자</title>
+      <link href="/2022/04/12/Hexo/InitTheme/"/>
+      <url>/2022/04/12/Hexo/InitTheme/</url>
+      
+        <content type="html"><![CDATA[<p>이번에는 github blog에 원하는 테마를 적용할건데, Hexo에서 가장 유명한 테마인 icarus를 활용할 예정이다.<br>다른 테마를 원한다면 github에 hexo를 검색해보거나 <a href="https://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/">[Hexo] Hexo theme 추천 리스트</a>를 읽어보는 것을 추천한다.</p><p><br><br></p><h2 id="사전-준비"><a href="#사전-준비" class="headerlink" title="사전 준비"></a>사전 준비</h2><ul><li><a href="https://ruby-kim.github.io/2022/04/07/Hexo/Install/">[Hexo] Markdown으로 Github Blog를 만들어보자</a></li></ul><p><br><br></p><h2 id="Hexo-디렉토리-구조"><a href="#Hexo-디렉토리-구조" class="headerlink" title="Hexo 디렉토리 구조"></a>Hexo 디렉토리 구조</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.├── .deploy_git├── .github├── .gitignore├── _config.landscape.yml├── _config.yml├── node_modules├── package-lock.json├── package.json├── scaffolds├── source│   └── _posts└── theme<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>theme 세팅은 디렉토리 구조에서 보이는 <code>theme</code>와 <code>_config.yml</code>에서 이루어진다.</li><li><code>theme</code>폴더 내에 원하는 테마를 import하고, <code>_config.yml</code>에서 해당 테마를 사용한다고 선언하면 테마 적용이 된다.</li></ul><p><br><br></p><h2 id="원하는-테마-파일-clone-및-dependencies-설치"><a href="#원하는-테마-파일-clone-및-dependencies-설치" class="headerlink" title="원하는 테마 파일 clone 및 dependencies 설치"></a>원하는 테마 파일 clone 및 dependencies 설치</h2><ul><li>git clone 명령어를 통해 파일을 다운받는다. 이때 디렉토리 위치는 <code>theme/다운받은_테마_파일명</code>로 설정한다.<br>즉 우리가 사용할 테마인 <code>icarus</code>를 다운받는다면, 디렉토리는 <code>theme/icarus</code>로 설정된다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">git clone https://github.com/ppoffice/hexo-theme-icarus.git icarus<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>dependencies 설치를 진행한다. 각 테마마다 dependencies가 다르니 잘 읽어보고 설치하자.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install cheerio share-this hexo-generator-json-content -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><p><br><br></p><h2 id="config-yml-파일을-수정하여-theme를-icarus로-세팅"><a href="#config-yml-파일을-수정하여-theme를-icarus로-세팅" class="headerlink" title="_config.yml 파일을 수정하여 theme를 icarus로 세팅"></a>_config.yml 파일을 수정하여 theme를 icarus로 세팅</h2><ul><li>icarus가 아닌, hexo 블로그(Hexo 디렉토리 구조)의 <code>_config.yml</code>에서 theme 수정<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">theme: icarus<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>이후 서버를 실행하여 테마 적용 결과를 확인한다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo s        # 또는 hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><img src="1.png"></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🏹 Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo] Hexo theme 추천 리스트</title>
+      <link href="/2022/04/11/Hexo/RecommendTheme/"/>
+      <url>/2022/04/11/Hexo/RecommendTheme/</url>
+      
+        <content type="html"><![CDATA[<p>기본적으로 github에 hexo를 검색하면 <code>hexo-theme-프로젝트명</code>으로 다양한 테마를 확인할 수 있는데, 그 중 괜찮아 보이는 것 몇 개를 소개해보고자 한다.<br>각 테마마다 설치해야 할 package가 다르니 꼼꼼하게 README.md나 데모 페이지의 설명서를 읽어보자.</p><h2 id="hexo-theme-matery-현재-사용-중인-테마"><a href="#hexo-theme-matery-현재-사용-중인-테마" class="headerlink" title="hexo-theme-matery (현재 사용 중인 테마)"></a>hexo-theme-matery (현재 사용 중인 테마)</h2><ul><li>github: <a href="https://github.com/blinkfox/hexo-theme-matery">https://github.com/blinkfox/hexo-theme-matery</a></li><li>demo는 제 블로그를 참고하시면 됩니다. (github에 있는 demo는 공대생의 느낌이 923900472배 정도 흠씬 나는…)</li></ul><p><br><br></p><h2 id="hexo-theme-icarus"><a href="#hexo-theme-icarus" class="headerlink" title="hexo-theme-icarus"></a>hexo-theme-icarus</h2><ul><li>github: <a href="https://github.com/ppoffice/hexo-theme-icarus">https://github.com/ppoffice/hexo-theme-icarus</a></li><li>demo: <a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">https://blog.zhangruipeng.me/hexo-theme-icarus/</a><br><img src="1.png"></li></ul><p><br><br></p><h2 id="hexo-theme-ylion"><a href="#hexo-theme-ylion" class="headerlink" title="hexo-theme-ylion"></a>hexo-theme-ylion</h2><ul><li>github: <a href="https://github.com/GeekaholicLin/hexo-theme-ylion">https://github.com/GeekaholicLin/hexo-theme-ylion</a></li><li>demo: <a href="http://blog.geekaholic.cn/">http://blog.geekaholic.cn/</a><br><img src="2.png"></li></ul><p><br><br></p><h2 id="hexo-theme-Chic"><a href="#hexo-theme-Chic" class="headerlink" title="hexo-theme-Chic"></a>hexo-theme-Chic</h2><ul><li>github: <a href="https://github.com/Siricee/hexo-theme-Chic">https://github.com/Siricee/hexo-theme-Chic</a></li><li>demo: <a href="https://siricee.github.io/hexo-theme-Chic/">https://siricee.github.io/hexo-theme-Chic/</a><br><img src="3.png"></li></ul><p><br><br></p><h2 id="hexo-theme-next"><a href="#hexo-theme-next" class="headerlink" title="hexo-theme-next"></a>hexo-theme-next</h2><ul><li>github: <a href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a></li><li>demo: <a href="https://theme-next.org/">https://theme-next.org/</a><br><img src="4.png"></li></ul><p><br><br></p><h2 id="hexo-theme-yilia"><a href="#hexo-theme-yilia" class="headerlink" title="hexo-theme-yilia"></a>hexo-theme-yilia</h2><ul><li>github: <a href="https://github.com/litten/hexo-theme-yilia">https://github.com/litten/hexo-theme-yilia</a></li><li>demo: <a href="http://litten.me/">http://litten.me/</a><br><img src="5.gif"></li></ul><p><br><br></p><h2 id="hexo-theme-tranquilpeak"><a href="#hexo-theme-tranquilpeak" class="headerlink" title="hexo-theme-tranquilpeak"></a>hexo-theme-tranquilpeak</h2><ul><li>github: <a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak">https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak</a></li><li>demo: <a href="https://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/">https://louisbarranqueiro.github.io/hexo-theme-tranquilpeak/</a><br><img src="6.png"></li></ul><p><br><br></p><h2 id="hexo-theme-melody"><a href="#hexo-theme-melody" class="headerlink" title="hexo-theme-melody"></a>hexo-theme-melody</h2><ul><li>github: <a href="https://github.com/Molunerfinn/hexo-theme-melody">https://github.com/Molunerfinn/hexo-theme-melody</a></li><li>demo: <a href="https://molunerfinn.com/">https://molunerfinn.com/</a><br><img src="7.png"></li></ul><p><br><br></p><h2 id="hexo-theme-hipaper"><a href="#hexo-theme-hipaper" class="headerlink" title="hexo-theme-hipaper"></a>hexo-theme-hipaper</h2><ul><li>github: <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper">https://github.com/iTimeTraveler/hexo-theme-hipaper</a></li><li>demo: <a href="https://itimetraveler.github.io/hexo-theme-hipaper/">https://itimetraveler.github.io/hexo-theme-hipaper/</a><br><img src="8.png"></li></ul><p><br><br></p><h2 id="hexo-theme-indigo"><a href="#hexo-theme-indigo" class="headerlink" title="hexo-theme-indigo"></a>hexo-theme-indigo</h2><ul><li>github: <a href="https://github.com/yscoder/hexo-theme-indigo">https://github.com/yscoder/hexo-theme-indigo</a></li><li>demo: <a href="https://imys.net/">https://imys.net/</a><br><img src="9.png"></li></ul><p><br><br></p><h2 id="hexo-theme-next5-leaf"><a href="#hexo-theme-next5-leaf" class="headerlink" title="hexo-theme-next5-leaf"></a>hexo-theme-next5-leaf</h2><ul><li>github: <a href="https://github.com/leafjame/hexo-theme-next5-leaf">https://github.com/leafjame/hexo-theme-next5-leaf</a></li><li>demo: <a href="https://www.liaofuzhan.com/">https://www.liaofuzhan.com/</a><br><img src="10.png"></li></ul><p><br><br></p><h2 id="hexo-theme-replica"><a href="#hexo-theme-replica" class="headerlink" title="hexo-theme-replica"></a>hexo-theme-replica</h2><ul><li>github: <a href="https://github.com/sabrinaluo/hexo-theme-replica">https://github.com/sabrinaluo/hexo-theme-replica</a></li><li>demo: <a href="https://sabrinaluo.github.io/tech/">https://sabrinaluo.github.io/tech/</a></li><li>Github가 아닌, Github 테마를 활용했음<br><img src="11.png"></li></ul><p><br><br></p><h2 id="hexo-theme-vexo"><a href="#hexo-theme-vexo" class="headerlink" title="hexo-theme-vexo"></a>hexo-theme-vexo</h2><ul><li>github: <a href="https://github.com/yanm1ng/hexo-theme-vexo">https://github.com/yanm1ng/hexo-theme-vexo</a></li><li>demo: <a href="https://yanm1ng.github.io/">https://yanm1ng.github.io/</a><br><img src="12.png"></li></ul><p><br><br></p><h2 id="hexo-theme-book"><a href="#hexo-theme-book" class="headerlink" title="hexo-theme-book"></a>hexo-theme-book</h2><ul><li>github: <a href="https://github.com/kaiiiz/hexo-theme-book">https://github.com/kaiiiz/hexo-theme-book</a></li><li>demo: <a href="https://kaiiiz.github.io/hexo-theme-book-demo/">https://kaiiiz.github.io/hexo-theme-book-demo/</a><br><img src="13.png"></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🏹 Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo] Markdown으로 Github Blog를 만들어보자</title>
+      <link href="/2022/04/07/Hexo/Install/"/>
+      <url>/2022/04/07/Hexo/Install/</url>
+      
+        <content type="html"><![CDATA[<p>Github로 블로그를 운영할 때 어떤 기술을 사용해야 하는지, 아니면 어떻게 시작을 할지 고민하는 사람들을 위해 이번 포스팅을 해본다.</p><h2 id="Hexo란"><a href="#Hexo란" class="headerlink" title="Hexo란"></a>Hexo란</h2><ul><li><a href="https://hexo.io/ko/index.html">헥소(Hexo) 공식 홈페이지</a></li><li>Node.js 기반정적 사이트 생성기(Static site generator)의 일종</li><li>주요 사용자는 중국인으로, 테마를 찾아보면 대부분 중국어로 작성되어 있음 (물론 영어설명도 포함되어 있음)</li><li>Markdown으로 글을 작성</li><li>빠른 빌드 및 배포가 가능</li><li>일반적으로 2개의 github 저장소가 필요<ul><li>빌드 및 배포되는 실직적으로 보이는 저장소(…github.io)</li><li>실제 소스가 들어있는 저장소(블로그 설정 파일 및 테마 파일)</li></ul></li></ul><p><br><br></p><h2 id="Hexo-설치-및-기본-세팅하기"><a href="#Hexo-설치-및-기본-세팅하기" class="headerlink" title="Hexo 설치 및 기본 세팅하기"></a>Hexo 설치 및 기본 세팅하기</h2><ul><li>github repository 생성: <code>자신의 github 계정명.github.io</code> (ex. <a href="https://github.com/ruby-kim/ruby-kim.github.io">ruby-kim.github.io</a>)</li><li>터미널에서 <code>npm</code>을 이용하여 hexo-cli 설치 및 hexo folder 생성<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-cli -ghexo init "원하는 폴더명"cd "원하는 폴더명"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li></ul><p><br><br></p><h2 id="Hexo-init-시-디렉토리-구조"><a href="#Hexo-init-시-디렉토리-구조" class="headerlink" title="Hexo init 시 디렉토리 구조"></a>Hexo init 시 디렉토리 구조</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.├── .deploy_git├── .github├── .gitignore├── _config.landscape.yml├── _config.yml├── node_modules├── package-lock.json├── package.json├── scaffolds├── source│   └── _posts└── theme<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>hexo init이 잘 되었다면 다음의 구조를 확인할 수 있다.</li><li>여기서 블로그를 운영하면서 사용할 폴더는 <code>source</code>와 <code>theme</code>이다.<ul><li><code>source</code>: 블로그 글 관리</li><li><code>theme</code>: 블로그 디자인</li></ul></li></ul><p><br><br></p><h2 id="Hexo-server-실행시키기"><a href="#Hexo-server-실행시키기" class="headerlink" title="Hexo server 실행시키기"></a>Hexo server 실행시키기</h2><p>아래의 명령어를 입력하고 localhost:4000에 접속하면 다음의 화면을 확인할 수 있다.</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo s        # 또는 hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="start.png"></p><p><br><br></p><h2 id="Hexo-글-작성하기"><a href="#Hexo-글-작성하기" class="headerlink" title="Hexo 글 작성하기"></a>Hexo 글 작성하기</h2><ul><li>다음의 명령어를 입력하면 <code>/source/_post/</code>에 .md파일이 생성된다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new "글제목"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>물론 명령어를 입력 안하고 직접 <code>/source/_post/</code>에서 파일을 생성해도 된다.<br><img src="files.png"></li><li>글쓰기 예시<br><img src="real.png"> <img src="ex.png"></li></ul><p><br><br></p><h2 id="Hexo에서-md파일을-html로-변환하기"><a href="#Hexo에서-md파일을-html로-변환하기" class="headerlink" title="Hexo에서 md파일을 html로 변환하기"></a>Hexo에서 md파일을 html로 변환하기</h2><p>다음의 명령어를 입력할 시 public이라는 폴더가 생성되며, 글이 html로 변환되는 것을 확인할 수 있다.</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g        # 또는 hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><br><br></p><h2 id="Hexo에서-md파일을-html로-변환하기-1"><a href="#Hexo에서-md파일을-html로-변환하기-1" class="headerlink" title="Hexo에서 md파일을 html로 변환하기"></a>Hexo에서 md파일을 html로 변환하기</h2><p>다음의 명령어를 입력할 시 public이라는 폴더가 생성되며, 글이 html로 변환되는 것을 확인할 수 있다.</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g        # 또는 hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><br><br></p><h2 id="작성한-html를-github-blog에-배포하기"><a href="#작성한-html를-github-blog에-배포하기" class="headerlink" title="작성한 html를 github blog에 배포하기"></a>작성한 html를 github blog에 배포하기</h2><ul><li>hexo에서 github repository로 배포하기 위해서는 <code>hexo-deployer-git</code>플러그인과 <code>_config.yml</code>에서 기본 세팅이 필요하다.</li><li>먼저 다음의 명령어로 배포 플러그인 설치<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><code>_config.yml</code>을 다음과 같이 수정한다. repo 주소가 .git으로 끝나는지 확인한다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deploy:  type: git  repo: "자신의 github.io repository 주소"  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li>아래의 명령어로 블로그를 배포한다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d -g        # 또는 hexo deploy -generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>이후 <code>자신의 github 닉네임.github.io</code>(ex: <a href="https://ruby-kim.github.io/">https://ruby-kim.github.io/</a>) 에 접속하면 local에서만 봤던 내용을 확인할 수 있다.</li><li>만약 블로그 수정 내역 반영이 안됐다면, 아래의 명령어를 입력 후 다시 블로그를 배포해본다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🏹 Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[AWS] S3: Simple Storage Service</title>
+      <link href="/2022/04/03/AWS/S3/"/>
+      <url>/2022/04/03/AWS/S3/</url>
+      
+        <content type="html"><![CDATA[<p><img src="s3.png"></p><h2 id="목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드"><a href="#목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드" class="headerlink" title="목적: 안전하고 가변적인 Object 저장공간 제공 (ex. 구글 클라우드)"></a>목적: 안전하고 가변적인 Object 저장공간 제공 (ex. 구글 클라우드)</h2><blockquote><p>AWS에서 가장 먼저 release한 서비스로 역사도 깊고 시험도 많이 나오는 구간</p></blockquote><p><br><br></p><h2 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h2><ul><li>안전하고 가변적인 Object 저장 공간을 제공<ul><li>Object: 이미지, 동영상, 파일 등을 의미</li><li>운영체제 등은 올리기 불가능</li></ul></li><li>편리한 UI 인터페이스를 통해 어디서나 쉽게 데이터를 저장하고 불러올 수 있음</li><li>파일 크기: 0KB - 5TB</li><li>저장 공간 무제한</li><li>Bucket이라는 이름을 사용(디렉토리와 유사함)</li><li>Bucket은 보편적인 namespace를 사용함<ul><li>global함으로 region과 상관없이 unique한 이름을 생성해야 함</li></ul></li></ul><p><br><br></p><h2 id="S3-Object-구성-요소"><a href="#S3-Object-구성-요소" class="headerlink" title="S3 Object 구성 요소"></a>S3 Object 구성 요소</h2><ul><li>Key: 파일명</li><li>Value: 파일에 대한 데이터</li><li>Version ID<ul><li>S3 고유 특징</li><li>똑같은 파일도 다른 버전으로 업로드 가능</li></ul></li><li>Metadata<ul><li>파일의 Owner, 업로드 날짜 등을 알 수 있음</li><li>직접 수정 가능</li></ul></li><li>CORS (Cross Origin Resource Sharing)</li></ul><p><br><br></p><h2 id="S3-Data-Consistency-Model"><a href="#S3-Data-Consistency-Model" class="headerlink" title="S3 Data Consistency Model"></a>S3 Data Consistency Model</h2><ul><li>Read after Write Consistency (PUT): S3에 올라갔다면 파일을 바로 사용 가능 = delay X</li><li>Eventual Consistency (UPDATE, DELETE): S3에서 파일을 업데이트하거나 삭제 시 바로 사용 불가능 = delay O</li></ul><p><br><br></p><h2 id="S3-스토리지"><a href="#S3-스토리지" class="headerlink" title="S3 스토리지"></a>S3 스토리지</h2><ul><li>일반 S3<ul><li>가장 보편적으로 사용되는 스토리지 타입</li><li>높은 내구성(Durability), 가용성(Availability)<ul><li>내구성: 데이터의 손실 없이 얼마나 잘 보관되는지</li><li>가용성: 데이터 접근이 잘 되는가</li></ul></li></ul></li><li>S3- IA (Infrequent Access)<ul><li>자주 접근되지는 않으나 접근시 빠른 접근이 요구되는 파일이 많을 떄 유용</li><li>일반 S3에 비해 비용은 저렴, 접근 시 추가 비용 발생</li><li>Muitl AZ를 통한 데이터 저장: 가용성이 높음</li></ul></li><li>S3 - One Zone IA<ul><li>단일 AZ를 통한 데이터 저장</li><li>단일 AZ에 의한 데이터 접근 제한 (조금은 낮은 가용성)</li><li>데이터 접근 시 S3 - IA보다 20% 저렴한 비용</li></ul></li><li>Glacier<ul><li>거의 접근하지 않을 데이터를 저장 시 유용</li><li>매우 저렴한 비용</li><li>데이터 접근시 대략 4-5시간 소요</li></ul></li><li>Intelligent Tiering<ul><li>데이터 접근 주기가 불규칙할 때 매우 유용</li><li>2가지 티어 존재<ul><li>Frequent Tier: 약 1개월 동안 사용 o시 여기로 자동 분류 </li><li>Infrequent Tier: 약 1개월 동안 사용 x시 여기로 자동 분류</li></ul></li><li>데이터 접근주기에 따라 두 가지 티어 중 하나로 선택됨</li><li>Frequent Tier가 비용이 약간 더 비쌈</li><li>최고의 비용 절감 효율을 누릴 수 있음</li></ul></li></ul><p><br><br></p><h2 id="S3-요금"><a href="#S3-요금" class="headerlink" title="S3 요금"></a>S3 요금</h2><p><img src="price.png"></p><ul><li>GB당</li><li>PUT, GET, COPY 요청 시 횟수당</li><li>데이터 다운로드 시 / 다른 리소스로 전송 시</li><li>Metadata (Object Tag)</li></ul><p><br><br></p><h2 id="S3-사용-용례"><a href="#S3-사용-용례" class="headerlink" title="S3 사용 용례"></a>S3 사용 용례</h2><ul><li>파일 저장소(로그, 다양한 파일들 - 이미지, 비디오, 압축파일 등)</li><li>웹사이트 호스팅: html, css 파일 등을 저장 / Route53으로 연결</li><li>CORS</li></ul><p><br><br></p><h2 id="S3-버킷-생성-시-주의점"><a href="#S3-버킷-생성-시-주의점" class="headerlink" title="S3 버킷 생성 시 주의점"></a>S3 버킷 생성 시 주의점</h2><ul><li>최초 S3 bucket 생성 시 비공개(PRIVATE)로 설정됨 = 외부에서 접근 시 Access deny</li><li>비공개 된 bucket을 일부에게 open하는 방법<ul><li>Bucket 정책 변경 (Bucket Policy): json 파일로 조작</li><li>접근 제어 리스트 변경 (Access Control List)<ul><li>사용자 A에게는 파일 a, b의 권한을</li><li>사용자 B에게는 파일 c의 권한을 주는 것처럼</li></ul></li></ul></li></ul><p><br><br></p><h2 id="S3-암호화"><a href="#S3-암호화" class="headerlink" title="S3 암호화"></a>S3 암호화</h2><ul><li><p>파일 업로드 / 다운로드 시: SSL / TLS</p></li><li><p>가만히 있을 시</p><ul><li>SEE-S3</li><li>SSE-KMS</li><li>SSE-C</li></ul></li><li><p>예시</p><ul><li>PUT 요청이 생성<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PUT /ruby-image.png HTTP/1.1Host: RubyBucket.s3.&lt;Region&gt;.amazonaws.comDate: Sun, 3 Apr 2022 03:00:23 GMTAuthorization: authorization stringContent-Type: text/plainContent-Length: 82253x-amz-meta-author: RubyExpect: 100-continuex-amz-server-side-encryption-parameter: AES-256[82253 bytes of object data]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>x-amz-server-side-encryption-parameter: PUT요청에 해당 파라미터가 있으면 암호화가 실행됨<ul><li>Bucket 정책 설정을 통해 암호화 되지 않은 파일의 upload를 통제할 수 있음</li></ul></li></ul></li></ul></li></ul><p><br><br></p><h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👩‍💻 AWS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AWS </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> S3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SSL/TSL 개념과 기본 동작 원리</title>
+      <link href="/2022/03/30/NS/SSLTSL/"/>
+      <url>/2022/03/30/NS/SSLTSL/</url>
+      
+        <content type="html"><![CDATA[<h2 id="SSL-Secure-Socket-Layer"><a href="#SSL-Secure-Socket-Layer" class="headerlink" title="SSL (Secure Socket Layer)"></a>SSL (Secure Socket Layer)</h2><ul><li>1994년 netscape사의 웹 브라우저 보안 프로토콜로 처음 고안됨</li><li>1996년까지 버전 3.0까지 발표됨<ul><li>3.0을 표준화로 한 것이 바로 <strong>TLS</strong></li><li>통상적으로 SSL과 TLS는 같은 의미로 사용됨</li></ul></li></ul><p><br><br></p><h2 id="SSL-탄생-배경"><a href="#SSL-탄생-배경" class="headerlink" title="SSL 탄생 배경"></a>SSL 탄생 배경</h2><ul><li>대칭키를 공유할 때 외부로의 노출이 발생됨<ul><li>이 키를 누군가가 중간에서 가로챈다면…?</li></ul></li><li>따라서 비대칭키로 암호화 통신을 진행하면 됨<ul><li>그런데 이는 너무 느리고 비효율적</li></ul></li><li>가장 효율적이고 빠른 방법: 처음 대칭키를 교환할때만 비대칭키 암호를 사용 -&gt; TLS의 역할</li></ul><p><br><br></p><h2 id="TLS에서-제공하는-보안-서비스"><a href="#TLS에서-제공하는-보안-서비스" class="headerlink" title="TLS에서 제공하는 보안 서비스"></a>TLS에서 제공하는 보안 서비스</h2><ul><li>기밀성: 남들이 데이터를 훔쳐가도 볼 수 없는 비밀 제공</li><li>무결성<ul><li>메시지 인증 코드 (MAC: Message Authentication Code)를 통해서 메시지 인증 제공</li><li>위, 변조 여부 확인 가능</li></ul></li><li>인증: 연결 초기 설정에서 주고 받은 인증서를 통해 신뢰할 수 있는 개체인지 인증 가능</li></ul><p><br><br></p><h2 id="TLS-Layer-Transport-Layer-Security"><a href="#TLS-Layer-Transport-Layer-Security" class="headerlink" title="TLS Layer (Transport Layer Security)"></a>TLS Layer (Transport Layer Security)</h2><ul><li>TLS는 Transection Layer 위에서 TLS 계층을 따로 두어 동작함</li><li>TLS를 사용하는 어플리케이션 프로토콜은 끝에 s가 붙음<ul><li>TLS 기반의 HTTP는 HTTPS라고 지칭</li><li>TLS 기반의 FTP 또한 FTPS라고 부름</li></ul></li></ul><p><img src="layer.png"></p><ol><li>Handshake: 양쪽 간에 연결을 설정할 때 보안 협상을 위한 프로토콜<br><img src="handshaker.png"></li><li>Change Cipher Spec: 보안 파라미터를 변경하거나 적용할 때 사용 (ex. 대칭키 알고리즘을 변경할 때)</li><li>Alert: 오류 전송 시 사용</li><li>Application Data: 실제 데이터를 전송할 때 사용</li><li>Record: 협상된 보안 파라미터를 이용하여 암, 복호화, 무결성 검증 등을 수행할 때 사용</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🔐 Network/Security </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> S3 </tag>
+            
+            <tag> Network </tag>
+            
+            <tag> Security </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[AWS] RDS: Relational DB Service</title>
+      <link href="/2022/03/28/AWS/RDS/"/>
+      <url>/2022/03/28/AWS/RDS/</url>
+      
+        <content type="html"><![CDATA[<p><img src="rds.png"></p><h2 id="목적-관계형-데이터베이스"><a href="#목적-관계형-데이터베이스" class="headerlink" title="목적: 관계형 데이터베이스"></a>목적: 관계형 데이터베이스</h2><blockquote><p>DB 제공 서비스</p></blockquote><p><br><br></p><h2 id="관계형-데이터베이스-기본-개념"><a href="#관계형-데이터베이스-기본-개념" class="headerlink" title="관계형 데이터베이스 기본 개념"></a>관계형 데이터베이스 기본 개념</h2><ul><li>데이터베이스</li><li>테이블</li><li>데이터</li><li>필드</li></ul><p><br><br></p><h2 id="RDS-종류"><a href="#RDS-종류" class="headerlink" title="RDS 종류"></a>RDS 종류</h2><ul><li>Microsoft SQL</li><li>Oracle</li><li>MySQL</li><li>Postgre</li><li>Aurora (AWS에서 제공하는 RDS)</li><li>MariaDB</li></ul><p><br><br></p><h2 id="Data-Warehousing"><a href="#Data-Warehousing" class="headerlink" title="Data Warehousing"></a>Data Warehousing</h2><ul><li>Business Intelligence</li><li>리포트 작성, 데이터 분석 시 사용 (Production Database -&gt; Data Warehousing)</li><li>매우 방대한 분량의 데이터 로드 시 사용</li></ul><p><br><br></p><h2 id="OLTP-vs-OLAP"><a href="#OLTP-vs-OLAP" class="headerlink" title="OLTP vs OLAP"></a>OLTP vs OLAP</h2><ul><li>OLTP(Online Transaction Processing)<ul><li>사용자의 PC에서 발생되는 transaction을 DB가 처리하고, 그 결과를 요청한 사용자 PC에 결과를 되돌려주는 과정</li><li>즉 데이터 자체의 처리에 중점을 둔 용어</li><li><code>INSERT</code>와 같이 종종 사용되어지는, 혹은 규모가 작은 데이터를 불러올 때 사용되는 SQL 쿼리가 필요할 때 유용 = 1개의 요청작업을 처리하는 과정</li></ul></li><li>OLAP(Online Analytical Processing)<ul><li>이미 저장된 데이터를 기반하여 분석하는데 중점이 된 용어</li><li>Data Warehouse 같이 매우 큰 데이터를 불러올 때 사용</li><li>주로 덩치가 큰 <code>SELECT</code> 쿼리가 사용됨</li></ul></li></ul><p><br><br></p><h2 id="RDS-Backup"><a href="#RDS-Backup" class="headerlink" title="RDS Backup"></a>RDS Backup</h2><ul><li>원본 RDS Instance를 가지고 백업용 RDS Instance를 생성 시 새로운 Endpoint가 생성 = 원본 RDS와 백업용 RDS Instance는 전혀 다른 것<ul><li>원본 RDS Instance: original.ap-northeast-1.rds.amazonaws.com</li><li>백업용 RDS Instance: backup.ap-northeast-1.rds.amazonaws.com</li></ul></li></ul><ol><li>Automated Backups(AB): 자동 백업<ul><li>Retention Period(1-35일) 안의 어떤 시간으로 돌아가게 할 수 있음</li><li>AB는 그 날 생성된 스냅샷과 Transaction logs(TL)을 참고함</li><li>Default로 AB기능이 설정되어 있음</li><li>백업 정보는 S3에 저장: RDS 용량에 해당하는 만큼 무료 저장</li><li>AB동안 약간의 I/O suspension이 존재할 수 있음: Latency</li><li>Instance 삭제 시 스냅샷도 같이 삭제됨</li></ul></li><li>DB Snapshots: 데이터베이스 스냅샷<ul><li>카메라로 그 순간을 찍을 때 사용하는 용어 <strong>스냅샷</strong></li><li>용어 그대로, 주로 사용자에 의해 수동으로 실행됨</li><li>원본 RDS Instance를 삭제해도 스냅샷은 존재함</li></ul></li></ol><p><br><br></p><h2 id="Multi-AZ-Multi-Available-Zone"><a href="#Multi-AZ-Multi-Available-Zone" class="headerlink" title="Multi AZ: Multi Available Zone"></a>Multi AZ: Multi Available Zone</h2><ul><li>원래 존재하는 RDS DB에 변화(ex. write)가 생길 때 다른 AZ에서 똑같은 복제본이 만들어짐 (= Synchoronize)</li><li>AWS에 의해서 자동으로 관리가 이루어짐 (No admin intervention)</li><li>원본 RDS DB에 문제가 생길 시 자동으로 다른 AZ의 복제본이 사용됨</li><li><strong>오직 Disaster Recovery 용으로 사용됨</strong><ul><li>성능 개선을 위해 사용되지 않음</li><li>성능 개선을 위해서라면 Read Replica가 사용되어야 함</li></ul></li></ul><p><br><br></p><h2 id="Read-Replica"><a href="#Read-Replica" class="headerlink" title="Read Replica"></a>Read Replica</h2><ul><li>Production DB의 읽기 전용 복제본이 생성됨 (write 불가능)</li><li>주로 Read-Heavy DB 작업 시 효율성의 극대화를 위해 사용됨 (Scaling)</li><li><strong>Disaster Recovery 용도가 아님</strong></li><li>최대 5개 Read Replica DB 허용</li><li>Read Replica의 Read Replica 생성 가능 (단 Latency 발생)</li><li>각각의 Read Replica는 자기만의 고유 Endpoint 존재</li></ul><p><br><br></p><h2 id="ElastiCache"><a href="#ElastiCache" class="headerlink" title="ElastiCache"></a>ElastiCache</h2><ul><li>클라우드 내에서 In-memory 캐시를 만들어줌</li><li>DB에서 데이터를 읽어오는 것이 아닌, 캐시에서 빠른 속도로 데이터를 읽어옴</li><li>Read-Heavy 어플리케이션에서 상당한 Latency 감소 효과를 누림</li></ul><ol><li><p>Memcached</p><ul><li>Object 캐시 시스템</li><li>ElasticCache는 Memcached의 프로토콜을 default로 따름</li><li>EC2 Auto Scaling처럼 크기가 커졌다 작아졌다 가능</li><li>오픈소스: <a href="https://github.com/memcached/memcached">https://github.com/memcached/memcached</a></li><li>사용처<ul><li>가장 단순한 캐싱 모델</li><li>Object caching이 주된 목적일 시</li><li>캐시 크기를 마음대로 scaling하기를 원할 시</li></ul></li></ul></li><li><p>Redis</p><ul><li>Key-Value, Set, List와 같은 형태의 데이터를 In-Memory에 저장 가능</li><li>오픈소스: <a href="https://github.com/redis/redis">https://github.com/redis/redis</a></li><li>Multi-AZ 지원</li><li>사용처<ul><li>List, Set과 같은 데이터셋 사용</li><li>리더보드처럼 데이터셋의 랭킹 정렬이 필요</li><li>Multi AZ 기능이 사용되어져야 할 때</li></ul></li></ul></li></ol><p><br><br></p><h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👩‍💻 AWS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AWS </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> RDS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기</title>
+      <link href="/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/"/>
+      <url>/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/</url>
+      
+        <content type="html"><![CDATA[<p>지금까지 작성한 코드가 잘 작동하는지 확인해보는겸 글 하나를 타겟으로 티스토리에 업로드를 해본다.</p><h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><ul><li><a href="https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/">[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</a></li><li><a href="https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/">[Automatic Tech Blog Management] Tistory API 발급받기</a></li></ul><br><h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">from gitblog import *from tistory import *import markdown2from sys import platformdef personal_setting(head, body):    def code_line(text):        text = text.split('\n')        for idx, b in enumerate(text):            if "```" in b:                if "&lt;pre&gt;&lt;code&gt;" in b:                    text[idx] = b[:11]                else:                    if len(b) == 3:                        text[idx] = ""        return '\n'.join(text)    return head, code_line(body)def create_post(githubBlog, tistory):flag = 0for g_content in githubBlog.contents:    for t_content in tistory.contents:        if t_content["title"] == g_content["title"]:            flag = 1    if flag:        flag = 0        continue    else:        path = '/' + '/'.join(g_content["link"].split('/')[6:-1]) + ".md"        head, body = githubBlog.parsing_md(path)        body = markdown2.markdown(body)        head, body = personal_setting(head, body)        tistory.posting(            head['title'],            body,            head['categories'],            head['tags'],        )if __name__ == "__main__":    target_os = ''    if platform == "linux" or platform == "linux2":        target_os = "linux"    elif platform == "darwin":        target_os = "_osx"    elif platform == "win32":        target_os = "_win.exe"        githubBlog = GithubBlog("https://ruby-kim.github.io")    tistory = Tistory('https://dev-rubykim.tistory.com/', target_os)    tistory.get_access_token()    githubBlog.parsing_xml()    tistory.parsing_rss()    tistory.toc_post()    create_post(githubBlog, tistory)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>전체적인 알고리즘은 <code>python-markdown2</code> 패키지를 사용하여 <code>.md</code> 파일을 <code>.html</code>로 변경 후 tistory에 업로드 하는 것이다.</li><li>각자 로컬에서 실행하는 개발환경이 다른 점을 고려하여 platform 설정도 넣어놨다. (아래에 tistory 클래스 변경사항 참고)<ul><li>따라서 Windows가 아닌 Linux, OS X를 사용하는 개발자는 자신의 개발환경에 맞춰 chromedriver 파일을 넣어준다.</li></ul></li><li><code>create_post()</code> 함수는 github blog과 tistory의 포스트를 비교 후 해당 포스트가 없을 시 자동생성 및 업로드 해주는 코드이다.<ul><li>코드 중 flag가 바로 중복 포스트 체크를 위한 변수이다.</li><li>hexo 백업용 repository의 <code>/source/_posts</code> 내의 데이터에 접근하기 위해 각자의 github url을 파악 후 알맞게 세팅해준다.<ul><li>현재 사용 중인 github blog는 **<a href="https://ruby-kim.github.io/YYYY/MM/DD/[.md%ED%8C%8C%EC%9D%BC">https://ruby-kim.github.io/YYYY/MM/DD/[.md파일</a> path]**로 되어 있으므로, 이에 따라 path를 다음과 같이 설정했다.</li></ul></li><li><code>personal_setting()</code>은 말 그대로 각자 작성한 <code>.md</code> 변환 결과물에서 변경되지 않은 부분이 있을 시 직접 세팅해주는 함수이다.<ul><li>56번째 줄의 결과물을 출력해보면 markdown에서 html로 변환 시 코드블럭에 관한 전처리가 덜 되어있음을 확인할 수 있다. (```가 추가됨)</li><li>따라서 해당 부분을 전처리하는 함수 <code>code_line()</code>를 <code>personal_setting()</code>에 선언 및 처리한다.</li></ul></li></ul></li></ul><br><h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requestsfrom selenium import webdriverfrom selenium.webdriver.common.by import Byfrom urllib.parse import unquoteimport timeimport osimport json                                                               # 추가class Tistory:    def __init__(self, blogUrl, platform):        # local params        load_dotenv()        self.app_id = os.environ.get("TISTORY_APP_ID")        self.secret_key = os.environ.get("TISTORY_SECRET_KEY")        self.tistory_id = os.environ.get('TISTORY_ID')        self.tistory_pwd = os.environ.get('TISTORY_PWD')        self.tistory_rss = blogUrl + "rss"        # Github Actions params        # self.app_id = os.environ['TISTORY_APP_ID']        # self.secret_key = os.environ['TISTORY_SECRET_KEY']        # self.tistory_id = os.environ['TISTORY_ID']        # self.tistory_pwd = os.environ['TISTORY_PWD']        # self.tistory_rss = blogUrl + "rss"        # Etc params        self.callback_url = blogUrl        self.oauth_url = 'https://www.tistory.com/oauth/authorize'        self.access_token = None        # selenium setting params        self.webdriver_options = webdriver.ChromeOptions()        self.webdriver_options.add_argument('headless')        self.chromedriver = "./chromedriver/chromedriver" + platform      # 변경    # ... (생략된 코드는 모두 기존과 동일)    def get_access_token(self):        """        generate access-token automatically        :return: access-token        """        browser = webdriver.Chrome(            executable_path=self.chromedriver,                            # 변경            options=self.webdriver_options        )        self.login_kakao(browser)        self.access_token = self.confirm_tistory_oauth(browser)        if self.access_token is None:            assert "Non-existence access token"        else:            assert "Generate access token Successfully"        def posting(self, title, content, category, tag):                     # 추가        try:            tistory_url = 'https://www.tistory.com/apis/post/write?'            headers = {'Content-Type': 'application/json; charset=utf-8'}            params = {                'access_token': self.access_token,                'output': 'json',                'blogName': 'dev-rubykim',      # 자신의 tistory url 참고                'title': title,                'content': content,                'visibility': '0',                'category': str(category[1:-1]),                'published':'',                'slogan':'',                'tag': str(tag[1:-1]),                'acceptComment': '1',                'password':''            }            data=json.dumps(params)            response = requests.post(tistory_url, headers=headers, data=data)            print(response.text)        except:            print("Error while uploading post in Tistory!")    ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>OS에 따른 chromedriver 세팅을 하면서 자잘한 파라미터 값들을 수정한다.</li><li>tistory 글을 업로드 할 수 있는 <code>posting()</code>을 만든다. <img src="1.png"></li></ul><br><h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:    def __init__(self, blogUrl):        self.url = blogUrl        self.xml = blogUrl + "/atom.xml"        self.contents = []        self.curTime = datetime.now(pytz.utc).isoformat()        self.md_head = {}        self.md_body = ""    def parsing_md(self, target_path):        # local params        load_dotenv()        repo = get_github_repo(os.environ.get('MY_GITHUB_BLOG_BACKUP'), 'koBlog_backup')        file = get_repo_specific_file_content(repo, target_path)        self.md_head, self.md_body = preprocess(file, target_path)        return self.md_head, self.md_body                                                       # 변경<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><p>기존의 코드에서는 .md의 header와 body를 반환하지 않아 GithubBlog 내부에서만 활용할 수 있는데, 직관적인 코드를 위해 return으로 변경해준다.</p><br><h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre><code><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python3 run.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></code></pre><ul><li>결과물이 다음과 같이 나오면 성공적으로 티스토리에 업로드 된 것을 확인할 수 있다.<ul><li><code>{"tistory":{"status":"200","postId":"12","url":"https:\/\/dev-rubykim.tistory.com\/12"}}</code><br><img src="2.png"></li></ul></li></ul><br><h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><ul><li><a href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/run.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/run.py</a></li><li><a href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/tistory.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/tistory.py</a></li><li><a href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/gitblog.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/gitblog.py</a></li></ul><p><br><br></p><h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ⚒ Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> API </tag>
+            
+            <tag> Parsing </tag>
+            
+            <tag> Crawling </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[AWS] Route53: DNS 서비스</title>
+      <link href="/2022/03/26/AWS/Route53/"/>
+      <url>/2022/03/26/AWS/Route53/</url>
+      
+        <content type="html"><![CDATA[<p><img src="route53.png"></p><h2 id="목적-도메인-주소를-구매-후-의미-있는-url-이름-부여"><a href="#목적-도메인-주소를-구매-후-의미-있는-url-이름-부여" class="headerlink" title="목적: 도메인 주소를 구매 후 의미 있는 url 이름 부여"></a>목적: 도메인 주소를 구매 후 의미 있는 url 이름 부여</h2><blockquote><p>EC2와 아주 밀접한 관계가 있는 서비스</p></blockquote><p><br><br></p><h2 id="AWS에서-제공하는-DNS-서비스"><a href="#AWS에서-제공하는-DNS-서비스" class="headerlink" title="AWS에서 제공하는 DNS 서비스"></a>AWS에서 제공하는 DNS 서비스</h2><ul><li>EC2 instance</li><li>S3 Bucket</li><li>Load Balancer</li></ul><p><br><br></p><h2 id="Route53-사용법"><a href="#Route53-사용법" class="headerlink" title="Route53 사용법"></a>Route53 사용법</h2><p><img src="create-domain.png"></p><ul><li>Route53 &gt; 도메인 &gt; 등록된 도메인에서 원하는 도메인 등록(장바구니 추가 클릭)</li><li>등록 연락처 이메일 주소로 날아온 메일 확인: 로봇 확인용</li></ul><p><br><br></p><h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👩‍💻 AWS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AWS </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> Route53 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[AWS] EC2: Elastic Compute Cloud (EC2)</title>
+      <link href="/2022/03/24/AWS/EC2/"/>
+      <url>/2022/03/24/AWS/EC2/</url>
+      
+        <content type="html"><![CDATA[<p><img src="EC2.png"></p><h2 id="목적-유연한-cloud-크기-변동"><a href="#목적-유연한-cloud-크기-변동" class="headerlink" title="목적: 유연한 cloud 크기 변동"></a>목적: 유연한 cloud 크기 변동</h2><blockquote><p>인스턴스 on/off 자동화로 유연한 cloud 크기 변동</p></blockquote><p><br><br></p><h2 id="EC2-지불-방법"><a href="#EC2-지불-방법" class="headerlink" title="EC2 지불 방법"></a>EC2 지불 방법</h2><ul><li>On-demend<ul><li>시간 단위로 가격이 고정됨</li><li>SW 개발 초기에 주로 사용 (오랜 시간 동안 선불을 내지 않고 최소한의 비용을 지불하여 사용하고 싶을 때 / 개발 시작-끝 기간이 정해지지 않음)</li></ul></li><li>Reserved<ul><li>한정된 EC2 용량 사용 가능, 1-3년 동안 시간별로 할인가에 이용 가능 (선불로 가격 대폭 낮아짐)</li><li>예상 가능한 workload시 사용(개발 시작-끝 기간이 정해져있을 땐)</li></ul></li><li>Spot<ul><li>입찰 가격 적용. 단순 비용 절감 시 유용</li><li>가장 큰 할인률을 적용받으며 특히 인스턴스의 시작과 끝기간이 전혀 중요하지 않을 때 매우 유용</li><li>가격이 정해진 범위 내에 있을 시(= 입찰 가격일 시) 작동 / 그 범위를 벗어나면 사용 중지<br><img src="spot.png"></li></ul></li></ul><p><br><br></p><h2 id="EBS-Elastuc-Block-Storage-EC2-내에-부착된-가상-하드-디스크-볼륨"><a href="#EBS-Elastuc-Block-Storage-EC2-내에-부착된-가상-하드-디스크-볼륨" class="headerlink" title="EBS(Elastuc Block Storage): EC2 내에 부착된 (가상) 하드 디스크 볼륨"></a>EBS(Elastuc Block Storage): EC2 내에 부착된 (가상) 하드 디스크 볼륨</h2><ul><li>EC2 인스턴스가 만들어지면 저장 공간이 생성되며 EC2 인스턴스에 부착됨</li><li>디스크 볼륨 위에 File System 생성</li><li><strong>Availability Zone (AZ) 생성</strong><ul><li>하나의 region 안에 여러 AZ 존재 가능</li><li>중심부로부터 복사본들이 AZ에 뿌려짐</li><li>Disaster Recovery: 한 쪽 서버가 망가지거나 다운되면 AZ백업을 통해 프로그램 복구<br><img src="AZ.png"></li></ul></li></ul><table>    <tbody><tr>        <td>SSD</td>        <td>설명</td>    </tr>    <tr>        <td>General Purpose SSD (GP2)</td>        <td>최대 10K IOPS를 지원하며 1GB 당 3IOPS 속도가 나옴</td>    </tr>    <tr>        <td>Provisioned IOPS SSD (IO1)</td>        <td>극도의 I/O률을 요구하는(매우 큰 DB관리 등) 환경에서 주로 사용됨<br>10K 이상의 IOPS 지원</td>    </tr></tbody></table><br><table>    <tbody><tr>        <td>HDD / Magnetic</td>        <td>설명</td>    </tr>    <tr>        <td>Throughput Optimized HDD (ST1)</td>        <td>빅데이터 Datawarehouse, Log 프로세싱 시 주로 사용<br>(boot volume으로 사용 X)</td>    </tr>    <tr>        <td>CDD HDD (SC1)</td>        <td>파일 서버와 같이 드문 vloume 접근 시 주로 사용<br>boot volume으로 사용 x. 매우 저렴한 비용</td>    </tr>    <tr>        <td>Magnetic (Sandard)</td>        <td>디스크 1GB당 가장 싼 비용<br>유일하게 boot volume으로 사용 o</td>    </tr></tbody></table><p><br><br></p><h2 id="ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌"><a href="#ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌" class="headerlink" title="ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌"></a>ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌</h2><ul><li>하나의 서버로 traffic이 몰리는 병목현상(bottleneck) 방지</li><li>Traffic의 흐름을 Unhealthy instance -&gt; healthy instance로 보내줌</li><li>에러가 생길 시 504 Error(504 Gateway Time-out) 반환: 보통 Web 또는 DB layer에서 해결 가능</li></ul><p><img src="osi.png"></p><table>    <tbody><tr>        <td>OSI</td>        <td>설명</td>    </tr>    <tr>        <td>Application Load Balancer</td>        <td>OSI Layer 7에서 작동<br>-&gt; HTTP, HTTPS같은 traffic의 load balancing에 가장 적합<br>-&gt; 고급 request 라우팅 설정을 통해 특정 서버로 Request를 보낼 수 있음</td>    </tr>    <tr>        <td>Network(Transport) Load Balancer</td>        <td>OSI Layer 4에서 작동. 매우 빠른 속도를 자랑하며 Production 환경에서 종종 쓰임<br>-&gt; 극도의 performance가 요구되는 TCP traffic에서 적합<br>-&gt; 초당 수백만개의 request를 아주 미세한 delay로 처리</td>    </tr>    <tr>        <td>Classic Load Balancer</td>        <td>Legacy로 간주되면서 거의 사용 x<br>-&gt; Layer7의 HTTP/HTTPS 라우팅 기능 지원<br>-&gt; Layer4의 TCP traffic 라우팅 기능 지원</td>    </tr></tbody></table><br><ul><li>X-Forwarded-For Header<br><img src="x-forwarded-for-header.png"><ul><li>Public IP address가 <code>192.168.111.2</code>일 때</li><li>ELB가 Public IP address를 <code>10.0.0.25</code>같이 Private IP address로 변경하여 EC2에 전달</li><li>따라서 EC2는 Provate IP address만 확인 가능 = Public IP address가 어디인지 확인 불가능</li><li>이 때 EC2는 X-Forwarded-For Header를 통해 Public IP address 확인 가능</li></ul></li></ul><p><br><br></p><h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👩‍💻 AWS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AWS </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> EC2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</title>
+      <link href="/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/"/>
+      <url>/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</url>
+      
+        <content type="html"><![CDATA[<p>Github blog에 글을 업로드하면 다른 블로그들도 자동 업로드가 되도록 세팅해주기 위해 데이터 분석이 필요하다.<br><strong>rss</strong>는 최신 글 업로드 현황을 파악하는 용도로, <strong>markdown</strong>은 포스트 내용을 위해 분석할 계획이다.</p><h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><p>Github blog를 분석하기 위해서는 먼저 Personal Access Token을 이용해 Github repository 접근 권한을 가져와야 한다.<br>아래의 url을 통해 발급부터 세팅까지 해보자.<br><a href="https://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/">Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</a></p><br><h2 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pytzfrom bs4 import BeautifulSoupfrom datetime import datetimeimport requestsimport osfrom github import Github<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><br><h2 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:    def __init__(self, blogUrl):        self.url = blogUrl        self.xml = blogUrl + "/atom.xml"        self.contents = []        self.curTime = datetime.now(pytz.utc).isoformat()        self.md_head = {}        self.md_body = ""<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>xml 사이트 분석 후 데이터를 저장하기 위한 <code>contents</code></li><li>markdown(.md) 파일에 대한 데이터를 저장하기 위한 <code>md_head</code>와 <code>md_body</code><ul><li>hexo로 구현된 블로그의 포스트는 아래와 같이 구성된다. <img src="1.png"></li><li>그 중 빨간색으로 표시간 구간은 포스트 이름, 생성 날짜, 카테고리, 태그 등 다양한 정보들을 설정할 수 있다.<br>이 부분의 정보가 담길 곳이 <code>md_head</code></li><li>그 외에 나머지 부분은 <code>md_body</code></li></ul></li></ul><br><h2 id="Github-Blog-xml-분석하기"><a href="#Github-Blog-xml-분석하기" class="headerlink" title="Github Blog: xml 분석하기"></a>Github Blog: xml 분석하기</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:    def __init__(self, blogUrl): (...)    def parsing_xml(self):        html = requests.get(self.xml)        soup = BeautifulSoup(html.text, "html.parser")        for elem in soup.find_all("entry"):            article = {                "title": elem.find("title").get_text(),                "link": elem.find("link").get("href"),                "published": elem.find("published").get_text("published"),                "updated": elem.find("updated").get_text("updated"),                "category": elem.find("category").get("term").replace("\u200d", ""),                "tags": [c.get("term")                        for idx, c in enumerate(elem.find_all("category")) if idx != 0],            }            self.contents.append(article)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>xml을 살펴보면 다음과 같이 구성되어 있다.<br>글 자동 생성 및 중복 여부를 파악하기 위해서는 최소 노란색 하이라이트 친 부분의 정보를 가져와야 한다.<img src="2.png"></li><li>xml도 Beautifulsoup을 사용하면 쉽게 파싱이 가능하기에 Beautifulsoup를 사용했다.</li><li>블로그 카테고리를 보면 앞에 이모지를 사용했는데, 몇 이모지들은 합쳐져서 만들어져서 그런지 <code>\u200d</code>라는 값이 생성되어 빼버렸다.<ul><li>원래 결과물: 👩‍💻</li><li>파싱 결과물: 👩\ud200d💻</li><li>혹시 이모티콘 합친 결과물이 안보일 시 <a href="https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/">Github blog</a>로 와서 보세요</li></ul></li><li>해당 코드를 실행 시 결과물은 다음처럼 나온다. <img src="3.png"></li></ul><br><h2 id="Github-Blog-md-파일-분석하기"><a href="#Github-Blog-md-파일-분석하기" class="headerlink" title="Github Blog: .md 파일 분석하기"></a>Github Blog: .md 파일 분석하기</h2><h3 id="Gihub-repository-관련-함수-세팅"><a href="#Gihub-repository-관련-함수-세팅" class="headerlink" title="Gihub repository 관련 함수 세팅"></a>Gihub repository 관련 함수 세팅</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python"># github repository 접근def get_github_repo(access_token, repo_name):    g = Github(access_token)    repository = g.get_user().get_repo(repo_name)    return repository# .md파일 내용 불러오기def get_repo_specific_file_content(repository, file_path):    target_file = repository.get_contents("source/_posts" + file_path)    raw_content = target_file.decoded_content    return raw_content.decode('utf-8')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>위에서 발급받는 Personal Access Token과 해당 함수들을 이용하면 github repository에 접근 및 파일 해독이 가능하다.</li><li><code>raw_content</code>를 decode없이 가져올 시 한글이 전부 깨져 나오기 때문에 <code>'utf-8'</code> 설정은 필수</li></ul><h3 id="Github-repository에서-특정-파일-md-을-찾아-전처리"><a href="#Github-repository에서-특정-파일-md-을-찾아-전처리" class="headerlink" title="Github repository에서 특정 파일(.md)을 찾아 전처리"></a>Github repository에서 특정 파일(.md)을 찾아 전처리</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:    def __init__(self, blogUrl): (...)    def parsing_md(self, target_path):        repo = get_github_repo("Gihub에서 발급받은 Personal Access Token", "repository 이름")        file = get_repo_specific_file_content(repo, target_path)        self.md_head, self.md_body = preprocess(file, target_path) # preprocess 코드는 다음 항목에 있음<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>불러올 repository는 hexo로 구성된 github blog 백업 repository</li><li>예시로 한번 가져와보면 다음과 같다. <img src="4.png"></li><li>여기서 <code>repository 이름</code>은 <code>koBlog_backup</code></li><li>hexo 특성 상 모든 글들은 <code>/source/_posts</code>에 생성된다. 따라서 해당 이미지 기준으로 <code>target_path</code>는 <code>/AWS/IAM</code></li></ul><h3 id="md파일-전처리"><a href="#md파일-전처리" class="headerlink" title=".md파일 전처리"></a>.md파일 전처리</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">def preprocess(content, target_path):    def rindex(lst, val):        lst.reverse()        i = lst.index(val)        lst.reverse()        return len(lst) - i - 1    # separate head and body part    content_head_row \        = content[0:content.rfind("---") + 3].replace("---", "").strip().split("\n")    content_body_split_start = rindex(content.split("\n"), "---")    content_body_row = content.split("\n")[content_body_split_start + 1:]    # head preprocessing    content_head = {}    for head in content_head_row:        colon = head.find(':')        key = head[:colon]        value = head[colon + 1:].replace('"', '').replace("\u200d", '').strip()        if key == 'img':            value = f"https://github.com/ruby-kim/ruby-kim.github.io/blob/master{value}?raw=true"        content_head[key] = value    # body preprocessing    content_body = []    target_path_name = '/'.join(target_path.split("/")[1:]).replace(".md", "")    for body in content_body_row:        if '![]' in body and '.png)' in body:            uploaded_date = content_head["date"].split()[0].replace('-', '/')            img_filename = body.replace("![](", "").replace(")", "")            body = body.replace(img_filename, f"https://github.com/ruby-kim/ruby-kim.github.io/blob/master/"                                            f"{uploaded_date + '/' + target_path_name + '/' + img_filename}?raw=true")        content_body.append(body)    return content_head, '\n'.join(content_body)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>위에 hexo 블로그 .md파일 구조를 살펴보면 <code>---</code>로 감싸진 부분에 글의 정보가 담겨있고, 그 아래로는 내용이 있다.</li><li>따라서 <code>---</code>기준으로 글 정보(head)와 글 내용(body)를 분리 후 전처리를 진행해야 한다.</li><li>그 중 <code>---</code>는 총 2개가 있으므로, 오른쪽에 있는 <code>---</code>를 찾기 위해 rindex()를 생성했다.</li><li>hexo 블로그 .md파일을 잘 살펴보면 이미지 업로드 부분이 있는데, 이대로 바로 데이터를 보내버리면 이미지 로딩이 안되기 때문에 유효한 이미지 url을 생성할 수 있도록 전처리를 진행했다.</li><li>이미지는 원래 private repository에서 불러오려 했으나, private이라 뒤에 토큰값이 붙어 실제 <a href="https://github.com/ruby-kim/ruby-kim.github.io">github blog repository</a>에서 이미지 url을 가져왔다.</li><li>코드 실행 시 결과물은 다음처럼 나온다.<br>(맨 처음 사진과 비교해보면 똑같은 내용임을 확인할 수 있다) <img src="5.png"></li></ul><br><h2 id="개인정보-env에-저장-및-코드-수정"><a href="#개인정보-env에-저장-및-코드-수정" class="headerlink" title="개인정보 .env에 저장 및 코드 수정"></a>개인정보 .env에 저장 및 코드 수정</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Etc/Python-env/">Python3에서 환경변수 .env 사용하기</a></p><br><h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><ul><li><a href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/14b0d85db8110e8fe8e7fc04a05dd7c972640ab0/gitblog.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/gitblog.py</a></li></ul><p><br><br></p><h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ⚒ Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> API </tag>
+            
+            <tag> Parsing </tag>
+            
+            <tag> Crawling </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</title>
+      <link href="/2022/03/18/Etc/Github-PAT/"/>
+      <url>/2022/03/18/Etc/Github-PAT/</url>
+      
+        <content type="html"><![CDATA[<p>프로젝트를 하다보면 private repository에 로컬에서 접근을 해야하는 경우가 있다.<br>또는 로컬에서 repository issue를 생성하는 등 다양한 이유가 있는데, Github에서 Personal Access Token을 이용해 원하는 repository를 조작해보고자 한다.</p><br><h2 id="Personal-Access-Token-발급받기"><a href="#Personal-Access-Token-발급받기" class="headerlink" title="Personal Access Token 발급받기"></a>Personal Access Token 발급받기</h2><ol><li>오른쪽 프로필 아이콘에서 <strong>Settings</strong>를 클릭한다.<br><img src="1.png"></li></ol><br><ol start="2"><li>왼쪽 메뉴에서 <strong>Developer settings</strong>를 클릭한다.<br><img src="2.png"></li></ol><br><ol start="3"><li><strong>Personal access tokens</strong>에서 <strong>Generate new token</strong>을 클릭한다.<br><img src="3.png"></li></ol><br><ol start="4"><li>사용 용도에 맞게 값을 세팅한다. 설정이 끝났다면 <strong>Generate token</strong>버튼을 클릭한다.<br><img src="4.png"></li></ol><br><ol start="5"><li>화면에 생성된 토큰을 확인하고 백업한다. (이 페이지를 벗어나면 영원히 보지 못한다)<br><img src="5.png"></li></ol><br><h2 id="예시"><a href="#예시" class="headerlink" title="예시"></a>예시</h2><ul><li>준비물: Python3, 발급받은 token, 접근할 repository 이름</li><li>함수 참고 사이트: <a href="https://pygithub.readthedocs.io/en/latest/introduction.html">https://pygithub.readthedocs.io/en/latest/introduction.html</a><pre class="line-numbers language-python" data-language="python"><code class="language-python">import osfrom github import Github # pip3 install PyGithubdef get_github_repo(access_token, repo_name):    g = Github(access_token)    repository = g.get_user().get_repo(repo_name)    return repositoryrepo = get_github_repo("발급받은 token", "repository 이름")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 💾 Etc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Personal Access Token </tag>
+            
+            <tag> Python3 </tag>
+            
+            <tag> Repository </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Github Actions: 환경변수 등록하기</title>
+      <link href="/2022/03/17/Etc/Github-Actions-env/"/>
+      <url>/2022/03/17/Etc/Github-Actions-env/</url>
+      
+        <content type="html"><![CDATA[<p>API를 사용하다보면 자신의 개인정보(Authentication)을 이용해야 하는데, 대놓고 깃허브에 업로드하면 개인정보가 털릴 수 있으므로 조심해야 한다.</p><p>이러한 민감한 정보를 아무도 모르게 사용할 수 있는, Github Actions 환경변수 등록 방법에 대해 알아보자.</p><br><ol><li>상단 탭의 <strong>Settings</strong>로 이동한다.<br><img src="1.png"></li></ol><br><ol start="2"><li>좌측 <strong>Secrets</strong> 항목에서 <strong>Actions</strong>를 선택 후 <strong>New repository secret</strong>을 클릭한다.<br><img src="2.png"></li></ol><br><ol start="3"><li>Name과 Value를 각각 입력 후 <strong>Add secret</strong>을 클릭한다.<br><img src="3.png"></li></ol><br><ol start="4"><li>생성완료<br><img src="4.png"></li></ol><br><ol start="5"><li>Github 내에서는 다음과 같이 작성한다.<ul><li>코드<pre class="line-numbers language-python" data-language="python"><code class="language-python">import osapp_id = os.environ['TISTORY_APP_ID']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li><li>Github Actions<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">name: projecton:  schedule:    - cron: '0 21 */ * *'jobs:  build:    ...    - name: set parameters      env:        MY_GITHUB_TOKEN: ${{ secrets.TISTORY_APP_ID }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 💾 Etc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Github Actions </tag>
+            
+            <tag> .env </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Automatic Tech Blog Management] Tistory API 발급받기</title>
+      <link href="/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/"/>
+      <url>/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</url>
+      
+        <content type="html"><![CDATA[<p>티스토리 자동화를 위해서는 API가 필요한데, 이 API를 사용하기 위해서는 OpenAPI 신청과 매번 새로운 access token이 필요하다. (access token의 유효시간은 1시간이다)</p><h2 id="직접-access-token-발급받기"><a href="#직접-access-token-발급받기" class="headerlink" title="직접 access token 발급받기"></a>직접 access token 발급받기</h2><ol><li><a href="https://www.tistory.com/guide/api/manage/register">블로그 API 등록</a> 사이트에 접속 후 작성한다.<ul><li>서비스 URL: 블로그 주소</li><li>CallBack: 블로그 주소<br><img src="tistory1.png"></li></ul></li></ol><br><ol start="2"><li>[앱 관리] 탭에서 설정 부분을 눌러 App ID와 Secret Key를 확인한다.<br><img src="tistory2.png"> <img src="tistory3.png"></li></ol><br><ol start="3"><li>먼저 본인 정보에 맞게 아래의 주소를 변경하고 접속한다. <pre class="line-numbers language-none"><code class="language-none">https://www.tistory.com/oauth/authorize?client_id={App ID}&amp;redirect_uri={블로그 주소}&amp;response_type=code&amp;state={state-param}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><img src="tistory4.png"><br>그러면 위의 페이지가 뜨는데 ‘허가하기’ 버튼을 눌러주면 된다.<br>허가하기를 누르면 본인 블로그로 보내지는데, 이때 그 상태의 주소창 주소를 잘 기억하자. (Code값이 필요함) <pre class="line-numbers language-none"><code class="language-none">https://{티스토리 설정 주소}.tistory.com/?code={여기 값을 기억하자}&amp;state={state-param}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><br><ol start="4"><li>아래의 주소로 다시 접속해서 access-token을 발급받는다. <pre class="line-numbers language-none"><code class="language-none">https://www.tistory.com/oauth/access_token?client_id={App ID}&amp;client_secret={Secret Key}&amp;redirect_uri={블로그 주소}&amp;code={3번 결과값에서 code부분}&amp;grant_type=authorization_code<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>Network(F12)를 확인하면 access_token을 확인할 수 있다.<br><img src="tistory5.png"></li></ol><br><h2 id="Github-Action을-통해-자동으로-access-token-가져오기"><a href="#Github-Action을-통해-자동으로-access-token-가져오기" class="headerlink" title="Github Action을 통해 자동으로 access token 가져오기"></a>Github Action을 통해 자동으로 access token 가져오기</h2><p>그런데 우리의 목적은 글 자동 업로드기 때문에,<br>유효기간이 1시간인 access-token을 매번 발급받기에는 위 방법은 적합하지 않다.<br>따라서 이러한 과정들을 파이썬으로 구현해봤다.</p><ul><li>참고: <a href="https://tistory.github.io/document-tistory-apis/auth/authorization_code.html">https://tistory.github.io/document-tistory-apis/auth/authorization_code.html</a></li></ul><h3 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requestsfrom selenium import webdriverfrom selenium.webdriver.common.by import Byfrom urllib.parse import unquoteimport timeimport os<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>페이지를 동적으로 가져오기 위해 selenium을 import함</li><li>중간에 파싱(code, access_token)할 때 인코딩 에러가 발생해서 이를 위해 unquote를 import함</li></ul><h3 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Tistory:    def __init__(self, blogUrl):        self.app_id = "발급받은 App ID"        self.secret_key = "발급받은 Secret Key"        self.tistory_id = "티스토리 아이디(kakao 계정)"        self.tistory_pwd = "티스토리 비밀번호(kakao 계정)"        self.tistory_rss = blogUrl + "rss"        # Etc params        self.callback_url = blogUrl        self.oauth_url = 'https://www.tistory.com/oauth/authorize'        self.access_token = None        # selenium setting params        self.webdriver_options = webdriver.ChromeOptions()        self.webdriver_options.add_argument('headless')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>프로그램 제작에 있어 기본적인 변수들을 선언</li><li>webdriver_options는 webdriver 창 나오는거 방지를 위해 작성</li></ul><h3 id="티스토리-카카오-로그인"><a href="#티스토리-카카오-로그인" class="headerlink" title="티스토리 카카오 로그인"></a>티스토리 카카오 로그인</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Tistory:    def __init__(self, blogUrl): (...)    def login_kakao(self, browser):        """        login kakao account        :param browser: chrome webdriver (windows: .exe)        :return:        """        browser.get(self.oauth_url + "?client_id=" + self.app_id                    + "&amp;redirect_uri=" + self.callback_url + "&amp;response_type=code")        browser.find_element(By.CLASS_NAME, "txt_login").click()        time.sleep(5)        username = browser.find_element(By.ID, "id_email_2")        password = browser.find_element(By.ID, "id_password_3")        username.send_keys(self.tistory_id)        password.send_keys(self.tistory_pwd)        browser.find_element(By.CLASS_NAME, "btn_confirm").click()        time.sleep(5)        browser.get(browser.current_url)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>selenium을 이용한 티스토리 카카오 로그인 코드</li><li>selenium으로 하다보니 코드 로딩 전에 프로그램이 진행되어 정확한 값이 나오지 않아 오류가 발생하는 경우가 있어 중간에 sleep을 넣어줌</li></ul><h3 id="티스토리-Oauth-확인-및-access-token-생성"><a href="#티스토리-Oauth-확인-및-access-token-생성" class="headerlink" title="티스토리 Oauth 확인 및 access token 생성"></a>티스토리 Oauth 확인 및 access token 생성</h3><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Tistory:    def __init__(self, blogUrl): (...)    def login_kakao(self, browser): (...)        def confirm_tistory_oauth(self, browser):        """        clicking confirm button in tistory oauth page        :param browser: chrome webdriver (windows: .exe)        :return:        """        time.sleep(5)        browser.get(browser.current_url)        try:            time.sleep(5)            browser.find_element(By.ID, "contents") \                .find_element(By.CLASS_NAME, "buttonWrap") \                .find_element(By.CLASS_NAME, "confirm").click()            browser.get(browser.current_url)            time.sleep(5)            if "code" in browser.current_url:                url = unquote(unquote(browser.current_url.encode('utf8')))                end = url.find("state=")                start = url.find("code=")                code = url[start + 5:end]                response = requests.get(                    "https://www.tistory.com/oauth/access_token?client_id=" + self.app_id                    + "&amp;client_secret=" + self.secret_key                    + "&amp;redirect_uri=" + self.callback_url                    + "&amp;code=" + code                    + "&amp;grant_type=authorization_code")                if response.status_code == 200:                    access_token = response.text.split('=')[1]                    return access_token                else:                    assert "Failed to generate access token: status error"        finally:            browser.quit()        return None<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></code></pre><ul><li>여기도 마찬가지로 너무 빨라 코드 로딩이 안됐는데 파싱하는 경우가 생겨 sleep을 넣어줌</li></ul><h3 id="개인정보-env에-저장-및-코드-수정"><a href="#개인정보-env에-저장-및-코드-수정" class="headerlink" title="개인정보 .env에 저장 및 코드 수정"></a>개인정보 .env에 저장 및 코드 수정</h3><ul><li><a href="https://ruby-kim.github.io/2022/03/16/Etc/Python-env/">Python3에서 환경변수 .env 사용하기</a></li></ul><br><h3 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h3><ul><li><a href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/449f4555a4bf3abde592c303deba4c8a30c67ef9/tistory.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/tistory.py</a></li></ul><p><br><br></p><h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ⚒ Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> API </tag>
+            
+            <tag> Parsing </tag>
+            
+            <tag> Crawling </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Python3에서 환경변수 .env 사용하기</title>
+      <link href="/2022/03/16/Etc/Python-env/"/>
+      <url>/2022/03/16/Etc/Python-env/</url>
+      
+        <content type="html"><![CDATA[<p>프로젝트를 진행하다 보면 코드에 서버 접속 정보를 기입해야 하는 상황이 올 때가 있다.<br>이는 정보보안에 있어서 매우 민감한 문제인데, 외부에 이 정보들을 감추고 싶을 때 환경변수를 설정해서 코드에 import하여 사용한다.</p><p>다양한 라이브러리들 및 방법이 있지만, 쉽게 찾아볼 수 있는 <strong>dotenv 라이브러리</strong>를 사용해보고자 한다.</p><br><ol><li><strong>dotenv</strong>를 설치한다. <pre class="line-numbers language-python" data-language="python"><code class="language-python">pip3 install python-dotenv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><br><ol start="2"><li>실행파일과 같은 디렉토리에 <strong>.env</strong>파일을 생성한다.<br><img src="1.png" alt="실행파일: tistory.py"></li></ol><br><ol start="3"><li><strong>.env</strong>파일에 사용하고자 하는 변수들을 정의한다. <pre class="line-numbers language-none"><code class="language-none">APP_ID="1234567890"SECRET_KEY="I hate Coding"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ol><br><ol start="4"><li>실행파일에서 import하여 변수에 저장하여 사용한다. <pre class="line-numbers language-python" data-language="python"><code class="language-python"># tistory.pyfrom dotenv import load_dotenvimport osload_dotenv()app_id = os.environ.get("APP_ID")secret_key = os.environ.get("SECRET_KEY")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><br><ol start="5"><li>.env를 .gitignore에 추가한다. <pre class="line-numbers language-none"><code class="language-none"># .gitignore.env<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 💾 Etc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> .env </tag>
+            
+            <tag> Python3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Automatic Tech Blog Management] Intro</title>
+      <link href="/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/"/>
+      <url>/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</url>
+      
+        <content type="html"><![CDATA[<p>블로그가 여러 개다 보니 관리하기가 너무 귀찮아졌다.<br>선택과 집중을 해야하지만 솔직히 뭘 고를지도 많이 고민이 되고…<br>그래서 준비한 이번 프로젝트: Github Actions를 이용한 포스트 자동 관리 시스템 구축하기!</p><h2 id="블로그-리스트"><a href="#블로그-리스트" class="headerlink" title="블로그 리스트"></a>블로그 리스트</h2><ul><li>Github blog(실제 글 업로드): <a href="https://ruby-kim.github.io/">https://ruby-kim.github.io/</a></li><li>Tistory(자동 업로드): <a href="https://dev-rubykim.tistory.com/">https://dev-rubykim.tistory.com/</a></li><li>[예정] Velog(자동 업로드): <a href="https://velog.io/@rubyhae">https://velog.io/@rubyhae</a></li><li>[보류] Naver blog(자동 업로드): <a href="https://blog.naver.com/dev_rubykim">https://blog.naver.com/dev_rubykim</a> -&gt; API 서비스 종료</li></ul><p>글 업로드 플랫폼은 고민을 했는데, 평생 사라질 걱정 없는 안전한 <strong>Github blog</strong>로 선정했다.<br>블로그 백업용 private repository의 글(Markdown 파일)을 파싱 후 html로 변환하여 <strong>Tistory</strong> (Velog는 추후 추가)에 자동 업로드 할 예정이다.</p><h2 id="프로젝트-관련-포스트-업데이트-중"><a href="#프로젝트-관련-포스트-업데이트-중" class="headerlink" title="프로젝트 관련 포스트 (업데이트 중)"></a>프로젝트 관련 포스트 (업데이트 중)</h2><ul><li><a href="https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/">[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</a></li><li><a href="https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/">[Automatic Tech Blog Management] Tistory API 발급받기</a></li><li><a href="https://ruby-kim.github.io/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/">[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기</a></li><li>기타<ul><li><a href="https://ruby-kim.github.io/2022/03/17/Etc/Github-Actions-env/">Github Actions: 환경변수 등록하기</a></li><li><a href="https://ruby-kim.github.io/2022/03/16/Etc/Python-env/">Python3에서 환경변수 .env 사용하기</a></li><li><a href="https://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/">Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</a></li></ul></li></ul><h2 id="준비물"><a href="#준비물" class="headerlink" title="준비물"></a>준비물</h2><ul><li>Python3: <a href="https://github.com/ruby-kim/automatic-tech-blog-management">프로젝트 repository</a>에서 <code>requirements.txt</code> 설치</li><li>블로그 계정: Github, Naver, Tistory, (Velog)</li><li>APIs: Naver blog, Tistory</li><li>RSS:<ul><li>Github Blog: 각자 준비하기 <code>https://ruby-kim.github.io/atom.xml</code></li><li>Tistory: <a href="">https://[티스토리-주소]/rss</a> <code>https://dev-rubykim.tistory.com/rss</code></li><li>[예정] Velog: <a href="https://v2.velog.io/rss/[velog-%EC%95%84%EC%9D%B4%EB%94%94]">https://v2.velog.io/rss/[velog-아이디]</a> <code>https://v2.velog.io/rss/rubyhae</code></li><li>[보류] Naver: <a href="https://rss.blog.naver.com/[%EB%84%A4%EC%9D%B4%EB%B2%84-%EC%95%84%EC%9D%B4%EB%94%94].xml">https://rss.blog.naver.com/[네이버-아이디].xml</a> <code>https://rss.blog.naver.com/dev_rubykim.xml</code></li></ul></li></ul><h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul><li>local과 master branch가 있습니다. (환경변수 세팅으로 2개의 branch 사용)<ul><li>local: 디버깅용. 로컬에서 코드 디버깅 시 사용</li><li>master: github action용. github actions에서 사용 (local 완성 시 업로드 예정)</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> ⚒ Projects </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Github </tag>
+            
+            <tag> Github Actions </tag>
+            
+            <tag> API </tag>
+            
+            <tag> Parsing </tag>
+            
+            <tag> Crawling </tag>
+            
+            <tag> Project </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[AWS] Intro</title>
+      <link href="/2022/03/15/AWS/Intro/"/>
+      <url>/2022/03/15/AWS/Intro/</url>
+      
+        <content type="html"><![CDATA[<p>아래 리스트에서 원하는 AWS 설명 url을 클릭하세요.</p><ul><li>IAM: <a href="https://ruby-kim.github.io/2022/03/10/AWS/IAM/">https://ruby-kim.github.io/2022/03/10/AWS/IAM/</a></li><li>EC2: <a href="https://ruby-kim.github.io/2022/03/24/AWS/EC2/">https://ruby-kim.github.io/2022/03/24/AWS/EC2/</a></li><li>Route53: <a href="https://ruby-kim.github.io/2022/03/26/AWS/Route53/">https://ruby-kim.github.io/2022/03/26/AWS/Route53/</a></li><li>RDS: <a href="https://ruby-kim.github.io/2022/03/28/AWS/RDS/">https://ruby-kim.github.io/2022/03/28/AWS/RDS/</a></li><li>S3: <a href="https://ruby-kim.github.io/2022/04/03/AWS/S3/">https://ruby-kim.github.io/2022/04/03/AWS/S3/</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👩‍💻 AWS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AWS </tag>
+            
+            <tag> Cloud </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[LeetCode] 189. Rotate Array (Python3)</title>
+      <link href="/2022/03/14/Algorithm/LeetCode/189/"/>
+      <url>/2022/03/14/Algorithm/LeetCode/189/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote><p>Given an array, rotate the array to the right by k steps, where k is non-negative.</p></blockquote><p><img src="189.png"></p><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>먼저 in-place 알고리즘의 의미를 알아야 해당 문제를 풀 수 있다.<br>(링크 추후 추가)</p><p>k값을 기준으로 리스트 슬라이싱을 하면 쉽게 풀리는데, 이때 단순히 이것만 생각하고 코딩을 하면 문제가 발생한다.</p><p>리스트 길이 때문에 답이 <code>[1]</code>이 아닌 <code>[1, 1]</code>로 나오는 등의 경우를 볼 수 있는데, 이를 방지하기 위해 k만 사용하는 것이 아닌 <code>len(nums)</code>를 이용하면 정확한 길이까지 세팅할 수 있다.</p><p>마지막으로, 파이썬 고인물들의 스킬로 <code>[:]</code>를 사용하면 in-place로 알고리즘을 구현할 수 있다. <del>나도 이제 고인물</del><br>대부분의 코딩 언어들은 컴파일 전에 임의 값을 할당하는데 (c언어에서는 변수 선언 시 무조건 변수형-int 등을 선언해야 함) 파이썬은 컴파일 이후 값을 할당하기 때문에 nums[:]를 하면 예쁘게 in-place로 값을 할당할 수 있다.</p><h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:    def rotate(self, nums: List[int], k: int) -&gt; None:        """        Do not return anything, modify nums in-place instead.        """        nums[:] = nums[-k % len(nums):] + nums[:-k % len(nums)]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> Two Pointers </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[LeetCode] 977. Squares of a Sorted Array (Python3)</title>
+      <link href="/2022/03/14/Algorithm/LeetCode/977/"/>
+      <url>/2022/03/14/Algorithm/LeetCode/977/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote><p>Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.</p></blockquote><p><img src="977.png"></p><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>Acceptance 비율이 높은만큼 쉬운 문제이다.<br>리스트 안에 내용물을 하나씩 꺼내서 제곱값을 구한 후 반환시키면 되는 문제이다.<br>파이썬 특성 상 한 줄로도 끝낼 수 있는 간단한 문제다.</p><h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:    def sortedSquares(self, nums: List[int]) -&gt; List[int]:        return sorted([num**2 for num in nums])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> Two Pointers </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[LeetCode] 35. Search Insert Position (Python3)</title>
+      <link href="/2022/03/13/Algorithm/LeetCode/35/"/>
+      <url>/2022/03/13/Algorithm/LeetCode/35/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote><p>Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p><p>You must write an algorithm with O(log n) runtime complexity.</p></blockquote><p><img src="35.png"></p><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>O(log n)에 맞춰 풀어야 하는 문제로, 배열이 정렬됐기 때문에 binary search를 이용하면 쉽게 풀리는 문제이다.</p><p>타겟값이 없을 경우 들어가기 가장 적합한 곳의 인덱스를 반환해야 하는데,<br>left와 right을 이리저리 옮겨다니면 최종적으로 멈추는 그 자리가 바로 적합한 자리이다.</p><p>최종적으로 현재 숫자들이 오른차순으로 되어있기 때문에 left를 반환시키면 된다.</p><h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:    def searchInsert(self, nums: List[int], target: int) -&gt; int:        left, right = 0, len(nums) - 1                    while left &lt;= right:            pivot = (left + right) // 2                            if nums[pivot] == target:                return pivot            elif nums[pivot] &lt; target:                left = pivot + 1            else:                right = pivot - 1        return left<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> Binary Search </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[이론] Stable Sort</title>
+      <link href="/2022/03/13/Algorithm/Theory/StableSort/"/>
+      <url>/2022/03/13/Algorithm/Theory/StableSort/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Stable-sort란"><a href="#Stable-sort란" class="headerlink" title="Stable sort란"></a>Stable sort란</h2><p>중복된 키를 순서대로 정렬하는 정렬 알고리즘을 지칭한다.<br>즉 같은 값 2개 이상이 리스트에 등장할 때, 기존 리스트에 있던 순서대로 중복된 키들이 정렬된다는 것을 의미한다.</p><pre class="line-numbers language-python" data-language="python"><code class="language-python">numbers = [9, 3, 12, 1, 6, 2, 2]↓numbers = [9, 3, 12, 1, 6, 2(첫번째), 2(두번째)]↓[1, 2(첫번째), 2(두번째), 3, 6, 9, 12]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>위 예시를 살펴보면 이해가 쉽다.<br>이처럼 기존 리스트에서 중복된 값들에게 순서가 매겨졌는데, 그 순서대로 정렬이 됐을 때 이 알고리즘을 stable sort라고 부를 수 있다.</p><p>​</p><h2 id="Stable-sort의-중요성"><a href="#Stable-sort의-중요성" class="headerlink" title="Stable sort의 중요성"></a>Stable sort의 중요성</h2><ul><li>Stable sort로 정렬하는 알고리즘들의 순서는 항상 똑같기에 같은 결과를 보장한다</li><li>숫자를 정렬할 때 stability가 중요하지 않을 수 있지만,<br>첫 문자를 기준으로 문자열을 정렬하는 경우에는 항상 안정적으로 같은 리스트가 리턴된다.<br>(정렬할 때마다 순서가 다르면 난장판이 될 것)</li></ul><h2 id="Stable-sort-예시"><a href="#Stable-sort-예시" class="headerlink" title="Stable sort 예시"></a>Stable sort 예시</h2><ul><li>Insertion sort</li><li>Merge sort</li><li>Bubble sort</li><li>Counting sort</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> Stable Sort </tag>
+            
+            <tag> Insertion Sort </tag>
+            
+            <tag> Merge Sort </tag>
+            
+            <tag> Bubble Sort </tag>
+            
+            <tag> Counting Sort </tag>
+            
+            <tag> Sort </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[LeetCode] 278. First Bad Version (Python3)</title>
+      <link href="/2022/03/13/Algorithm/LeetCode/278/"/>
+      <url>/2022/03/13/Algorithm/LeetCode/278/</url>
+      
+        <content type="html"><![CDATA[<p>솔직히 이거 문제 처음에 이해 못했다. 두 번째 입력되는 숫자 그대로 반환하면 값 그대로 나오기 때문이다.<br>알고보니 주어진 함수 자체에 bad 파라미터 값이 세팅되어 있지 않아 어쩔수 없이 코딩을 복잡하게 해야했다.</p><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote><p>You are a product manager and currently leading a team to develop a new product.</p><p>Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p><p>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.</p><p>You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</p></blockquote><p><img src="278.png"></p><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>문제에서 제공된 isBadVersion API를 사용하여 해결해야 한다.<br>그리고 가장 빠르게 값을 구하라고 했기 때문에, 리스트가 정렬된 점을 고려해서 binary search를 이용해야 한다.</p><p>데이터 자체가 [1, 2, 3, 4, 5, … , n]으로 되어있었고, 입력값 자체가 int로 된 점을 고려해 left와 right를 1과 n으로 바로 세팅했다.</p><p>맨 위에 말했듯이 ‘두 번째 숫자 그대로 찾으면’ 답인데, 이 두 번째 숫자의 특징으로는 다음과 같다:</p><ul><li>isBadVersion(pivot) = true</li><li>isBadVersion(pivot - 1) = false</li></ul><p>이 조건을 이용해서 코딩을 진행하면 쉽게 문제를 해결할 수 있다.</p><h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre><code class="python"># The isBadVersion API is already defined for you.# def isBadVersion(version: int) -&gt; bool:class Solution:    def firstBadVersion(self, n: int) -&gt; int:        left, right = 1, n                    while left &lt;= right:            pivot = (left + right) // 2            if isBadVersion(pivot) and not isBadVersion(pivot - 1):                return pivot            elif isBadVersion(pivot - 1):                right = pivot - 1            else:                left = pivot + 1</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> Binary Search </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[LeetCode] 704. Binary Search (Python3)</title>
+      <link href="/2022/03/13/Algorithm/LeetCode/704/"/>
+      <url>/2022/03/13/Algorithm/LeetCode/704/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote><p>Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.</p><p>You must write an algorithm with O(log n) runtime complexity.</p></blockquote><p><img src="704.png"></p><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>O(log n)에 맞춰 풀어야 하는 문제로, 배열이 정렬됐기 때문에 binary search를 이용하면 쉽게 풀리는 문제이다.<br>기본적인 binary search 구현을 하면 된다.</p><ul><li>left = 0 (최소 index 값), right = list의 길이 - 1(리스트에서 최대 index 값)</li><li>left가 right 값 이하일 때 조건에서,</li><li>pivot이라는 값을 설정해 (left + right) / 2의 값으로 세팅을 해준 후</li><li>list[pivot]값에 따라 left와 right를 조정해준다.</li><li>이때 left와 right는 pivot ± 1로 설정해주면 된다.</li></ul><h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:    def search(self, nums: List[int], target: int) -&gt; int:        left, right = 0, len(nums) - 1        while left &lt;= right:            pivot = (left + right) // 2            if nums[pivot] == target:                return pivot            elif nums[pivot] &lt; target:                left = pivot + 1            else:                right = pivot - 1        return -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> LeetCode </tag>
+            
+            <tag> Binary Search </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[AWS] IAM: Identity and Access Management</title>
+      <link href="/2022/03/10/AWS/IAM/"/>
+      <url>/2022/03/10/AWS/IAM/</url>
+      
+        <content type="html"><![CDATA[<p><img src="IAM.png"></p><h2 id="목적-사용자-관리"><a href="#목적-사용자-관리" class="headerlink" title="목적: 사용자 관리"></a>목적: 사용자 관리</h2><blockquote><p>유저를 관리하고 접근 레벨 및 권한에 대한 관리</p></blockquote><table>  <tbody><tr>    <td>접근키(Access Key)<br>비밀키(Secret Access Key)</td>    <td colspan="4">- AWS계정을 만들면 처음에 만든 그 아이디가 바로 root user가 됨<br>- 그리고 root user를 통해 다른 유저 생성 가능한데, 다른 유저가 AWS에 접근하기 위해서는 접근키(Access Key), 비밀키 (Secret Access Key)가 필요함</td>  </tr>  <tr>    <td>매우 세밀한 접근 권한 부여 기능<br>(Granular Permission)</td>    <td colspan="4">- 회사 내부 모든 것들을 전부 보여줄 수는 없음<br>- 따라서 사용자마다 접근 권한을 세세하게 설정해줘야 보안유지가 되는데 IAM이 이를 쉽게 해줌</td>  </tr>  <tr>    <td>비밀번호를 수시로 변경 가능</td>    <td colspan="4">- 한 달 또는 분기별로 모든 사용자들의 비밀번호를 강제로 업데이트 시킴<br>- 회사 입장에서는 매우 중요한 방침 (보안문제)</td>  </tr>  <tr>    <td>Multi Factor Authentication<br>(다중 인증) 기능</td>    <td colspan="4">- Facebook이나 Google 등을 이용해 자기인증 및 보안 강화<br>- root user는 MFA 무조건 사용해야 함</td>  </tr>  <tr>    <td>Universal: 지역 설정이 필요 없음</td>    <td colspan="4">- 보통은 regional 서비스: 지역마다 서비스가 다름<br>- 하지만 IAM은 universal하기 때문에 어느 지역에서는 동일하게 사용 가능</td>  </tr>  <tr>    <td rowspan="7">여러가지를 생성할 수 있음</td>    <td>그룹<br>(Group)</td>    <td colspan="3">하나의 그룹 안에 다수의 유저가 존재 가능</td>  </tr>  <tr>    <td>유저<br>(User)</td>    <td colspan="3">사용자</td>  </tr>  <tr>    <td>역할<br>(Role)</td>    <td colspan="3">접근 권한</td>  </tr>  <tr>    <td rowspan="4">정책<br>(Policy)</td>    <td colspan="3">그룹, 역할에 추가시킬 수 있음</td>  </tr>  <tr>    <td>Inline</td>    <td>유저, 그룹에 직접 policy 부여<br>- 유저, 그룹과 policy는 무조건 1:1 매칭<br>- 다른 유저나 그룹에 inline policy 적용 x<br>- 유저나 그룹 삭제시 inline policy도 삭제됨</td>  </tr>  <tr>    <td>Managed</td>    <td>AWS에서 생성되고 관리되는 policies<br>- 직접 policy를 만들 필요 x<br>- 다수의 유저와 그룹에 적용 가능<br>- 수정 및 삭제 불가<br>- 예) AmazonDynamoDBFullAccess</td>  </tr>  <tr>    <td>Customer</td>    <td>유저가 직접 새로 만들 수 있는 policies<br>- 기존에 존재하는 Managed Policy 사용<br>- 원하는 요구사항에 맞게 수정하고 사용<br>- Managed policy에서 원하는 policy가 없을때 사용</td>  </tr></tbody></table><p><br><br></p><h2 id="IAM-정책-시뮬레이터"><a href="#IAM-정책-시뮬레이터" class="headerlink" title="IAM 정책 시뮬레이터"></a>IAM 정책 시뮬레이터</h2><ul><li>보통 AWS 콘솔을 만들 때 개발환경(Staging or Develop)과 실제환경(Production)을 빌드함</li><li>개발환경(Staging or Develop)에서 실제환경(Production)으로 빌드하기전 IAM 정책이 잘 작동되는지 테스트하기 위해 시뮬레이터 사용</li><li>IAM과 관련된 문제들을 디버깅하기에 최적화된 툴(이미 실제로 유저에 부여된 다양한 정책들도 테스트 가능)</li></ul><p><br><br></p><h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👩‍💻 AWS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AWS </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> IAM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

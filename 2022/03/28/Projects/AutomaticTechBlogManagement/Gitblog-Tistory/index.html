@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -453,9 +455,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -476,60 +475,60 @@ from sys import platform
 
 def personal_setting(head, body):
     def code_line(text):
-        text &#x3D; text.split(&#39;\n&#39;)
+        text = text.split('\n')
         for idx, b in enumerate(text):
-            if &quot;&#96;&#96;&#96;&quot; in b:
-                if &quot;&lt;pre&gt;&lt;code&gt;&quot; in b:
-                    text[idx] &#x3D; b[:11]
+            if "```" in b:
+                if "&lt;pre&gt;&lt;code&gt;" in b:
+                    text[idx] = b[:11]
                 else:
-                    if len(b) &#x3D;&#x3D; 3:
-                        text[idx] &#x3D; &quot;&quot;
-        return &#39;\n&#39;.join(text)
+                    if len(b) == 3:
+                        text[idx] = ""
+        return '\n'.join(text)
 
     return head, code_line(body)
 
 
 def create_post(githubBlog, tistory):
-flag &#x3D; 0
+flag = 0
 for g_content in githubBlog.contents:
     for t_content in tistory.contents:
-        if t_content[&quot;title&quot;] &#x3D;&#x3D; g_content[&quot;title&quot;]:
-            flag &#x3D; 1
+        if t_content["title"] == g_content["title"]:
+            flag = 1
     if flag:
-        flag &#x3D; 0
+        flag = 0
         continue
     else:
-        path &#x3D; &#39;&#x2F;&#39; + &#39;&#x2F;&#39;.join(g_content[&quot;link&quot;].split(&#39;&#x2F;&#39;)[6:-1]) + &quot;.md&quot;
-        head, body &#x3D; githubBlog.parsing_md(path)
-        body &#x3D; markdown2.markdown(body)
-        head, body &#x3D; personal_setting(head, body)
+        path = '/' + '/'.join(g_content["link"].split('/')[6:-1]) + ".md"
+        head, body = githubBlog.parsing_md(path)
+        body = markdown2.markdown(body)
+        head, body = personal_setting(head, body)
 
         tistory.posting(
-            head[&#39;title&#39;],
+            head['title'],
             body,
-            head[&#39;categories&#39;],
-            head[&#39;tags&#39;],
+            head['categories'],
+            head['tags'],
         )
 
 
-if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
-    target_os &#x3D; &#39;&#39;
-    if platform &#x3D;&#x3D; &quot;linux&quot; or platform &#x3D;&#x3D; &quot;linux2&quot;:
-        target_os &#x3D; &quot;linux&quot;
-    elif platform &#x3D;&#x3D; &quot;darwin&quot;:
-        target_os &#x3D; &quot;_osx&quot;
-    elif platform &#x3D;&#x3D; &quot;win32&quot;:
-        target_os &#x3D; &quot;_win.exe&quot;
+if __name__ == "__main__":
+    target_os = ''
+    if platform == "linux" or platform == "linux2":
+        target_os = "linux"
+    elif platform == "darwin":
+        target_os = "_osx"
+    elif platform == "win32":
+        target_os = "_win.exe"
     
-    githubBlog &#x3D; GithubBlog(&quot;https:&#x2F;&#x2F;ruby-kim.github.io&quot;)
-    tistory &#x3D; Tistory(&#39;https:&#x2F;&#x2F;dev-rubykim.tistory.com&#x2F;&#39;, target_os)
+    githubBlog = GithubBlog("https://ruby-kim.github.io")
+    tistory = Tistory('https://dev-rubykim.tistory.com/', target_os)
 
     tistory.get_access_token()
     githubBlog.parsing_xml()
     tistory.parsing_rss()
     tistory.toc_post()
 
-    create_post(githubBlog, tistory)</code></pre>
+    create_post(githubBlog, tistory)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>전체적인 알고리즘은 <code>python-markdown2</code> 패키지를 사용하여 <code>.md</code> 파일을 <code>.html</code>로 변경 후 tistory에 업로드 하는 것이다.</li>
@@ -544,7 +543,7 @@ if __name__ &#x3D;&#x3D; &quot;__main__&quot;:
 </ul>
 </li>
 <li><code>personal_setting()</code>은 말 그대로 각자 작성한 <code>.md</code> 변환 결과물에서 변경되지 않은 부분이 있을 시 직접 세팅해주는 함수이다.<ul>
-<li>56번째 줄의 결과물을 출력해보면 markdown에서 html로 변환 시 코드블럭에 관한 전처리가 덜 되어있음을 확인할 수 있다. (&#96;&#96;&#96;가 추가됨)</li>
+<li>56번째 줄의 결과물을 출력해보면 markdown에서 html로 변환 시 코드블럭에 관한 전처리가 덜 되어있음을 확인할 수 있다. (```가 추가됨)</li>
 <li>따라서 해당 부분을 전처리하는 함수 <code>code_line()</code>를 <code>personal_setting()</code>에 선언 및 처리한다.</li>
 </ul>
 </li>
@@ -565,76 +564,76 @@ class Tistory:
     def __init__(self, blogUrl, platform):
         # local params
         load_dotenv()
-        self.app_id &#x3D; os.environ.get(&quot;TISTORY_APP_ID&quot;)
-        self.secret_key &#x3D; os.environ.get(&quot;TISTORY_SECRET_KEY&quot;)
-        self.tistory_id &#x3D; os.environ.get(&#39;TISTORY_ID&#39;)
-        self.tistory_pwd &#x3D; os.environ.get(&#39;TISTORY_PWD&#39;)
-        self.tistory_rss &#x3D; blogUrl + &quot;rss&quot;
+        self.app_id = os.environ.get("TISTORY_APP_ID")
+        self.secret_key = os.environ.get("TISTORY_SECRET_KEY")
+        self.tistory_id = os.environ.get('TISTORY_ID')
+        self.tistory_pwd = os.environ.get('TISTORY_PWD')
+        self.tistory_rss = blogUrl + "rss"
 
         # Github Actions params
-        # self.app_id &#x3D; os.environ[&#39;TISTORY_APP_ID&#39;]
-        # self.secret_key &#x3D; os.environ[&#39;TISTORY_SECRET_KEY&#39;]
-        # self.tistory_id &#x3D; os.environ[&#39;TISTORY_ID&#39;]
-        # self.tistory_pwd &#x3D; os.environ[&#39;TISTORY_PWD&#39;]
-        # self.tistory_rss &#x3D; blogUrl + &quot;rss&quot;
+        # self.app_id = os.environ['TISTORY_APP_ID']
+        # self.secret_key = os.environ['TISTORY_SECRET_KEY']
+        # self.tistory_id = os.environ['TISTORY_ID']
+        # self.tistory_pwd = os.environ['TISTORY_PWD']
+        # self.tistory_rss = blogUrl + "rss"
 
         # Etc params
-        self.callback_url &#x3D; blogUrl
-        self.oauth_url &#x3D; &#39;https:&#x2F;&#x2F;www.tistory.com&#x2F;oauth&#x2F;authorize&#39;
-        self.access_token &#x3D; None
+        self.callback_url = blogUrl
+        self.oauth_url = 'https://www.tistory.com/oauth/authorize'
+        self.access_token = None
 
         # selenium setting params
-        self.webdriver_options &#x3D; webdriver.ChromeOptions()
-        self.webdriver_options.add_argument(&#39;headless&#39;)
-        self.chromedriver &#x3D; &quot;.&#x2F;chromedriver&#x2F;chromedriver&quot; + platform      # 변경
+        self.webdriver_options = webdriver.ChromeOptions()
+        self.webdriver_options.add_argument('headless')
+        self.chromedriver = "./chromedriver/chromedriver" + platform      # 변경
 
     # ... (생략된 코드는 모두 기존과 동일)
 
     def get_access_token(self):
-        &quot;&quot;&quot;
+        """
         generate access-token automatically
 
         :return: access-token
-        &quot;&quot;&quot;
-        browser &#x3D; webdriver.Chrome(
-            executable_path&#x3D;self.chromedriver,                            # 변경
-            options&#x3D;self.webdriver_options
+        """
+        browser = webdriver.Chrome(
+            executable_path=self.chromedriver,                            # 변경
+            options=self.webdriver_options
         )
         self.login_kakao(browser)
-        self.access_token &#x3D; self.confirm_tistory_oauth(browser)
+        self.access_token = self.confirm_tistory_oauth(browser)
         if self.access_token is None:
-            assert &quot;Non-existence access token&quot;
+            assert "Non-existence access token"
         else:
-            assert &quot;Generate access token Successfully&quot;
+            assert "Generate access token Successfully"
     
 
     def posting(self, title, content, category, tag):                     # 추가
         try:
-            tistory_url &#x3D; &#39;https:&#x2F;&#x2F;www.tistory.com&#x2F;apis&#x2F;post&#x2F;write?&#39;
+            tistory_url = 'https://www.tistory.com/apis/post/write?'
 
-            headers &#x3D; &#123;&#39;Content-Type&#39;: &#39;application&#x2F;json; charset&#x3D;utf-8&#39;&#125;
-            params &#x3D; &#123;
-                &#39;access_token&#39;: self.access_token,
-                &#39;output&#39;: &#39;json&#39;,
-                &#39;blogName&#39;: &#39;dev-rubykim&#39;,      # 자신의 tistory url 참고
-                &#39;title&#39;: title,
-                &#39;content&#39;: content,
-                &#39;visibility&#39;: &#39;0&#39;,
-                &#39;category&#39;: str(category[1:-1]),
-                &#39;published&#39;:&#39;&#39;,
-                &#39;slogan&#39;:&#39;&#39;,
-                &#39;tag&#39;: str(tag[1:-1]),
-                &#39;acceptComment&#39;: &#39;1&#39;,
-                &#39;password&#39;:&#39;&#39;
-            &#125;
-            data&#x3D;json.dumps(params)
-            response &#x3D; requests.post(tistory_url, headers&#x3D;headers, data&#x3D;data)
+            headers = {'Content-Type': 'application/json; charset=utf-8'}
+            params = {
+                'access_token': self.access_token,
+                'output': 'json',
+                'blogName': 'dev-rubykim',      # 자신의 tistory url 참고
+                'title': title,
+                'content': content,
+                'visibility': '0',
+                'category': str(category[1:-1]),
+                'published':'',
+                'slogan':'',
+                'tag': str(tag[1:-1]),
+                'acceptComment': '1',
+                'password':''
+            }
+            data=json.dumps(params)
+            response = requests.post(tistory_url, headers=headers, data=data)
             print(response.text)
         except:
-            print(&quot;Error while uploading post in Tistory!&quot;)
+            print("Error while uploading post in Tistory!")
     ...
 
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>OS에 따른 chromedriver 세팅을 하면서 자잘한 파라미터 값들을 수정한다.</li>
@@ -644,30 +643,30 @@ class Tistory:
 
 <h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:
     def __init__(self, blogUrl):
-        self.url &#x3D; blogUrl
-        self.xml &#x3D; blogUrl + &quot;&#x2F;atom.xml&quot;
-        self.contents &#x3D; []
-        self.curTime &#x3D; datetime.now(pytz.utc).isoformat()
-        self.md_head &#x3D; &#123;&#125;
-        self.md_body &#x3D; &quot;&quot;
+        self.url = blogUrl
+        self.xml = blogUrl + "/atom.xml"
+        self.contents = []
+        self.curTime = datetime.now(pytz.utc).isoformat()
+        self.md_head = {}
+        self.md_body = ""
 
     def parsing_md(self, target_path):
         # local params
         load_dotenv()
-        repo &#x3D; get_github_repo(os.environ.get(&#39;MY_GITHUB_BLOG_BACKUP&#39;), &#39;koBlog_backup&#39;)
+        repo = get_github_repo(os.environ.get('MY_GITHUB_BLOG_BACKUP'), 'koBlog_backup')
 
-        file &#x3D; get_repo_specific_file_content(repo, target_path)
-        self.md_head, self.md_body &#x3D; preprocess(file, target_path)
-        return self.md_head, self.md_body                                                       # 변경</code></pre>
+        file = get_repo_specific_file_content(repo, target_path)
+        self.md_head, self.md_body = preprocess(file, target_path)
+        return self.md_head, self.md_body                                                       # 변경<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 <p>기존의 코드에서는 .md의 header와 body를 반환하지 않아 GithubBlog 내부에서만 활용할 수 있는데, 직관적인 코드를 위해 return으로 변경해준다.</p>
 <br>
 
-<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre><code><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python3 run.py</code></pre>
+<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre><code><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python3 run.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </code></pre>
 <ul>
 <li>결과물이 다음과 같이 나오면 성공적으로 티스토리에 업로드 된 것을 확인할 수 있다.<ul>
-<li><code>&#123;&quot;tistory&quot;:&#123;&quot;status&quot;:&quot;200&quot;,&quot;postId&quot;:&quot;12&quot;,&quot;url&quot;:&quot;https:\/\/dev-rubykim.tistory.com\/12&quot;&#125;&#125;</code><br><img src="2.png"></li>
+<li><code>{"tistory":{"status":"200","postId":"12","url":"https:\/\/dev-rubykim.tistory.com\/12"}}</code><br><img src="2.png"></li>
 </ul>
 </li>
 </ul>

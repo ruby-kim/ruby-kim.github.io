@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -453,9 +455,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -463,13 +462,13 @@
             <div id="articleContent">
                 <p><img src="EC2.png"></p>
 <h2 id="목적-유연한-cloud-크기-변동"><a href="#목적-유연한-cloud-크기-변동" class="headerlink" title="목적: 유연한 cloud 크기 변동"></a>목적: 유연한 cloud 크기 변동</h2><blockquote>
-<p>인스턴스 on&#x2F;off 자동화로 유연한 cloud 크기 변동</p>
+<p>인스턴스 on/off 자동화로 유연한 cloud 크기 변동</p>
 </blockquote>
 <p><br><br></p>
 <h2 id="EC2-지불-방법"><a href="#EC2-지불-방법" class="headerlink" title="EC2 지불 방법"></a>EC2 지불 방법</h2><ul>
 <li>On-demend<ul>
 <li>시간 단위로 가격이 고정됨</li>
-<li>SW 개발 초기에 주로 사용 (오랜 시간 동안 선불을 내지 않고 최소한의 비용을 지불하여 사용하고 싶을 때 &#x2F; 개발 시작-끝 기간이 정해지지 않음)</li>
+<li>SW 개발 초기에 주로 사용 (오랜 시간 동안 선불을 내지 않고 최소한의 비용을 지불하여 사용하고 싶을 때 / 개발 시작-끝 기간이 정해지지 않음)</li>
 </ul>
 </li>
 <li>Reserved<ul>
@@ -480,7 +479,7 @@
 <li>Spot<ul>
 <li>입찰 가격 적용. 단순 비용 절감 시 유용</li>
 <li>가장 큰 할인률을 적용받으며 특히 인스턴스의 시작과 끝기간이 전혀 중요하지 않을 때 매우 유용</li>
-<li>가격이 정해진 범위 내에 있을 시(&#x3D; 입찰 가격일 시) 작동 &#x2F; 그 범위를 벗어나면 사용 중지<br><img src="spot.png"></li>
+<li>가격이 정해진 범위 내에 있을 시(= 입찰 가격일 시) 작동 / 그 범위를 벗어나면 사용 중지<br><img src="spot.png"></li>
 </ul>
 </li>
 </ul>
@@ -496,7 +495,7 @@
 </li>
 </ul>
 <table>
-    <tr>
+    <tbody><tr>
         <td>SSD</td>
         <td>설명</td>
     </tr>
@@ -508,12 +507,12 @@
         <td>Provisioned IOPS SSD (IO1)</td>
         <td>극도의 I/O률을 요구하는(매우 큰 DB관리 등) 환경에서 주로 사용됨<br>10K 이상의 IOPS 지원</td>
     </tr>
-</table>
+</tbody></table>
 
 <br>
 
 <table>
-    <tr>
+    <tbody><tr>
         <td>HDD / Magnetic</td>
         <td>설명</td>
     </tr>
@@ -529,7 +528,7 @@
         <td>Magnetic (Sandard)</td>
         <td>디스크 1GB당 가장 싼 비용<br>유일하게 boot volume으로 사용 o</td>
     </tr>
-</table>
+</tbody></table>
 
 <p><br><br></p>
 <h2 id="ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌"><a href="#ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌" class="headerlink" title="ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌"></a>ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌</h2><ul>
@@ -539,23 +538,23 @@
 </ul>
 <p><img src="osi.png"></p>
 <table>
-    <tr>
+    <tbody><tr>
         <td>OSI</td>
         <td>설명</td>
     </tr>
     <tr>
         <td>Application Load Balancer</td>
-        <td>OSI Layer 7에서 작동<br>-> HTTP, HTTPS같은 traffic의 load balancing에 가장 적합<br>-> 고급 request 라우팅 설정을 통해 특정 서버로 Request를 보낼 수 있음</td>
+        <td>OSI Layer 7에서 작동<br>-&gt; HTTP, HTTPS같은 traffic의 load balancing에 가장 적합<br>-&gt; 고급 request 라우팅 설정을 통해 특정 서버로 Request를 보낼 수 있음</td>
     </tr>
     <tr>
         <td>Network(Transport) Load Balancer</td>
-        <td>OSI Layer 4에서 작동. 매우 빠른 속도를 자랑하며 Production 환경에서 종종 쓰임<br>-> 극도의 performance가 요구되는 TCP traffic에서 적합<br>-> 초당 수백만개의 request를 아주 미세한 delay로 처리</td>
+        <td>OSI Layer 4에서 작동. 매우 빠른 속도를 자랑하며 Production 환경에서 종종 쓰임<br>-&gt; 극도의 performance가 요구되는 TCP traffic에서 적합<br>-&gt; 초당 수백만개의 request를 아주 미세한 delay로 처리</td>
     </tr>
     <tr>
         <td>Classic Load Balancer</td>
-        <td>Legacy로 간주되면서 거의 사용 x<br>-> Layer7의 HTTP/HTTPS 라우팅 기능 지원<br>-> Layer4의 TCP traffic 라우팅 기능 지원</td>
+        <td>Legacy로 간주되면서 거의 사용 x<br>-&gt; Layer7의 HTTP/HTTPS 라우팅 기능 지원<br>-&gt; Layer4의 TCP traffic 라우팅 기능 지원</td>
     </tr>
-</table>
+</tbody></table>
 
 <br>
 
@@ -563,7 +562,7 @@
 <li>X-Forwarded-For Header<br><img src="x-forwarded-for-header.png"><ul>
 <li>Public IP address가 <code>192.168.111.2</code>일 때</li>
 <li>ELB가 Public IP address를 <code>10.0.0.25</code>같이 Private IP address로 변경하여 EC2에 전달</li>
-<li>따라서 EC2는 Provate IP address만 확인 가능 &#x3D; Public IP address가 어디인지 확인 불가능</li>
+<li>따라서 EC2는 Provate IP address만 확인 가능 = Public IP address가 어디인지 확인 불가능</li>
 <li>이 때 EC2는 X-Forwarded-For Header를 통해 Public IP address 확인 가능</li>
 </ul>
 </li>

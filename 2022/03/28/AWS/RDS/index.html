@@ -47,7 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -453,9 +455,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -492,7 +491,7 @@
 <li>OLTP(Online Transaction Processing)<ul>
 <li>사용자의 PC에서 발생되는 transaction을 DB가 처리하고, 그 결과를 요청한 사용자 PC에 결과를 되돌려주는 과정</li>
 <li>즉 데이터 자체의 처리에 중점을 둔 용어</li>
-<li><code>INSERT</code>와 같이 종종 사용되어지는, 혹은 규모가 작은 데이터를 불러올 때 사용되는 SQL 쿼리가 필요할 때 유용 &#x3D; 1개의 요청작업을 처리하는 과정</li>
+<li><code>INSERT</code>와 같이 종종 사용되어지는, 혹은 규모가 작은 데이터를 불러올 때 사용되는 SQL 쿼리가 필요할 때 유용 = 1개의 요청작업을 처리하는 과정</li>
 </ul>
 </li>
 <li>OLAP(Online Analytical Processing)<ul>
@@ -504,7 +503,7 @@
 </ul>
 <p><br><br></p>
 <h2 id="RDS-Backup"><a href="#RDS-Backup" class="headerlink" title="RDS Backup"></a>RDS Backup</h2><ul>
-<li>원본 RDS Instance를 가지고 백업용 RDS Instance를 생성 시 새로운 Endpoint가 생성 &#x3D; 원본 RDS와 백업용 RDS Instance는 전혀 다른 것<ul>
+<li>원본 RDS Instance를 가지고 백업용 RDS Instance를 생성 시 새로운 Endpoint가 생성 = 원본 RDS와 백업용 RDS Instance는 전혀 다른 것<ul>
 <li>원본 RDS Instance: original.ap-northeast-1.rds.amazonaws.com</li>
 <li>백업용 RDS Instance: backup.ap-northeast-1.rds.amazonaws.com</li>
 </ul>
@@ -516,7 +515,7 @@
 <li>AB는 그 날 생성된 스냅샷과 Transaction logs(TL)을 참고함</li>
 <li>Default로 AB기능이 설정되어 있음</li>
 <li>백업 정보는 S3에 저장: RDS 용량에 해당하는 만큼 무료 저장</li>
-<li>AB동안 약간의 I&#x2F;O suspension이 존재할 수 있음: Latency</li>
+<li>AB동안 약간의 I/O suspension이 존재할 수 있음: Latency</li>
 <li>Instance 삭제 시 스냅샷도 같이 삭제됨</li>
 </ul>
 </li>
@@ -529,7 +528,7 @@
 </ol>
 <p><br><br></p>
 <h2 id="Multi-AZ-Multi-Available-Zone"><a href="#Multi-AZ-Multi-Available-Zone" class="headerlink" title="Multi AZ: Multi Available Zone"></a>Multi AZ: Multi Available Zone</h2><ul>
-<li>원래 존재하는 RDS DB에 변화(ex. write)가 생길 때 다른 AZ에서 똑같은 복제본이 만들어짐 (&#x3D; Synchoronize)</li>
+<li>원래 존재하는 RDS DB에 변화(ex. write)가 생길 때 다른 AZ에서 똑같은 복제본이 만들어짐 (= Synchoronize)</li>
 <li>AWS에 의해서 자동으로 관리가 이루어짐 (No admin intervention)</li>
 <li>원본 RDS DB에 문제가 생길 시 자동으로 다른 AZ의 복제본이 사용됨</li>
 <li><strong>오직 Disaster Recovery 용으로 사용됨</strong><ul>
