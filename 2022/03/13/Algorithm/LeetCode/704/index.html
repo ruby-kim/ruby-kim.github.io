@@ -474,7 +474,7 @@
 <li>list[pivot]값에 따라 left와 right를 조정해준다.</li>
 <li>이때 left와 right는 pivot ± 1로 설정해주면 된다.</li>
 </ul>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
     def search(self, nums: List[int], target: int) -&gt; int:
         left, right &#x3D; 0, len(nums) - 1
         while left &lt;&#x3D; right:
@@ -486,7 +486,6 @@
             else:
                 right &#x3D; pivot - 1
         return -1</code></pre>
-</code></pre>
 
                 
             </div>

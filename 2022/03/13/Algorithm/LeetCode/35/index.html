@@ -469,13 +469,13 @@
 <h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>O(log n)에 맞춰 풀어야 하는 문제로, 배열이 정렬됐기 때문에 binary search를 이용하면 쉽게 풀리는 문제이다.</p>
 <p>타겟값이 없을 경우 들어가기 가장 적합한 곳의 인덱스를 반환해야 하는데,<br>left와 right을 이리저리 옮겨다니면 최종적으로 멈추는 그 자리가 바로 적합한 자리이다.</p>
 <p>최종적으로 현재 숫자들이 오른차순으로 되어있기 때문에 left를 반환시키면 된다.</p>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
     def searchInsert(self, nums: List[int], target: int) -&gt; int:
         left, right &#x3D; 0, len(nums) - 1
-        
+            
         while left &lt;&#x3D; right:
             pivot &#x3D; (left + right) &#x2F;&#x2F; 2
-            
+                
             if nums[pivot] &#x3D;&#x3D; target:
                 return pivot
             elif nums[pivot] &lt; target:
@@ -483,7 +483,6 @@
             else:
                 right &#x3D; pivot - 1
         return left</code></pre>
-</code></pre>
 
                 
             </div>
