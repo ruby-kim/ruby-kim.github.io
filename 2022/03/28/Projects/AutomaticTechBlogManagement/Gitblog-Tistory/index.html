@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -455,9 +456,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -470,7 +468,8 @@
 </ul>
 <br>
 
-<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">from gitblog import *
+<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre><code>```python
+from gitblog import *
 from tistory import *
 import markdown2
 from sys import platform
@@ -531,7 +530,8 @@ if __name__ == "__main__":
     tistory.parsing_rss()
     tistory.toc_post()
 
-    create_post(githubBlog, tistory)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    create_post(githubBlog, tistory)
+```
 </code></pre>
 <ul>
 <li>전체적인 알고리즘은 <code>python-markdown2</code> 패키지를 사용하여 <code>.md</code> 파일을 <code>.html</code>로 변경 후 tistory에 업로드 하는 것이다.</li>
@@ -555,7 +555,8 @@ if __name__ == "__main__":
 </ul>
 <br>
 
-<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">import requests
+<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre><code>```python
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from urllib.parse import unquote
@@ -636,7 +637,8 @@ class Tistory:
             print("Error while uploading post in Tistory!")
     ...
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+```
 </code></pre>
 <ul>
 <li>OS에 따른 chromedriver 세팅을 하면서 자잘한 파라미터 값들을 수정한다.</li>
@@ -644,7 +646,8 @@ class Tistory:
 </ul>
 <br>
 
-<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre><code><pre class="line-numbers language-python" data-language="python"><code class="language-python">class GithubBlog:
+<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre><code>```python
+class GithubBlog:
     def __init__(self, blogUrl):
         self.url = blogUrl
         self.xml = blogUrl + "/atom.xml"
@@ -660,12 +663,15 @@ class Tistory:
 
         file = get_repo_specific_file_content(repo, target_path)
         self.md_head, self.md_body = preprocess(file, target_path)
-        return self.md_head, self.md_body                                                       # 변경<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        return self.md_head, self.md_body                                                       # 변경
+```
 </code></pre>
 <p>기존의 코드에서는 .md의 header와 body를 반환하지 않아 GithubBlog 내부에서만 활용할 수 있는데, 직관적인 코드를 위해 return으로 변경해준다.</p>
 <br>
 
-<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre><code><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">python3 run.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre><code>```shell
+python3 run.py
+```
 </code></pre>
 <ul>
 <li>결과물이 다음과 같이 나오면 성공적으로 티스토리에 업로드 된 것을 확인할 수 있다.<ul>

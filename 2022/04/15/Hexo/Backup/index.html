@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -455,9 +456,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -477,41 +475,45 @@
 </ul>
 <p><br><br></p>
 <h2 id="theme-백업하기"><a href="#theme-백업하기" class="headerlink" title="theme 백업하기"></a>theme 백업하기</h2><p><code>themes/테마명</code> 내에서 다음의 명령어들을 실행한다.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 원격 저장소 변경(theme url로 된 세팅을 자신의 repository url로 재세팅)
-git remote set-url origin "theme를 저장할 repository 주소"
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 원격 저장소 변경(theme url로 된 세팅을 자신의 repository url로 재세팅)</span>
+<span class="token function">git</span> remote set-url origin <span class="token string">"theme를 저장할 repository 주소"</span>
 
-# 테마 내용 백업
-git commit -m "theme backup"
-git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<span class="token comment" spellcheck="true"># 테마 내용 백업</span>
+<span class="token function">git</span> commit -m <span class="token string">"theme backup"</span>
+<span class="token function">git</span> push origin
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><br><br></p>
 <h2 id="md-파일-백업하기"><a href="#md-파일-백업하기" class="headerlink" title=".md 파일 백업하기"></a>.md 파일 백업하기</h2><p>hexo blog 디렉토리에서 .md파일을 저장할 repository를 세팅해준다.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># git 초기화
-git init
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># git 초기화</span>
+<span class="token function">git</span> init
 
-# 원격 저장소 등록
-git remote add origin ".md파일을 저장할 repository 주소"
+<span class="token comment" spellcheck="true"># 원격 저장소 등록</span>
+<span class="token function">git</span> remote add origin <span class="token string">".md파일을 저장할 repository 주소"</span>
 
-# 현재 내용 백업
-git add .
-git commit -m "blog backup"
-git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<span class="token comment" spellcheck="true"># 현재 내용 백업</span>
+<span class="token function">git</span> add <span class="token keyword">.</span>
+<span class="token function">git</span> commit -m <span class="token string">"blog backup"</span>
+<span class="token function">git</span> push origin
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><br><br></p>
 <h2 id="선택-theme폴더-submodule-추가"><a href="#선택-theme폴더-submodule-추가" class="headerlink" title="(선택) theme폴더 submodule 추가"></a>(선택) theme폴더 submodule 추가</h2><ul>
-<li>이제부턴 다른 환경에서 이 백업파일들을 클론하면 .md파일들과 테마들이 그대로 유지된다.<br>다만 git clone을 두 번 써야 한다는 불편함이 있는데, 한 번의 git clone으로 theme도 자동으로 클론할 수 있도록 세팅을 해준다.<br>이 작업은 hexo blog 디렉토리에서 진행한다. 아래의 명령어를 잘 입력하면 자동으로 theme <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"># 기존의 &lt;themes/테마명&gt;를 삭제
-rm -rf themes/테마명
- 
-# 백업해둔 theme repository를 submodule로 추가
-git submodule add "theme를 저장한 repository 주소"
+<li>이제부턴 다른 환경에서 이 백업파일들을 클론하면 .md파일들과 테마들이 그대로 유지된다.<br>다만 git clone을 두 번 써야 한다는 불편함이 있는데, 한 번의 git clone으로 theme도 자동으로 클론할 수 있도록 세팅을 해준다.<br>이 작업은 hexo blog 디렉토리에서 진행한다. 아래의 명령어를 잘 입력하면 자동으로 theme <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 기존의 &lt;themes/테마명>를 삭제</span>
+<span class="token function">rm</span> -rf themes/테마명
 
-# 현재 내용 백업
-git add .
-git commit -m "blog theme submodule"
-git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>앞으로 새로운 환경에서 블로그를 다시 운영할 때 아래의 명령어로 기존 환경을 재구성해준다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">git clone --recursive ".md파일을 저장한 repository 주소" blog
-cd blog
-npm install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token comment" spellcheck="true"># 백업해둔 theme repository를 submodule로 추가</span>
+<span class="token function">git</span> submodule add <span class="token string">"theme를 저장한 repository 주소"</span>
+
+<span class="token comment" spellcheck="true"># 현재 내용 백업</span>
+<span class="token function">git</span> add <span class="token keyword">.</span>
+<span class="token function">git</span> commit -m <span class="token string">"blog theme submodule"</span>
+<span class="token function">git</span> push origin
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>앞으로 새로운 환경에서 블로그를 다시 운영할 때 아래의 명령어로 기존 환경을 재구성해준다.<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone --recursive <span class="token string">".md파일을 저장한 repository 주소"</span> blog
+<span class="token function">cd</span> blog
+<span class="token function">npm</span> <span class="token function">install</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 
                 

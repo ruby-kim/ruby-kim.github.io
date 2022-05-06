@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -455,9 +456,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -476,18 +474,19 @@
 <li>list[pivot]값에 따라 left와 right를 조정해준다.</li>
 <li>이때 left와 right는 pivot ± 1로 설정해주면 된다.</li>
 </ul>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">class Solution:
-    def search(self, nums: List[int], target: int) -&gt; int:
-        left, right = 0, len(nums) - 1
-        while left &lt;= right:
-            pivot = (left + right) // 2
-            if nums[pivot] == target:
-                return pivot
-            elif nums[pivot] &lt; target:
-                left = pivot + 1
-            else:
-                right = pivot - 1
-        return -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+        left<span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">while</span> left <span class="token operator">&lt;=</span> right<span class="token punctuation">:</span>
+            pivot <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token number">2</span>
+            <span class="token keyword">if</span> nums<span class="token punctuation">[</span>pivot<span class="token punctuation">]</span> <span class="token operator">==</span> target<span class="token punctuation">:</span>
+                <span class="token keyword">return</span> pivot
+            <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>pivot<span class="token punctuation">]</span> <span class="token operator">&lt;</span> target<span class="token punctuation">:</span>
+                left <span class="token operator">=</span> pivot <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                right <span class="token operator">=</span> pivot <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

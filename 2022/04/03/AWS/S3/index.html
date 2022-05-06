@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -455,9 +456,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -586,8 +584,8 @@
 </li>
 <li><p>예시</p>
 <ul>
-<li>PUT 요청이 생성<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PUT /ruby-image.png HTTP/1.1
-Host: RubyBucket.s3.&lt;Region&gt;.amazonaws.com
+<li>PUT 요청이 생성<pre class="line-numbers language-bash"><code class="language-bash">PUT /ruby-image.png HTTP/1.1
+Host: RubyBucket.s3.<span class="token operator">&lt;</span>Region<span class="token operator">></span>.amazonaws.com
 Date: Sun, 3 Apr 2022 03:00:23 GMT
 Authorization: authorization string
 Content-Type: text/plain
@@ -595,7 +593,8 @@ Content-Length: 82253
 x-amz-meta-author: Ruby
 Expect: 100-continue
 x-amz-server-side-encryption-parameter: AES-256
-[82253 bytes of object data]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">[</span>82253 bytes of object data<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>x-amz-server-side-encryption-parameter: PUT요청에 해당 파라미터가 있으면 암호화가 실행됨<ul>
 <li>Bucket 정책 설정을 통해 암호화 되지 않은 파일의 upload를 통제할 수 있음</li>

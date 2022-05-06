@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -455,9 +456,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -489,10 +487,12 @@
 
 <ol start="5">
 <li>Github 내에서는 다음과 같이 작성한다.<ul>
-<li>코드<pre class="line-numbers language-python" data-language="python"><code class="language-python">import os
+<li>코드<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> os
 
-app_id = os.environ['TISTORY_APP_ID']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>Github Actions<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">name: project
+app_id <span class="token operator">=</span> os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">'TISTORY_APP_ID'</span><span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>Github Actions<pre class="line-numbers language-yml"><code class="language-yml">name: project
 
 on:
   schedule:
@@ -503,7 +503,9 @@ jobs:
     ...
     - name: set parameters
       env:
-        MY_GITHUB_TOKEN: ${{ secrets.TISTORY_APP_ID }}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        MY_GITHUB_TOKEN: ${{ secrets.TISTORY_APP_ID }}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 </ol>

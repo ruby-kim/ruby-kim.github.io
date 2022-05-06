@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -451,18 +452,22 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="React-Life-Cycle"><a href="#React-Life-Cycle" class="headerlink" title="React Life Cycle"></a>React Life Cycle</h2><p>Reacts는 컴포넌트(component) 기반의 View를 중심으로 한 라이브러리이다.<br>따라서 각각의 컴포넌트에는 라이프사이클, 즉 컴포넌트의 <code>수명 주기</code>가 존재하는데, 컴포넌트의 수명은 보통 <strong>페이지에서 렌더링되기 전인 준비 과정에서 시작하여 페이지에서 사라질 때 끝난다</strong>.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = <span class="function">() =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">App</span> /&gt;</span></span>, <span class="built_in">document</span>.querySelector(<span class="string">"#root"</span>));</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span>h1<span class="token operator">></span>Hello World<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-
+ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">"#root"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>아래의 사진이 바로 리엑트 라이프 사이클을 나타낸 것이다.<br>(사이트는 <a target="_blank" rel="noopener" href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">여기</a> 참고)<br><img src="1.png"></p>
 <p><br><br></p>
 <h2 id="Mount-생성될-때"><a href="#Mount-생성될-때" class="headerlink" title="Mount (생성될 때)"></a>Mount (생성될 때)</h2><ol>
@@ -471,7 +476,18 @@
 <li>페이지 로드 되고 컴포넌트가 만들어질 때 처음으로 실행됨</li>
 <li>초기 state 설정이 필요할 때 사용됨</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> {</span><br><span class="line">        <span class="built_in">super</span>(props);</span><br><span class="line">        <span class="built_in">this</span>.state = { <span class="attr">count</span>: <span class="number">0</span> };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    <span class="keyword">const</span> [count,setCount] = useState(<span class="number">0</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span> count<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Hooks</span>
+<span class="token keyword">const</span> Example <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span>setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>static getDerivedStateFromProps(nextProps, prevState)</p>
 <ul>
@@ -481,7 +497,16 @@
 <li>리턴타입을 Javascript Object로 설정해야 함</li>
 <li>리턴된 Object는 State에 반영됨</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">getDerivedStateFromProps</span>(<span class="params">nextProps, prevState</span>)</span> {</span><br><span class="line">        <span class="keyword">if</span> (nextProps.value !== prevState.value) {</span><br><span class="line">            <span class="keyword">return</span> value: nextProps.value;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token function">getDerivedStateFromProps</span><span class="token punctuation">(</span>nextProps<span class="token punctuation">,</span> prevState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nextProps<span class="token punctuation">.</span>value <span class="token operator">!==</span> prevState<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> value<span class="token punctuation">:</span> nextProps<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>Render()</p>
 <ul>
@@ -489,7 +514,18 @@
 <li>state 변경이 있으면 side effect 발생</li>
 <li>함수형 컴포넌트에서는 render 사용 없이 렌더링 가능</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>컴포넌트<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> example = <span class="function">() =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>컴포넌트<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>컴포넌트<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Hooks</span>
+<span class="token keyword">const</span> example <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">></span>컴포넌트<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>componentDidMount()</p>
 <ul>
@@ -500,7 +536,21 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">componentDidMount</span>(<span class="params"></span>)</span> {</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> {</span><br><span class="line">        ...</span><br><span class="line">    }, []);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Hooks</span>
+<span class="token keyword">const</span> Example <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ol>
 <p><br><br></p>
 <h2 id="Update-업데이트-할-때"><a href="#Update-업데이트-할-때" class="headerlink" title="Update (업데이트 할 때)"></a>Update (업데이트 할 때)</h2><ol>
@@ -515,7 +565,21 @@
 <li>리턴되는 결과에 따라 DOM에 리 렌더링을 여부를 결정</li>
 <li>성능 개선을 위해 사용이 가능</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">shouldComponentUpdate</span>(<span class="params">nextProps</span>)</span> {</span><br><span class="line">        <span class="keyword">return</span> nextProps.value !== <span class="built_in">this</span>.props.value</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = React.memo(<span class="function">() =&gt;</span> {</span><br><span class="line">        ...</span><br><span class="line">    }, <span class="function">(<span class="params">prevProps, nextProps</span>) =&gt;</span> {</span><br><span class="line">        <span class="keyword">return</span> nextProps.value === prevProps.value</span><br><span class="line">    }</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">shouldComponentUpdate</span><span class="token punctuation">(</span>nextProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> nextProps<span class="token punctuation">.</span>value <span class="token operator">!==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>value
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Hooks</span>
+<span class="token keyword">const</span> Example <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">memo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> nextProps<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> nextProps<span class="token punctuation">.</span>value <span class="token operator">===</span> prevProps<span class="token punctuation">.</span>value
+    <span class="token punctuation">}</span>
+<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>Render()</p>
 <ul>
@@ -530,14 +594,37 @@
 <li>채팅 화면처럼 스크롤 위치를 따로 처리하는 작업이 필요한 UI에서 주로 사용</li>
 <li>함수형에서는 아직 이 기능을 대처할만한 hook이 없음</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">getSnapshotBeforeUpdate</span>(<span class="params">prevProps, prevState</span>)</span> {</span><br><span class="line">        <span class="keyword">if</span> (prevProps.list.length &lt; <span class="built_in">this</span>.props.list.length) {</span><br><span class="line">            <span class="keyword">const</span> list = <span class="built_in">this</span>.listRef.current</span><br><span class="line">            <span class="keyword">return</span> list.scrollHeight - list.scrollTop</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">getSnapshotBeforeUpdate</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> prevState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>prevProps<span class="token punctuation">.</span>list<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>list<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>listRef<span class="token punctuation">.</span>current
+            <span class="token keyword">return</span> list<span class="token punctuation">.</span>scrollHeight <span class="token operator">-</span> list<span class="token punctuation">.</span>scrollTop
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>componentDidUpdate</p>
 <ul>
 <li>매 업데이트마다 UI sync와 서드파티 라이브러리를 사용하는 코드 작성</li>
 <li>리랜더링을 완료 후 실행: 업데이트가 끝난 직후이므로 DOM관련 처리를 해도 무방</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">componentDidUpdate</span>(<span class="params">prevProps, prevState</span>)</span> {</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> {</span><br><span class="line">        ...</span><br><span class="line">    });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">componentDidUpdate</span><span class="token punctuation">(</span>prevProps<span class="token punctuation">,</span> prevState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Hooks</span>
+<span class="token keyword">const</span> Example <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ol>
 <p><br><br></p>
 <h2 id="UnMount-제거할-때"><a href="#UnMount-제거할-때" class="headerlink" title="UnMount (제거할 때)"></a>UnMount (제거할 때)</h2><ol>
@@ -547,14 +634,36 @@
 <li>컴포넌트와 관련된 것을 정리하는데 사용<br>ex) 로그아웃시 주 구성 Component를 해제하기 전에 사용자 세부정보와 모든 인증 토큰을 지운다거나 setInterval을 clear하는 등에 사용</li>
 <li>함수영 컴포넌트에서는 useEffect CleanUp 함수로 구현</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">coomponentWillUnmount</span>(<span class="params"></span>)</span> {</span><br><span class="line">        ...</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hooks</span></span><br><span class="line"><span class="keyword">const</span> Example = <span class="function">() =&gt;</span> {</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="function">() =&gt;</span> {</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">    }, []);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">coomponentWillUnmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Hooks</span>
+<span class="token keyword">const</span> Example <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token operator">...</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>componentDidCatch</p>
 <ul>
 <li>컴포넌트 렌더링 도중 에러가 발생했을 때 어플리케이션을 멈추지 않고 오류 UI를 보여줌</li>
 <li>곧 Hooks에 해당 라이프 사이클 메서드 추가 예정</li>
 </ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>{</span><br><span class="line">    <span class="function"><span class="title">componentDidCatch</span>(<span class="params">error, info</span>)</span> {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Error'</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// Class</span>
+<span class="token keyword">class</span> <span class="token class-name">Example</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">{</span>
+    <span class="token function">componentDidCatch</span><span class="token punctuation">(</span>error<span class="token punctuation">,</span> info<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Error'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ol>
 
                 
@@ -697,51 +806,53 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="">
+                <a href="../../../23/Retrospect/Junior/">
                     <div class="card-image">
                         
-                        <img src="../../../../../coverImages/reactjs.png" class="responsive-img" alt="[React.js] React 라이프 사이클">
+                        <img src="../../../../../coverImages/base.png" class="responsive-img" alt="[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정">
                         
-                        <span class="card-title">[React.js] React 라이프 사이클</span>
+                        <span class="card-title">[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            React.js의 라이프 사이클
+                            주니어 개발자로 발빠르게 취준하기
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-23
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="../../../../../categories/%E2%9C%A8-React-js/" class="post-category">
-                                    ✨ React.js
+                            <a href="../../../../../categories/%F0%9F%8E%88-Retrospect/" class="post-category">
+                                    🎈 Retrospect
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../tags/React/">
-                        <span class="chip bg-color">React</span>
+                    <a href="../../../../../tags/Retrospect/">
+                        <span class="chip bg-color">Retrospect</span>
                     </a>
                     
-                    <a href="../../../../../tags/Javascript/">
-                        <span class="chip bg-color">Javascript</span>
+                    <a href="../../../../../tags/Job/">
+                        <span class="chip bg-color">Job</span>
+                    </a>
+                    
+                    <a href="../../../../../tags/42SEOUL/">
+                        <span class="chip bg-color">42SEOUL</span>
                     </a>
                     
                 </div>

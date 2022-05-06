@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -451,9 +452,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -462,14 +460,15 @@
                 <p><img src="2.png"><br>종종 프로젝트를 하다보면 wiki의 크기가 커지는 경우가 많은데, 문서 가시성을 위해 wiki에서 TOC(Table Of Content, 목차)를 만드는 방법을 소개해보고자 한다.</p>
 <h2 id="repository-wiki에-접속-후-sidebar-추가하기"><a href="#repository-wiki에-접속-후-sidebar-추가하기" class="headerlink" title="repository wiki에 접속 후 sidebar 추가하기"></a>repository wiki에 접속 후 sidebar 추가하기</h2><p><img src="1.png"></p>
 <p><br><br></p>
-<h2 id="아래의-형태로-원하는-항목-작성"><a href="#아래의-형태로-원하는-항목-작성" class="headerlink" title="아래의 형태로 원하는 항목 작성"></a>아래의 형태로 원하는 항목 작성</h2><pre class="line-numbers language-none"><code class="language-none"># My menu
+<h2 id="아래의-형태로-원하는-항목-작성"><a href="#아래의-형태로-원하는-항목-작성" class="headerlink" title="아래의 형태로 원하는 항목 작성"></a>아래의 형태로 원하는 항목 작성</h2><pre><code># My menu
 * [목차1][home]
 * [목차2][techdocs]
 * [목차3][usermanual]
 
 [home]: https://github.com/myproject/wiki/목차1
 [techdocs]: https://github.com/myproject/wiki/목차2
-[usermanual]: https://github.com/myproject/wiki/목차3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+[usermanual]: https://github.com/myproject/wiki/목차3
+</code></pre>
 <ul>
 <li>위의 코드가 이해가 안된다면 기존의 마크다운처럼 작성 후 변경 에디터로 코드를 변경하자: <a target="_blank" rel="noopener" href="https://ecotrust-canada.github.io/markdown-toc/">https://ecotrust-canada.github.io/markdown-toc/</a><ul>
 <li>변경한 코드에서 <code>&lt;small&gt; ... &lt;/small&gt;</code> 부분은 지워도 괜찮다.</li>

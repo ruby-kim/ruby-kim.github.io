@@ -50,7 +50,8 @@
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -455,9 +456,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="../../../../../libs/prism/prism.css">
-        
 
         
 
@@ -479,12 +477,14 @@
 <p><br><br></p>
 <h2 id="Hexo-설치-및-기본-세팅하기"><a href="#Hexo-설치-및-기본-세팅하기" class="headerlink" title="Hexo 설치 및 기본 세팅하기"></a>Hexo 설치 및 기본 세팅하기</h2><ul>
 <li>github repository 생성: <code>자신의 github 계정명.github.io</code> (ex. <a target="_blank" rel="noopener" href="https://github.com/ruby-kim/ruby-kim.github.io">ruby-kim.github.io</a>)</li>
-<li>터미널에서 <code>npm</code>을 이용하여 hexo-cli 설치 및 hexo folder 생성<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-cli -g
-hexo init "원하는 폴더명"
-cd "원하는 폴더명"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>터미널에서 <code>npm</code>을 이용하여 hexo-cli 설치 및 hexo folder 생성<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g
+hexo init <span class="token string">"원하는 폴더명"</span>
+<span class="token function">cd</span> <span class="token string">"원하는 폴더명"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <p><br><br></p>
-<h2 id="Hexo-init-시-디렉토리-구조"><a href="#Hexo-init-시-디렉토리-구조" class="headerlink" title="Hexo init 시 디렉토리 구조"></a>Hexo init 시 디렉토리 구조</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">.
+<h2 id="Hexo-init-시-디렉토리-구조"><a href="#Hexo-init-시-디렉토리-구조" class="headerlink" title="Hexo init 시 디렉토리 구조"></a>Hexo init 시 디렉토리 구조</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">.</span>
 ├── .deploy_git
 ├── .github
 ├── .gitignore
@@ -494,9 +494,10 @@ cd "원하는 폴더명"<span aria-hidden="true" class="line-numbers-rows"><span
 ├── package-lock.json
 ├── package.json
 ├── scaffolds
-├── source
+├── <span class="token function">source</span>
 │   └── _posts
-└── theme<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+└── theme
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>hexo init이 잘 되었다면 다음의 구조를 확인할 수 있다.</li>
 <li>여기서 블로그를 운영하면서 사용할 폴더는 <code>source</code>와 <code>theme</code>이다.<ul>
@@ -507,35 +508,44 @@ cd "원하는 폴더명"<span aria-hidden="true" class="line-numbers-rows"><span
 </ul>
 <p><br><br></p>
 <h2 id="Hexo-server-실행시키기"><a href="#Hexo-server-실행시키기" class="headerlink" title="Hexo server 실행시키기"></a>Hexo server 실행시키기</h2><p>아래의 명령어를 입력하고 localhost:4000에 접속하면 다음의 화면을 확인할 수 있다.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo s        # 또는 hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash">hexo s        <span class="token comment" spellcheck="true"># 또는 hexo server</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><img src="start.png"></p>
 <p><br><br></p>
 <h2 id="Hexo-글-작성하기"><a href="#Hexo-글-작성하기" class="headerlink" title="Hexo 글 작성하기"></a>Hexo 글 작성하기</h2><ul>
-<li>다음의 명령어를 입력하면 <code>/source/_post/</code>에 .md파일이 생성된다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new "글제목"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>다음의 명령어를 입력하면 <code>/source/_post/</code>에 .md파일이 생성된다.<pre class="line-numbers language-bash"><code class="language-bash">hexo new <span class="token string">"글제목"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li>물론 명령어를 입력 안하고 직접 <code>/source/_post/</code>에서 파일을 생성해도 된다.<br><img src="files.png"></li>
 <li>글쓰기 예시<br><img src="real.png"> <img src="ex.png"></li>
 </ul>
 <p><br><br></p>
 <h2 id="Hexo에서-md파일을-html로-변환하기"><a href="#Hexo에서-md파일을-html로-변환하기" class="headerlink" title="Hexo에서 md파일을 html로 변환하기"></a>Hexo에서 md파일을 html로 변환하기</h2><p>다음의 명령어를 입력할 시 public이라는 폴더가 생성되며, 글이 html로 변환되는 것을 확인할 수 있다.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g        # 또는 hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
+<pre class="line-numbers language-bash"><code class="language-bash">hexo g        <span class="token comment" spellcheck="true"># 또는 hexo generate</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><br><br></p>
 <h2 id="Hexo에서-md파일을-html로-변환하기-1"><a href="#Hexo에서-md파일을-html로-변환하기-1" class="headerlink" title="Hexo에서 md파일을 html로 변환하기"></a>Hexo에서 md파일을 html로 변환하기</h2><p>다음의 명령어를 입력할 시 public이라는 폴더가 생성되며, 글이 html로 변환되는 것을 확인할 수 있다.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g        # 또는 hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
+<pre class="line-numbers language-bash"><code class="language-bash">hexo g        <span class="token comment" spellcheck="true"># 또는 hexo generate</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><br><br></p>
 <h2 id="작성한-html를-github-blog에-배포하기"><a href="#작성한-html를-github-blog에-배포하기" class="headerlink" title="작성한 html를 github blog에 배포하기"></a>작성한 html를 github blog에 배포하기</h2><ul>
 <li>hexo에서 github repository로 배포하기 위해서는 <code>hexo-deployer-git</code>플러그인과 <code>_config.yml</code>에서 기본 세팅이 필요하다.</li>
-<li>먼저 다음의 명령어로 배포 플러그인 설치<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-deployer-git -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><code>_config.yml</code>을 다음과 같이 수정한다. repo 주소가 .git으로 끝나는지 확인한다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">deploy:
-  type: git
-  repo: "자신의 github.io repository 주소"
-  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>아래의 명령어로 블로그를 배포한다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo d -g        # 또는 hexo deploy -generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>먼저 다음의 명령어로 배포 플러그인 설치<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git -g
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><code>_config.yml</code>을 다음과 같이 수정한다. repo 주소가 .git으로 끝나는지 확인한다.<pre class="line-numbers language-bash"><code class="language-bash">deploy:
+  type: <span class="token function">git</span>
+  repo: <span class="token string">"자신의 github.io repository 주소"</span>
+  branch: master
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>아래의 명령어로 블로그를 배포한다.<pre class="line-numbers language-bash"><code class="language-bash">hexo d -g        <span class="token comment" spellcheck="true"># 또는 hexo deploy -generate</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li>이후 <code>자신의 github 닉네임.github.io</code>(ex: <a href="https://ruby-kim.github.io/">https://ruby-kim.github.io/</a>) 에 접속하면 local에서만 봤던 내용을 확인할 수 있다.</li>
-<li>만약 블로그 수정 내역 반영이 안됐다면, 아래의 명령어를 입력 후 다시 블로그를 배포해본다.<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>만약 블로그 수정 내역 반영이 안됐다면, 아래의 명령어를 입력 후 다시 블로그를 배포해본다.<pre class="line-numbers language-bash"><code class="language-bash">hexo clean
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 </ul>
 
                 
