@@ -121,11 +121,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -150,11 +150,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -179,11 +179,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -209,11 +209,11 @@
     <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
     
     
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -239,11 +239,11 @@
     <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
     
     
+    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
+    
     <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
     
     <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
-    
-    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
     
   </entry>
   
@@ -268,11 +268,11 @@
     <category term="🔐 Network/Security" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
     
     
-    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
-    
     <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
     
     <category term="Security" scheme="http://ruby-kim.github.io/tags/Security/"/>
+    
+    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
     
   </entry>
   
