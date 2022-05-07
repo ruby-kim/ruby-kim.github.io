@@ -461,7 +461,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>기본적인 블로그 세팅이 끝났다.<br>이전 포스트를 따라 블로그 세팅을 했다면, 실질적으로 .md파일이 저장되는 repository가 없음을 확인할 수 있다.<br>즉 다른 컴퓨터 환경에서 블로그 포스트를 이어서 작성할 수 없으며, .md파일들을 백업하지 않는 이상 해당 데이터들이 손실됐을 때 저 스틱스 강에 영원한 쎄이굿바이를 외쳐야 한다.<br>테마도 마찬가지다. 오픈소스 특징으로 테마도 항상 업데이트되는데, 모두가 사람인지라 코드가 항상 완벽할 수 없다. 그래서 프로그램을 구동하다보면 치명적인 에러가 발생하는 경우가 많다.</p>
+                <p>기본적인 블로그 세팅이 끝났다.<br>이전 포스트를 따라 블로그 세팅을 했다면, 실질적으로 .md파일이 저장되는 repository가 없음을 확인할 수 있다.<br>즉 다른 컴퓨터 환경에서 블로그 포스트를 이어서 작성할 수 없으며, .md파일들을 백업하지 않는 이상 해당 데이터들이 손실됐을 때 저 스틱스 강에 영원한 쎄이굿바이를 외쳐야 한다.<br>테마도 마찬가지다. 오픈소스 특징으로 테마도 항상 업데이트되는데, 모두가 사람인지라 코드가 항상 완벽할 수 없다. 그래서 최신의 테마를 가져와서 프로그램을 구동하다보면 치명적인 에러가 발생하는 경우가 많다.</p>
 <p>이러한 불상사를 막기 위해 .md파일과 테마를 백업할 수 있도록 세팅을 진행해보자.</p>
 <h2 id="사전-준비"><a href="#사전-준비" class="headerlink" title="사전 준비"></a>사전 준비</h2><ul>
 <li><a href="https://ruby-kim.github.io/2022/04/07/Hexo/Install/">[Hexo] Markdown으로 Github Blog를 만들어보자</a></li>
@@ -497,7 +497,7 @@
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><br><br></p>
 <h2 id="선택-theme폴더-submodule-추가"><a href="#선택-theme폴더-submodule-추가" class="headerlink" title="(선택) theme폴더 submodule 추가"></a>(선택) theme폴더 submodule 추가</h2><ul>
-<li>이제부턴 다른 환경에서 이 백업파일들을 클론하면 .md파일들과 테마들이 그대로 유지된다.<br>다만 git clone을 두 번 써야 한다는 불편함이 있는데, 한 번의 git clone으로 theme도 자동으로 클론할 수 있도록 세팅을 해준다.<br>이 작업은 hexo blog 디렉토리에서 진행한다. 아래의 명령어를 잘 입력하면 자동으로 theme <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 기존의 &lt;themes/테마명>를 삭제</span>
+<li>이제부턴 다른 환경에서 이 백업파일들을 클론하면 .md파일들과 테마들이 그대로 유지된다.<br>다만 git clone을 두 번 써야 한다는 불편함이 있는데, 한 번의 git clone으로 theme도 자동으로 클론할 수 있도록 세팅을 해준다.<br>이 작업은 hexo blog 디렉토리에서 진행한다. 아래의 명령어를 잘 입력하면 자동으로 theme도 같이 clone 때 다운받아진다.<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 기존의 &lt;themes/테마명>를 삭제</span>
 <span class="token function">rm</span> -rf themes/테마명
 
 <span class="token comment" spellcheck="true"># 백업해둔 theme repository를 submodule로 추가</span>
