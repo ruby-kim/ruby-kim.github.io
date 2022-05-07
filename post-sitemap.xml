@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/</loc>
+        <lastmod>2022-05-07T17:26:37.819Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2022/04/15/Hexo/Backup/</loc>
         <lastmod>2022-05-07T17:25:38.023Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -115,14 +123,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</loc>
         <lastmod>2022-05-04T15:20:48.737Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/</loc>
-        <lastmod>2022-05-04T15:20:09.188Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
