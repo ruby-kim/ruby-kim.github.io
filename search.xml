@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>[MSA] Micro Service Architecture 개요</title>
+      <link href="/2022/04/26/Architecture/MSA-Intro/"/>
+      <url>/2022/04/26/Architecture/MSA-Intro/</url>
+      
+        <content type="html"><![CDATA[<p>요즘 핫이슈로 개발자라면 무조건 알아야 할 개념인 MSA에 적어보고자 한다.</p><h2 id="MSA의-등장배경-모놀리식-아키텍처-Monolithic-Architecture"><a href="#MSA의-등장배경-모놀리식-아키텍처-Monolithic-Architecture" class="headerlink" title="MSA의 등장배경: 모놀리식 아키텍처 (Monolithic Architecture)"></a>MSA의 등장배경: 모놀리식 아키텍처 (Monolithic Architecture)</h2><p><img src="1.png"></p><ul><li>소프트웨어의 모든 구성 요소가 한 프로젝트에 통합되어있는 형태<ul><li>쉽게 학교에서 프로젝트할 때를 생각하면 됨<ul><li>소규모 프로젝트에서 합리적: 간단한 architecture, 용이한 유지보수</li></ul></li></ul></li><li>수백명의 개발자가 투입되는 프로젝트같은, <strong>일정 규모 이상의 서비스</strong>를 운영할 때 한계가 있음<ul><li>서비스, 프로젝트가 커지면 커질수록 영향도 파악 및 전체 시스템 구조 파악에 어려움이 있음</li><li>빌드 시간 및 테스트 시간, 배포 시간이 기하급수적으로 늘어남</li><li>서비스를 부분적으로 scale-out하기 힘듦</li><li>부분의 장애가 전체 서비스의 장애로 이어질 수 있음</li></ul></li></ul><p><br><br></p><h2 id="Micro-Service-뜻"><a href="#Micro-Service-뜻" class="headerlink" title="Micro Service 뜻"></a>Micro Service 뜻</h2><p><img src="2.png"></p><blockquote><p>“the microservice architectural style is an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are built around business capabilities and independently deployable by fully automated deployment machinery.”</p></blockquote><p>출처: <a href="https://martinfowler.com/articles/microservices.html">https://martinfowler.com/articles/microservices.html</a></p><ul><li><strong>small services, each running in its own process</strong>: 스스로 돌아갈 수 있는 작은 서비스</li><li><strong>independently deployable</strong>: 독립적 배포 가능</li><li>각각의 서비스는<ul><li>매우 작은 단위로 구성되어 있지만 서비스 자체는 하나의 MA(모놀리틱 아키텍처)와 유사 구조를 지님</li><li>독립적으로 배포 가능</li><li>다른 서비스에 대한 의존성이 최소화 되어야 함</li><li>개별 프로세스로 구동되며, REST와 같은 가벼운 방식으로 통신되어야 함</li></ul></li></ul><p><br><br></p><h2 id="MSA의-장점"><a href="#MSA의-장점" class="headerlink" title="MSA의 장점"></a>MSA의 장점</h2><ul><li>배포(Deployment) 관점: 서비스 별 개별 배포 가능 (배포 시 전체 서비스 중단이 없음) -&gt; 요구사항을 신속하게 반영하여 빠르게 배포할 수 있음</li><li>확장(Scaling) 관점: 특정 서비스에 대한 확장성이 용이 -&gt; 클라우드 사용에 적합한 아키텍처</li><li>장애(Failure) 관점: 장애가 전체 서비스로 확장될 가능성이 적음 -&gt; 부분적 장애에 대한 격리가 수월함</li><li>신기술의 적용이 유연하며, 서비스를 polyglot하게 개발/운영할 수 있음</li></ul><p><br><br></p><h2 id="MSA의-단점"><a href="#MSA의-단점" class="headerlink" title="MSA의 단점"></a>MSA의 단점</h2><ul><li>Monolithic Architecture보다 복잡한 아키텍처 -&gt; 전체 서비스가 커질수록 그 복잡도는 기하급수적으로 늘어남</li><li>성능: 서비스 간 호출 시 API를 사용함 -&gt; 통신 비용 및 latency(지연 시간)이 그만큼 늘어남</li><li>테스트/트랜잭션: 서비스가 분리되어 있음 -&gt; 테스트와 트랜잭션 복잡도 증가, 많은 자원을 요구</li><li>데이터 관리: 데이터가 여러 서비스에 걸쳐 분산되기 때문에 한 번에 조회화기 어렵고, 데이터의 정합성 또한 관리가 힘듦</li></ul><p><br><br></p><h2 id="MSA-구조"><a href="#MSA-구조" class="headerlink" title="MSA 구조"></a>MSA 구조</h2><p><img src="3.png"></p><ol><li><strong>Inner Architecture</strong> (남색 부분): 내부 서비스와 관련된 아키텍처<ul><li>고려사항<ul><li>마이크로 서비스를 어떻게 정의할 것인가?</li><li>DB Access 구조를 어떻게 설계할 것인가?</li><li>마이크로 서비스 내 api를 어떻게 설계할 것인가?</li><li>논리적인 컴포넌트들의 layer를 어떠한 방식으로 설계할 것인가?</li></ul></li><li>표준이 없어 MSA를 설계하는데 가장 어려운 부분</li></ul></li><li><strong>Outer Architecture</strong> (회색 부분)<ul><li>External Gateway</li><li>Service Mesh</li><li>Container Management</li><li>Backing Services</li><li>Telemetry</li><li>CI/CD Automation</li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🔧 Architecture </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MSA </tag>
+            
+            <tag> Architecture </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정</title>
       <link href="/2022/04/23/Retrospect/Junior/"/>
       <url>/2022/04/23/Retrospect/Junior/</url>

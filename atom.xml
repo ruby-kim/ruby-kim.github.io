@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-05-07T10:50:30.951Z</updated>
+  <updated>2022-05-07T17:02:10.686Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[MSA] Micro Service Architecture 개요</title>
+    <link href="http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/"/>
+    <id>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</id>
+    <published>2022-04-26T14:44:35.000Z</published>
+    <updated>2022-05-07T17:02:10.686Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;요즘 핫이슈로 개발자라면 무조건 알아야 할 개념인 MSA에 적어보고자 한다.&lt;/p&gt;
+&lt;h2 id=&quot;MSA의-등장배경-모놀리식-아키텍처-Monolithic-Architecture&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
+    
+    
+    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
+    
+    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
+    
+  </entry>
   
   <entry>
     <title>[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정</title>
@@ -576,35 +604,6 @@
     <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
     
     <category term="Project" scheme="http://ruby-kim.github.io/tags/Project/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[AWS] Intro</title>
-    <link href="http://ruby-kim.github.io/2022/03/15/AWS/Intro/"/>
-    <id>http://ruby-kim.github.io/2022/03/15/AWS/Intro/</id>
-    <published>2022-03-15T14:44:35.000Z</published>
-    <updated>2022-05-01T15:28:08.727Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;아래 리스트에서 원하는 AWS 설명 url을 클릭하세요.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;IAM: &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
-    
-    
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
-    
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
   </entry>
   
