@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</loc>
+        <lastmod>2022-05-07T17:22:19.824Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
         <lastmod>2022-05-07T17:06:04.254Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -107,14 +115,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</loc>
         <lastmod>2022-05-04T15:20:48.737Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</loc>
-        <lastmod>2022-05-04T15:20:38.764Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
