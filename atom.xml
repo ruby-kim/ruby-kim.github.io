@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-05-07T17:06:04.254Z</updated>
+  <updated>2022-05-08T16:55:48.357Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[MSA] Micro Service Architecture: Outer - External Gateway</title>
+    <link href="http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/"/>
+    <id>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</id>
+    <published>2022-04-28T14:44:35.000Z</published>
+    <updated>2022-05-08T16:55:48.357Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;MSA의 Outer Architecture 중 External Gateway에 대해 알아보자.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;MSA-개념-설명-읽어보기&quot;&gt;&lt;a href=&quot;#MSA-개념-설명-읽어보기&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
+    
+    
+    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
+    
+    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[MSA] Micro Service Architecture 개요</title>
     <link href="http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/"/>
     <id>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</id>
     <published>2022-04-26T14:44:35.000Z</published>
-    <updated>2022-05-07T17:06:04.254Z</updated>
+    <updated>2022-05-08T15:56:38.646Z</updated>
     
     
       
@@ -49,7 +78,7 @@
     <link href="http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/"/>
     <id>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</id>
     <published>2022-04-23T14:44:35.000Z</published>
-    <updated>2022-05-08T15:12:41.627Z</updated>
+    <updated>2022-05-08T15:15:45.841Z</updated>
     
     
       
@@ -568,42 +597,6 @@
     <category term=".env" scheme="http://ruby-kim.github.io/tags/env/"/>
     
     <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Automatic Tech Blog Management] Intro</title>
-    <link href="http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/"/>
-    <id>http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</id>
-    <published>2022-03-15T15:12:35.000Z</published>
-    <updated>2022-04-30T18:14:41.752Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;블로그가 여러 개다 보니 관리하기가 너무 귀찮아졌다.&lt;br&gt;선택과 집중을 해야하지만 솔직히 뭘 고를지도 많이 고민이 되고…&lt;br&gt;그래서 준비한 이번 프로젝트: Github Actions를 이용한 포스트 자동 관리 시스템 구축하기!&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
-    
-    
-    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
-    
-    <category term="Github Actions" scheme="http://ruby-kim.github.io/tags/Github-Actions/"/>
-    
-    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
-    
-    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
-    
-    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
-    
-    <category term="Project" scheme="http://ruby-kim.github.io/tags/Project/"/>
     
   </entry>
   

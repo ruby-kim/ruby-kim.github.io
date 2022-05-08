@@ -9,8 +9,24 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</loc>
+        <lastmod>2022-05-08T16:55:48.357Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
+        <lastmod>2022-05-08T15:56:38.646Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
-        <lastmod>2022-05-08T15:12:41.627Z</lastmod>
+        <lastmod>2022-05-08T15:15:45.841Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -35,14 +51,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</loc>
         <lastmod>2022-05-07T17:22:19.824Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
-        <lastmod>2022-05-07T17:06:04.254Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
