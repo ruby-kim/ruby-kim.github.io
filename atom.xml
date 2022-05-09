@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-05-08T17:46:51.925Z</updated>
+  <updated>2022-05-09T11:41:39.552Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>[MSA] Micro Service Architecture: Outer - Service Mesh</title>
+    <link href="http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/"/>
+    <id>http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/</id>
+    <published>2022-04-30T14:44:35.000Z</published>
+    <updated>2022-05-09T11:41:39.552Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;MSA의 Outer Architecture 중 Service Mesh에 대해 알아보자.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;MSA-개념-설명-읽어보기&quot;&gt;&lt;a href=&quot;#MSA-개념-설명-읽어보기&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
+    
+    
+    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
+    
+    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
+    
+    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
+    
+    <category term="ESB" scheme="http://ruby-kim.github.io/tags/ESB/"/>
+    
+    <category term="Sidecar" scheme="http://ruby-kim.github.io/tags/Sidecar/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[MSA] Micro Service Architecture: Outer - External Gateway</title>
     <link href="http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/"/>
     <id>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</id>
     <published>2022-04-28T14:44:35.000Z</published>
-    <updated>2022-05-08T17:46:51.925Z</updated>
+    <updated>2022-05-09T11:11:30.287Z</updated>
     
     
       
@@ -54,7 +89,7 @@
     <link href="http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/"/>
     <id>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</id>
     <published>2022-04-26T14:44:35.000Z</published>
-    <updated>2022-05-08T15:56:38.646Z</updated>
+    <updated>2022-05-09T10:45:42.903Z</updated>
     
     
       
@@ -574,33 +609,6 @@
     <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
     
     <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python3에서 환경변수 .env 사용하기</title>
-    <link href="http://ruby-kim.github.io/2022/03/16/Etc/Python-env/"/>
-    <id>http://ruby-kim.github.io/2022/03/16/Etc/Python-env/</id>
-    <published>2022-03-15T17:44:35.000Z</published>
-    <updated>2022-04-30T17:26:01.796Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;프로젝트를 진행하다 보면 코드에 서버 접속 정보를 기입해야 하는 상황이 올 때가 있다.&lt;br&gt;이는 정보보안에 있어서 매우 민감한 문제인데, 외부에 이 정보들을 감추고 싶을 때 환경변수를 설정해서 코드에 import하여</summary>
-        
-      
-    
-    
-    
-    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
-    
-    
-    <category term=".env" scheme="http://ruby-kim.github.io/tags/env/"/>
-    
-    <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
     
   </entry>
   

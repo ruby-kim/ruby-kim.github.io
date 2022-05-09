@@ -9,8 +9,8 @@
 
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/278/</loc>
-        <lastmod>2022-05-08T17:47:59.116Z</lastmod>
+        <loc>http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/</loc>
+        <lastmod>2022-05-09T11:41:39.552Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +18,7 @@
 
     <url>
         <loc>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</loc>
-        <lastmod>2022-05-08T17:46:51.925Z</lastmod>
+        <lastmod>2022-05-09T11:11:30.287Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,7 +26,15 @@
 
     <url>
         <loc>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
-        <lastmod>2022-05-08T15:56:38.646Z</lastmod>
+        <lastmod>2022-05-09T10:45:42.903Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/278/</loc>
+        <lastmod>2022-05-08T17:47:59.116Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

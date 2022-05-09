@@ -47,9 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -489,6 +489,46 @@
 </li>
 </ul>
 <p><br><br></p>
+<h2 id="API-Gateway의-주요-기능"><a href="#API-Gateway의-주요-기능" class="headerlink" title="API Gateway의 주요 기능"></a>API Gateway의 주요 기능</h2><ol>
+<li><strong>인증 및 인가</strong> (Authentication and Authorization)<ul>
+<li>MSA에서 각각의 서비스에 API호출에 대한 인증 및 인가를 한다는 것 = 같은 소스코드를 서비스 인스턴스들마다 심어줘야 함 = 소스의 중복이 심하여 유지 관리가 어렵고, 로깅 모니터링을 관리하는 것도 매우 어려워짐</li>
+<li>따라서 인증서 관리나 인증, SSL, 프로토콜 변환화 같은 기능들을 API Gateway에서 오프로드 -&gt; 각각의 서비스 부담 줄이기 및 서비스 관리, 업그레이드가 용이함<blockquote>
+<p>Authentication (인증) vs Authorization (인가)</p>
+<ul>
+<li>Authentication: 유저가 누구인지 확인하는 절차 </li>
+<li>Authorizatoin: 어떠한 유저가 특정 자원에 접근하려 할 때, 그에 대한 접근 권한이 있는지 확인하는 절차</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><strong>요청 절차의 단순화</strong><ul>
+<li>API Gateway가 없을 시 클라이언트에 여러 서비스들에 대한 요청을 진행해야 함</li>
+<li>API Gateway는 여러 클라이언트의 요청을 단일 클라이언트의 요청으로 대체 가능하도록 만들어줌</li>
+<li>따라서 클라이언트와 백엔드 간 APU 통신량이 줄어 대기시간이 줄어줄이고 효율성을 높일 수 있음</li>
+</ul>
+</li>
+<li><strong>라우팅 및 로드밸런싱</strong><ul>
+<li>클라이언트로부터 접수된 메시지에 따라, API 호출을 적절한 서비스에 라우팅</li>
+<li>서비스 인스턴스들에 대한 부하분산 가능</li>
+</ul>
+</li>
+<li><strong>서비스 오케스트레이션</strong><ul>
+<li><code>오케스트레이션</code>: 여러 개의 마이크로 서비스를 묶어 새로우 서비스를 만드는 개념</li>
+<li>과도한 오케스트레이션 로직: APU Gateway의 부담을 늘리는 것  = 성능 저하</li>
+</ul>
+</li>
+<li><strong>서비스 디스커버리</strong><ul>
+<li>API Gateway는 각 서비스 호출을 위해 서비스마다 IP주소 및 포트번호를 알고 있어야 함</li>
+<li>lagacy 환경에서는 크게 문제될 점이 없지만, 클라우드 환경에서는 <code>동적</code>으로 배포되기 때문에 서비스 위치를 찾는 것이 어려움<ul>
+<li>이러한 서비스의 위치를 찾는 것을 <code>Service Discory</code></li>
+</ul>
+</li>
+<li>서버 사이드나 클라이언트 사이드를 기준으로 서비스 디스커버리 구현 가능</li>
+</ul>
+</li>
+</ol>
+<p><br><br></p>
 <h2 id="API-Gateway-적용-시-고려사항"><a href="#API-Gateway-적용-시-고려사항" class="headerlink" title="API Gateway 적용 시 고려사항"></a>API Gateway 적용 시 고려사항</h2><ul>
 <li><p>API Gateway 계층이 추가적으로 만들어진다는 의미 = 그 만큼 네트워크 latency 증가</p>
 </li>
@@ -653,29 +693,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="">
+                <a href="../../../30/Architecture/MSA-outer-service-mesh/">
                     <div class="card-image">
                         
-                        <img src="../../../../../coverImages/msa.png" class="responsive-img" alt="[MSA] Micro Service Architecture: Outer - External Gateway">
+                        <img src="../../../../../coverImages/msa.png" class="responsive-img" alt="[MSA] Micro Service Architecture: Outer - Service Mesh">
                         
-                        <span class="card-title">[MSA] Micro Service Architecture: Outer - External Gateway</span>
+                        <span class="card-title">[MSA] Micro Service Architecture: Outer - Service Mesh</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MSA outer: External Gateway 알아보기
+                            MSA outer: Service Mesh 알아보기
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -688,7 +727,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -706,6 +744,10 @@
                     
                     <a href="../../../../../tags/ESB/">
                         <span class="chip bg-color">ESB</span>
+                    </a>
+                    
+                    <a href="../../../../../tags/Sidecar/">
+                        <span class="chip bg-color">Sidecar</span>
                     </a>
                     
                 </div>
