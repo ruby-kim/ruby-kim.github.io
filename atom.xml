@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-05-09T11:41:39.552Z</updated>
+  <updated>2022-05-10T15:37:27.381Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>대학생 때 알았다면 좋았을 SW 팁</title>
+    <link href="http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/"/>
+    <id>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</id>
+    <published>2022-05-10T14:44:35.000Z</published>
+    <updated>2022-05-10T15:37:27.381Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;SW분야를 선택하고 스펙을 쌓으며 가장 고생했던 것 중 하나가 바로 &lt;strong&gt;조언해주는 사람이 없다는 것&lt;/strong&gt;이었다.&lt;/p&gt;
+&lt;p&gt;어떤 분야든 멘토가 있다면 효율적으로 스펙을 쌓고 빠르게 기술을 습득할 수 있겠지만, 주변에</summary>
+        
+      
+    
+    
+    
+    <category term="🎈 Retrospect" scheme="http://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
+    
+    
+    <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
+    
+    <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
+    
+    <category term="42SEOUL" scheme="http://ruby-kim.github.io/tags/42SEOUL/"/>
+    
+  </entry>
   
   <entry>
     <title>[MSA] Micro Service Architecture: Outer - Service Mesh</title>
@@ -117,7 +147,7 @@
     <link href="http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/"/>
     <id>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</id>
     <published>2022-04-23T14:44:35.000Z</published>
-    <updated>2022-05-08T15:15:45.841Z</updated>
+    <updated>2022-05-10T15:39:37.970Z</updated>
     
     
       
@@ -579,36 +609,6 @@
     <category term="Github Actions" scheme="http://ruby-kim.github.io/tags/Github-Actions/"/>
     
     <category term=".env" scheme="http://ruby-kim.github.io/tags/env/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Automatic Tech Blog Management] Tistory API 발급받기</title>
-    <link href="http://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/"/>
-    <id>http://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</id>
-    <published>2022-03-16T15:44:35.000Z</published>
-    <updated>2022-04-30T18:15:38.834Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;티스토리 자동화를 위해서는 API가 필요한데, 이 API를 사용하기 위해서는 OpenAPI 신청과 매번 새로운 access token이 필요하다. (access token의 유효시간은 1시간이다)&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
-    
-    
-    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
-    
-    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
-    
-    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
     
   </entry>
   

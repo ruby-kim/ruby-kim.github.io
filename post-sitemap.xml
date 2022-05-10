@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
+        <lastmod>2022-05-10T15:39:37.970Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
+        <lastmod>2022-05-10T15:37:27.381Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/</loc>
         <lastmod>2022-05-09T11:41:39.552Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -35,14 +51,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/03/13/Algorithm/LeetCode/278/</loc>
         <lastmod>2022-05-08T17:47:59.116Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
-        <lastmod>2022-05-08T15:15:45.841Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
