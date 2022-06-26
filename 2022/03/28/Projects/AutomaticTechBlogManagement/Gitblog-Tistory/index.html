@@ -465,13 +465,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>지금까지 작성한 코드가 잘 작동하는지 확인해보는겸 글 하나를 타겟으로 티스토리에 업로드를 해본다.</p>
-<h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><ul>
+<h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><hr>
+<ul>
 <li><a href="https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/">[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</a></li>
 <li><a href="https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/">[Automatic Tech Blog Management] Tistory API 발급받기</a></li>
 </ul>
 <br>
 
-<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><pre><code>```python
+<h2 id="run-py-생성하기"><a href="#run-py-생성하기" class="headerlink" title="run.py 생성하기"></a>run.py 생성하기</h2><hr>
+<pre><code>```python
 from gitblog import *
 from tistory import *
 import markdown2
@@ -558,7 +560,8 @@ if __name__ == "__main__":
 </ul>
 <br>
 
-<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><pre><code>```python
+<h2 id="Tistory-class-내용-변경"><a href="#Tistory-class-내용-변경" class="headerlink" title="Tistory class 내용 변경"></a>Tistory class 내용 변경</h2><hr>
+<pre><code>```python
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -649,7 +652,8 @@ class Tistory:
 </ul>
 <br>
 
-<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><pre><code>```python
+<h2 id="GithubBlog-class-내용-변경"><a href="#GithubBlog-class-내용-변경" class="headerlink" title="GithubBlog class 내용 변경"></a>GithubBlog class 내용 변경</h2><hr>
+<pre><code>```python
 class GithubBlog:
     def __init__(self, blogUrl):
         self.url = blogUrl
@@ -672,7 +676,8 @@ class GithubBlog:
 <p>기존의 코드에서는 .md의 header와 body를 반환하지 않아 GithubBlog 내부에서만 활용할 수 있는데, 직관적인 코드를 위해 return으로 변경해준다.</p>
 <br>
 
-<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><pre><code>```shell
+<h2 id="run-py-실행하기"><a href="#run-py-실행하기" class="headerlink" title="run.py 실행하기"></a>run.py 실행하기</h2><hr>
+<pre><code>```shell
 python3 run.py
 ```
 </code></pre>
@@ -684,13 +689,15 @@ python3 run.py
 </ul>
 <br>
 
-<h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><ul>
+<h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><hr>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/run.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/run.py</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/tistory.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/tistory.py</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/83b54426b1f90f3e78bb742f1941f94ddc298ddd/gitblog.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/gitblog.py</a></li>
 </ul>
 <p><br><br></p>
-<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
+<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><hr>
+<p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
 
                 
             </div>

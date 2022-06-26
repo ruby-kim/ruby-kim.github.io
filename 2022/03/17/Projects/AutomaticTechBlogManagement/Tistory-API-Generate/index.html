@@ -465,7 +465,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>티스토리 자동화를 위해서는 API가 필요한데, 이 API를 사용하기 위해서는 OpenAPI 신청과 매번 새로운 access token이 필요하다. (access token의 유효시간은 1시간이다)</p>
-<h2 id="직접-access-token-발급받기"><a href="#직접-access-token-발급받기" class="headerlink" title="직접 access token 발급받기"></a>직접 access token 발급받기</h2><ol>
+<h2 id="직접-access-token-발급받기"><a href="#직접-access-token-발급받기" class="headerlink" title="직접 access token 발급받기"></a>직접 access token 발급받기</h2><hr>
+<ol>
 <li><a target="_blank" rel="noopener" href="https://www.tistory.com/guide/api/manage/register">블로그 API 등록</a> 사이트에 접속 후 작성한다.<ul>
 <li>서비스 URL: 블로그 주소</li>
 <li>CallBack: 블로그 주소<br><img src="tistory1.png"></li>
@@ -495,7 +496,8 @@ Network(F12)를 확인하면 access_token을 확인할 수 있다.<br><img src="
 </ol>
 <br>
 
-<h2 id="Github-Action을-통해-자동으로-access-token-가져오기"><a href="#Github-Action을-통해-자동으로-access-token-가져오기" class="headerlink" title="Github Action을 통해 자동으로 access token 가져오기"></a>Github Action을 통해 자동으로 access token 가져오기</h2><p>그런데 우리의 목적은 글 자동 업로드기 때문에,<br>유효기간이 1시간인 access-token을 매번 발급받기에는 위 방법은 적합하지 않다.<br>따라서 이러한 과정들을 파이썬으로 구현해봤다.</p>
+<h2 id="Github-Action을-통해-자동으로-access-token-가져오기"><a href="#Github-Action을-통해-자동으로-access-token-가져오기" class="headerlink" title="Github Action을 통해 자동으로 access token 가져오기"></a>Github Action을 통해 자동으로 access token 가져오기</h2><hr>
+<p>그런데 우리의 목적은 글 자동 업로드기 때문에,<br>유효기간이 1시간인 access-token을 매번 발급받기에는 위 방법은 적합하지 않다.<br>따라서 이러한 과정들을 파이썬으로 구현해봤다.</p>
 <ul>
 <li>참고: <a target="_blank" rel="noopener" href="https://tistory.github.io/document-tistory-apis/auth/authorization_code.html">https://tistory.github.io/document-tistory-apis/auth/authorization_code.html</a></li>
 </ul>
@@ -615,7 +617,8 @@ class Tistory:
 <li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/449f4555a4bf3abde592c303deba4c8a30c67ef9/tistory.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/tistory.py</a></li>
 </ul>
 <p><br><br></p>
-<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
+<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><hr>
+<p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
 
                 
             </div>

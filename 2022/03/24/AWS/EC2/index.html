@@ -6,8 +6,8 @@
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4223613861116790"crossorigin="anonymous"></script>
     <meta charset="utf-8">
-    <meta name="keywords" content="[AWS] EC2: Elastic Compute Cloud (EC2), 잡동사니">
-    <meta name="description" content="EC2(Elastic Compute Cloud): 유연한 cloud 크기 변동">
+    <meta name="keywords" content="[AWS] EC2: Elastic Compute Cloud, 잡동사니">
+    <meta name="description" content="EC2(Elastic Compute Cloud): 사양과 크기를 조절할 수 있는 컴퓨팅 서비스">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -32,7 +32,7 @@
 </script>
 
 
-    <title>[AWS] EC2: Elastic Compute Cloud (EC2) | 잡동사니</title>
+    <title>[AWS] EC2: Elastic Compute Cloud | 잡동사니</title>
     <link rel="icon" type="image/png" href="../../../../../favicon.png">
 
     <link rel="stylesheet" type="text/css" href="../../../../../libs/awesome/css/all.min.css">
@@ -294,7 +294,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">[AWS] EC2: Elastic Compute Cloud (EC2)</h1>
+                    <h1 class="description center-align post-title">[AWS] EC2: Elastic Compute Cloud</h1>
                 </div>
             </div>
         </div>
@@ -465,11 +465,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><img src="EC2.png"></p>
-<h2 id="목적-유연한-cloud-크기-변동"><a href="#목적-유연한-cloud-크기-변동" class="headerlink" title="목적: 유연한 cloud 크기 변동"></a>목적: 유연한 cloud 크기 변동</h2><blockquote>
+<h2 id="목적-유연한-cloud-크기-변동"><a href="#목적-유연한-cloud-크기-변동" class="headerlink" title="목적: 유연한 cloud 크기 변동"></a>목적: 유연한 cloud 크기 변동</h2><hr>
+<blockquote>
 <p>인스턴스 on/off 자동화로 유연한 cloud 크기 변동</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="EC2-지불-방법"><a href="#EC2-지불-방법" class="headerlink" title="EC2 지불 방법"></a>EC2 지불 방법</h2><ul>
+<h2 id="EC2-지불-방법"><a href="#EC2-지불-방법" class="headerlink" title="EC2 지불 방법"></a>EC2 지불 방법</h2><hr>
+<ul>
 <li>On-demend<ul>
 <li>시간 단위로 가격이 고정됨</li>
 <li>SW 개발 초기에 주로 사용 (오랜 시간 동안 선불을 내지 않고 최소한의 비용을 지불하여 사용하고 싶을 때 / 개발 시작-끝 기간이 정해지지 않음)</li>
@@ -488,7 +490,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="EBS-Elastuc-Block-Storage-EC2-내에-부착된-가상-하드-디스크-볼륨"><a href="#EBS-Elastuc-Block-Storage-EC2-내에-부착된-가상-하드-디스크-볼륨" class="headerlink" title="EBS(Elastuc Block Storage): EC2 내에 부착된 (가상) 하드 디스크 볼륨"></a>EBS(Elastuc Block Storage): EC2 내에 부착된 (가상) 하드 디스크 볼륨</h2><ul>
+<h2 id="EBS-Elastuc-Block-Storage-EC2-내에-부착된-가상-하드-디스크-볼륨"><a href="#EBS-Elastuc-Block-Storage-EC2-내에-부착된-가상-하드-디스크-볼륨" class="headerlink" title="EBS(Elastuc Block Storage): EC2 내에 부착된 (가상) 하드 디스크 볼륨"></a>EBS(Elastuc Block Storage): EC2 내에 부착된 (가상) 하드 디스크 볼륨</h2><hr>
+<ul>
 <li>EC2 인스턴스가 만들어지면 저장 공간이 생성되며 EC2 인스턴스에 부착됨</li>
 <li>디스크 볼륨 위에 File System 생성</li>
 <li><strong>Availability Zone (AZ) 생성</strong><ul>
@@ -535,7 +538,8 @@
 </tbody></table>
 
 <p><br><br></p>
-<h2 id="ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌"><a href="#ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌" class="headerlink" title="ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌"></a>ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌</h2><ul>
+<h2 id="ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌"><a href="#ELB-Elastic-Load-Balancers-수많은-서버의-흐름을-균형있게-흘려보내줌" class="headerlink" title="ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌"></a>ELB (Elastic Load Balancers): 수많은 서버의 흐름을 균형있게 흘려보내줌</h2><hr>
+<ul>
 <li>하나의 서버로 traffic이 몰리는 병목현상(bottleneck) 방지</li>
 <li>Traffic의 흐름을 Unhealthy instance -&gt; healthy instance로 보내줌</li>
 <li>에러가 생길 시 504 Error(504 Gateway Time-out) 반환: 보통 Web 또는 DB layer에서 해결 가능</li>
@@ -572,7 +576,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>
+<h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><hr>
+<p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>
 
                 
             </div>

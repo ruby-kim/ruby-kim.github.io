@@ -464,12 +464,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><hr>
+<blockquote>
 <p>Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.</p>
 <p>You must write an algorithm with O(log n) runtime complexity.</p>
 </blockquote>
 <p><img src="704.png"></p>
-<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>O(log n)에 맞춰 풀어야 하는 문제로, 배열이 정렬됐기 때문에 binary search를 이용하면 쉽게 풀리는 문제이다.<br>기본적인 binary search 구현을 하면 된다.</p>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><hr>
+<p>O(log n)에 맞춰 풀어야 하는 문제로, 배열이 정렬됐기 때문에 binary search를 이용하면 쉽게 풀리는 문제이다.<br>기본적인 binary search 구현을 하면 된다.</p>
 <ul>
 <li>left = 0 (최소 index 값), right = list의 길이 - 1(리스트에서 최대 index 값)</li>
 <li>left가 right 값 이하일 때 조건에서,</li>
@@ -477,7 +479,8 @@
 <li>list[pivot]값에 따라 left와 right를 조정해준다.</li>
 <li>이때 left와 right는 pivot ± 1로 설정해주면 된다.</li>
 </ul>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><hr>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
         left<span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
         <span class="token keyword">while</span> left <span class="token operator">&lt;=</span> right<span class="token punctuation">:</span>

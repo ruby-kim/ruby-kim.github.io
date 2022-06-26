@@ -464,12 +464,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+                <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><hr>
+<blockquote>
 <p>Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.</p>
 </blockquote>
 <p><img src="977.png"></p>
-<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><p>Acceptance 비율이 높은만큼 쉬운 문제이다.<br>리스트 안에 내용물을 하나씩 꺼내서 제곱값을 구한 후 반환시키면 되는 문제이다.<br>파이썬 특성 상 한 줄로도 끝낼 수 있는 간단한 문제다.</p>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><hr>
+<p>Acceptance 비율이 높은만큼 쉬운 문제이다.<br>리스트 안에 내용물을 하나씩 꺼내서 제곱값을 구한 후 반환시키면 되는 문제이다.<br>파이썬 특성 상 한 줄로도 끝낼 수 있는 간단한 문제다.</p>
+<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><hr>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">sortedSquares</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
         <span class="token keyword">return</span> sorted<span class="token punctuation">(</span><span class="token punctuation">[</span>num<span class="token operator">**</span><span class="token number">2</span> <span class="token keyword">for</span> num <span class="token keyword">in</span> nums<span class="token punctuation">]</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>

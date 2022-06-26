@@ -465,10 +465,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>Github blog에 글을 업로드하면 다른 블로그들도 자동 업로드가 되도록 세팅해주기 위해 데이터 분석이 필요하다.<br><strong>rss</strong>는 최신 글 업로드 현황을 파악하는 용도로, <strong>markdown</strong>은 포스트 내용을 위해 분석할 계획이다.</p>
-<h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><p>Github blog를 분석하기 위해서는 먼저 Personal Access Token을 이용해 Github repository 접근 권한을 가져와야 한다.<br>아래의 url을 통해 발급부터 세팅까지 해보자.<br><a href="https://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/">Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</a></p>
+<h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><hr>
+<p>Github blog를 분석하기 위해서는 먼저 Personal Access Token을 이용해 Github repository 접근 권한을 가져와야 한다.<br>아래의 url을 통해 발급부터 세팅까지 해보자.<br><a href="https://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/">Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</a></p>
 <br>
 
-<h2 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h2><pre><code>```python
+<h2 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h2><hr>
+<pre><code>```python
 import pytz
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -479,7 +481,8 @@ from github import Github
 </code></pre>
 <br>
 
-<h2 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h2><pre><code>```python
+<h2 id="초기값-세팅"><a href="#초기값-세팅" class="headerlink" title="초기값 세팅"></a>초기값 세팅</h2><hr>
+<pre><code>```python
 class GithubBlog:
     def __init__(self, blogUrl):
         self.url = blogUrl
@@ -501,7 +504,8 @@ class GithubBlog:
 </ul>
 <br>
 
-<h2 id="Github-Blog-xml-분석하기"><a href="#Github-Blog-xml-분석하기" class="headerlink" title="Github Blog: xml 분석하기"></a>Github Blog: xml 분석하기</h2><pre><code>```python
+<h2 id="Github-Blog-xml-분석하기"><a href="#Github-Blog-xml-분석하기" class="headerlink" title="Github Blog: xml 분석하기"></a>Github Blog: xml 분석하기</h2><hr>
+<pre><code>```python
 class GithubBlog:
     def __init__(self, blogUrl): (...)
 
@@ -534,7 +538,8 @@ class GithubBlog:
 </ul>
 <br>
 
-<h2 id="Github-Blog-md-파일-분석하기"><a href="#Github-Blog-md-파일-분석하기" class="headerlink" title="Github Blog: .md 파일 분석하기"></a>Github Blog: .md 파일 분석하기</h2><h3 id="Gihub-repository-관련-함수-세팅"><a href="#Gihub-repository-관련-함수-세팅" class="headerlink" title="Gihub repository 관련 함수 세팅"></a>Gihub repository 관련 함수 세팅</h3><pre><code>```python
+<h2 id="Github-Blog-md-파일-분석하기"><a href="#Github-Blog-md-파일-분석하기" class="headerlink" title="Github Blog: .md 파일 분석하기"></a>Github Blog: .md 파일 분석하기</h2><hr>
+<h3 id="Gihub-repository-관련-함수-세팅"><a href="#Gihub-repository-관련-함수-세팅" class="headerlink" title="Gihub repository 관련 함수 세팅"></a>Gihub repository 관련 함수 세팅</h3><pre><code>```python
 # github repository 접근
 def get_github_repo(access_token, repo_name):
     g = Github(access_token)
@@ -616,14 +621,17 @@ def preprocess(content, target_path):
 </ul>
 <br>
 
-<h2 id="개인정보-env에-저장-및-코드-수정"><a href="#개인정보-env에-저장-및-코드-수정" class="headerlink" title="개인정보 .env에 저장 및 코드 수정"></a>개인정보 .env에 저장 및 코드 수정</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Etc/Python-env/">Python3에서 환경변수 .env 사용하기</a></p>
+<h2 id="개인정보-env에-저장-및-코드-수정"><a href="#개인정보-env에-저장-및-코드-수정" class="headerlink" title="개인정보 .env에 저장 및 코드 수정"></a>개인정보 .env에 저장 및 코드 수정</h2><hr>
+<p><a href="https://ruby-kim.github.io/2022/03/16/Etc/Python-env/">Python3에서 환경변수 .env 사용하기</a></p>
 <br>
 
-<h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><ul>
+<h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><hr>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/ruby-kim/automatic-tech-blog-management/blob/14b0d85db8110e8fe8e7fc04a05dd7c972640ab0/gitblog.py">https://github.com/ruby-kim/automatic-tech-blog-management/blob/local/gitblog.py</a></li>
 </ul>
 <p><br><br></p>
-<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
+<h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><hr>
+<p><a href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
 
                 
             </div>
@@ -776,15 +784,15 @@ def preprocess(content, target_path):
                 <a href="../../../../24/AWS/EC2/">
                     <div class="card-image">
                         
-                        <img src="../../../../../../coverImages/aws.png" class="responsive-img" alt="[AWS] EC2: Elastic Compute Cloud (EC2)">
+                        <img src="../../../../../../coverImages/aws.png" class="responsive-img" alt="[AWS] EC2: Elastic Compute Cloud">
                         
-                        <span class="card-title">[AWS] EC2: Elastic Compute Cloud (EC2)</span>
+                        <span class="card-title">[AWS] EC2: Elastic Compute Cloud</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            EC2(Elastic Compute Cloud): 유연한 cloud 크기 변동
+                            EC2(Elastic Compute Cloud): 사양과 크기를 조절할 수 있는 컴퓨팅 서비스
                         
                     </div>
                     <div class="publish-info">

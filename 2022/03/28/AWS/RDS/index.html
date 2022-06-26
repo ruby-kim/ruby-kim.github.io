@@ -465,18 +465,21 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><img src="rds.png"></p>
-<h2 id="목적-관계형-데이터베이스"><a href="#목적-관계형-데이터베이스" class="headerlink" title="목적: 관계형 데이터베이스"></a>목적: 관계형 데이터베이스</h2><blockquote>
+<h2 id="목적-관계형-데이터베이스"><a href="#목적-관계형-데이터베이스" class="headerlink" title="목적: 관계형 데이터베이스"></a>목적: 관계형 데이터베이스</h2><hr>
+<blockquote>
 <p>DB 제공 서비스</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="관계형-데이터베이스-기본-개념"><a href="#관계형-데이터베이스-기본-개념" class="headerlink" title="관계형 데이터베이스 기본 개념"></a>관계형 데이터베이스 기본 개념</h2><ul>
+<h2 id="관계형-데이터베이스-기본-개념"><a href="#관계형-데이터베이스-기본-개념" class="headerlink" title="관계형 데이터베이스 기본 개념"></a>관계형 데이터베이스 기본 개념</h2><hr>
+<ul>
 <li>데이터베이스</li>
 <li>테이블</li>
 <li>데이터</li>
 <li>필드</li>
 </ul>
 <p><br><br></p>
-<h2 id="RDS-종류"><a href="#RDS-종류" class="headerlink" title="RDS 종류"></a>RDS 종류</h2><ul>
+<h2 id="RDS-종류"><a href="#RDS-종류" class="headerlink" title="RDS 종류"></a>RDS 종류</h2><hr>
+<ul>
 <li>Microsoft SQL</li>
 <li>Oracle</li>
 <li>MySQL</li>
@@ -485,13 +488,15 @@
 <li>MariaDB</li>
 </ul>
 <p><br><br></p>
-<h2 id="Data-Warehousing"><a href="#Data-Warehousing" class="headerlink" title="Data Warehousing"></a>Data Warehousing</h2><ul>
+<h2 id="Data-Warehousing"><a href="#Data-Warehousing" class="headerlink" title="Data Warehousing"></a>Data Warehousing</h2><hr>
+<ul>
 <li>Business Intelligence</li>
 <li>리포트 작성, 데이터 분석 시 사용 (Production Database -&gt; Data Warehousing)</li>
 <li>매우 방대한 분량의 데이터 로드 시 사용</li>
 </ul>
 <p><br><br></p>
-<h2 id="OLTP-vs-OLAP"><a href="#OLTP-vs-OLAP" class="headerlink" title="OLTP vs OLAP"></a>OLTP vs OLAP</h2><ul>
+<h2 id="OLTP-vs-OLAP"><a href="#OLTP-vs-OLAP" class="headerlink" title="OLTP vs OLAP"></a>OLTP vs OLAP</h2><hr>
+<ul>
 <li>OLTP(Online Transaction Processing)<ul>
 <li>사용자의 PC에서 발생되는 transaction을 DB가 처리하고, 그 결과를 요청한 사용자 PC에 결과를 되돌려주는 과정</li>
 <li>즉 데이터 자체의 처리에 중점을 둔 용어</li>
@@ -506,7 +511,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="RDS-Backup"><a href="#RDS-Backup" class="headerlink" title="RDS Backup"></a>RDS Backup</h2><ul>
+<h2 id="RDS-Backup"><a href="#RDS-Backup" class="headerlink" title="RDS Backup"></a>RDS Backup</h2><hr>
+<ul>
 <li>원본 RDS Instance를 가지고 백업용 RDS Instance를 생성 시 새로운 Endpoint가 생성 = 원본 RDS와 백업용 RDS Instance는 전혀 다른 것<ul>
 <li>원본 RDS Instance: original.ap-northeast-1.rds.amazonaws.com</li>
 <li>백업용 RDS Instance: backup.ap-northeast-1.rds.amazonaws.com</li>
@@ -531,7 +537,8 @@
 </li>
 </ol>
 <p><br><br></p>
-<h2 id="Multi-AZ-Multi-Available-Zone"><a href="#Multi-AZ-Multi-Available-Zone" class="headerlink" title="Multi AZ: Multi Available Zone"></a>Multi AZ: Multi Available Zone</h2><ul>
+<h2 id="Multi-AZ-Multi-Available-Zone"><a href="#Multi-AZ-Multi-Available-Zone" class="headerlink" title="Multi AZ: Multi Available Zone"></a>Multi AZ: Multi Available Zone</h2><hr>
+<ul>
 <li>원래 존재하는 RDS DB에 변화(ex. write)가 생길 때 다른 AZ에서 똑같은 복제본이 만들어짐 (= Synchoronize)</li>
 <li>AWS에 의해서 자동으로 관리가 이루어짐 (No admin intervention)</li>
 <li>원본 RDS DB에 문제가 생길 시 자동으로 다른 AZ의 복제본이 사용됨</li>
@@ -542,7 +549,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="Read-Replica"><a href="#Read-Replica" class="headerlink" title="Read Replica"></a>Read Replica</h2><ul>
+<h2 id="Read-Replica"><a href="#Read-Replica" class="headerlink" title="Read Replica"></a>Read Replica</h2><hr>
+<ul>
 <li>Production DB의 읽기 전용 복제본이 생성됨 (write 불가능)</li>
 <li>주로 Read-Heavy DB 작업 시 효율성의 극대화를 위해 사용됨 (Scaling)</li>
 <li><strong>Disaster Recovery 용도가 아님</strong></li>
@@ -551,7 +559,8 @@
 <li>각각의 Read Replica는 자기만의 고유 Endpoint 존재</li>
 </ul>
 <p><br><br></p>
-<h2 id="ElastiCache"><a href="#ElastiCache" class="headerlink" title="ElastiCache"></a>ElastiCache</h2><ul>
+<h2 id="ElastiCache"><a href="#ElastiCache" class="headerlink" title="ElastiCache"></a>ElastiCache</h2><hr>
+<ul>
 <li>클라우드 내에서 In-memory 캐시를 만들어줌</li>
 <li>DB에서 데이터를 읽어오는 것이 아닌, 캐시에서 빠른 속도로 데이터를 읽어옴</li>
 <li>Read-Heavy 어플리케이션에서 상당한 Latency 감소 효과를 누림</li>
@@ -586,7 +595,8 @@
 </li>
 </ol>
 <p><br><br></p>
-<h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>
+<h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><hr>
+<p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>
 
                 
             </div>
@@ -769,16 +779,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../tags/S3/">
-                        <span class="chip bg-color">S3</span>
-                    </a>
-                    
                     <a href="../../../../../tags/Network/">
                         <span class="chip bg-color">Network</span>
                     </a>
                     
                     <a href="../../../../../tags/Security/">
                         <span class="chip bg-color">Security</span>
+                    </a>
+                    
+                    <a href="../../../../../tags/SSL/">
+                        <span class="chip bg-color">SSL</span>
+                    </a>
+                    
+                    <a href="../../../../../tags/TSL/">
+                        <span class="chip bg-color">TSL</span>
                     </a>
                     
                 </div>

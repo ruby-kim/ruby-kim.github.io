@@ -465,11 +465,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><img src="s3.png"></p>
-<h2 id="목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드"><a href="#목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드" class="headerlink" title="목적: 안전하고 가변적인 Object 저장공간 제공 (ex. 구글 클라우드)"></a>목적: 안전하고 가변적인 Object 저장공간 제공 (ex. 구글 클라우드)</h2><blockquote>
+<h2 id="목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드"><a href="#목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드" class="headerlink" title="목적: 안전하고 가변적인 Object 저장공간 제공 (ex. 구글 클라우드)"></a>목적: 안전하고 가변적인 Object 저장공간 제공 (ex. 구글 클라우드)</h2><hr>
+<blockquote>
 <p>AWS에서 가장 먼저 release한 서비스로 역사도 깊고 시험도 많이 나오는 구간</p>
 </blockquote>
 <p><br><br></p>
-<h2 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h2><ul>
+<h2 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h2><hr>
+<ul>
 <li>안전하고 가변적인 Object 저장 공간을 제공<ul>
 <li>Object: 이미지, 동영상, 파일 등을 의미</li>
 <li>운영체제 등은 올리기 불가능</li>
@@ -485,7 +487,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="S3-Object-구성-요소"><a href="#S3-Object-구성-요소" class="headerlink" title="S3 Object 구성 요소"></a>S3 Object 구성 요소</h2><ul>
+<h2 id="S3-Object-구성-요소"><a href="#S3-Object-구성-요소" class="headerlink" title="S3 Object 구성 요소"></a>S3 Object 구성 요소</h2><hr>
+<ul>
 <li>Key: 파일명</li>
 <li>Value: 파일에 대한 데이터</li>
 <li>Version ID<ul>
@@ -501,12 +504,14 @@
 <li>CORS (Cross Origin Resource Sharing)</li>
 </ul>
 <p><br><br></p>
-<h2 id="S3-Data-Consistency-Model"><a href="#S3-Data-Consistency-Model" class="headerlink" title="S3 Data Consistency Model"></a>S3 Data Consistency Model</h2><ul>
+<h2 id="S3-Data-Consistency-Model"><a href="#S3-Data-Consistency-Model" class="headerlink" title="S3 Data Consistency Model"></a>S3 Data Consistency Model</h2><hr>
+<ul>
 <li>Read after Write Consistency (PUT): S3에 올라갔다면 파일을 바로 사용 가능 = delay X</li>
 <li>Eventual Consistency (UPDATE, DELETE): S3에서 파일을 업데이트하거나 삭제 시 바로 사용 불가능 = delay O</li>
 </ul>
 <p><br><br></p>
-<h2 id="S3-스토리지"><a href="#S3-스토리지" class="headerlink" title="S3 스토리지"></a>S3 스토리지</h2><ul>
+<h2 id="S3-스토리지"><a href="#S3-스토리지" class="headerlink" title="S3 스토리지"></a>S3 스토리지</h2><hr>
+<ul>
 <li>일반 S3<ul>
 <li>가장 보편적으로 사용되는 스토리지 타입</li>
 <li>높은 내구성(Durability), 가용성(Availability)<ul>
@@ -548,7 +553,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="S3-요금"><a href="#S3-요금" class="headerlink" title="S3 요금"></a>S3 요금</h2><p><img src="price.png"></p>
+<h2 id="S3-요금"><a href="#S3-요금" class="headerlink" title="S3 요금"></a>S3 요금</h2><hr>
+<p><img src="price.png"></p>
 <ul>
 <li>GB당</li>
 <li>PUT, GET, COPY 요청 시 횟수당</li>
@@ -556,13 +562,15 @@
 <li>Metadata (Object Tag)</li>
 </ul>
 <p><br><br></p>
-<h2 id="S3-사용-용례"><a href="#S3-사용-용례" class="headerlink" title="S3 사용 용례"></a>S3 사용 용례</h2><ul>
+<h2 id="S3-사용-용례"><a href="#S3-사용-용례" class="headerlink" title="S3 사용 용례"></a>S3 사용 용례</h2><hr>
+<ul>
 <li>파일 저장소(로그, 다양한 파일들 - 이미지, 비디오, 압축파일 등)</li>
 <li>웹사이트 호스팅: html, css 파일 등을 저장 / Route53으로 연결</li>
 <li>CORS</li>
 </ul>
 <p><br><br></p>
-<h2 id="S3-버킷-생성-시-주의점"><a href="#S3-버킷-생성-시-주의점" class="headerlink" title="S3 버킷 생성 시 주의점"></a>S3 버킷 생성 시 주의점</h2><ul>
+<h2 id="S3-버킷-생성-시-주의점"><a href="#S3-버킷-생성-시-주의점" class="headerlink" title="S3 버킷 생성 시 주의점"></a>S3 버킷 생성 시 주의점</h2><hr>
+<ul>
 <li>최초 S3 bucket 생성 시 비공개(PRIVATE)로 설정됨 = 외부에서 접근 시 Access deny</li>
 <li>비공개 된 bucket을 일부에게 open하는 방법<ul>
 <li>Bucket 정책 변경 (Bucket Policy): json 파일로 조작</li>
@@ -575,7 +583,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="S3-암호화"><a href="#S3-암호화" class="headerlink" title="S3 암호화"></a>S3 암호화</h2><ul>
+<h2 id="S3-암호화"><a href="#S3-암호화" class="headerlink" title="S3 암호화"></a>S3 암호화</h2><hr>
+<ul>
 <li><p>파일 업로드 / 다운로드 시: SSL / TLS</p>
 </li>
 <li><p>가만히 있을 시</p>
@@ -609,7 +618,8 @@ x-amz-server-side-encryption-parameter: AES-256
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>
+<h2 id="AWS-서비스-설명-더보기"><a href="#AWS-서비스-설명-더보기" class="headerlink" title="AWS 서비스 설명 더보기"></a>AWS 서비스 설명 더보기</h2><hr>
+<p><a href="https://ruby-kim.github.io/2022/03/15/AWS/Intro/">[AWS] Intro</a></p>
 
                 
             </div>
@@ -848,16 +858,20 @@ x-amz-server-side-encryption-parameter: AES-256
                 
                 <div class="card-action article-tags">
                     
-                    <a href="../../../../../tags/S3/">
-                        <span class="chip bg-color">S3</span>
-                    </a>
-                    
                     <a href="../../../../../tags/Network/">
                         <span class="chip bg-color">Network</span>
                     </a>
                     
                     <a href="../../../../../tags/Security/">
                         <span class="chip bg-color">Security</span>
+                    </a>
+                    
+                    <a href="../../../../../tags/SSL/">
+                        <span class="chip bg-color">SSL</span>
+                    </a>
+                    
+                    <a href="../../../../../tags/TSL/">
+                        <span class="chip bg-color">TSL</span>
                     </a>
                     
                 </div>

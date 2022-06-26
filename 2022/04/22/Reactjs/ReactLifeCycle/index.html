@@ -460,7 +460,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="React-Life-Cycle"><a href="#React-Life-Cycle" class="headerlink" title="React Life Cycle"></a>React Life Cycle</h2><p>Reacts는 컴포넌트(component) 기반의 View를 중심으로 한 라이브러리이다.<br>따라서 각각의 컴포넌트에는 라이프사이클, 즉 컴포넌트의 <code>수명 주기</code>가 존재하는데, 컴포넌트의 수명은 보통 <strong>페이지에서 렌더링되기 전인 준비 과정에서 시작하여 페이지에서 사라질 때 끝난다</strong>.</p>
+                <h2 id="React-Life-Cycle"><a href="#React-Life-Cycle" class="headerlink" title="React Life Cycle"></a>React Life Cycle</h2><hr>
+<p>Reacts는 컴포넌트(component) 기반의 View를 중심으로 한 라이브러리이다.<br>따라서 각각의 컴포넌트에는 라이프사이클, 즉 컴포넌트의 <code>수명 주기</code>가 존재하는데, 컴포넌트의 수명은 보통 <strong>페이지에서 렌더링되기 전인 준비 과정에서 시작하여 페이지에서 사라질 때 끝난다</strong>.</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token operator">&lt;</span>div<span class="token operator">></span>
@@ -473,7 +474,8 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>아래의 사진이 바로 리엑트 라이프 사이클을 나타낸 것이다.<br>(사이트는 <a target="_blank" rel="noopener" href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">여기</a> 참고)<br><img src="1.png"></p>
 <p><br><br></p>
-<h2 id="Mount-생성될-때"><a href="#Mount-생성될-때" class="headerlink" title="Mount (생성될 때)"></a>Mount (생성될 때)</h2><ol>
+<h2 id="Mount-생성될-때"><a href="#Mount-생성될-때" class="headerlink" title="Mount (생성될 때)"></a>Mount (생성될 때)</h2><hr>
+<ol>
 <li><p>constructor</p>
 <ul>
 <li>페이지 로드 되고 컴포넌트가 만들어질 때 처음으로 실행됨</li>
@@ -556,7 +558,8 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 </li>
 </ol>
 <p><br><br></p>
-<h2 id="Update-업데이트-할-때"><a href="#Update-업데이트-할-때" class="headerlink" title="Update (업데이트 할 때)"></a>Update (업데이트 할 때)</h2><ol>
+<h2 id="Update-업데이트-할-때"><a href="#Update-업데이트-할-때" class="headerlink" title="Update (업데이트 할 때)"></a>Update (업데이트 할 때)</h2><hr>
+<ol>
 <li><p>static getDerivedStateFromProps(nextProps, prevState)</p>
 <ul>
 <li>Mount 단계와 동일</li>
@@ -630,7 +633,8 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 </li>
 </ol>
 <p><br><br></p>
-<h2 id="UnMount-제거할-때"><a href="#UnMount-제거할-때" class="headerlink" title="UnMount (제거할 때)"></a>UnMount (제거할 때)</h2><ol>
+<h2 id="UnMount-제거할-때"><a href="#UnMount-제거할-때" class="headerlink" title="UnMount (제거할 때)"></a>UnMount (제거할 때)</h2><hr>
+<ol>
 <li><p>ComponentWillUnMount</p>
 <ul>
 <li>DOM에서 컴포넌트가 지워질때 실행</li>

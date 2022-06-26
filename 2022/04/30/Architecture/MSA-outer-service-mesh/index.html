@@ -474,11 +474,13 @@
             <div id="articleContent">
                 <p>MSA의 Outer Architecture 중 Service Mesh에 대해 알아보자.</p>
 <p><br><br></p>
-<h2 id="MSA-개념-설명-읽어보기"><a href="#MSA-개념-설명-읽어보기" class="headerlink" title="MSA 개념 설명 읽어보기"></a>MSA 개념 설명 읽어보기</h2><ul>
+<h2 id="MSA-개념-설명-읽어보기"><a href="#MSA-개념-설명-읽어보기" class="headerlink" title="MSA 개념 설명 읽어보기"></a>MSA 개념 설명 읽어보기</h2><hr>
+<ul>
 <li><a href="https://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/">[MSA] Micro Service Architecture 개요</a></li>
 </ul>
 <p><br><br></p>
-<h2 id="Service-Mesh"><a href="#Service-Mesh" class="headerlink" title="Service Mesh"></a>Service Mesh</h2><p><img src="1.png"></p>
+<h2 id="Service-Mesh"><a href="#Service-Mesh" class="headerlink" title="Service Mesh"></a>Service Mesh</h2><hr>
+<p><img src="1.png"></p>
 <ul>
 <li>마크크로서비스 간의 통신(네트워크)을 제어하는 역할<ul>
 <li>통신 및 네트워크 기능을 비즈니스 로직과 분리한 네트워크 통신 인프라</li>
@@ -488,7 +490,8 @@
 <li>service discovery, service routing, load balancing(트래픽 관리) 및 보안 등을 담당함</li>
 </ul>
 <p><br><br></p>
-<h2 id="API-Gateway와의-차이점"><a href="#API-Gateway와의-차이점" class="headerlink" title="API Gateway와의 차이점"></a>API Gateway와의 차이점</h2><p>먼저 <a href="https://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/">[MSA] Micro Service Architecture: Outer - External Gateway</a>를 읽고 아래 표를 보는 것을 추천한다.</p>
+<h2 id="API-Gateway와의-차이점"><a href="#API-Gateway와의-차이점" class="headerlink" title="API Gateway와의 차이점"></a>API Gateway와의 차이점</h2><hr>
+<p>먼저 <a href="https://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/">[MSA] Micro Service Architecture: Outer - External Gateway</a>를 읽고 아래 표를 보는 것을 추천한다.</p>
 <ul>
 <li>최근 MSA에서 다음과 같이 사용:<ul>
 <li>API Gateway는 노출되는 부분(External)에 위치하며 내부서비스를 보호 및 제어하는 역할로 사용</li>
@@ -545,7 +548,8 @@
 </tbody></table>
 
 <p><br><br></p>
-<h2 id="Service-Mesh의-종류"><a href="#Service-Mesh의-종류" class="headerlink" title="Service Mesh의 종류"></a>Service Mesh의 종류</h2><p><img src="3.png"></p>
+<h2 id="Service-Mesh의-종류"><a href="#Service-Mesh의-종류" class="headerlink" title="Service Mesh의 종류"></a>Service Mesh의 종류</h2><hr>
+<p><img src="3.png"></p>
 <h4 id="PaaS-Platform-as-a-Service-의-일부로-서비스-코드에-포함되는-유형"><a href="#PaaS-Platform-as-a-Service-의-일부로-서비스-코드에-포함되는-유형" class="headerlink" title="PaaS (Platform as a Service)의 일부로 서비스 코드에 포함되는 유형"></a>PaaS (Platform as a Service)의 일부로 서비스 코드에 포함되는 유형</h4><ul>
 <li>Microsoft Azure Service fabric, lagom, SENECA</li>
 <li>프레임워크 기반의 프로그래밍 모델 -&gt; service mesh를 구현하는데 특화한 코드가 필요함(Mesh-native Code)</li>
@@ -574,7 +578,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="Service-Mesh의-주요-기능"><a href="#Service-Mesh의-주요-기능" class="headerlink" title="Service Mesh의 주요 기능"></a>Service Mesh의 주요 기능</h2><p>일반적으로 Istio나 consul, Linkerd와 같은 Service Mesh 프레임워크들에서 기능 지원</p>
+<h2 id="Service-Mesh의-주요-기능"><a href="#Service-Mesh의-주요-기능" class="headerlink" title="Service Mesh의 주요 기능"></a>Service Mesh의 주요 기능</h2><hr>
+<p>일반적으로 Istio나 consul, Linkerd와 같은 Service Mesh 프레임워크들에서 기능 지원</p>
 <ul>
 <li>Service Discovery</li>
 <li>Load balancing (지연시간 기반 / 대기열 기반)</li>

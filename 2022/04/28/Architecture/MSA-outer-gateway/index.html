@@ -470,18 +470,21 @@
             <div id="articleContent">
                 <p>MSA의 Outer Architecture 중 External Gateway에 대해 알아보자.</p>
 <p><br><br></p>
-<h2 id="MSA-개념-설명-읽어보기"><a href="#MSA-개념-설명-읽어보기" class="headerlink" title="MSA 개념 설명 읽어보기"></a>MSA 개념 설명 읽어보기</h2><ul>
+<h2 id="MSA-개념-설명-읽어보기"><a href="#MSA-개념-설명-읽어보기" class="headerlink" title="MSA 개념 설명 읽어보기"></a>MSA 개념 설명 읽어보기</h2><hr>
+<ul>
 <li><a href="https://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/">[MSA] Micro Service Architecture 개요</a></li>
 </ul>
 <p><br><br></p>
-<h2 id="External-Gateway"><a href="#External-Gateway" class="headerlink" title="External Gateway"></a>External Gateway</h2><p><img src="1.png"></p>
+<h2 id="External-Gateway"><a href="#External-Gateway" class="headerlink" title="External Gateway"></a>External Gateway</h2><hr>
+<p><img src="1.png"></p>
 <ul>
 <li>전체 서비스 외부로부터 들어오는 접근을 내부 구조를 드러내지 않고 처리하기 위한 요소</li>
 <li>사용자 인증 (Consumer Identity Provider)과 권한 정책관리(Policy Management)를 수행</li>
 <li><code>API Gateway</code>가 가장 핵심적인 역할</li>
 </ul>
 <p><br><br></p>
-<h2 id="API-Gateway"><a href="#API-Gateway" class="headerlink" title="API Gateway"></a>API Gateway</h2><ul>
+<h2 id="API-Gateway"><a href="#API-Gateway" class="headerlink" title="API Gateway"></a>API Gateway</h2><hr>
+<ul>
 <li>서버 최앞단에 위치하여 모든 API 호출을 받음 (API 서버들의 endpoint 단일화를 해주는 또다른 서버)</li>
 <li>API에 대한 인증과 인가 기능을 가지고 있음: 받은 API 호출을 인증한 후, 적절한 서비스들에 메세지를 전달(routing)</li>
 <li>SOA의 핵심 인프라인 <code>ESB</code>(Enterprise Service Bus)에서 비롯됨<ul>
@@ -491,7 +494,8 @@
 </li>
 </ul>
 <p><br><br></p>
-<h2 id="API-Gateway의-주요-기능"><a href="#API-Gateway의-주요-기능" class="headerlink" title="API Gateway의 주요 기능"></a>API Gateway의 주요 기능</h2><ol>
+<h2 id="API-Gateway의-주요-기능"><a href="#API-Gateway의-주요-기능" class="headerlink" title="API Gateway의 주요 기능"></a>API Gateway의 주요 기능</h2><hr>
+<ol>
 <li><strong>인증 및 인가</strong> (Authentication and Authorization)<ul>
 <li>MSA에서 각각의 서비스에 API호출에 대한 인증 및 인가를 한다는 것 = 같은 소스코드를 서비스 인스턴스들마다 심어줘야 함 = 소스의 중복이 심하여 유지 관리가 어렵고, 로깅 모니터링을 관리하는 것도 매우 어려워짐</li>
 <li>따라서 인증서 관리나 인증, SSL, 프로토콜 변환화 같은 기능들을 API Gateway에서 오프로드 -&gt; 각각의 서비스 부담 줄이기 및 서비스 관리, 업그레이드가 용이함<blockquote>
@@ -531,7 +535,8 @@
 </li>
 </ol>
 <p><br><br></p>
-<h2 id="API-Gateway-적용-시-고려사항"><a href="#API-Gateway-적용-시-고려사항" class="headerlink" title="API Gateway 적용 시 고려사항"></a>API Gateway 적용 시 고려사항</h2><ul>
+<h2 id="API-Gateway-적용-시-고려사항"><a href="#API-Gateway-적용-시-고려사항" class="headerlink" title="API Gateway 적용 시 고려사항"></a>API Gateway 적용 시 고려사항</h2><hr>
+<ul>
 <li><p>API Gateway 계층이 추가적으로 만들어진다는 의미 = 그 만큼 네트워크 latency 증가</p>
 </li>
 <li><p>API Gateway의 Scale-out 적용이 유연하게 일어나지 않을 경우, API Gateway가 병목지점이 되어 어플리케이션의 성능저하가 일어날 수 있음</p>
