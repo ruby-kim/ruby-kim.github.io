@@ -49,6 +49,37 @@
   </entry>
   
   <entry>
+    <title>Windows &amp; Mac에서 nvm 설치하기 (Node.js, Npm, Yarn 설치)</title>
+    <link href="http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/"/>
+    <id>http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/</id>
+    <published>2022-05-16T17:44:35.000Z</published>
+    <updated>2022-07-17T23:18:22.216Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;개발 프로젝트에 따라서 Node의 버전을 여러 개 설치하고 번갈아 사용해야 하는 경우가 있는데,&lt;br&gt;이럴 때는 nvm(Node Version Manager)를 사용하면 여러 개의 node 버전을 설치하여 원하는 node 버전을 골라서 사용할</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Node.js" scheme="http://ruby-kim.github.io/tags/Node-js/"/>
+    
+    <category term="Npm" scheme="http://ruby-kim.github.io/tags/Npm/"/>
+    
+    <category term="Yarn" scheme="http://ruby-kim.github.io/tags/Yarn/"/>
+    
+    <category term="Nvm" scheme="http://ruby-kim.github.io/tags/Nvm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DevOps 개요</title>
     <link href="http://ruby-kim.github.io/2022/05/12/DevOps/Intro/"/>
     <id>http://ruby-kim.github.io/2022/05/12/DevOps/Intro/</id>
@@ -380,7 +411,7 @@
     <link href="http://ruby-kim.github.io/2022/04/07/Hexo/Install/"/>
     <id>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</id>
     <published>2022-04-07T14:44:35.000Z</published>
-    <updated>2022-06-26T18:37:32.512Z</updated>
+    <updated>2022-07-17T23:19:41.064Z</updated>
     
     
       
@@ -583,35 +614,6 @@
     <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
     <category term="EC2" scheme="http://ruby-kim.github.io/tags/EC2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Automatic Tech Blog Management] Github Blog: .md파일 및 xml 분석하기</title>
-    <link href="http://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/"/>
-    <id>http://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</id>
-    <published>2022-03-18T15:44:35.000Z</published>
-    <updated>2022-06-26T18:39:43.939Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Github blog에 글을 업로드하면 다른 블로그들도 자동 업로드가 되도록 세팅해주기 위해 데이터 분석이 필요하다.&lt;br&gt;&lt;strong&gt;rss&lt;/strong&gt;는 최신 글 업로드 현황을 파악하는 용도로,</summary>
-        
-      
-    
-    
-    
-    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
-    
-    
-    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
-    
-    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
-    
-    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
     
   </entry>
   

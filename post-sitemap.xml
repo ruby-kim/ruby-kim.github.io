@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</loc>
+        <lastmod>2022-07-17T23:19:41.064Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/</loc>
+        <lastmod>2022-07-17T23:18:22.216Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2022/05/30/NS/Basic/</loc>
         <lastmod>2022-06-26T19:03:19.158Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -147,14 +163,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/</loc>
         <lastmod>2022-06-26T18:38:29.997Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</loc>
-        <lastmod>2022-06-26T18:37:32.512Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
