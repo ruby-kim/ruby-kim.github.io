@@ -766,33 +766,6 @@
     
     
     <entry>
-      <title>[AWS] Intro</title>
-      <link href="/2022/03/15/AWS/Intro/"/>
-      <url>/2022/03/15/AWS/Intro/</url>
-      
-        <content type="html"><![CDATA[<p>아래 리스트에서 원하는 AWS 설명 url을 클릭하세요.</p><ul><li>IAM: <a href="https://ruby-kim.github.io/2022/03/10/AWS/IAM/">https://ruby-kim.github.io/2022/03/10/AWS/IAM/</a></li><li>EC2: <a href="https://ruby-kim.github.io/2022/03/24/AWS/EC2/">https://ruby-kim.github.io/2022/03/24/AWS/EC2/</a></li><li>Route53: <a href="https://ruby-kim.github.io/2022/03/26/AWS/Route53/">https://ruby-kim.github.io/2022/03/26/AWS/Route53/</a></li><li>RDS: <a href="https://ruby-kim.github.io/2022/03/28/AWS/RDS/">https://ruby-kim.github.io/2022/03/28/AWS/RDS/</a></li><li>S3: <a href="https://ruby-kim.github.io/2022/04/03/AWS/S3/">https://ruby-kim.github.io/2022/04/03/AWS/S3/</a></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 👩‍💻 AWS </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> AWS </tag>
-            
-            <tag> Cloud </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>[LeetCode] 189. Rotate Array (Python3)</title>
       <link href="/2022/03/14/Algorithm/LeetCode/189/"/>
       <url>/2022/03/14/Algorithm/LeetCode/189/</url>
