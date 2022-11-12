@@ -49,9 +49,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -373,14 +373,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    241
+                    534
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    3 Min
                 </div>
                 
 
@@ -396,7 +396,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="🅒-C언어-기초-구조체-3-추가-연습문제"><a href="#🅒-C언어-기초-구조체-3-추가-연습문제" class="headerlink" title="🅒 C언어 기초: 구조체 (3) 추가 연습문제"></a>🅒 C언어 기초: 구조체 (3) 추가 연습문제</h1><ol>
-<li><p>학생의 학번과 국어,영어,수학 점수를 저장할 수 있는 구조체를 만들고, 각 학생의 평균 점수(소수점 둘째 자리 까지)를 출력하는 함수를 작성해주세요.</p>
+<li><p>5명의 학생의 학번과 국어, 영어, 수학 점수를 저장할 수 있는 구조체를 만들고, 각 학생의 평균 점수(소수점 둘째 자리 까지)를 출력하는 함수를 작성해주세요.</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
 <span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
@@ -439,33 +439,132 @@
 <br>    
 
 <ol start="2">
-<li><p>선언된 구조체 Student에 학번(id)가 12345, 나이(age)가 18인 데이터를 넣고 출력하려고 합니다. <br>구조체 포인터인 ptr을 활용해서 프로그램을 완성해주세요.</p>
+<li><p>공부 시작시간과 종료시간을 입력받아 소요시간을 구하려고 합니다. <br>두 개의 시(0<del>24), 분(0</del>60), 초(0~60)를 각각 입력받아 계산해주세요.</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
-<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> id<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span> Student<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> TIME <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> hour<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> min<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> sec<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    Student st<span class="token punctuation">;</span>
-    Student <span class="token operator">*</span>ptr<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">time_diff</span><span class="token punctuation">(</span><span class="token keyword">struct</span> TIME t1<span class="token punctuation">,</span> <span class="token keyword">struct</span> TIME t2<span class="token punctuation">,</span> <span class="token keyword">struct</span> TIME <span class="token operator">*</span>differ<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    ptr <span class="token operator">=</span> <span class="token operator">&amp;</span>st<span class="token punctuation">;</span>
-    
-    <span class="token comment" spellcheck="true">// 입력: st 활용</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"id를 입력해주세요: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>st<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"age를 입력해주세요: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>st<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-    <span class="token comment" spellcheck="true">// 출력: ptr 활용</span>
-    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"id: %d\nage: %d\n"</span><span class="token punctuation">,</span> ptr<span class="token operator">-></span>id<span class="token punctuation">,</span> ptr<span class="token operator">-></span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">struct</span> TIME t1<span class="token punctuation">,</span> t2<span class="token punctuation">,</span> diff<span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"시작시간(시, 분, 초): "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>t1<span class="token punctuation">.</span>hours<span class="token punctuation">,</span> <span class="token operator">&amp;</span>t1<span class="token punctuation">.</span>min<span class="token punctuation">,</span> <span class="token operator">&amp;</span>t1<span class="token punctuation">.</span>sec<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"종료시간(시, 분, 초): "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>t2<span class="token punctuation">.</span>hours<span class="token punctuation">,</span> <span class="token operator">&amp;</span>t2<span class="token punctuation">.</span>min<span class="token punctuation">,</span> <span class="token operator">&amp;</span>t2<span class="token punctuation">.</span>sec<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">time_diff</span><span class="token punctuation">(</span>t1<span class="token punctuation">,</span> t2<span class="token punctuation">,</span> <span class="token operator">&amp;</span>diff<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"소요시간 %d %d %d\n"</span><span class="token punctuation">,</span> diff<span class="token punctuation">.</span>hours<span class="token punctuation">,</span> diff<span class="token punctuation">.</span>min<span class="token punctuation">,</span> diff<span class="token punctuation">.</span>sec<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<span class="token keyword">void</span> <span class="token function">time_diff</span><span class="token punctuation">(</span><span class="token keyword">struct</span> TIME t1<span class="token punctuation">,</span> <span class="token keyword">struct</span> TIME t2<span class="token punctuation">,</span> <span class="token keyword">struct</span> TIME <span class="token operator">*</span>differ<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>t1<span class="token punctuation">.</span>sec <span class="token operator">></span> t2<span class="token punctuation">.</span>sec<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">--</span>t2<span class="token punctuation">.</span>min<span class="token punctuation">;</span>
+        t2<span class="token punctuation">.</span>sec <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    differ<span class="token operator">-></span>sec <span class="token operator">=</span> t2<span class="token punctuation">.</span>sec <span class="token operator">-</span> t1<span class="token punctuation">.</span>sec<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>t1<span class="token punctuation">.</span>min <span class="token operator">></span> t2<span class="token punctuation">.</span>min<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token operator">--</span>t2<span class="token punctuation">.</span>hours<span class="token punctuation">;</span>
+        t2<span class="token punctuation">.</span>min <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    differ<span class="token operator">-></span>min <span class="token operator">=</span> t2<span class="token punctuation">.</span>min <span class="token operator">-</span> t1<span class="token punctuation">.</span>min<span class="token punctuation">;</span>
+
+    differ<span class="token operator">-></span>hours <span class="token operator">=</span> t2<span class="token punctuation">.</span>hours <span class="token operator">-</span> t1<span class="token punctuation">.</span>hours<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>diff<span class="token operator">-></span>hours <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        diff<span class="token operator">-></span>hours <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<br>
+
+<ol start="3">
+<li><p>복소수의 덧셈, 뺄셈 계산기를 만들어주세요. 숫자(a, b)는 모두 정수로 이루어져 있습니다.</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> real<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> imag<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> Complex_num<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">get_input</span><span class="token punctuation">(</span>Complex_num <span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Complex_num <span class="token function">complex_add</span><span class="token punctuation">(</span>Complex_num A<span class="token punctuation">,</span> Complex_num B<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Complex_num <span class="token function">complex_subtract</span><span class="token punctuation">(</span>Complex_num A<span class="token punctuation">,</span> Complex_num B<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">print_values</span><span class="token punctuation">(</span>Complex_num result<span class="token punctuation">,</span> <span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Complex_num x<span class="token punctuation">,</span> y<span class="token punctuation">;</span>
+    Complex_num sum<span class="token punctuation">,</span> sub<span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"첫 번째 복소수(a + bi)를 입력해주세요(a, b): "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">get_input</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"두 번째 복소수(a + bi)를 입력해주세요(a, b): "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">get_input</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    sum <span class="token operator">=</span> <span class="token function">complex_add</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sub <span class="token operator">=</span> <span class="token function">complex_subtract</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token function">print_values</span><span class="token punctuation">(</span>sum<span class="token punctuation">,</span> <span class="token string">"합계"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">print_values</span><span class="token punctuation">(</span>sub<span class="token punctuation">,</span> <span class="token string">"뺄셈"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">get_input</span><span class="token punctuation">(</span>Complex_num <span class="token operator">*</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token operator">-></span>real<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token operator">-></span>imag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Complex_num <span class="token function">complex_add</span><span class="token punctuation">(</span>Complex_num A<span class="token punctuation">,</span> Complex_num B<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Complex_num sum<span class="token punctuation">;</span>
+
+    sum<span class="token punctuation">.</span>real <span class="token operator">=</span> A<span class="token punctuation">.</span>real <span class="token operator">+</span> B<span class="token punctuation">.</span>real<span class="token punctuation">;</span>
+    sum<span class="token punctuation">.</span>imag <span class="token operator">=</span> A<span class="token punctuation">.</span>imag <span class="token operator">+</span> B<span class="token punctuation">.</span>imag<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Complex_num <span class="token function">complex_subtract</span><span class="token punctuation">(</span>Complex_num A<span class="token punctuation">,</span> Complex_num B<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Complex_num sub<span class="token punctuation">;</span>
+
+    sub<span class="token punctuation">.</span>real <span class="token operator">=</span> A<span class="token punctuation">.</span>real <span class="token operator">-</span> B<span class="token punctuation">.</span>real<span class="token punctuation">;</span>
+    sub<span class="token punctuation">.</span>imag <span class="token operator">=</span> A<span class="token punctuation">.</span>imag <span class="token operator">-</span> B<span class="token punctuation">.</span>imag<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> sub<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">print_values</span><span class="token punctuation">(</span>Complex_num result<span class="token punctuation">,</span> <span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s: "</span><span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>real <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> result<span class="token punctuation">.</span>imag <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"0\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>real <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> result<span class="token punctuation">.</span>real<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>imag <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>imag <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"+%di\n"</span><span class="token punctuation">,</span> result<span class="token punctuation">.</span>imag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>imag <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%di\n"</span><span class="token punctuation">,</span> result<span class="token punctuation">.</span>imag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <!-- flag of hidden posts -->
