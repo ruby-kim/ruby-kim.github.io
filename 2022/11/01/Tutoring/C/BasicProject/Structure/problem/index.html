@@ -373,7 +373,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    99
+                    263
                 </div>
                 
 
@@ -396,13 +396,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="🅒-C언어-기초-구조체-3-추가-연습문제"><a href="#🅒-C언어-기초-구조체-3-추가-연습문제" class="headerlink" title="🅒 C언어 기초: 구조체 (3) 추가 연습문제"></a>🅒 C언어 기초: 구조체 (3) 추가 연습문제</h1><ol>
-<li><p>학생의 학번과 국어,영어,수학 점수를 저장할 수 있는 구조체를 만들고, 각 학생의 평균 점수(소수점 둘째 자리 까지)를 출력하는 함수를 작성해주세요.</p>
-<pre class="line-numbers language-c"><code class="language-c"># 구조체 선언
+<li><p>5명의 학생의 학번과 국어, 영어, 수학 점수를 저장할 수 있는 구조체를 만들고, 각 학생의 평균 점수(소수점 둘째 자리 까지)를 출력하는 함수를 작성해주세요.</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 구조체 선언 */</span>
 <span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 국어, 영어, 수학, 학번 선언</span>
 <span class="token punctuation">}</span> score<span class="token punctuation">;</span>
 
-# 사용해야 하는 함수
+<span class="token comment" spellcheck="true">/* 사용해야 하는 함수 */</span>
 <span class="token keyword">double</span> <span class="token function">avg</span><span class="token punctuation">(</span>score <span class="token operator">*</span>st<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
@@ -410,27 +410,68 @@
 <br>    
 
 <ol start="2">
-<li><p>선언된 구조체 Student에 학번(id)가 12345, 나이(age)가 18인 데이터를 넣고 출력하려고 합니다. <br>구조체 포인터인 ptr을 활용해서 프로그램을 완성해주세요.</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-
+<li><p>공부 시작시간과 종료시간을 입력받아 소요시간을 구하려고 합니다. <br> 두 개의 시(0<del>24), 분(0</del>60), 초(0~60)를 각각 입력받아 계산해주세요.</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* 구조체 선언 */</span>
 <span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> id<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span> Student<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 멤버는 잘 선언해주기!</span>
+<span class="token punctuation">}</span> Time<span class="token punctuation">;</span>
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    Student st<span class="token punctuation">;</span>
-    Student <span class="token operator">*</span>ptr<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* 사용해야 하는 함수: 시간차 계산 함수 */</span>
+<span class="token comment" spellcheck="true">// Time A: 시작시간, Time B: 종료시간, Time *d: 시간차</span>
+<span class="token keyword">void</span> <span class="token function">time_diff</span><span class="token punctuation">(</span>Time A<span class="token punctuation">,</span> Time B<span class="token punctuation">,</span> Time <span class="token operator">*</span>d<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 입력</span>
+시작시간<span class="token punctuation">(</span>시<span class="token punctuation">,</span> 분<span class="token punctuation">,</span> 초<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token number">10</span> <span class="token number">23</span>
+죵료시간<span class="token punctuation">(</span>시<span class="token punctuation">,</span> 분<span class="token punctuation">,</span> 초<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token number">15</span> <span class="token number">43</span>
 
-    <span class="token comment" spellcheck="true">// 코드 추가 작성</span>
-    <span class="token comment" spellcheck="true">// 입력: st 활용</span>
-    <span class="token comment" spellcheck="true">// 출력: ptr 활용</span>
+<span class="token comment" spellcheck="true">// 출력</span>
+소요시간<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token number">50</span> <span class="token number">20</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 입력</span>
+시작시간<span class="token punctuation">(</span>시<span class="token punctuation">,</span> 분<span class="token punctuation">,</span> 초<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token number">10</span> <span class="token number">23</span>
+죵료시간<span class="token punctuation">(</span>시<span class="token punctuation">,</span> 분<span class="token punctuation">,</span> 초<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token number">5</span> <span class="token number">23</span>
+
+<span class="token comment" spellcheck="true">// 출력</span>
+소요시간<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token number">55</span> <span class="token number">0</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<br>    
+
+<ol start="3">
+<li><p>공부 시작시간과 종료시간을 입력받아 소요시간을 구하려고 합니다. <br> 두 개의 시(0<del>24), 분(0</del>60), 초(0~60)를 각각 입력받아 계산해주세요.</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 구조체 선언</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 멤버는 잘 선언해주기!</span>
+<span class="token punctuation">}</span> Complex_num<span class="token punctuation">;</span>
 
 
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment" spellcheck="true">// 사용해야 하는 함수: 복소수 입력 (a, b 저장)</span>
+<span class="token keyword">void</span> <span class="token function">get_input</span><span class="token punctuation">(</span>Complex_num <span class="token operator">*</span>p<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 사용해야 하는 함수: 복소수 덧셈 계산기</span>
+Complex_num <span class="token function">calc_add</span><span class="token punctuation">(</span>Complex_num A<span class="token punctuation">,</span> Complex_num B<span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true">// 사용해야 하는 함수: 복소수 뺄셈 계산기</span>
+Complex_num <span class="token function">calc_substract</span><span class="token punctuation">(</span>Complex_num A<span class="token punctuation">,</span> Complex_num B<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 입력</span>
+첫 번째 복소수<span class="token punctuation">(</span>a <span class="token operator">+</span> bi<span class="token punctuation">)</span>를 입력해주세요 <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token number">5</span>
+두 번째 복소수<span class="token punctuation">(</span>a <span class="token operator">+</span> bi<span class="token punctuation">)</span>를 입력해주세요 <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">2</span> <span class="token number">7</span>
+
+<span class="token comment" spellcheck="true">// 출력</span>
+합계<span class="token punctuation">:</span> <span class="token number">5</span><span class="token operator">+</span>12i
+뺄셈<span class="token punctuation">:</span> <span class="token number">1</span><span class="token operator">-</span>2i
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// 입력</span>
+첫 번째 복소수<span class="token punctuation">(</span>a <span class="token operator">+</span> bi<span class="token punctuation">)</span>를 입력해주세요 <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token number">5</span>
+두 번째 복소수<span class="token punctuation">(</span>a <span class="token operator">+</span> bi<span class="token punctuation">)</span>를 입력해주세요 <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token number">5</span>
+
+<span class="token comment" spellcheck="true">// 출력</span>
+합계<span class="token punctuation">:</span> <span class="token number">6</span><span class="token operator">+</span>10i
+뺄셈<span class="token punctuation">:</span> <span class="token number">0</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <!-- flag of hidden posts -->
