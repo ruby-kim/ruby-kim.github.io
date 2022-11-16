@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-06-26T19:03:19.158Z</updated>
+  <updated>2022-11-16T16:51:57.246Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[AWS] Cloud Practitioner 요약 정리 (ing)</title>
+    <link href="http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/"/>
+    <id>http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/</id>
+    <published>2022-11-16T14:44:35.000Z</published>
+    <updated>2022-11-16T16:51:57.246Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;전체적으로 읽어보면서 이해하고, &lt;code&gt;무조건 외우고 갈 것&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-AWS에-access하는-방법&quot;&gt;&lt;a href=&quot;#1-AWS에-access하는-방법&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Programmers] 완주하지 못한 선수</title>
+    <link href="http://ruby-kim.github.io/2022/11/10/Algorithm/Programmers/Hash/ZagrebMarathon/"/>
+    <id>http://ruby-kim.github.io/2022/11/10/Algorithm/Programmers/Hash/ZagrebMarathon/</id>
+    <published>2022-11-10T03:44:35.000Z</published>
+    <updated>2022-11-16T15:32:22.246Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="Programmers" scheme="http://ruby-kim.github.io/tags/Programmers/"/>
+    
+    <category term="Hash" scheme="http://ruby-kim.github.io/tags/Hash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Programmers] 방울</title>
+    <link href="http://ruby-kim.github.io/2022/11/08/Algorithm/Programmers/Hash/Bell/"/>
+    <id>http://ruby-kim.github.io/2022/11/08/Algorithm/Programmers/Hash/Bell/</id>
+    <published>2022-11-08T03:44:35.000Z</published>
+    <updated>2022-11-16T16:31:26.804Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;1.png&quot;&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="✍ Algorithm" scheme="http://ruby-kim.github.io/categories/%E2%9C%8D-Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://ruby-kim.github.io/tags/Algorithm/"/>
+    
+    <category term="Programmers" scheme="http://ruby-kim.github.io/tags/Programmers/"/>
+    
+    <category term="Hash" scheme="http://ruby-kim.github.io/tags/Hash/"/>
+    
+  </entry>
   
   <entry>
     <title>네트워크 기본</title>
@@ -524,96 +614,6 @@
     <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
     <category term="RDS" scheme="http://ruby-kim.github.io/tags/RDS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Automatic Tech Blog Management] Github blog 포스트를 Tistory에 자동 업로드하기</title>
-    <link href="http://ruby-kim.github.io/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/"/>
-    <id>http://ruby-kim.github.io/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/</id>
-    <published>2022-03-27T15:44:35.000Z</published>
-    <updated>2022-06-26T18:40:02.155Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;지금까지 작성한 코드가 잘 작동하는지 확인해보는겸 글 하나를 타겟으로 티스토리에 업로드를 해본다.&lt;/p&gt;
-&lt;h2 id=&quot;사전-준비물&quot;&gt;&lt;a href=&quot;#사전-준비물&quot; class=&quot;headerlink&quot; title=&quot;사전 준비물&quot;&gt;&lt;/a&gt;사전</summary>
-        
-      
-    
-    
-    
-    <category term="⚒ Projects" scheme="http://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
-    
-    
-    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
-    
-    <category term="Parsing" scheme="http://ruby-kim.github.io/tags/Parsing/"/>
-    
-    <category term="Crawling" scheme="http://ruby-kim.github.io/tags/Crawling/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[AWS] Route53: DNS 서비스</title>
-    <link href="http://ruby-kim.github.io/2022/03/26/AWS/Route53/"/>
-    <id>http://ruby-kim.github.io/2022/03/26/AWS/Route53/</id>
-    <published>2022-03-26T14:44:35.000Z</published>
-    <updated>2022-06-26T18:36:42.883Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;route53.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;목적-도메인-주소를-구매-후-의미-있는-url-이름-부여&quot;&gt;&lt;a href=&quot;#목적-도메인-주소를-구매-후-의미-있는-url-이름-부여&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
-    
-    
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
-    
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
-    
-    <category term="Route53" scheme="http://ruby-kim.github.io/tags/Route53/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[AWS] EC2: Elastic Compute Cloud</title>
-    <link href="http://ruby-kim.github.io/2022/03/24/AWS/EC2/"/>
-    <id>http://ruby-kim.github.io/2022/03/24/AWS/EC2/</id>
-    <published>2022-03-24T14:44:35.000Z</published>
-    <updated>2022-06-26T18:36:25.460Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;EC2.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;목적-유연한-cloud-크기-변동&quot;&gt;&lt;a href=&quot;#목적-유연한-cloud-크기-변동&quot; class=&quot;headerlink&quot; title=&quot;목적: 유연한 cloud 크기 변동&quot;&gt;&lt;/a&gt;목적:</summary>
-        
-      
-    
-    
-    
-    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
-    
-    
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
-    
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
-    
-    <category term="EC2" scheme="http://ruby-kim.github.io/tags/EC2/"/>
     
   </entry>
   

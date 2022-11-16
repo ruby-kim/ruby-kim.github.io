@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>[AWS] Cloud Practitioner 요약 정리 (ing)</title>
+      <link href="/2022/11/16/AWS/Certificate/Foundational/Summary/"/>
+      <url>/2022/11/16/AWS/Certificate/Foundational/Summary/</url>
+      
+        <content type="html"><![CDATA[<p>전체적으로 읽어보면서 이해하고, <code>무조건 외우고 갈 것</code></p><p><br><br><br></p><h2 id="1-AWS에-access하는-방법"><a href="#1-AWS에-access하는-방법" class="headerlink" title="1. AWS에 access하는 방법"></a>1. AWS에 access하는 방법</h2><hr><ul><li>AWS Management Console: 관리 콘솔에 직접 접근</li><li>Command Line Interface (AWS CLI): command line으로 접근</li><li>SDK (Software Development Kit): 개발자가 애플리케이션 코드에서 AWS 서비스에 액세스할 수 있는 메커니즘</li></ul><h2 id="2-컴퓨팅"><a href="#2-컴퓨팅" class="headerlink" title="2. 컴퓨팅"></a>2. 컴퓨팅</h2><hr><p>(1) <code>AWS EC2(Elastic Computing Cloud)</code></p><ul><li>elastic(탄력적인): 애플리케이션의 수요에 따라 서버를 유연하게 늘리거나 줄이기 가능</li><li>compute: 컴퓨팅. 서버를 의미함</li><li>cloud: 구름<br>   =&gt; 서버들을 탄력적으로 관리가 가능함 = EC2 인스턴스들</li></ul><p>(2) AWS EC2 Container Service (ECS)</p><ul><li>도커 컨테이너를 지원하는 컨테이너 관리 서비스</li><li>클러스터 관리 인프라를 설치, 운영 및 확장</li></ul><p>(3) AWS EC2 Container Registry (ECR)</p><ul><li>도커 컨테이너 이미지를 저장, 관리 및 배포할 수 있게 해주는 완전관리형 도커 컨테이너 레지스트리</li><li>AWS Identity and Access Management(IAM)과 통합 -&gt; 각 repository를 리소스 수준에서 제어할 수 있음</li><li>선수금이나 약정이 없음 -&gt; repository에 저장한 데이터와 인터넷으로 전송한 데이터 양에 대해서만 비용을 지불하면 됨</li></ul><p>(4) AWS Lightsail</p><ul><li>AWS에서 가상 프라이빗 서버를 시작하고 관리할 때 사용</li><li>프로젝트 착수에 필요한 모든 것(SSD 기반 스토리지, 데이터 전송, DNS 관리, 고정 IP 주소, 가상 머신 등)이 포함되어 있음 -&gt; 서비스를 저렴하고 예측 가능한 비용으로 사용 가능</li></ul><p>(5) AWS Batch</p><ul><li>수많은 배치 컴퓨팅 작업을 효율적으로 실행 및 관리할 수 있음: 주로 데이터 사이언티스트 (인공지능)에서 많이 사용함</li><li>core가 많이 필요한 실험에 좋음 (컴퓨터에서 core란 사람으로 따지면 사람 수라고 생각하면 됨)</li></ul><p>(6) AWS Elastic Beanstalk</p><ul><li>Java, .NET, PHP, Node.js, Python, Ruby, Go, Docker를 사용해서 Apache, Nginx, Passanger, IIS 같은 서버에서 개발된 웹 애플리케이션 및 서비스를 배포 및 확장하는 서비스</li><li>그대로 업로드하면 되는 것이기 때문에 사용이 간편함</li></ul><p>(7) <code>AWS Lambda</code></p><ul><li><strong>Serverless</strong>: 서버를 프로비저닝하거나 관리할 필요 없이 코드를 실행할 수 있음</li><li><strong>비용 청구 기준</strong>: 실행 시간 기준, 요청 수 기준</li><li>(보충 설명): 서버를 계속 틀어놨다가는 요금 폭탄을 맡기 쉬운데, 사용자가 서비스에 접속했을 때만 서버를 실행하는 방식을 채택하면 저렴한 비용으로 운영할 수 있음</li><li>코드 업로드 -&gt; (trigger: s3에 이미지 업로드 하는 등 다른 AWS에 접근 해서 동작 실행) -&gt; Lambda 실행 -&gt; ms 시간 단위 / 요청 수 기준으로 사용 요금 지불</li></ul><p>(8) <code>Auto Scaling</code><br>    * 애플리케이션 <strong>가용성을 유지</strong>하는데 도움이 됨<br>    * 정의한 조건에 따라 Amazon EC2 용량을 자동으로 확장하거나 축소할 수 있음 -&gt; 싼 비용으로 이용 가능</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👩‍💻 AWS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AWS </tag>
+            
+            <tag> Cloud </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Programmers] 완주하지 못한 선수</title>
+      <link href="/2022/11/10/Algorithm/Programmers/Hash/ZagrebMarathon/"/>
+      <url>/2022/11/10/Algorithm/Programmers/Hash/ZagrebMarathon/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><hr><p><img src="problem.png"></p><h2 id="내-코드-amp-풀이-정렬"><a href="#내-코드-amp-풀이-정렬" class="headerlink" title="내 코드 &amp; 풀이 (정렬)"></a>내 코드 &amp; 풀이 (정렬)</h2><hr><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>participant<span class="token punctuation">,</span> completion<span class="token punctuation">)</span><span class="token punctuation">:</span>    participant<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>    completion<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>completion<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> participant<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> completion<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>            <span class="token keyword">return</span> participant<span class="token punctuation">[</span>i<span class="token punctuation">]</span>    <span class="token keyword">return</span> participant<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>시간 복잡도: O(n log n)</li><li>공간 복잡도: O(n)</li></ul><p>동명이인이 없기 때문에 두 개를 비교해서 paticipant의 특정값이 completion에 없을 때 값을 반환하면 된다.<br>데이터가 100,000명 이하로 되어있기 때문에 정렬을 하면 더 빠르게 결과를 도출 할 수 있을 것 같아 sort를 사용 후 for문을 통해 특정 값을 리턴했다.<br>나중에 검색해보니 sort()의 시간 복잡도가 O(n log n)이라고 한다. 따라서 좀 더 빠르게 답을 찾아야 할 필요성이 있다.</p><h2 id="다른-답안-풀이-해시"><a href="#다른-답안-풀이-해시" class="headerlink" title="다른 답안 풀이 (해시)"></a>다른 답안 풀이 (해시)</h2><hr><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>participant<span class="token punctuation">,</span> completion<span class="token punctuation">)</span><span class="token punctuation">:</span>    d <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>    <span class="token keyword">for</span> x <span class="token keyword">in</span> participant<span class="token punctuation">:</span>        d<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> d<span class="token punctuation">.</span>get<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>    <span class="token keyword">for</span> x <span class="token keyword">in</span> completion<span class="token punctuation">:</span>        d<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>    dnf <span class="token operator">=</span> <span class="token punctuation">[</span>k <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> d<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> v <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">]</span>    answer <span class="token operator">=</span> dnf<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>    <span class="token keyword">return</span> answer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>시간 복잡도: O(n)</li><li>공간 복잡도: O(n)</li></ul><p>프로그래머스 알고리즘 분류 목록대로 <code>해시</code>를 사용하면 된다.<br>파이썬에서는 이를 dictionary로 구현하면 되는데, 사전의 원소들을 해시를 이용해 O(1) 시간에 접근가능해서 검색에 용이하다.</p><p>이 때 for문을 돌릴 때 participant의 이름 리스트들을 각각 key로, index를 value로 세팅해주면 된다.<br>(기본적으로 value값은 1로 세팅이 되는데, 이 문제에서는 아니지만 다른 해시 문제에서 해시를 만들다 보면 key가 겹치는 때가 있을 수 있다.<br>그 때는 해당 value값을 배열로 만들어서 문제를 해결해야 한다.)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> Programmers </tag>
+            
+            <tag> Hash </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Programmers] 방울</title>
+      <link href="/2022/11/08/Algorithm/Programmers/Hash/Bell/"/>
+      <url>/2022/11/08/Algorithm/Programmers/Hash/Bell/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><hr><p><img src="1.png"></p><h2 id="내-코드-amp-풀이"><a href="#내-코드-amp-풀이" class="headerlink" title="내 코드 &amp; 풀이"></a>내 코드 &amp; 풀이</h2><hr><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>bell<span class="token punctuation">)</span><span class="token punctuation">:</span>    answer <span class="token operator">=</span> <span class="token number">0</span>    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>bell<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">:</span>            new_bell <span class="token operator">=</span> bell<span class="token punctuation">[</span>j <span class="token punctuation">:</span> i<span class="token punctuation">]</span>            new_bell_1 <span class="token operator">=</span> new_bell<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>            new_bell_2 <span class="token operator">=</span> new_bell<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>            <span class="token keyword">if</span> new_bell_1 <span class="token operator">==</span> new_bell_2 <span class="token operator">and</span> new_bell_1 <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>                answer <span class="token operator">=</span> max<span class="token punctuation">(</span>answer<span class="token punctuation">,</span> new_bell_1 <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>    <span class="token keyword">return</span> answer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>시간 복잡도: O(n^2)</li><li>공간 복잡도: O(n)</li></ul><p>알고리즘 다 잊어버려서 일단 되는 코드 만들어야지~하고 뚝딱 만든 코드.<br>역시나 시간 복잡도가 커서 정답은 나오지만 시간 초과가 나왔다.</p><h2 id="다른-답안-풀이-해시"><a href="#다른-답안-풀이-해시" class="headerlink" title="다른 답안 풀이 (해시)"></a>다른 답안 풀이 (해시)</h2><hr><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> itertools <span class="token keyword">import</span> accumulate<span class="token keyword">def</span> <span class="token function">solution</span><span class="token punctuation">(</span>bell<span class="token punctuation">)</span><span class="token punctuation">:</span>    coors_start <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>    coors_end <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>    <span class="token keyword">for</span> i<span class="token punctuation">,</span> x <span class="token keyword">in</span> enumerate<span class="token punctuation">(</span>accumulate<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">1</span> <span class="token keyword">else</span> <span class="token number">1</span> <span class="token keyword">for</span> b <span class="token keyword">in</span> bell<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">if</span> x <span class="token operator">not</span> <span class="token keyword">in</span> coors_start<span class="token punctuation">:</span>            coors_start<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> i        coors_end<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> i    <span class="token keyword">return</span> max<span class="token punctuation">(</span>coors_end<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">-</span> coors_start<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> coors_end<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>시간 복잡도: O(n^2)</li><li>공간 복잡도: O(n)</li></ul><p>다양한 알고리즘 중 <code>해시</code>를 사용하면 된다.<br>먼저 1을 -1로, 2를 1로 치환하면 다음과 같다: [-1, 1, -1, -1, -1, 1, 1, -1]<br>맨 처음 값을 0으로 시작해서 누적합을 구하면 [0, -1, 0, -1, -2, -3, -2, -1, -2]가 되는데, 이 누적합의 i번째 요소는 1- i번째 방울까지 봤을 때 초록방울이 얼마나 더 많았냐를 의미한다. 즉 i=3일 때 누적합[i]는 -1이며, 이는 1-3번째 방울까지 봤을 때 빨간색이 초록색보다 1개 더 많음을 의미한다.</p><p>그리고 누작합을 자세히 보면, 숫자 -n이라는 값 사이로 초록색, 빨간색 방울의 개수가 매칭이 된다는 것을 알 수 있다.<br>왜냐면 앞에 얼마나 부족한지 혹은 많은지 모르겠지만, 중간 과정을 거쳐서 결국에 시작한 숫자인 -n으로 돌아왔단 얘기는 그 사이의 것들이 균형을 이룬다는 얘기기 때문이다.</p><p>시간/공간 복잡도가 똑같은걸 보면 아무래도 내 풀이는 최악의 시간 복잡도를, 모범 답안은 그 중 최선의 시간 복잡도를 가진 것 같다.</p><h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><hr><table><thead><tr><th align="center">실행 코드</th><th align="center">값</th><th align="center">속도</th></tr></thead><tbody><tr><td align="center">for문</td><td align="center">10만</td><td align="center">0.01894974708557129</td></tr><tr><td align="center">accumulate</td><td align="center">10만</td><td align="center">0.004986286163330078</td></tr><tr><td align="center">for문</td><td align="center">1000만</td><td align="center">1.868004560470581</td></tr><tr><td align="center">accumulate</td><td align="center">1000만</td><td align="center">0.766948938369751</td></tr></tbody></table><ul><li>누적합은 intertools의 accumulate이 기본 for문보다 더 빠르다고 한다.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> ✍ Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> Programmers </tag>
+            
+            <tag> Hash </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>네트워크 기본</title>
       <link href="/2022/05/30/NS/Basic/"/>
       <url>/2022/05/30/NS/Basic/</url>
