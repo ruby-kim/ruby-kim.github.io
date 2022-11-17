@@ -463,14 +463,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    602
+                    673
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -550,7 +550,13 @@
 </ul>
 <br>
 
-<h2 id="3-스토리지"><a href="#3-스토리지" class="headerlink" title="3. 스토리지"></a>3. 스토리지</h2><hr>
+<h2 id="3-스토리지"><a href="#3-스토리지" class="headerlink" title="3. 스토리지"></a>3. 스토리지</h2><p>일반적으로 3가지 타입으로 나뉨</p>
+<ul>
+<li>Object storage: S3</li>
+<li>Block storage: EBS</li>
+<li>File storage: EFS</li>
+</ul>
+<hr>
 <p>(1) AWS S3(Simple Storage Service)</p>
 <ul>
 <li><strong>Object 객체 기반 스토리지</strong>: 파일, 이미지, 비디오, 스냅샷 등</li>
@@ -559,12 +565,13 @@
 <blockquote>
 <p>S3 Standard</p>
 <ul>
-<li>가장 많이 쓰이며, 주로 핫데이터(콘텐츠)에 사용<br>사용한 만큼 지불 (GB당 과금)</li>
+<li>가장 많이 쓰이며, 주로 핫데이터(콘텐츠)에 사용</li>
+<li>사용한 만큼 지불 (GB당 과금)</li>
 <li><strong>99.9%의 내구성 / 가용성</strong></li>
 <li><strong>대량의 데이터를 쉽게 송신 또는 수신 가능</strong></li>
 <li>무제한 저장소 (단, 최대 저장 가능 객체 크기는 5TB)</li>
 </ul>
-<p><strong>정적 웹 사이트 호스팅 용도</strong>: 실무에서, frontend production 모드 파일을 S3에다가 올렸음</p>
+<p><strong>정적 웹 사이트 호스팅 용도</strong>: (보충설명) 실무에서 frontend production 모드 파일을 S3에다가 올렸음</p>
 </blockquote>
 <blockquote>
 <p><strong>S3 Infrequent Access</strong><br>자주 엑세스 하지 않는 것들로 구성: 조회 비용이 비싸기 때문</p>
@@ -579,13 +586,14 @@
 </blockquote>
 <p>(2) AWS Elastic Block Store (EBS)</p>
 <ul>
+<li><strong>Block 스토리지</strong></li>
 <li><strong>영구적인 스토리지</strong>를 위함</li>
 <li>하드처럼 ec2에 붙여서 사용함(ev2 vm에 붙임)<ul>
 <li>한 개의 EC2 + 여러 개의 EBS (O)</li>
-<li>한 개의 EBS + 여러 개의 EC2 (X)</li>
+<li>한 개의 EBS + 여러 개의 EC2 (X) -&gt; 같은 regoin + AZ에 있을 경우 가능 (AWS EBS Muiti Attach)</li>
 </ul>
 </li>
-<li><strong>AWS KMS</strong>로 암호화 사용: 실무에서 데이터 보안을 위해 KMS로 랜덤 값 세팅해서 했었음</li>
+<li><strong>AWS KMS</strong>로 암호화 사용: (보충설명) 실무에서 데이터 보안을 위해 KMS로 랜덤 값 세팅해서 했었음</li>
 </ul>
 <p>(3) <code>AWS Elastic File System (EFS)</code></p>
 <ul>
@@ -597,11 +605,21 @@
 <p>(4) AWS Storage Gateway</p>
 <ul>
 <li><strong>온프레미스 데이터 스토리지를 AWS 클라우드에 연결하는 용도</strong><ul>
-<li>실무에서, Lamba로 API를 만들고 -&gt; API Gateway가 연결하는 역할을 하는 것처럼</li>
+<li>(보충설명) Lamba로 API를 만들고 -&gt; API Gateway가 연결하는 역할을 하는 것처럼</li>
 </ul>
 </li>
 <li>원격으로 지사, 본사 데이터 접근 가능: 데이터 센터에서 이용하는 방법</li>
 </ul>
+<br>
+
+<h2 id="4-데이터베이스"><a href="#4-데이터베이스" class="headerlink" title="4. 데이터베이스"></a>4. 데이터베이스</h2><p>일반적으로 3가지 타입으로 나뉨</p>
+<ul>
+<li>Relational Database Service (RDS): 관계령 DB 서비스 - mysql, nosql, mariaDB 등</li>
+<li>DynamoDB: NoSQL DB 서비스 - AWS만의 서비스</li>
+<li>ElastiCache: 인메모리 캐싱 서비스 - Mamcached, Redis</li>
+</ul>
+<hr>
+<p>추후 작성 예정 (최신 업데이트: 2022년 11월 18일)</p>
 
                 
             </div>
@@ -1028,7 +1046,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">14.1k</span>
+                        class="white-color">14.2k</span>
             
             
             
