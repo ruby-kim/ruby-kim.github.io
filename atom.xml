@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2022-11-16T16:51:57.246Z</updated>
+  <updated>2022-11-17T16:04:27.703Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -21,16 +21,19 @@
     <link href="http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/"/>
     <id>http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/</id>
     <published>2022-11-16T14:44:35.000Z</published>
-    <updated>2022-11-16T16:51:57.246Z</updated>
+    <updated>2022-11-17T16:04:27.703Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;전체적으로 읽어보면서 이해하고, &lt;code&gt;무조건 외우고 갈 것&lt;/code&gt;&lt;/p&gt;
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;전체적으로 읽어보면서 이해하고, &lt;code&gt;무조건 외우고 갈 것&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;이론 + 실무에서 얻은 지식을 짬뽕해서 작성함&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-AWS에-access하는-방법&quot;&gt;&lt;a href=&quot;#1-AWS에-access하는-방법&quot;</summary>
+&lt;h2</summary>
         
       
     
