@@ -49,9 +49,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -463,14 +463,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    673
+                    980
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    6 Min
                 </div>
                 
 
@@ -524,7 +524,10 @@
 <p>(5) AWS Batch</p>
 <ul>
 <li>수많은 배치 컴퓨팅 작업을 효율적으로 실행 및 관리할 수 있음: 주로 데이터 사이언티스트 (인공지능)에서 많이 사용함</li>
-<li>core가 많이 필요한 실험에 좋음 (컴퓨터에서 core란 사람으로 따지면 사람 수라고 생각하면 됨)</li>
+<li>core가 많이 필요한 실험에 좋음 (컴퓨터에서 core란 사람으로 따지면 사람 수라고 생각하면 됨)<ul>
+<li>암 연구에 대해 천 만개의 화합물 스크리닝 실행을 위해 최대 9만 코어를 동시에 이용하여 39년 -&gt; 9시간으로 시간 절약</li>
+</ul>
+</li>
 </ul>
 <p>(6) AWS Elastic Beanstalk</p>
 <ul>
@@ -619,7 +622,69 @@
 <li>ElastiCache: 인메모리 캐싱 서비스 - Mamcached, Redis</li>
 </ul>
 <hr>
-<p>추후 작성 예정 (최신 업데이트: 2022년 11월 18일)</p>
+<p>(1) <code>AWS RDS (Relational Database Service)</code></p>
+<ul>
+<li><strong>RDS 소프트웨어 패치는 AWS에서 설정 (사용자가 하는 것이 x)</strong></li>
+<li><strong>DB 이중화: Muitl - AZ</strong></li>
+<li>설정, 운영, 확장이 쉬움</li>
+<li>Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle, Microsoft SQL Server 등에서 선택<blockquote>
+<p><code>AWS Aurora</code></p>
+<ul>
+<li><strong>MySQL 및 PostgreSQL과 호환</strong>되는 <strong>RDS</strong> 엔진</li>
+<li>고사양 상업용 데이터베이스의 속도/가용성 + 오픈소스 데이터베이스의 단순성/비용 효율성</li>
+<li>필요에 따라 스토리지를 자동으로 늘리는 MySQL 호환 데이터베이스<ul>
+<li>MySQL보다 5배 뛰어난 성능</li>
+<li>1/10 비용으로 제공</li>
+<li>가용성 및 안정성</li>
+<li>상용 데이터베이스의 보안성</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>(2) <code>AWS DynamoDB</code></p>
+<ul>
+<li><strong>NoSQL DB 서비스</strong></li>
+<li>어떤 상황에서든 지연 시간이 일관적으로 한 자릿수 m/s 단위여야 하는 애플리케이션을 위한, 빠르고 유연한 NoSQL 데이터베이스 서비스</li>
+</ul>
+<p>(3) AWS ElastiCache</p>
+<ul>
+<li>데이터베이스 액세스 부하를 줄이는데 도움이 되는 공통 데이터베이스 쿼리 결과를 저장하는데 가장 적합한 서비스</li>
+<li><strong>NoSQL 데이터베이스 및 애플리케이션의 부하를 줄이는데 탁월한 선택</strong><ul>
+<li>인메모리 캐시 구현 -&gt; 액세스 지연 시간을 줄임</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="5-마이그레이션"><a href="#5-마이그레이션" class="headerlink" title="5. 마이그레이션"></a>5. 마이그레이션</h2><p>(1) AWS Application Discovery Service</p>
+<p>(2) AWS Database Migration Service</p>
+<p>(3) AWS Server Migration Service</p>
+<ul>
+<li>에이전트가 없는 서비스</li>
+<li>수천 개의 온프레미스 워크로드를 AWS로 쉽고 빠르게 마이그레이션할 수 있음</li>
+</ul>
+<p>(4) <code>AWS Snowball</code></p>
+<ul>
+<li><strong>페타바이트 규모, 대용량을 안전하게 전송</strong></li>
+<li>Giga &gt; Tera &gt; <strong>Peta</strong> &gt; Exa</li>
+<li>보통 <strong>온프레미스 데이터센ㄴ터 -&gt; AWS로 데이터 이동</strong></li>
+<li>같은 역할을 하는 서비스로, AWS Database Migration Service (AWS DMS)</li>
+<li>물리적 스토리지 디바이스 사용 -&gt; 인터넷보다 빠른 속도, AWS S3 &lt;-&gt; site data storage간 대량 데이터 전송</li>
+<li><strong>비용 또한 고속 인터넷 비용의 1/5 정도로 저렴</strong></li>
+<li>대규모 데이터 전송 시 흔히 겪는 어려움(높은 네트워크 비용, 긴 전송 시간, 보안 문제 등)을 한 번에 해결 가능</li>
+</ul>
+<p>(5) AWS Snowball Edge</p>
+<ul>
+<li>온보드 스토리지 및 컴퓨팅 기능을 포함한, 100TB <strong>데이터 전송 디바이스</strong></li>
+</ul>
+<p>(6) AWS Snowmobile</p>
+<ul>
+<li><strong>Exa byte</strong>규모의 데이터 세트를 AWS에서 또는 AWS로 마이그레이션하거나 전송</li>
+<li>Giga &gt; Tera &gt; Peta &gt; <strong>Exa</strong></li>
+</ul>
+<p>추후 작성 예정 (최신 업데이트: 2022년 11월 22일)</p>
 
                 
             </div>
@@ -1046,7 +1111,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">14.2k</span>
+                        class="white-color">14.5k</span>
             
             
             
