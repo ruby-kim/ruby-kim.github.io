@@ -1,1 +1,91 @@
 /* Here is your custom css styles. */
+:root {
+  --modal-duration: 1s;
+  --modal-color: #428bca;
+}
+
+.button {
+  background: #428bca;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.button:hover {
+  background: #3876ac;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 60%;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.modal-header {
+  background: var(--modal-color);
+  padding: 15px;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modal-body {
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.modal-img {
+  width: 100%;
+}
+
+.modal-footer {
+  background: var(--modal-color);
+  padding: 15px;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
