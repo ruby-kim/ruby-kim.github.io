@@ -373,14 +373,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    529
+                    692
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    4 Min
                 </div>
                 
 
@@ -565,6 +565,50 @@ Complex_num <span class="token function">complex_subtract</span><span class="tok
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<br>
+
+<ol start="4">
+<li><p>한 학생의 시험 결과 정보(가장 높은 점수, 가장 낮은 점수, 시험 통과 여부, 합격 기준 점수차, 점수차)를 입력 받은 후, 이 학생의 점수차와 시험 통과 여부(P 혹은 F)를 출력하는 프로그램을 만들어주세요.<br>출력하는 프로그램을 작성하시오.</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> high_score<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 가장 높은 점수를 저장하는 정수형 변수</span>
+    <span class="token keyword">int</span> low_score<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 가장 낮은 점수를 저장하는 정수형 변수</span>
+    <span class="token keyword">char</span> pass<span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 시험 통과 여부를 저장하는 문자형 변수 (F, P)</span>
+    <span class="token keyword">int</span> flag<span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">// 합격 기준 점수차를 저장하는 정수형 변수</span>
+    <span class="token keyword">int</span> diff_score<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 가장 높은 점수와 가장 낮은 점수의 차이를 저장하는 정수형 변수</span>
+<span class="token punctuation">}</span> Results<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">pass_or_fail</span><span class="token punctuation">(</span>Results <span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Results student<span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"가장 높은 점수: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>student<span class="token punctuation">.</span>high_score<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"가장 낮은 점수: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>student<span class="token punctuation">.</span>low_score<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"합격 기준 점수 차: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>student<span class="token punctuation">.</span>flag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">pass_or_fail</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %c\n"</span><span class="token punctuation">,</span> student<span class="token punctuation">.</span>diff_score<span class="token punctuation">,</span> student<span class="token punctuation">.</span>pass<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">pass_or_fail</span><span class="token punctuation">(</span>Results <span class="token operator">*</span>p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    p<span class="token operator">-></span>diff_score <span class="token operator">=</span> p<span class="token operator">-></span>high_score <span class="token operator">-</span> p<span class="token operator">-></span>low_score<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>p<span class="token operator">-></span>diff_score <span class="token operator">&lt;=</span> p<span class="token operator">-></span>flag<span class="token punctuation">)</span>
+        p<span class="token operator">-></span>pass <span class="token operator">=</span> <span class="token string">'P'</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        p<span class="token operator">-></span>pass <span class="token operator">=</span> <span class="token string">'F'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <!-- flag of hidden posts -->
