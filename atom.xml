@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>잡동사니</title>
+  
+  <subtitle>☁ Cloud Engineer ☁</subtitle>
+  <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://ruby-kim.github.io/"/>
+  <updated>2024-06-14T07:55:08.090Z</updated>
+  <id>http://ruby-kim.github.io/</id>
+  
+  <author>
+    <name>Ruby Kim</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[오픈소스] 2024년 6월 오픈소스 소식지 (1)</title>
+    <link href="http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/"/>
+    <id>http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/</id>
+    <published>2024-06-09T21:13:35.000Z</published>
+    <updated>2024-06-14T07:55:08.090Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[오픈소스] 2024년 5월 오픈소스 소식지 (2)</title>
+    <link href="http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/"/>
+    <id>http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/</id>
+    <published>2024-05-26T19:23:35.000Z</published>
+    <updated>2024-06-14T05:48:02.118Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[오픈소스] 2024년 5월 오픈소스 소식지 (1)</title>
+    <link href="http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/"/>
+    <id>http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/</id>
+    <published>2024-05-12T15:44:35.000Z</published>
+    <updated>2024-06-14T07:36:31.955Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[TIPS] Python, Javascript 프로젝트에서 유용한 regex 문법 및 관련 패키지 모음집</title>
+    <link href="http://ruby-kim.github.io/2022/11/25/Tips/Regex/"/>
+    <id>http://ruby-kim.github.io/2022/11/25/Tips/Regex/</id>
+    <published>2022-11-25T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.157Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;사용자의 입력값이 유효한지 확인하는 작업을 해야할 때가 있는데, 이 때 사용하면 유용한 패키지와 각종 regex를 정리해봤습니다.&lt;/p&gt;
+&lt;p&gt;(상시 업데이트 예정)&lt;/p&gt;
+&lt;h2 id=&quot;Python3&quot;&gt;&lt;a href=&quot;#Python3&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
+    
+    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
+    
+    <category term="Regex" scheme="http://ruby-kim.github.io/tags/Regex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AWS] Cloud Practitioner 요약 정리 (ing)</title>
+    <link href="http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/"/>
+    <id>http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/</id>
+    <published>2022-11-16T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.069Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;전체적으로 읽어보면서 이해하고, &lt;code&gt;무조건 외우고 갈 것&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;이론 + 실무에서 얻은 지식을 짬뽕해서 작성함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>네트워크 기본</title>
+    <link href="http://ruby-kim.github.io/2022/05/30/NS/Basic/"/>
+    <id>http://ruby-kim.github.io/2022/05/30/NS/Basic/</id>
+    <published>2022-05-30T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.132Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;IPv4&quot;&gt;&lt;a href=&quot;#IPv4&quot; class=&quot;headerlink&quot; title=&quot;IPv4&quot;&gt;&lt;/a&gt;IPv4&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;./ipv4.png&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;컴퓨터 사이에 통신을 하기 위해서는</summary>
+        
+      
+    
+    
+    
+    <category term="🔐 Network/Security" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
+    
+    
+    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
+    
+    <category term="IP" scheme="http://ruby-kim.github.io/tags/IP/"/>
+    
+    <category term="Subnet" scheme="http://ruby-kim.github.io/tags/Subnet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows &amp; Mac에서 nvm 설치하기 (Node.js, Npm, Yarn 설치)</title>
+    <link href="http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/"/>
+    <id>http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/</id>
+    <published>2022-05-16T17:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;개발 프로젝트에 따라서 Node의 버전을 여러 개 설치하고 번갈아 사용해야 하는 경우가 있는데,&lt;br&gt;이럴 때는 nvm(Node Version Manager)를 사용하면 여러 개의 node 버전을 설치하여 원하는 node 버전을 골라서 사용할</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Node.js" scheme="http://ruby-kim.github.io/tags/Node-js/"/>
+    
+    <category term="Npm" scheme="http://ruby-kim.github.io/tags/Npm/"/>
+    
+    <category term="Yarn" scheme="http://ruby-kim.github.io/tags/Yarn/"/>
+    
+    <category term="Nvm" scheme="http://ruby-kim.github.io/tags/Nvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DevOps 개요</title>
+    <link href="http://ruby-kim.github.io/2022/05/12/DevOps/Intro/"/>
+    <id>http://ruby-kim.github.io/2022/05/12/DevOps/Intro/</id>
+    <published>2022-05-11T17:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.094Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-DevOps-정의&quot;&gt;&lt;a href=&quot;#1-DevOps-정의&quot; class=&quot;headerlink&quot; title=&quot;1. DevOps 정의&quot;&gt;&lt;/a&gt;1. DevOps 정의&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“A set of</summary>
+        
+      
+    
+    
+    
+    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>대학생 때 알았다면 좋았을 SW 팁</title>
+    <link href="http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/"/>
+    <id>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</id>
+    <published>2022-05-10T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.142Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;SW분야를 `선택하고 스펙을 쌓으며 가장 고생했던 것 중 하나가 바로 &lt;strong&gt;조언해주는 사람이 없다는 것&lt;/strong&gt;이었다.&lt;/p&gt;
+&lt;p&gt; 어떤 분야든 멘토가 있다면 효율적으로 스펙을 쌓고 빠르게 기술을 습득할 수 있겠지만, 주변에</summary>
+        
+      
+    
+    
+    
+    <category term="🎈 Retrospect" scheme="http://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
+    
+    
+    <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
+    
+    <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
+    
+    <category term="42SEOUL" scheme="http://ruby-kim.github.io/tags/42SEOUL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[MSA] Micro Service Architecture: Outer - Service Mesh</title>
+    <link href="http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/"/>
+    <id>http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/</id>
+    <published>2022-04-30T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.092Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;MSA의 Outer Architecture 중 Service Mesh에 대해 알아보자.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;MSA-개념-설명-읽어보기&quot;&gt;&lt;a href=&quot;#MSA-개념-설명-읽어보기&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
+    
+    
+    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
+    
+    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
+    
+    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
+    
+    <category term="ESB" scheme="http://ruby-kim.github.io/tags/ESB/"/>
+    
+    <category term="Sidecar" scheme="http://ruby-kim.github.io/tags/Sidecar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[MSA] Micro Service Architecture: Outer - External Gateway</title>
+    <link href="http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/"/>
+    <id>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</id>
+    <published>2022-04-28T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;MSA의 Outer Architecture 중 External Gateway에 대해 알아보자.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;MSA-개념-설명-읽어보기&quot;&gt;&lt;a href=&quot;#MSA-개념-설명-읽어보기&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
+    
+    
+    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
+    
+    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
+    
+    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
+    
+    <category term="ESB" scheme="http://ruby-kim.github.io/tags/ESB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[MSA] Micro Service Architecture 개요</title>
+    <link href="http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/"/>
+    <id>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</id>
+    <published>2022-04-26T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.087Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;요즘 핫이슈로 개발자라면 무조건 알아야 할 개념인 MSA에 적어보고자 한다.&lt;/p&gt;
+&lt;h2 id=&quot;MSA의-등장배경-모놀리식-아키텍처-Monolithic-Architecture&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
+    
+    
+    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
+    
+    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정</title>
+    <link href="http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/"/>
+    <id>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</id>
+    <published>2022-04-23T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.142Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-👩🏻‍💻-내가-개발자…&quot;&gt;&lt;a href=&quot;#1-👩🏻‍💻-내가-개발자…&quot; class=&quot;headerlink&quot; title=&quot;1. 👩🏻‍💻 내가 개발자…?&quot;&gt;&lt;/a&gt;1. 👩🏻‍💻 내가 개발자…?&lt;/h2&gt;&lt;p&gt;대입준비를</summary>
+        
+      
+    
+    
+    
+    <category term="🎈 Retrospect" scheme="http://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
+    
+    
+    <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
+    
+    <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
+    
+    <category term="42SEOUL" scheme="http://ruby-kim.github.io/tags/42SEOUL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[React.js] React 라이프 사이클</title>
+    <link href="http://ruby-kim.github.io/2022/04/22/Reactjs/ReactLifeCycle/"/>
+    <id>http://ruby-kim.github.io/2022/04/22/Reactjs/ReactLifeCycle/</id>
+    <published>2022-04-22T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.141Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;React-Life-Cycle&quot;&gt;&lt;a href=&quot;#React-Life-Cycle&quot; class=&quot;headerlink&quot; title=&quot;React Life Cycle&quot;&gt;&lt;/a&gt;React Life Cycle&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;Reacts는</summary>
+        
+      
+    
+    
+    
+    <category term="✨ React.js" scheme="http://ruby-kim.github.io/categories/%E2%9C%A8-React-js/"/>
+    
+    
+    <category term="React" scheme="http://ruby-kim.github.io/tags/React/"/>
+    
+    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github Wiki에서 TOC 만들기 </title>
+    <link href="http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/"/>
+    <id>http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/</id>
+    <published>2022-04-20T17:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.102Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;2.png&quot;&gt;&lt;br&gt;종종 프로젝트를 하다보면 wiki의 크기가 커지는 경우가 많은데, 문서 가시성을 위해 wiki에서 TOC(Table Of Content, 목차)를 만드는 방법을 소개해보고자 한다.&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Github Blog 백업하기</title>
+    <link href="http://ruby-kim.github.io/2022/04/15/Hexo/Backup/"/>
+    <id>http://ruby-kim.github.io/2022/04/15/Hexo/Backup/</id>
+    <published>2022-04-15T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.104Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;기본적인 블로그 세팅이 끝났다.&lt;br&gt;이전 포스트를 따라 블로그 세팅을 했다면, 실질적으로 .md파일이 저장되는 repository가 없음을 확인할 수 있다.&lt;br&gt;즉 다른 컴퓨터 환경에서 블로그 포스트를 이어서 작성할 수 없으며,</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Github Blog 테마를 자유롭게 선택 및 수정해보자</title>
+    <link href="http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/"/>
+    <id>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</id>
+    <published>2022-04-12T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.104Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;이번에는 github blog에 원하는 테마를 적용할건데, Hexo에서 가장 유명한 테마인 icarus를 활용할 예정이다.&lt;br&gt;다른 테마를 원한다면 github에 hexo를 검색해보거나 &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Hexo theme 추천 리스트</title>
+    <link href="http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/"/>
+    <id>http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/</id>
+    <published>2022-04-11T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.107Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;기본적으로 github에 hexo를 검색하면 &lt;code&gt;hexo-theme-프로젝트명&lt;/code&gt;으로 다양한 테마를 확인할 수 있는데, 그 중 괜찮아 보이는 것 몇 개를 소개해보고자 한다.&lt;br&gt;각 테마마다 설치해야 할 package가 다르니</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Markdown으로 Github Blog를 만들어보자</title>
+    <link href="http://ruby-kim.github.io/2022/04/07/Hexo/Install/"/>
+    <id>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</id>
+    <published>2022-04-07T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.105Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Github로 블로그를 운영할 때 어떤 기술을 사용해야 하는지, 아니면 어떻게 시작을 할지 고민하는 사람들을 위해 이번 포스팅을 해본다.&lt;/p&gt;
+&lt;h2 id=&quot;Hexo란&quot;&gt;&lt;a href=&quot;#Hexo란&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
+    
+    
+    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
+    
+    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
+    
+    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[AWS] S3: Simple Storage Service</title>
+    <link href="http://ruby-kim.github.io/2022/04/03/AWS/S3/"/>
+    <id>http://ruby-kim.github.io/2022/04/03/AWS/S3/</id>
+    <published>2022-04-03T14:44:35.000Z</published>
+    <updated>2023-06-21T11:39:04.079Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;s3.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드&quot;&gt;&lt;a href=&quot;#목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://ruby-kim.github.io/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/</loc>
+        <lastmod>2024-06-14T07:55:08.090Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/</loc>
+        <lastmod>2024-06-14T07:36:31.955Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/</loc>
+        <lastmod>2024-06-14T05:48:02.118Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/11/25/Tips/Regex/</loc>
+        <lastmod>2023-06-21T11:39:04.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
+        <lastmod>2023-06-21T11:39:04.142Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
+        <lastmod>2023-06-21T11:39:04.142Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/22/Reactjs/ReactLifeCycle/</loc>
+        <lastmod>2023-06-21T11:39:04.141Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</loc>
+        <lastmod>2023-06-21T11:39:04.139Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
+        <lastmod>2023-06-21T11:39:04.139Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/</loc>
+        <lastmod>2023-06-21T11:39:04.137Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/30/NS/SSLTSL/</loc>
+        <lastmod>2023-06-21T11:39:04.135Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</loc>
+        <lastmod>2023-06-21T11:39:04.135Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/30/NS/Basic/</loc>
+        <lastmod>2023-06-21T11:39:04.132Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/</loc>
+        <lastmod>2023-06-21T11:39:04.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</loc>
+        <lastmod>2023-06-21T11:39:04.105Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/15/Hexo/Backup/</loc>
+        <lastmod>2023-06-21T11:39:04.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</loc>
+        <lastmod>2023-06-21T11:39:04.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/</loc>
+        <lastmod>2023-06-21T11:39:04.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/</loc>
+        <lastmod>2023-06-21T11:39:04.102Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/16/Etc/Python-env/</loc>
+        <lastmod>2023-06-21T11:39:04.102Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/</loc>
+        <lastmod>2023-06-21T11:39:04.097Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/17/Etc/Github-Actions-env/</loc>
+        <lastmod>2023-06-21T11:39:04.095Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/12/DevOps/Intro/</loc>
+        <lastmod>2023-06-21T11:39:04.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/</loc>
+        <lastmod>2023-06-21T11:39:04.092Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</loc>
+        <lastmod>2023-06-21T11:39:04.089Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
+        <lastmod>2023-06-21T11:39:04.087Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/03/AWS/S3/</loc>
+        <lastmod>2023-06-21T11:39:04.079Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/26/AWS/Route53/</loc>
+        <lastmod>2023-06-21T11:39:04.072Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/10/AWS/IAM/</loc>
+        <lastmod>2023-06-21T11:39:04.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/28/AWS/RDS/</loc>
+        <lastmod>2023-06-21T11:39:04.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/03/24/AWS/EC2/</loc>
+        <lastmod>2023-06-21T11:39:04.069Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/</loc>
+        <lastmod>2023-06-21T11:39:04.069Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
