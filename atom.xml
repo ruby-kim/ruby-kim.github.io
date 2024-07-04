@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-06-14T07:55:08.090Z</updated>
+  <updated>2024-07-04T02:14:56.048Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 2일차</title>
+    <link href="http://ruby-kim.github.io/2024/06/22/Conference/24USA/silicon-valley-2/"/>
+    <id>http://ruby-kim.github.io/2024/06/22/Conference/24USA/silicon-valley-2/</id>
+    <published>2024-06-22T03:22:10.000Z</published>
+    <updated>2024-07-04T02:14:56.048Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-PANEL-SESSION-The-Future-of-Tech-Startups-Trends-and-Predictions&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="✈️ Conference" scheme="http://ruby-kim.github.io/categories/%E2%9C%88%EF%B8%8F-Conference/"/>
+    
+    
+    <category term="Conference" scheme="http://ruby-kim.github.io/tags/Conference/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 1일차</title>
+    <link href="http://ruby-kim.github.io/2024/06/21/Conference/24USA/silicon-valley-1/"/>
+    <id>http://ruby-kim.github.io/2024/06/21/Conference/24USA/silicon-valley-1/</id>
+    <published>2024-06-20T16:43:12.000Z</published>
+    <updated>2024-06-30T07:44:53.853Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;그-많고-많은-컨퍼런스-중-실리콘밸리를-선택한-이유는&quot;&gt;&lt;a href=&quot;#그-많고-많은-컨퍼런스-중-실리콘밸리를-선택한-이유는&quot; class=&quot;headerlink&quot; title=&quot;그 많고 많은 컨퍼런스 중 실리콘밸리를 선택한</summary>
+        
+      
+    
+    
+    
+    <category term="✈️ Conference" scheme="http://ruby-kim.github.io/categories/%E2%9C%88%EF%B8%8F-Conference/"/>
+    
+    
+    <category term="Conference" scheme="http://ruby-kim.github.io/tags/Conference/"/>
+    
+  </entry>
   
   <entry>
     <title>[오픈소스] 2024년 6월 오픈소스 소식지 (1)</title>
@@ -544,66 +594,6 @@
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
     
     <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Hexo] Markdown으로 Github Blog를 만들어보자</title>
-    <link href="http://ruby-kim.github.io/2022/04/07/Hexo/Install/"/>
-    <id>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</id>
-    <published>2022-04-07T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.105Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Github로 블로그를 운영할 때 어떤 기술을 사용해야 하는지, 아니면 어떻게 시작을 할지 고민하는 사람들을 위해 이번 포스팅을 해본다.&lt;/p&gt;
-&lt;h2 id=&quot;Hexo란&quot;&gt;&lt;a href=&quot;#Hexo란&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
-    
-    
-    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
-    
-    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[AWS] S3: Simple Storage Service</title>
-    <link href="http://ruby-kim.github.io/2022/04/03/AWS/S3/"/>
-    <id>http://ruby-kim.github.io/2022/04/03/AWS/S3/</id>
-    <published>2022-04-03T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.079Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;s3.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드&quot;&gt;&lt;a href=&quot;#목적-안전하고-가변적인-Object-저장공간-제공-ex-구글-클라우드&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
-    
-    
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
-    
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
-    
-    <category term="S3" scheme="http://ruby-kim.github.io/tags/S3/"/>
     
   </entry>
   
