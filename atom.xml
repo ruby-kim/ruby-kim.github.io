@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-07-04T02:14:56.048Z</updated>
+  <updated>2024-11-14T15:16:56.374Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[AWS] Cloud Practitioner 시험 준비 및 후기</title>
+    <link href="http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/"/>
+    <id>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</id>
+    <published>2024-09-30T14:44:35.000Z</published>
+    <updated>2024-11-14T15:16:56.374Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;AWS-사전-지식&quot;&gt;&lt;a href=&quot;#AWS-사전-지식&quot; class=&quot;headerlink&quot; title=&quot;AWS 사전 지식&quot;&gt;&lt;/a&gt;AWS 사전 지식&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;있음. CloudWatch, SQS, CloudFront,</summary>
+        
+      
+    
+    
+    
+    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    
+    
+    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>개발자 포트폴리오, 이렇게 준비해보자</title>
+    <link href="http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/"/>
+    <id>http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/</id>
+    <published>2024-09-12T14:44:35.000Z</published>
+    <updated>2024-11-14T15:33:01.045Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;내부 사정으로 영상으로 올리려던 것을 블로그 글로 업로드 했습니다.&lt;br&gt;PPT는 따로 배포하지 않는 점 참고 바랍니다.&lt;br&gt;여러분의 취준 &amp;amp; 이직에 도움되길 바랍니다 :)&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="🎈 Retrospect" scheme="http://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
+    
+    
+    <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
+    
+    <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
+    
+  </entry>
   
   <entry>
     <title>[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 2일차</title>
@@ -176,38 +233,6 @@
   </entry>
   
   <entry>
-    <title>[AWS] Cloud Practitioner 요약 정리 (ing)</title>
-    <link href="http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/"/>
-    <id>http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/</id>
-    <published>2022-11-16T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.069Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;전체적으로 읽어보면서 이해하고, &lt;code&gt;무조건 외우고 갈 것&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;이론 + 실무에서 얻은 지식을 짬뽕해서 작성함&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
-    
-    
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
-    
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
-    
-  </entry>
-  
-  <entry>
     <title>네트워크 기본</title>
     <link href="http://ruby-kim.github.io/2022/05/30/NS/Basic/"/>
     <id>http://ruby-kim.github.io/2022/05/30/NS/Basic/</id>
@@ -304,7 +329,7 @@
     <link href="http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/"/>
     <id>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</id>
     <published>2022-05-10T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.142Z</updated>
+    <updated>2024-10-30T23:45:02.744Z</updated>
     
     
       
@@ -430,7 +455,7 @@
     <link href="http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/"/>
     <id>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</id>
     <published>2022-04-23T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.142Z</updated>
+    <updated>2024-10-30T23:44:17.393Z</updated>
     
     
       
@@ -449,8 +474,6 @@
     <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
     
     <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
-    
-    <category term="42SEOUL" scheme="http://ruby-kim.github.io/tags/42SEOUL/"/>
     
   </entry>
   
@@ -552,35 +575,6 @@
         
         
     <summary type="html">&lt;p&gt;이번에는 github blog에 원하는 테마를 적용할건데, Hexo에서 가장 유명한 테마인 icarus를 활용할 예정이다.&lt;br&gt;다른 테마를 원한다면 github에 hexo를 검색해보거나 &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
-    
-    
-    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
-    
-    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Hexo] Hexo theme 추천 리스트</title>
-    <link href="http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/"/>
-    <id>http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/</id>
-    <published>2022-04-11T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.107Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;기본적으로 github에 hexo를 검색하면 &lt;code&gt;hexo-theme-프로젝트명&lt;/code&gt;으로 다양한 테마를 확인할 수 있는데, 그 중 괜찮아 보이는 것 몇 개를 소개해보고자 한다.&lt;br&gt;각 테마마다 설치해야 할 package가 다르니</summary>
         
       
     

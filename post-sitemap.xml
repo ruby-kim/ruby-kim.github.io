@@ -9,6 +9,38 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/</loc>
+        <lastmod>2024-11-14T15:33:01.045Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</loc>
+        <lastmod>2024-11-14T15:16:56.374Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
+        <lastmod>2024-10-30T23:45:02.744Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
+        <lastmod>2024-10-30T23:44:17.393Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2024/06/22/Conference/24USA/silicon-valley-2/</loc>
         <lastmod>2024-07-04T02:14:56.048Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,22 +83,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/11/25/Tips/Regex/</loc>
         <lastmod>2023-06-21T11:39:04.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
-        <lastmod>2023-06-21T11:39:04.142Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
-        <lastmod>2023-06-21T11:39:04.142Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -227,54 +243,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
         <lastmod>2023-06-21T11:39:04.087Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/03/AWS/S3/</loc>
-        <lastmod>2023-06-21T11:39:04.079Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/03/26/AWS/Route53/</loc>
-        <lastmod>2023-06-21T11:39:04.072Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/03/10/AWS/IAM/</loc>
-        <lastmod>2023-06-21T11:39:04.071Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/03/28/AWS/RDS/</loc>
-        <lastmod>2023-06-21T11:39:04.071Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/03/24/AWS/EC2/</loc>
-        <lastmod>2023-06-21T11:39:04.069Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/11/16/AWS/Certificate/Foundational/Summary/</loc>
-        <lastmod>2023-06-21T11:39:04.069Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
