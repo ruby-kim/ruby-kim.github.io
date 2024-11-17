@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-11-14T15:16:56.374Z</updated>
+  <updated>2024-11-17T16:18:12.958Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/"/>
     <id>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</id>
     <published>2024-09-30T14:44:35.000Z</published>
-    <updated>2024-11-14T15:16:56.374Z</updated>
+    <updated>2024-11-17T16:18:12.958Z</updated>
     
     
       
@@ -70,6 +70,58 @@
     <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
     
     <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[오픈소스] 2024년 7월 오픈소스 소식지 (1)</title>
+    <link href="http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/"/>
+    <id>http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</id>
+    <published>2024-07-12T21:13:35.000Z</published>
+    <updated>2024-11-17T17:21:58.227Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[오픈소스] 2024년 6월 오픈소스 소식지 (2)</title>
+    <link href="http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/"/>
+    <id>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</id>
+    <published>2024-06-29T16:13:35.000Z</published>
+    <updated>2024-11-17T16:17:41.294Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
     
   </entry>
   
@@ -530,64 +582,6 @@
     <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
     
     <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Hexo] Github Blog 백업하기</title>
-    <link href="http://ruby-kim.github.io/2022/04/15/Hexo/Backup/"/>
-    <id>http://ruby-kim.github.io/2022/04/15/Hexo/Backup/</id>
-    <published>2022-04-15T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.104Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;기본적인 블로그 세팅이 끝났다.&lt;br&gt;이전 포스트를 따라 블로그 세팅을 했다면, 실질적으로 .md파일이 저장되는 repository가 없음을 확인할 수 있다.&lt;br&gt;즉 다른 컴퓨터 환경에서 블로그 포스트를 이어서 작성할 수 없으며,</summary>
-        
-      
-    
-    
-    
-    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
-    
-    
-    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
-    
-    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[Hexo] Github Blog 테마를 자유롭게 선택 및 수정해보자</title>
-    <link href="http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/"/>
-    <id>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</id>
-    <published>2022-04-12T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.104Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;이번에는 github blog에 원하는 테마를 적용할건데, Hexo에서 가장 유명한 테마인 icarus를 활용할 예정이다.&lt;br&gt;다른 테마를 원한다면 github에 hexo를 검색해보거나 &lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="🏹 Blog" scheme="http://ruby-kim.github.io/categories/%F0%9F%8F%B9-Blog/"/>
-    
-    
-    <category term="Github" scheme="http://ruby-kim.github.io/tags/Github/"/>
-    
-    <category term="Markdown" scheme="http://ruby-kim.github.io/tags/Markdown/"/>
-    
-    <category term="Hexo" scheme="http://ruby-kim.github.io/tags/Hexo/"/>
     
   </entry>
   

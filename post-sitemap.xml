@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</loc>
+        <lastmod>2024-11-17T17:21:58.227Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</loc>
+        <lastmod>2024-11-17T16:18:12.958Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</loc>
+        <lastmod>2024-11-17T16:17:41.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2022/11/25/Tips/Regex/</loc>
         <lastmod>2024-11-14T15:41:16.753Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,14 +43,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/</loc>
         <lastmod>2024-11-14T15:33:01.045Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</loc>
-        <lastmod>2024-11-14T15:16:56.374Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
