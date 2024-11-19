@@ -31,6 +31,31 @@
     
     
     <entry>
+      <title>[오픈소스] 2024년 9월 오픈소스 소식지 (2)</title>
+      <link href="/2024/09/29/OpenSource/2409(2)/"/>
+      <url>/2024/09/29/OpenSource/2409(2)/</url>
+      
+        <content type="html"><![CDATA[<p><img src="0.png"></p><p>(참고/출처)<br>2024년 정보통신산업진흥원: <a href="https://www.oss.kr/open_up_intro">OpenUP 프로그램</a>의 2024년 기여형 프론티어로서, 오픈소스SW를 함께 개발 및 공유하기 위해 작성되었습니다.<br>해당 내용은 제 github 홈페이지의 Explore repositories 및 feed 내용을 토대로 만들어졌으며, 게시글에 문의 사항이 있으신 분들은 댓글 또는 <a href="mailto:dev.rubykim@gmail.com">dev.rubykim@gmail.com</a>으로 연락 부탁드립니다.</p><p><br><br><br></p><h2 id="Typst-LaTex-대안-오픈소스"><a href="#Typst-LaTex-대안-오픈소스" class="headerlink" title="Typst: LaTex 대안 오픈소스"></a>Typst: LaTex 대안 오픈소스</h2><img src="./1.png" width="700"><ul><li>Homepage: <a href="https://typst.app/">https://typst.app/</a></li><li>Repository: <a href="https://github.com/typst/typst">https://github.com/typst/typst</a></li><li>PDF 생성을 위한 LaTeX의 더 쉽고 자원 효율적인 대안으로 제시된 오픈소스</li><li>직관적인 템플릿 시스템과 대량의 문서를 신속하게 생성하는 성능에 대해 긍정적 평가를 받고 있음</li><li>학술 논문 작성 및 규제 문서 생성의 효율성을 높일 가능성으로 주목받고 있지만, 현재 HTML 출력 및 완전한 TeX 지원과 같은 일부 기능이 부족한 편</li></ul><br><h2 id="Jiff-Rust용-날짜-및-시간-라이브러리"><a href="#Jiff-Rust용-날짜-및-시간-라이브러리" class="headerlink" title="Jiff: Rust용 날짜 및 시간 라이브러리"></a>Jiff: Rust용 날짜 및 시간 라이브러리</h2><ul><li>Repository: <a href="https://github.com/BurntSushi/jiff">https://github.com/BurntSushi/jiff</a></li><li>높은 수준의 날짜 및 시간 원시 데이터, 원활한 시간대 데이터베이스 통합, DST 산술, 형식화, 구문 분석 및 선택적 Serde 지원과 같은 기능을 제공</li><li>기존 표준인 Chrono에 비해 더 사용자 친화적이고 유연한 API를 제공하면서 날짜 및 시간 작업의 정확성과 기능을 유지 중</li></ul><br><h2 id="Eza-ls-대체-명령어"><a href="#Eza-ls-대체-명령어" class="headerlink" title="Eza: ls 대체 명령어"></a>Eza: ls 대체 명령어</h2><img src="./2.gif" width="700"><ul><li>Homepage: <a href="https://eza.rocks/">https://eza.rocks/</a></li><li>Repository: <a href="https://github.com/eza-community/eza">https://github.com/eza-community/eza</a></li><li>Unix와 Linux에서 ls 명령어를 대체하는 새로운 명령어</li><li>색상 코드가 지정된 파일 유형, 심볼릭 링크 지원, 확장 속성, Git 통합, 그리고 사람이 읽기 쉬운 날짜를 지원함</li><li>하이퍼링크, 마운트 포인트 세부 정보, SELinux 컨텍스트 및 밝은 터미널 색상에 대한 추가 지원을 목표하고 있음</li></ul><br><h2 id="Timeshift-for-Linux-시스템-복원-도구"><a href="#Timeshift-for-Linux-시스템-복원-도구" class="headerlink" title="Timeshift for Linux: 시스템 복원 도구"></a>Timeshift for Linux: 시스템 복원 도구</h2><ul><li>Repository: <a href="https://github.com/linuxmint/timeshift">https://github.com/linuxmint/timeshift</a></li><li>macOS의 Time Machine 및 Windows의 시스템 복원과 유사하며, 사용자가 rsync와 하드링크를 사용하여 파일 시스템 스냅샷을 생성할 수 있게 해줌</li><li>restic, rclone, ZFS, BTRFS, LVM 스냅샷을 포함한 다양한 백업 솔루션과 구성에 대해 논의하고 있으며, 데이터베이스 일관성과 신뢰할 수 있는 백업을 위해 원자적 스냅샷의 중요성을 강조하는 중</li><li>다양한 파일 시스템과 스냅샷 방법의 장단점을 논의하면서 강력한 백업 전략의 필요성이 강조됨</li></ul><br><h2 id="Llama-3-1-출시"><a href="#Llama-3-1-출시" class="headerlink" title="Llama 3.1 출시"></a>Llama 3.1 출시</h2><img src="./3.png" width="300"><ul><li>8B, 70B, 405B 버전으로 제공되는 Meta의 오픈 소스 AI 모델</li><li>GPT-4와 같은 폐쇄형 모델과 경쟁력 있는 성능을 보이고 있음</li><li>405B 모델은 상당한 벤치마크 개선을 보여주지만, 클라우드 지원 없이는 가정에서 사용하기에 비실용적이며, 대형 모델을 로컬에서 실행하는 데 있어 어렵다고 함</li><li>Meta의 강력한 오픈 모델 출시가 경쟁 구도를 뒤흔들며 하드웨어 요구 사항, 양자화 솔루션, 그리고 AI 개발 및 접근성에 광범위한 영향을 미칠 것이라 보고됨<br></li></ul><h2 id="스위스-정부기관이-OSS-사용을-의무화함"><a href="#스위스-정부기관이-OSS-사용을-의무화함" class="headerlink" title="스위스 정부기관이 OSS 사용을 의무화함"></a>스위스 정부기관이 OSS 사용을 의무화함</h2><img src="./4.svg" width="200"><ul><li>오픈 소스 소프트웨어(OSS)를 사용하고 새로운 정부 코드를 오픈 소스 라이선스 하에 공개하도록 요구하는 법률, 즉 ‘정부 업무 수행을 위한 전자 수단 사용에 관한 연방법’(EMBAG)을 통과시킴</li><li>보안에 민감하지 않은 정부 데이터를 공개적으로 접근 가능하게 함으로써 투명성, 보안, 효율성을 향상시키는 것을 목표함</li><li>추후 유럽과 미국에서 OSS의 추가 채택을 촉진할 가능성이 있음</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👐 OpenSource </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Opensource </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>개발자 포트폴리오, 이렇게 준비해보자</title>
       <link href="/2024/09/12/Retrospect/Portfolio/"/>
       <url>/2024/09/12/Retrospect/Portfolio/</url>

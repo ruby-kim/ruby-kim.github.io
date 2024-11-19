@@ -45,6 +45,32 @@
   </entry>
   
   <entry>
+    <title>[오픈소스] 2024년 9월 오픈소스 소식지 (2)</title>
+    <link href="http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/"/>
+    <id>http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/</id>
+    <published>2024-09-28T16:13:35.000Z</published>
+    <updated>2024-11-19T17:22:08.947Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
     <title>개발자 포트폴리오, 이렇게 준비해보자</title>
     <link href="http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/"/>
     <id>http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/</id>
@@ -542,39 +568,6 @@
     <category term="ESB" scheme="http://ruby-kim.github.io/tags/ESB/"/>
     
     <category term="Sidecar" scheme="http://ruby-kim.github.io/tags/Sidecar/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[MSA] Micro Service Architecture: Outer - External Gateway</title>
-    <link href="http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/"/>
-    <id>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</id>
-    <published>2022-04-28T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.089Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;MSA의 Outer Architecture 중 External Gateway에 대해 알아보자.&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&quot;MSA-개념-설명-읽어보기&quot;&gt;&lt;a href=&quot;#MSA-개념-설명-읽어보기&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
-    
-    
-    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
-    
-    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
-    
-    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
-    
-    <category term="ESB" scheme="http://ruby-kim.github.io/tags/ESB/"/>
     
   </entry>
   
