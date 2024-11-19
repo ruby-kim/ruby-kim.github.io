@@ -74,6 +74,32 @@
   </entry>
   
   <entry>
+    <title>[오픈소스] 2024년 9월 오픈소스 소식지 (1)</title>
+    <link href="http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/"/>
+    <id>http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/</id>
+    <published>2024-09-09T16:13:35.000Z</published>
+    <updated>2024-11-19T16:55:35.719Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[오픈소스] 2024년 8월 오픈소스 소식지 (2)</title>
     <link href="http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/"/>
     <id>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</id>
@@ -549,34 +575,6 @@
     <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
     
     <category term="ESB" scheme="http://ruby-kim.github.io/tags/ESB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[MSA] Micro Service Architecture 개요</title>
-    <link href="http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/"/>
-    <id>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</id>
-    <published>2022-04-26T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.087Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;요즘 핫이슈로 개발자라면 무조건 알아야 할 개념인 MSA에 적어보고자 한다.&lt;/p&gt;
-&lt;h2 id=&quot;MSA의-등장배경-모놀리식-아키텍처-Monolithic-Architecture&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
-    
-    
-    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
-    
-    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
     
   </entry>
   

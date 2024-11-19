@@ -58,6 +58,31 @@
     
     
     <entry>
+      <title>[오픈소스] 2024년 9월 오픈소스 소식지 (1)</title>
+      <link href="/2024/09/10/OpenSource/2409(1)/"/>
+      <url>/2024/09/10/OpenSource/2409(1)/</url>
+      
+        <content type="html"><![CDATA[<p><img src="0.png"></p><p>(참고/출처)<br>2024년 정보통신산업진흥원: <a href="https://www.oss.kr/open_up_intro">OpenUP 프로그램</a>의 2024년 기여형 프론티어로서, 오픈소스SW를 함께 개발 및 공유하기 위해 작성되었습니다.<br>해당 내용은 제 github 홈페이지의 Explore repositories 및 feed 내용을 토대로 만들어졌으며, 게시글에 문의 사항이 있으신 분들은 댓글 또는 <a href="mailto:dev.rubykim@gmail.com">dev.rubykim@gmail.com</a>으로 연락 부탁드립니다.</p><p><br><br><br></p><h2 id="Fusion-OS-Nim으로-구현된-취미용-OS"><a href="#Fusion-OS-Nim으로-구현된-취미용-OS" class="headerlink" title="Fusion OS: Nim으로 구현된 취미용 OS"></a>Fusion OS: Nim으로 구현된 취미용 OS</h2><img src="./1.png" width="300"><ul><li>Repository: <a href="https://github.com/khaledh/fusion">https://github.com/khaledh/fusion</a></li><li>Nim 프로그래밍 언어를 사용하여 개발된 x86-64 아키텍처용 취미용 운영체제</li><li>현재 UEFI 부트로더, 물리 및 가상 메모리 관리자, 사용자 모드, 선점형 멀티태스킹, 시스템 호출, ELF 로더, 타이머 인터럽트 기능을 제공 중</li><li>프로세스 간 통신, 디스크 I/O, 파일 시스템, 키보드/마우스 입력, 셸 GUI 및 네트워킹을 추가를 계획 중</li></ul><br><h2 id="KUtrace-저비용-Linux-커널-추적-기능"><a href="#KUtrace-저비용-Linux-커널-추적-기능" class="headerlink" title="KUtrace: 저비용 Linux 커널 추적 기능"></a>KUtrace: 저비용 Linux 커널 추적 기능</h2><ul><li>Repository: <a href="https://github.com/dicksites/KUtrace">https://github.com/dicksites/KUtrace</a></li><li>KUtrace는 특히 다중 기계 시스템에서 성능 병목 현상을 이해하는 데 도움을 주기 위해 설계된 저비용 Linux 커널 추적 기능 오픈소스</li><li>eBPF 도구와 달리 KUtrace는 커널 패치와 루트 접근 권한이 필요하여 적극적인 유지 관리가 필요함</li><li>x86 및 ARM 프로세서를 지원</li><li>효율이 좋다며 극찬을 받는 중</li></ul><br><h2 id="Gitlab-매각-검토-사건"><a href="#Gitlab-매각-검토-사건" class="headerlink" title="Gitlab 매각 검토 사건"></a>Gitlab 매각 검토 사건</h2><img src="./2.jpg" width="300"><ul><li>Gitlab이 매각을 고려하고 있어 사용자들 사이에서 서비스 모델의 잠재적인 종료나 변경에 대한 우려가 제기되고 있음</li><li>Gitlab과 같은 오픈 소스 옵션의 장점에 대해 토론하며, 더 쉬운 마이그레이션과 커뮤니티 지원을 언급하고, Datadog이나 IBM과 같은 잠재적 구매자에 대해서도 추측하는 중</li><li>Gitlab의 가격 정책과 기업 중심 접근 방식에 대한 비판으로 인해 일부 사용자들은 GitHub와 같은 대안으로 전환을 고려하고 있음</li></ul><br><h2 id="SQLite-Transactions-새로운-SQLite-트랜젝션-벤치마킹-도구"><a href="#SQLite-Transactions-새로운-SQLite-트랜젝션-벤치마킹-도구" class="headerlink" title="SQLite Transactions: 새로운 SQLite 트랜젝션 벤치마킹 도구"></a>SQLite Transactions: 새로운 SQLite 트랜젝션 벤치마킹 도구</h2><ul><li>Homepage: <a href="https://reorchestrate.com/posts/sqlite-transactions/">https://reorchestrate.com/posts/sqlite-transactions/</a></li><li>Repository: <a href="https://github.com/seddonm1/sqlite-bench">https://github.com/seddonm1/sqlite-bench</a></li><li>특히 BEGIN CONCURRENT 브랜치를 DEFERRED 및 IMMEDIATE 동작과 비교하는데 강력한 도구</li><li>SQLite에서 동시성을 달성: 다중 연결 사용, 연결 풀링, 파일 I/O 혼잡 관리 등을 목표로 개발 중</li></ul><br><h2 id="Sendune-오픈소스-HTML-이메일-디자이너"><a href="#Sendune-오픈소스-HTML-이메일-디자이너" class="headerlink" title="Sendune: 오픈소스 HTML 이메일 디자이너"></a>Sendune: 오픈소스 HTML 이메일 디자이너</h2><img src="./3.png" width="500"><ul><li>작성 및 유지가 어려운 html 이메일 작성을 간소화하기 위해 제작됨</li><li>모든 이메일 서비스 제공업체와의 호환성을 위한 순수 html을 생성함</li><li>Firefox에서 드래그 앤 드롭 기능과 관련된 몇 가지 문제가 보고되었음에도 불구하고, 커뮤니티의 반응은 긍정적</li></ul><br><h2 id="Garage-오픈소스-분산-객체-저장소"><a href="#Garage-오픈소스-분산-객체-저장소" class="headerlink" title="Garage: 오픈소스 분산 객체 저장소"></a>Garage: 오픈소스 분산 객체 저장소</h2><img src="./4.svg" width="200"><ul><li>Homepage: <a href="https://garagehq.deuxfleurs.fr/">https://garagehq.deuxfleurs.fr/</a></li><li>Repository: <a href="https://git.deuxfleurs.fr/Deuxfleurs/garage">https://git.deuxfleurs.fr/Deuxfleurs/garage</a></li><li>자체 호스팅을 위해 설계된 오픈 소스 분산 객체 저장소 서비스: 데이터를 3개의 zone에 복제해 중복성 제공</li><li>Minio보다 작은 파일과 복제에서 더 나은 성능으로 채택되고 있음</li><li>성능 향상, 낮은 메모리 사용량, 분산 합의를 위한 CRDTs(충돌 없는 복제 데이터 유형) 지원</li><li>하드웨어를 지원하고 호환성을 위해 Amazon S3 API를 구현했으며, NGI POINTER, NLnet / NGI0 Entrust 및 유럽 연합의 Horizon 2021 연구 및 혁신 프로그램의 자금으로 지원받고 있음</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👐 OpenSource </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Opensource </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[오픈소스] 2024년 8월 오픈소스 소식지 (2)</title>
       <link href="/2024/08/27/OpenSource/2408(2)/"/>
       <url>/2024/08/27/OpenSource/2408(2)/</url>
