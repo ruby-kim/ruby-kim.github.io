@@ -4,6 +4,81 @@
   
     
     <entry>
+      <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1)</title>
+      <link href="/2024/11/09/OpenSource/2411(1)/"/>
+      <url>/2024/11/09/OpenSource/2411(1)/</url>
+      
+        <content type="html"><![CDATA[<p><img src="0.png"></p><p>(참고/출처)<br>2024년 정보통신산업진흥원: <a href="https://www.oss.kr/open_up_intro">OpenUP 프로그램</a>의 2024년 기여형 프론티어로서, 오픈소스SW를 함께 개발 및 공유하기 위해 작성되었습니다.<br>해당 내용은 제 github 홈페이지의 Explore repositories 및 feed 내용을 토대로 만들어졌으며, 게시글에 문의 사항이 있으신 분들은 댓글 또는 <a href="mailto:dev.rubykim@gmail.com">dev.rubykim@gmail.com</a>으로 연락 부탁드립니다.</p><p><br><br><br></p><h2 id="GitOpper-Kubernates-환경이-아닌-곳에서-GitOps-도구"><a href="#GitOpper-Kubernates-환경이-아닌-곳에서-GitOps-도구" class="headerlink" title="GitOpper: Kubernates 환경이 아닌 곳에서 GitOps 도구"></a>GitOpper: Kubernates 환경이 아닌 곳에서 GitOps 도구</h2><ul><li>Repository: <a href="https://github.com/miekg/gitopper">https://github.com/miekg/gitopper</a></li><li>배포 워크플로에서 Kubernetes를 사용하지 않는 사용자에게 GitOps 워크플로우를 지원</li><li>롤아웃 추적을 위한 메트릭, 차이 감지, 밴드, 롤백, 카나리 기능 포함</li></ul><br><h2 id="Cardie-오픈-소스-명함-디자인-및-공유-플랫폼"><a href="#Cardie-오픈-소스-명함-디자인-및-공유-플랫폼" class="headerlink" title="Cardie: 오픈 소스 명함 디자인 및 공유 플랫폼"></a>Cardie: 오픈 소스 명함 디자인 및 공유 플랫폼</h2><img src="./1.png" width="300"><ul><li>Homepage: <a href="https://cardie-uwtwy.ondigitalocean.app/">https://cardie-uwtwy.ondigitalocean.app/</a></li><li>Repository: <a href="https://github.com/nfoert/cardie">https://github.com/nfoert/cardie</a></li><li>디지털 명함을 디자인하고 공유할 수 있는 오픈 소스 플랫폼</li><li>향후 인쇄 옵션도 계획 중이며, 계정 생성 없이 테스트할 수 있는 기능과 향상된 보안 조치, 맞춤화 옵션 등을 계획 중</li><li>현재 오픈 알파 단계인 상태</li></ul><br><h2 id="Age-키-설정-옵션이-없는-파일-암호화-Go-라이브러리"><a href="#Age-키-설정-옵션이-없는-파일-암호화-Go-라이브러리" class="headerlink" title="Age: 키, 설정 옵션이 없는 파일 암호화 Go 라이브러리"></a>Age: 키, 설정 옵션이 없는 파일 암호화 Go 라이브러리</h2><img src="./2.svg" width="300"><ul><li>Repository: <a href="https://github.com/FiloSottile/age">https://github.com/FiloSottile/age</a></li><li>하드웨어 PIV 토큰, 암호문으로 보호된 파일, SSH 키, GitHub 사용자에게 암호화하는 기능 등을 지원</li><li>Homebrew, MacPorts, 그리고 Linux 배포판과 Windows용 패키지 관리자 등 다양한 설치 방법을 지원</li><li>GPG/PGP 및 jq와 같은 기존 도구들과 비교하며, Unix 표준으로서의 잠재력을 논의하고 있음</li><li>Signiture같은 기능이 부족하다고 평가되고 있으며, 추가적인 보안 기능을 위해 Kryptor 등의 대안을 언급 중</li></ul><br><h2 id="rqlite-9-0-출시"><a href="#rqlite-9-0-출시" class="headerlink" title="rqlite 9.0 출시"></a>rqlite 9.0 출시</h2><img src="./3.png" width="300"><ul><li>Homepage: <a href="https://philipotoole.com/building-rqlite-9-0-cutting-disk-usage-by-half/">https://philipotoole.com/building-rqlite-9-0-cutting-disk-usage-by-half/</a></li><li>Repository: <a href="https://github.com/rqlite/rqlite">https://github.com/rqlite/rqlite</a></li><li>SQLite와 Raft 합의 알고리즘을 기반으로 구축된 오픈소스 분산 관계형 데이터베이스 관리 시스템(RDBMS)</li><li>다른 분산 데이터베이스인 CockroachDB와 TiDB에 비해 쓰기 처리량이 낮음에도 불구하고, rqlite의 새로운 버전은 Queued Writes와 같은 성능 향상을 도입했음</li><li>이번 버전은 디스크 사용량을 50% 줄임으로써 효율성을 극대화함</li></ul><br><h2 id="Yark-오프라인-UI-Youtube-아카이버"><a href="#Yark-오프라인-UI-Youtube-아카이버" class="headerlink" title="Yark: 오프라인 UI Youtube 아카이버"></a>Yark: 오프라인 UI Youtube 아카이버</h2><ul><li>Repository: <a href="https://github.com/Owez/yark">https://github.com/Owez/yark</a></li><li>사용자가 Youtube 콘텐츠를 로컬에 저장할 수 있도록 도와줌</li><li>대용량 MP4 파일 스트리밍 및 특수 문자가 포함된 파일에 대한 HTTP 서버 요청 처리의 문제가 있음</li><li>실용적인 사용에 있어서는 VLC 또는 Nginx를 사용할 것을 권장</li></ul><br><h2 id="Viking-Server-및-SSH-관리를-위한-오픈-소스-도구"><a href="#Viking-Server-및-SSH-관리를-위한-오픈-소스-도구" class="headerlink" title="Viking: Server 및 SSH 관리를 위한 오픈 소스 도구"></a>Viking: Server 및 SSH 관리를 위한 오픈 소스 도구</h2><ul><li>Repository: <a href="https://github.com/d3witt/viking">https://github.com/d3witt/viking</a></li><li>서버 IP를 기억할 필요 없이 간단한 명령어로 서버 관리를 단순화시킴</li><li><code>~/.ssh/config</code>같은 전통적인 방법보다 더 효율적이고 사용자 친화적인 솔류션</li><li>일부 부정적인 피드백이 있으나, 오픈소스로서 시간이 지날수록 더욱 가치가 있을 것으로 여겨짐</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👐 OpenSource </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Opensource </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[오픈소스] 2024년 10월 오픈소스 소식지 (2)</title>
+      <link href="/2024/10/27/OpenSource/2410(2)/"/>
+      <url>/2024/10/27/OpenSource/2410(2)/</url>
+      
+        <content type="html"><![CDATA[<p><img src="0.png"></p><p>(참고/출처)<br>2024년 정보통신산업진흥원: <a href="https://www.oss.kr/open_up_intro">OpenUP 프로그램</a>의 2024년 기여형 프론티어로서, 오픈소스SW를 함께 개발 및 공유하기 위해 작성되었습니다.<br>해당 내용은 제 github 홈페이지의 Explore repositories 및 feed 내용을 토대로 만들어졌으며, 게시글에 문의 사항이 있으신 분들은 댓글 또는 <a href="mailto:dev.rubykim@gmail.com">dev.rubykim@gmail.com</a>으로 연락 부탁드립니다.</p><p><br><br><br></p><h2 id="GitOpper-Kubernates-환경이-아닌-곳에서-GitOps-도구"><a href="#GitOpper-Kubernates-환경이-아닌-곳에서-GitOps-도구" class="headerlink" title="GitOpper: Kubernates 환경이 아닌 곳에서 GitOps 도구"></a>GitOpper: Kubernates 환경이 아닌 곳에서 GitOps 도구</h2><ul><li>Repository: <a href="https://github.com/miekg/gitopper">https://github.com/miekg/gitopper</a></li><li>배포 워크플로에서 Kubernetes를 사용하지 않는 사용자에게 GitOps 워크플로우를 지원</li><li>롤아웃 추적을 위한 메트릭, 차이 감지, 밴드, 롤백, 카나리 기능 포함</li></ul><br><h2 id="Cardie-오픈-소스-명함-디자인-및-공유-플랫폼"><a href="#Cardie-오픈-소스-명함-디자인-및-공유-플랫폼" class="headerlink" title="Cardie: 오픈 소스 명함 디자인 및 공유 플랫폼"></a>Cardie: 오픈 소스 명함 디자인 및 공유 플랫폼</h2><img src="./1.png" width="300"><ul><li>Homepage: <a href="https://cardie-uwtwy.ondigitalocean.app/">https://cardie-uwtwy.ondigitalocean.app/</a></li><li>Repository: <a href="https://github.com/nfoert/cardie">https://github.com/nfoert/cardie</a></li><li>디지털 명함을 디자인하고 공유할 수 있는 오픈 소스 플랫폼</li><li>향후 인쇄 옵션도 계획 중이며, 계정 생성 없이 테스트할 수 있는 기능과 향상된 보안 조치, 맞춤화 옵션 등을 계획 중</li><li>현재 오픈 알파 단계인 상태</li></ul><br><h2 id="Age-키-설정-옵션이-없는-파일-암호화-Go-라이브러리"><a href="#Age-키-설정-옵션이-없는-파일-암호화-Go-라이브러리" class="headerlink" title="Age: 키, 설정 옵션이 없는 파일 암호화 Go 라이브러리"></a>Age: 키, 설정 옵션이 없는 파일 암호화 Go 라이브러리</h2><img src="./2.svg" width="300"><ul><li>Repository: <a href="https://github.com/FiloSottile/age">https://github.com/FiloSottile/age</a></li><li>하드웨어 PIV 토큰, 암호문으로 보호된 파일, SSH 키, GitHub 사용자에게 암호화하는 기능 등을 지원</li><li>Homebrew, MacPorts, 그리고 Linux 배포판과 Windows용 패키지 관리자 등 다양한 설치 방법을 지원</li><li>GPG/PGP 및 jq와 같은 기존 도구들과 비교하며, Unix 표준으로서의 잠재력을 논의하고 있음</li><li>Signiture같은 기능이 부족하다고 평가되고 있으며, 추가적인 보안 기능을 위해 Kryptor 등의 대안을 언급 중</li></ul><br><h2 id="rqlite-9-0-출시"><a href="#rqlite-9-0-출시" class="headerlink" title="rqlite 9.0 출시"></a>rqlite 9.0 출시</h2><img src="./3.png" width="300"><ul><li>Homepage: <a href="https://philipotoole.com/building-rqlite-9-0-cutting-disk-usage-by-half/">https://philipotoole.com/building-rqlite-9-0-cutting-disk-usage-by-half/</a></li><li>Repository: <a href="https://github.com/rqlite/rqlite">https://github.com/rqlite/rqlite</a></li><li>SQLite와 Raft 합의 알고리즘을 기반으로 구축된 오픈소스 분산 관계형 데이터베이스 관리 시스템(RDBMS)</li><li>다른 분산 데이터베이스인 CockroachDB와 TiDB에 비해 쓰기 처리량이 낮음에도 불구하고, rqlite의 새로운 버전은 Queued Writes와 같은 성능 향상을 도입했음</li><li>이번 버전은 디스크 사용량을 50% 줄임으로써 효율성을 극대화함</li></ul><br><h2 id="Yark-오프라인-UI-Youtube-아카이버"><a href="#Yark-오프라인-UI-Youtube-아카이버" class="headerlink" title="Yark: 오프라인 UI Youtube 아카이버"></a>Yark: 오프라인 UI Youtube 아카이버</h2><ul><li>Repository: <a href="https://github.com/Owez/yark">https://github.com/Owez/yark</a></li><li>사용자가 Youtube 콘텐츠를 로컬에 저장할 수 있도록 도와줌</li><li>대용량 MP4 파일 스트리밍 및 특수 문자가 포함된 파일에 대한 HTTP 서버 요청 처리의 문제가 있음</li><li>실용적인 사용에 있어서는 VLC 또는 Nginx를 사용할 것을 권장</li></ul><br><h2 id="Viking-Server-및-SSH-관리를-위한-오픈-소스-도구"><a href="#Viking-Server-및-SSH-관리를-위한-오픈-소스-도구" class="headerlink" title="Viking: Server 및 SSH 관리를 위한 오픈 소스 도구"></a>Viking: Server 및 SSH 관리를 위한 오픈 소스 도구</h2><ul><li>Repository: <a href="https://github.com/d3witt/viking">https://github.com/d3witt/viking</a></li><li>서버 IP를 기억할 필요 없이 간단한 명령어로 서버 관리를 단순화시킴</li><li><code>~/.ssh/config</code>같은 전통적인 방법보다 더 효율적이고 사용자 친화적인 솔류션</li><li>일부 부정적인 피드백이 있으나, 오픈소스로서 시간이 지날수록 더욱 가치가 있을 것으로 여겨짐</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👐 OpenSource </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Opensource </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[오픈소스] 2024년 10월 오픈소스 소식지 (1)</title>
+      <link href="/2024/10/12/OpenSource/2410(1)/"/>
+      <url>/2024/10/12/OpenSource/2410(1)/</url>
+      
+        <content type="html"><![CDATA[<p><img src="0.png"></p><p>(참고/출처)<br>2024년 정보통신산업진흥원: <a href="https://www.oss.kr/open_up_intro">OpenUP 프로그램</a>의 2024년 기여형 프론티어로서, 오픈소스SW를 함께 개발 및 공유하기 위해 작성되었습니다.<br>해당 내용은 제 github 홈페이지의 Explore repositories 및 feed 내용을 토대로 만들어졌으며, 게시글에 문의 사항이 있으신 분들은 댓글 또는 <a href="mailto:dev.rubykim@gmail.com">dev.rubykim@gmail.com</a>으로 연락 부탁드립니다.</p><p><br><br><br></p><h2 id="Cloudflare-NoIP-Alternative-Cloudflare와-Cronjob을-이용한-무료-DDNS"><a href="#Cloudflare-NoIP-Alternative-Cloudflare와-Cronjob을-이용한-무료-DDNS" class="headerlink" title="Cloudflare NoIP Alternative: Cloudflare와 Cronjob을 이용한 무료 DDNS"></a>Cloudflare NoIP Alternative: Cloudflare와 Cronjob을 이용한 무료 DDNS</h2><ul><li>Repository: <a href="https://github.com/devrim/cloudflare-noip">https://github.com/devrim/cloudflare-noip</a></li><li>repository를 clone 후 <code>key.json</code>, <code>records.json</code>, cronjob 또는 스케줄러를 설정해야 사용 가능</li><li>TLS 업로드 제한이라는 한계애 대해서 커뮤니티에서 의논 중</li><li>유사 프로젝트로는 Cloudflare Turnel, Tailscale이 있으며, 동적 IP 주소 관리에 대한 다양한 솔루션에 사람들이 큰 관심을 갖고 있음</li></ul><br><h2 id="StreamPot-미디어-변환-작업-도구"><a href="#StreamPot-미디어-변환-작업-도구" class="headerlink" title="StreamPot: 미디어 변환 작업 도구"></a>StreamPot: 미디어 변환 작업 도구</h2><img src="./1.png" width="300"><ul><li>Homepage: <a href="https://streampot.io/">https://streampot.io/</a></li><li>Repository: <a href="https://github.com/StreamPot/StreamPot">https://github.com/StreamPot/StreamPot</a></li><li>비디오 자르기, 오디오 제거, 트랜스코딩 같은 미디어 변환 작업을 위한 도구</li><li>fluent-FFmpeg 호환성, SQS 및 S3 통합 기능을 갖춘 API로 FFmpeg를 실행할 수 있음</li><li>초기 오픈소스 프로젝트로서 비동기 작업을 위한 메서드 추가, event source 또는 SSE를 통한 신호 전달, 문서화 등의 개선사항이 있음</li></ul><br><h2 id="MeTube-셀프-호스팅-Youtube-다운로더"><a href="#MeTube-셀프-호스팅-Youtube-다운로더" class="headerlink" title="MeTube: 셀프 호스팅 Youtube 다운로더"></a>MeTube: 셀프 호스팅 Youtube 다운로더</h2><ul><li>Repository: <a href="https://github.com/alexta69/metube">https://github.com/alexta69/metube</a></li><li>Youtube에서 동영상을 다운로드할 수 있는 명령어인 “yt-dlp”를 사용하는 자체 호스팅 Youtube 다운로더</li><li>즉, yt-dlp를 위한 UI를 제공함</li><li>새로운 Node 버전에서는 더 이상 32bit ARM 빌드를 지원하지 않으며, 64bit 운영체제로 마이그레이션이 필요함</li></ul><br><h2 id="FastHTML-파이썬으로-구현하는-웹-애플리케이션-프레임워크"><a href="#FastHTML-파이썬으로-구현하는-웹-애플리케이션-프레임워크" class="headerlink" title="FastHTML: 파이썬으로 구현하는 웹 애플리케이션 프레임워크"></a>FastHTML: 파이썬으로 구현하는 웹 애플리케이션 프레임워크</h2><img src="./2.svg" width="300"><ul><li>Homepage: <a href="https://fastht.ml/">https://fastht.ml/</a></li><li>Repository: <a href="https://github.com/AnswerDotAI/fasthtml">https://github.com/AnswerDotAI/fasthtml</a></li><li>하이퍼미디어 기반 앱을 위해 Python과 HTMX를 통합 및 비동기 지원을 위해 ASGI/Uvicorn/Starlette 삼중체를 사용함. 또한 FastTag를 포함하고 있음</li><li>잠재적인 복잡성, 쉬운 맞춤화를 해결하고 개발자가 JavaScript를 사용하거나 요청을 직접 수정할 수 있는 투명한 시스템을 제공하여 웹 앱 개발을 간소화하는 것을 목표하고 있음</li></ul><br><h2 id="Docker-OSX-Docker-컨테이너에서-MacOS를-네이티브-성능으로-실행할-수-있는-이미지"><a href="#Docker-OSX-Docker-컨테이너에서-MacOS를-네이티브-성능으로-실행할-수-있는-이미지" class="headerlink" title="Docker-OSX: Docker 컨테이너에서 MacOS를 네이티브 성능으로 실행할 수 있는 이미지"></a>Docker-OSX: Docker 컨테이너에서 MacOS를 네이티브 성능으로 실행할 수 있는 이미지</h2><img src="./3.png" width="500"><ul><li>Repository: <a href="https://github.com/sickcodes/Docker-OSX">https://github.com/sickcodes/Docker-OSX</a></li><li>High Sierra부터 Sonoma까지의 버전을 지원 (최신 Intel 및 NVIDIA GPU는 지원 x)</li><li>QEMU 내에서 Docker로 macOS를 실행하는 것은 가능하지만, GPU 가속과 관련하여 한계가 있음</li><li>MacOS 이미지를 재배포하는 것은 Apple 최종 사용자 라이선스 계약(EULA)을 위반할 수 있지만, 이 프로젝트는 개발 및 테스트 목적으로 사용됨</li><li>개발자 커뮤니티에서 큰 인기를 끌고 있음</li></ul><br><h2 id="FakeTraveler-안드로이드용-휴대폰-가짜-위치-앱"><a href="#FakeTraveler-안드로이드용-휴대폰-가짜-위치-앱" class="headerlink" title="FakeTraveler: 안드로이드용 휴대폰 가짜 위치 앱"></a>FakeTraveler: 안드로이드용 휴대폰 가짜 위치 앱</h2><img src="./4.png" width="300"><ul><li>Repository: <a href="https://github.com/mcastillof/FakeTraveler">https://github.com/mcastillof/FakeTraveler</a></li><li>사용자가 자신의 휴대폰 위치를 속일 수 있도록 해주는 안드로이드용 모의 위치 앱</li><li>F-Droid (무료 및 오픈 소스 안드로이즈 앱 저장소) 에서 이용 가능</li><li>기능성에도 불구하고, 일부 사용자는 은행 앱이나 포켓몬 고와 같은 특정 앱 제한을 추가 조치 없이 우회할 수 없다고 지적 중<ul><li>이에 대해서 기기를 루팅하는 등의 추가 조치가 필요하다는 의견이 있음</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 👐 OpenSource </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Opensource </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[AWS] Cloud Practitioner 시험 준비 및 후기</title>
       <link href="/2024/09/30/Certificate/AWS/CloudPractitioner/"/>
       <url>/2024/09/30/Certificate/AWS/CloudPractitioner/</url>
@@ -463,9 +538,9 @@
       
         <tags>
             
-            <tag> AWS </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> AWS </tag>
             
         </tags>
       
@@ -691,11 +766,11 @@
       
         <tags>
             
+            <tag> Hexo </tag>
+            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
-            
-            <tag> Hexo </tag>
             
         </tags>
       
@@ -720,11 +795,11 @@
       
         <tags>
             
+            <tag> Hexo </tag>
+            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
-            
-            <tag> Hexo </tag>
             
         </tags>
       
@@ -749,11 +824,11 @@
       
         <tags>
             
+            <tag> Hexo </tag>
+            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
-            
-            <tag> Hexo </tag>
             
         </tags>
       
@@ -778,11 +853,11 @@
       
         <tags>
             
+            <tag> Hexo </tag>
+            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
-            
-            <tag> Hexo </tag>
             
         </tags>
       
@@ -1012,11 +1087,11 @@
       
         <tags>
             
+            <tag> API </tag>
+            
             <tag> Github </tag>
             
             <tag> Github Actions </tag>
-            
-            <tag> API </tag>
             
             <tag> Parsing </tag>
             

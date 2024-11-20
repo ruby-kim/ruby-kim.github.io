@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-11-17T16:18:12.958Z</updated>
+  <updated>2024-11-20T15:52:18.323Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1)</title>
+    <link href="http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/"/>
+    <id>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</id>
+    <published>2024-11-08T16:13:35.000Z</published>
+    <updated>2024-11-20T15:52:18.323Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[오픈소스] 2024년 10월 오픈소스 소식지 (2)</title>
+    <link href="http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/"/>
+    <id>http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/</id>
+    <published>2024-10-26T16:13:35.000Z</published>
+    <updated>2024-11-20T15:50:15.967Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[오픈소스] 2024년 10월 오픈소스 소식지 (1)</title>
+    <link href="http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/"/>
+    <id>http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/</id>
+    <published>2024-10-11T16:13:35.000Z</published>
+    <updated>2024-11-20T15:48:00.939Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
   
   <entry>
     <title>[AWS] Cloud Practitioner 시험 준비 및 후기</title>
@@ -104,7 +182,7 @@
     <link href="http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/"/>
     <id>http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/</id>
     <published>2024-09-09T16:13:35.000Z</published>
-    <updated>2024-11-19T16:55:35.719Z</updated>
+    <updated>2024-11-20T12:59:20.255Z</updated>
     
     
       
@@ -474,100 +552,6 @@
     <category term="Yarn" scheme="http://ruby-kim.github.io/tags/Yarn/"/>
     
     <category term="Nvm" scheme="http://ruby-kim.github.io/tags/Nvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DevOps 개요</title>
-    <link href="http://ruby-kim.github.io/2022/05/12/DevOps/Intro/"/>
-    <id>http://ruby-kim.github.io/2022/05/12/DevOps/Intro/</id>
-    <published>2022-05-11T17:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.094Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-DevOps-정의&quot;&gt;&lt;a href=&quot;#1-DevOps-정의&quot; class=&quot;headerlink&quot; title=&quot;1. DevOps 정의&quot;&gt;&lt;/a&gt;1. DevOps 정의&lt;/h2&gt;&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“A set of</summary>
-        
-      
-    
-    
-    
-    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
-    
-    
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
-    
-    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>대학생 때 알았다면 좋았을 SW 팁</title>
-    <link href="http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/"/>
-    <id>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</id>
-    <published>2022-05-10T14:44:35.000Z</published>
-    <updated>2024-10-30T23:45:02.744Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;SW분야를 `선택하고 스펙을 쌓으며 가장 고생했던 것 중 하나가 바로 &lt;strong&gt;조언해주는 사람이 없다는 것&lt;/strong&gt;이었다.&lt;/p&gt;
-&lt;p&gt; 어떤 분야든 멘토가 있다면 효율적으로 스펙을 쌓고 빠르게 기술을 습득할 수 있겠지만, 주변에</summary>
-        
-      
-    
-    
-    
-    <category term="🎈 Retrospect" scheme="http://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
-    
-    
-    <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
-    
-    <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
-    
-    <category term="42SEOUL" scheme="http://ruby-kim.github.io/tags/42SEOUL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[MSA] Micro Service Architecture: Outer - Service Mesh</title>
-    <link href="http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/"/>
-    <id>http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/</id>
-    <published>2022-04-30T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.092Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;MSA의 Outer Architecture 중 Service Mesh에 대해 알아보자.&lt;/p&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h2 id=&quot;MSA-개념-설명-읽어보기&quot;&gt;&lt;a href=&quot;#MSA-개념-설명-읽어보기&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="🔧 Architecture" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%A7-Architecture/"/>
-    
-    
-    <category term="MSA" scheme="http://ruby-kim.github.io/tags/MSA/"/>
-    
-    <category term="Architecture" scheme="http://ruby-kim.github.io/tags/Architecture/"/>
-    
-    <category term="API" scheme="http://ruby-kim.github.io/tags/API/"/>
-    
-    <category term="ESB" scheme="http://ruby-kim.github.io/tags/ESB/"/>
-    
-    <category term="Sidecar" scheme="http://ruby-kim.github.io/tags/Sidecar/"/>
     
   </entry>
   
