@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</loc>
+        <lastmod>2024-11-20T17:05:59.572Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</loc>
+        <lastmod>2024-11-20T16:31:58.918Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</loc>
         <lastmod>2024-11-20T16:24:40.428Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,14 +59,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/</loc>
         <lastmod>2024-11-19T17:22:08.947Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</loc>
-        <lastmod>2024-11-19T15:49:52.983Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

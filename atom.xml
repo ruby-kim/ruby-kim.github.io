@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-11-20T16:24:40.428Z</updated>
+  <updated>2024-11-20T17:05:59.572Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2)</title>
+    <link href="http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/"/>
+    <id>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</id>
+    <published>2024-11-24T16:13:35.000Z</published>
+    <updated>2024-11-20T17:05:59.572Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
+        
+      
+    
+    
+    
+    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    
+    
+    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
   
   <entry>
     <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1)</title>
@@ -208,7 +234,7 @@
     <link href="http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/"/>
     <id>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</id>
     <published>2024-08-26T16:13:35.000Z</published>
-    <updated>2024-11-19T15:49:52.983Z</updated>
+    <updated>2024-11-20T16:31:58.918Z</updated>
     
     
       
@@ -521,37 +547,6 @@
     <category term="IP" scheme="http://ruby-kim.github.io/tags/IP/"/>
     
     <category term="Subnet" scheme="http://ruby-kim.github.io/tags/Subnet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows &amp; Mac에서 nvm 설치하기 (Node.js, Npm, Yarn 설치)</title>
-    <link href="http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/"/>
-    <id>http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/</id>
-    <published>2022-05-16T17:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.103Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;개발 프로젝트에 따라서 Node의 버전을 여러 개 설치하고 번갈아 사용해야 하는 경우가 있는데,&lt;br&gt;이럴 때는 nvm(Node Version Manager)를 사용하면 여러 개의 node 버전을 설치하여 원하는 node 버전을 골라서 사용할</summary>
-        
-      
-    
-    
-    
-    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
-    
-    
-    <category term="Node.js" scheme="http://ruby-kim.github.io/tags/Node-js/"/>
-    
-    <category term="Npm" scheme="http://ruby-kim.github.io/tags/Npm/"/>
-    
-    <category term="Yarn" scheme="http://ruby-kim.github.io/tags/Yarn/"/>
-    
-    <category term="Nvm" scheme="http://ruby-kim.github.io/tags/Nvm/"/>
     
   </entry>
   
