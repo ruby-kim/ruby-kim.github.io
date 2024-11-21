@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
+        <lastmod>2024-11-21T09:28:55.175Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</loc>
         <lastmod>2024-11-20T17:05:59.572Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,7 +34,7 @@
 
     <url>
         <loc>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</loc>
-        <lastmod>2024-11-20T16:24:40.428Z</lastmod>
+        <lastmod>2024-11-20T16:28:41.580Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -115,14 +123,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/</loc>
         <lastmod>2024-11-14T15:33:01.045Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
-        <lastmod>2024-10-30T23:45:02.744Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
