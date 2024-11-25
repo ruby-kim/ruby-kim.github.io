@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-11-20T17:05:59.572Z</updated>
+  <updated>2024-11-25T06:55:05.894Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
+    <link href="http://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/"/>
+    <id>http://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/</id>
+    <published>2024-11-25T02:44:35.000Z</published>
+    <updated>2024-11-25T06:55:05.894Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;최근 멘토링에서 ncloud를 사용하여 서버배포를 하고싶다는 요청을 받았는데, 나 또한 네이버 클라우드는 경험이 없는지라 ㅎㅎ;; 공부삼아 한 번 세팅을 해봤다.&lt;/p&gt;
+&lt;p&gt;일단 클라우드에서 Kubernetes로 container를 배포를</summary>
+        
+      
+    
+    
+    
+    <category term="☁️ Cloud" scheme="http://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
+    
+    
+    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="NCP" scheme="http://ruby-kim.github.io/tags/NCP/"/>
+    
+    <category term="VPC" scheme="http://ruby-kim.github.io/tags/VPC/"/>
+    
+    <category term="Kubernetes" scheme="http://ruby-kim.github.io/tags/Kubernetes/"/>
+    
+    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
+    
+    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2)</title>
@@ -39,6 +77,32 @@
     
     
     <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[TIPS] Mermaid 명령어로 Diagram 그리기</title>
+    <link href="http://ruby-kim.github.io/2024/11/23/Tips/Tool/"/>
+    <id>http://ruby-kim.github.io/2024/11/23/Tips/Tool/</id>
+    <published>2024-11-23T14:44:35.000Z</published>
+    <updated>2024-11-25T06:51:39.938Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;프로젝트를 하다보면 flow chart나 diagram을 그려야 하는데, 이게 여간 귀찮은 일이 아닐 수 없다.&lt;br&gt;빠르고 간단하게 그리고 싶은 분들은 Mermaid 명령어로 그려보는걸 추천한다.&lt;/p&gt;
+&lt;h2 id=&quot;Mermaid&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Diagram" scheme="http://ruby-kim.github.io/tags/Diagram/"/>
     
   </entry>
   
@@ -484,69 +548,6 @@
     
     
     <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[TIPS] Python, Javascript 프로젝트에서 유용한 regex 문법 및 관련 패키지 모음집</title>
-    <link href="http://ruby-kim.github.io/2022/11/25/Tips/Regex/"/>
-    <id>http://ruby-kim.github.io/2022/11/25/Tips/Regex/</id>
-    <published>2022-11-25T14:44:35.000Z</published>
-    <updated>2024-11-14T15:41:16.753Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;사용자의 입력값이 유효한지 확인하는 작업을 해야할 때가 있는데, 이 때 사용하면 유용한 패키지와 각종 regex를 정리해봤습니다.&lt;/p&gt;
-&lt;p&gt;(상시 업데이트 예정)&lt;/p&gt;
-&lt;h2 id=&quot;Python3&quot;&gt;&lt;a href=&quot;#Python3&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
-    
-    
-    <category term="Python3" scheme="http://ruby-kim.github.io/tags/Python3/"/>
-    
-    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
-    
-    <category term="Regex" scheme="http://ruby-kim.github.io/tags/Regex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>네트워크 기본</title>
-    <link href="http://ruby-kim.github.io/2022/05/30/NS/Basic/"/>
-    <id>http://ruby-kim.github.io/2022/05/30/NS/Basic/</id>
-    <published>2022-05-30T14:44:35.000Z</published>
-    <updated>2023-06-21T11:39:04.132Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;IPv4&quot;&gt;&lt;a href=&quot;#IPv4&quot; class=&quot;headerlink&quot; title=&quot;IPv4&quot;&gt;&lt;/a&gt;IPv4&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;./ipv4.png&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;컴퓨터 사이에 통신을 하기 위해서는</summary>
-        
-      
-    
-    
-    
-    <category term="🔐 Network/Security" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
-    
-    
-    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
-    
-    <category term="IP" scheme="http://ruby-kim.github.io/tags/IP/"/>
-    
-    <category term="Subnet" scheme="http://ruby-kim.github.io/tags/Subnet/"/>
     
   </entry>
   

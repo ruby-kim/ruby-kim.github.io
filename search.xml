@@ -4,6 +4,43 @@
   
     
     <entry>
+      <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
+      <link href="/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/"/>
+      <url>/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/</url>
+      
+        <content type="html"><![CDATA[<p>최근 멘토링에서 ncloud를 사용하여 서버배포를 하고싶다는 요청을 받았는데, 나 또한 네이버 클라우드는 경험이 없는지라 ㅎㅎ;; 공부삼아 한 번 세팅을 해봤다.</p><p>일단 클라우드에서 Kubernetes로 container를 배포를 하기 위해서는 로직이 대략적으로 이렇게 된다.<br><img src="./2.png" width="800"></p><ul><li>설명이 어렵다 할 분들을 위해서, 전체적인 로직은 Services 쪽을 보면 이해하기 쉬울 것이다.<br><code>Container Registry</code>에 컨테이너 이미지 업로드 -&gt; <code>Ncloud Kubernetes Service</code>의 Kubernetes에 컨테이너 이미지 배치 -&gt; Kubernetes가 서버를 배포하도록 설정<br>이렇게만 하면 클라우드에 우리가 원하는 이미지를 띄울 수 있다.</li><li>하지만 클라우드는 <code>보안</code>이 생명인 서비스인 만큼, 모든 것들이 기본적으로 private으로 설정되며 우리는 이런 리소스에 접근하기 위해서는 여러 인증을 n번 거쳐야한다. 때문에 VPC를 설정을 예쁘게 해야한다.<br>subnet 이름은 사람마다 취향껏 맞춰 지으면 되며, 여기서는 편의상 내 마음대로 이름을 붙여봤다.<ul><li><code>k8s-server-k2</code><ul><li>클러스터로 들어오는 내부 트래픽과 외부 트래픽을 관리</li><li>컨테이너 이미지를 레지스트리에서 가져와 클러스터에 배포</li><li>클러스터가 인터넷(외부 서비스)과 연결될 수 있도록 하는 Nat 관리</li></ul></li><li><code>k8s-lb-private</code>: 클러스터 내부에서만 접근할 수 있는 서비스들을 트래픽에 전달<ul><li>특히 내부 Pod간 통신 처리</li></ul></li><li><code>k8s-lb-public</code>: 인터넷을 통해 외부 사용자들이 접근할 수 있는 서비스들에 트래픽 전달<ul><li>특히 외부에서 트래픽을 받으면 pod로 라우팅함</li></ul></li><li><code>Nat</code>: NAT Gateway의 약자로, 외부에서 Kubernetes 클러스터 내부로의 직접적인 접근을 차단하기 위해 생성</li><li><code>k8s-k2</code>: Kubernetes 클러스터를 관리함. 쉽게 Kubernetes 클러스터의 worker nodes 관리하는 곳으로 생각하면 됨</li></ul></li></ul><p>이렇게 간략하게 설명을 해봤으며, 이해가 됐다면 바로 세팅으로 들어가보자.</p><h2 id="0-NCP-콘솔-로그인"><a href="#0-NCP-콘솔-로그인" class="headerlink" title="0. NCP 콘솔 로그인"></a>0. NCP 콘솔 로그인</h2><img src="./0.png" width="800"><p>화면 맨 위 오른쪽에 <a href="https://console.ncloud.com/dashboard">콘솔</a> 버튼을 누르면 접속할 수 있다.</p><h2 id="1-VPC-생성하기"><a href="#1-VPC-생성하기" class="headerlink" title="1. VPC 생성하기"></a>1. VPC 생성하기</h2><ul><li>VPC &gt; <a href="https://console.ncloud.com/vpc-network/vpc">VPC Management</a>에서 생성<img src="./1.png" width="800"></li></ul><h2 id="2-Subnet-생성하기"><a href="#2-Subnet-생성하기" class="headerlink" title="2. Subnet 생성하기"></a>2. Subnet 생성하기</h2><ul><li>VPC &gt; <a href="https://console.ncloud.com/vpc-network/subnet">Subnet Management</a>에서 생성</li><li>1번에서 생성한 VPC 이름으로 설정<img src="./3.png" width="800"></li></ul><h2 id="3-NAT-Gateway-생성하기"><a href="#3-NAT-Gateway-생성하기" class="headerlink" title="3. NAT Gateway 생성하기"></a>3. NAT Gateway 생성하기</h2><ul><li>VPC &gt; <a href="https://console.ncloud.com/vpc-network/nat-gateway">NAT Gateway</a>에서 생성</li><li>1, 2번에서 생성한 VPC 및 nat subnet 설정<img src="./4.png" width="800"></li></ul><h2 id="4-Routes-설정하기"><a href="#4-Routes-설정하기" class="headerlink" title="4. Routes 설정하기"></a>4. Routes 설정하기</h2><ul><li>VPC &gt; Route Table &gt; <a href="https://console.ncloud.com/vpc-network/routeTable">Route Table</a>에서 <code>private-table</code> 선택</li><li><code>Route 설정</code>에서 public access를 위해 <code>0.0.0.0/0</code>, <code>NATGW</code>, <code>nat설정의 subnet 이름</code> 추가<img src="./5.png" width="800"></li></ul><h2 id="5-Object-Storage-생성하기"><a href="#5-Object-Storage-생성하기" class="headerlink" title="5. Object Storage 생성하기"></a>5. Object Storage 생성하기</h2><ul><li>Object Storage &gt; <a href="https://console.ncloud.com/objectStorage/objectStorageList">Bucket Management</a>에서 버킷 생성<img src="./6.png" width="300"></li></ul><h2 id="6-Container-Registry-생성하기"><a href="#6-Container-Registry-생성하기" class="headerlink" title="6. Container Registry 생성하기"></a>6. Container Registry 생성하기</h2><ul><li><a href="https://console.ncloud.com/ncr/registries">Container Registry</a>에서 생성</li><li>5번에서 생성한 버킷으로 설정<img src="./7.png" width="800"></li></ul><h2 id="7-Ncloud-Kubernetes-Service-생성하기"><a href="#7-Ncloud-Kubernetes-Service-생성하기" class="headerlink" title="7. Ncloud Kubernetes Service 생성하기"></a>7. Ncloud Kubernetes Service 생성하기</h2><h3 id="1-VPC-Ncloud-Kubernetes-Service-Clusters에서-생성"><a href="#1-VPC-Ncloud-Kubernetes-Service-Clusters에서-생성" class="headerlink" title="1) VPC Ncloud Kubernetes Service Clusters에서 생성"></a>1) <a href="https://console.ncloud.com/vnks/clusters">VPC Ncloud Kubernetes Service Clusters</a>에서 생성</h3><ul><li><p>1번에서 생성한 VPC를 선택하면 자동으로 LB Private subnet, LB Public subnet이 세팅됨</p></li><li><p>이번 실습에서는 클러스터 인증 모드를 API로 설정함<br><img src="./9.png" width="800"></p></li><li><p>설정 완료 후 다음으로 넘어가면 Nat 설정에 관한 안내창이 나오는데, 무시해도 됨(이 세팅은 3번, 5번에서 했기 때문)</p><img src="./8.png" width="400"></li></ul><h3 id="2-노드풀-설정하기"><a href="#2-노드풀-설정하기" class="headerlink" title="2) 노드풀 설정하기"></a>2) 노드풀 설정하기</h3>   <img src="./10.png" width="800"><h3 id="3-인증키-설정"><a href="#3-인증키-설정" class="headerlink" title="3) 인증키 설정"></a>3) 인증키 설정</h3>   <img src="./11.png" width="800"><p><br><br></p><p>모든 설정이 완료되면 아래 이미지처럼 생성됨.약 10-30분 기다려야함<br><img src="./12.png" width="800"></p><h2 id="8-사용자-인증-API-인증키-생성하기"><a href="#8-사용자-인증-API-인증키-생성하기" class="headerlink" title="8. 사용자 인증: API 인증키 생성하기"></a>8. 사용자 인증: API 인증키 생성하기</h2><ul><li>계정 관리 &gt; <a href="https://www.ncloud.com/mypage/manage/authkey">인증키 관리</a>에서 <code>신규 API 인증키 생성</code>을 클릭하여 API 인증키 생성하기</li><li><code>Access Key ID</code> 및 <code>Secret Key</code> 값을 준비해두자. 앞으로 서비스 이용을 할 때 쓸 예정<br><img src="./13.png"><img src="./14.png" width="800"></li></ul><h2 id="9-Container-Registry에-Docker-image-업로드하기"><a href="#9-Container-Registry에-Docker-image-업로드하기" class="headerlink" title="9. Container Registry에 Docker image 업로드하기"></a>9. Container Registry에 Docker image 업로드하기</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># ncloud docker login 하기</span><span class="token comment" spellcheck="true"># registry-url = container registry의 public endpoint</span>$ docker login <span class="token operator">&lt;</span>registry-url<span class="token operator">></span><span class="token comment" spellcheck="true"># docker build &amp; tag &amp; push 하기</span><span class="token comment" spellcheck="true"># docker build: ncloud의 Kubernetes 세팅이 amd64으로 되어있어 platform 옵션 추가</span>$ docker build --platform linux/amd64 -t <span class="token operator">&lt;</span>registry-url<span class="token operator">></span>/<span class="token operator">&lt;</span>repository-name<span class="token operator">></span>:<span class="token operator">&lt;</span>tag<span class="token operator">></span> <span class="token keyword">.</span>$ docker tag $ docker push <span class="token operator">&lt;</span>registry-url<span class="token operator">></span>/<span class="token operator">&lt;</span>repository-name<span class="token operator">></span>:<span class="token operator">&lt;</span>tag<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><img src="./15.png" width="800">Push가 잘됐다면 이미지처럼 Tags탭에 들어갔을 때 push한 이미지를 확인할 수 있다.<h2 id="10-Kubernetes-설정해서-Docker-image-배포하기"><a href="#10-Kubernetes-설정해서-Docker-image-배포하기" class="headerlink" title="10. Kubernetes 설정해서 Docker image 배포하기"></a>10. Kubernetes 설정해서 Docker image 배포하기</h2><h3 id="NKS-인증키-설정"><a href="#NKS-인증키-설정" class="headerlink" title="NKS 인증키 설정"></a>NKS 인증키 설정</h3><p><a href="https://guide.ncloud-docs.com/docs/k8s-iam-auth-ncp-iam-authenticator">여기</a>를 참고하여 ncp-iam-authenticator를 설치한 후 진행</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># ncloud setup</span>$ <span class="token function">export</span> NCLOUD_ACCESS_KEY<span class="token operator">=</span><span class="token operator">&lt;</span>8번에서-생성한-Access-Key-ID<span class="token operator">></span>$ <span class="token function">export</span> NCLOUD_SECRET_KEY<span class="token operator">=</span><span class="token operator">&lt;</span>8번에서-생성한-Secret-Key<span class="token operator">></span>$ <span class="token function">export</span> NCLOUD_API_GW<span class="token operator">=</span>https://ncloud.apigw.ntruss.com<span class="token comment" spellcheck="true"># nks 인증키 생성</span><span class="token comment" spellcheck="true"># region이 한국이면 region-code는 KR</span><span class="token comment" spellcheck="true"># 파일이 생성되지 않거나, 빈 파일이 생성됐다면 문제가 있는 것</span>$ ncp-iam-authenticator create-kubeconfig --region <span class="token operator">&lt;</span>region-code<span class="token operator">></span> --clusterUuid <span class="token operator">&lt;</span>NKS에서 생성한 cluster의 uuid<span class="token operator">></span> --output kubeconfig.yaml$ <span class="token function">export</span> KUBECONFIG<span class="token operator">=</span><span class="token string">"&lt;kubeconfig.yaml의 파일 절대경로>"</span><span class="token comment" spellcheck="true"># Kubernetes가 제대로 설정됐는지 확인</span>$ kubectl get ns <span class="token comment" spellcheck="true"># namespace 조회. 아래같이 나오면 성공</span>NAME              STATUS   AGEdefault           Active   40hkube-node-lease   Active   40hkube-public       Active   40hkube-system       Active   40h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="Kubernetes를-위한-yaml파일-생성"><a href="#Kubernetes를-위한-yaml파일-생성" class="headerlink" title="Kubernetes를 위한 yaml파일 생성"></a>Kubernetes를 위한 yaml파일 생성</h3><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># deployment.yaml</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment<span class="token key atrule">metadata</span><span class="token punctuation">:</span>  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>deployment  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> default<span class="token key atrule">spec</span><span class="token punctuation">:</span>  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>  <span class="token key atrule">selector</span><span class="token punctuation">:</span>    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>      <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app  <span class="token key atrule">template</span><span class="token punctuation">:</span>    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>      <span class="token key atrule">labels</span><span class="token punctuation">:</span>        <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app    <span class="token key atrule">spec</span><span class="token punctuation">:</span>      <span class="token key atrule">containers</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app        <span class="token key atrule">image</span><span class="token punctuation">:</span> &lt;registry<span class="token punctuation">-</span>url<span class="token punctuation">></span>/&lt;repository<span class="token punctuation">-</span>name<span class="token punctuation">></span><span class="token punctuation">:</span>&lt;tag<span class="token punctuation">></span>        <span class="token key atrule">imagePullPolicy</span><span class="token punctuation">:</span> Always        <span class="token key atrule">ports</span><span class="token punctuation">:</span>        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">8000</span>      <span class="token key atrule">imagePullSecrets</span><span class="token punctuation">:</span>      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> regcred<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># service.yaml</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service<span class="token key atrule">metadata</span><span class="token punctuation">:</span>  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>service  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>    <span class="token key atrule">service.beta.Kubernetes.io/ncloud-load-balancer-layer-type</span><span class="token punctuation">:</span> <span class="token string">"nplb"</span>    <span class="token key atrule">service.beta.Kubernetes.io/ncloud-load-balancer-size</span><span class="token punctuation">:</span> <span class="token string">"SMALL"</span><span class="token key atrule">spec</span><span class="token punctuation">:</span>  <span class="token key atrule">selector</span><span class="token punctuation">:</span>    <span class="token key atrule">app</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app  <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer  <span class="token key atrule">ports</span><span class="token punctuation">:</span>  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">8000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="Kubernetes에-템플릿-배포-및-서비스-확인"><a href="#Kubernetes에-템플릿-배포-및-서비스-확인" class="headerlink" title="Kubernetes에 템플릿 배포 및 서비스 확인"></a>Kubernetes에 템플릿 배포 및 서비스 확인</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># kubenetes secret object 생성</span>$ kubectl create secret docker-registry regcred \    --docker-server<span class="token operator">=</span><span class="token operator">&lt;</span>registry-url<span class="token operator">></span> \    --docker-username<span class="token operator">=</span><span class="token operator">&lt;</span>8번에서-생성한-Access-Key-ID<span class="token operator">></span> \    --docker-password<span class="token operator">=</span><span class="token operator">&lt;</span>8번에서-생성한-Secret-Key<span class="token operator">></span> \    --docker-email<span class="token operator">=</span><span class="token operator">&lt;</span>ncloud-email-주소<span class="token operator">></span>$ kubectl get secrets <span class="token comment" spellcheck="true"># 생성이 잘 됐는지 확인하는 명령어</span><span class="token comment" spellcheck="true"># yaml 템플릿 업로드</span>$ kubectl apply -f deployment.yaml$ kubectl apply -f service.yaml$ kubectl get pods <span class="token comment" spellcheck="true"># status running인지 확인하는 명령어</span><span class="token comment" spellcheck="true"># 클라우드에 배포된 IP주소 확인하기</span><span class="token comment" spellcheck="true"># LoadBalancer의 External IP 주소 = 곧 클라우드에 배포된 서비스 IP 주소</span>$ kubectl get servicesNAME             TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT<span class="token punctuation">(</span>S<span class="token punctuation">)</span>        AGEKubernetes       ClusterIP      198.19.128.1     <span class="token operator">&lt;</span>none<span class="token operator">></span>                                                                   443/TCP        40hmy-app-service   LoadBalancer   198.19.255.184   default-my-app-service-cfe50-100590090-dcc6483894d3.kr.lb.naverncp.com   80:30167/TCP   39h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="11-배포-페이지-접근해보기"><a href="#11-배포-페이지-접근해보기" class="headerlink" title="11. 배포 페이지 접근해보기"></a>11. 배포 페이지 접근해보기</h2><p>글 업로드 시점 기준으로 서비스 중단해서 접속 안됩니다. 참고하세용<br><img src="./16.png" width="800"></p><h2 id="12-만약-Docker-이미지를-업데이트를-해서-서버에-반영하고-싶다면"><a href="#12-만약-Docker-이미지를-업데이트를-해서-서버에-반영하고-싶다면" class="headerlink" title="12. 만약 Docker 이미지를 업데이트를 해서 서버에 반영하고 싶다면?"></a>12. 만약 Docker 이미지를 업데이트를 해서 서버에 반영하고 싶다면?</h2><p>Kubernetes의 deployment.yaml에 이미 <code>imagePullPolicy</code> 세팅이 <code>Always</code>로 되어있어서 같은 태그를 push했을 때는 자동으로 Kubernetes가 이미지를 추적하여 업데이트를 할 것이다.<br>다만 사람마다 태그 규칙이 다르며, 이 때문에 tag 버전이 업데이트 된 이미지를 업로드를 한다면 Kubernetes가 알아차리지 못하니 우리가 알려줘야 한다.</p><p>다음은 kubernets에게 새로운 container image가 생겼다는 것을 알려주는 작업이다.</p><ol><li><p><code>deployment.yaml</code> 수정</p><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># deployment.yaml</span><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment<span class="token key atrule">metadata</span><span class="token punctuation">:</span>  <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app<span class="token punctuation">-</span>deployment  <span class="token key atrule">namespace</span><span class="token punctuation">:</span> default<span class="token key atrule">spec</span><span class="token punctuation">:</span> <span class="token punctuation">...</span> <span class="token key atrule">spec</span><span class="token punctuation">:</span>   <span class="token key atrule">containers</span><span class="token punctuation">:</span>   <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> my<span class="token punctuation">-</span>app     <span class="token key atrule">image</span><span class="token punctuation">:</span> &lt;registry<span class="token punctuation">-</span>url<span class="token punctuation">></span>/&lt;repository<span class="token punctuation">-</span>name<span class="token punctuation">></span><span class="token punctuation">:</span>&lt;tag<span class="token punctuation">></span> <span class="token comment" spellcheck="true"># tag에 맞춰 수정</span><span class="token punctuation">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>deployment 서비스 재시작</p><pre class="line-numbers language-bash"><code class="language-bash">kubectl rollout restart deployment <span class="token operator">&lt;</span>deployment.yaml의 metadata.name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> ☁️ Cloud </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Network </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> NCP </tag>
+            
+            <tag> VPC </tag>
+            
+            <tag> Kubernetes </tag>
+            
+            <tag> Container </tag>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2)</title>
       <link href="/2024/11/25/OpenSource/2411(2)/"/>
       <url>/2024/11/25/OpenSource/2411(2)/</url>
@@ -21,6 +58,31 @@
         <tags>
             
             <tag> Opensource </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[TIPS] Mermaid 명령어로 Diagram 그리기</title>
+      <link href="/2024/11/23/Tips/Tool/"/>
+      <url>/2024/11/23/Tips/Tool/</url>
+      
+        <content type="html"><![CDATA[<p>프로젝트를 하다보면 flow chart나 diagram을 그려야 하는데, 이게 여간 귀찮은 일이 아닐 수 없다.<br>빠르고 간단하게 그리고 싶은 분들은 Mermaid 명령어로 그려보는걸 추천한다.</p><h2 id="Mermaid"><a href="#Mermaid" class="headerlink" title="Mermaid"></a><a href="https://mermaid.js.org/">Mermaid</a></h2><img src="./3.png" width="150"><p>Markdown(마크다운) 명령어로 diagram을 그릴 수 있는 툴이다.<br>압도적인 점유율을 자랑하는 우리의 Github에서는 이 문법을 지원하기 때문에, README.md파일 같은 곳에서 작성해두면 내용을 시각하하여 볼 수 있는 장점이 있다.</p><h2 id="Mermaid-ChatGPT로-간단하게-만들기"><a href="#Mermaid-ChatGPT로-간단하게-만들기" class="headerlink" title="Mermaid + ChatGPT로 간단하게 만들기"></a>Mermaid + ChatGPT로 간단하게 만들기</h2><p>사용법을 공부해서 적용하면 되지만 아무래도 어떤 관계인지 정리를 해야하니 머리가 여간 복잡할 수 밖에 없다…<br>따라서 21세기 최고의 도구인 AI를 이용해보도록 하자.</p><ol><li><p><a href="https://chatgpt.com/">ChatGPT</a>에 어떤 그림을 그릴지 설명한다. 이 때 mermaid 문법으로 써달라고 요청하면 예쁘게 뽑아준다. ctrl+c를 해준다.</p><img src="./1.png" width="600"></li><li><p><a href="https://mermaid.live/edit">Mermaid Live Editor</a>에 접속해서 ctrl+v를 해준다.</p><img src="./2.png" width="600"></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 💾 Etc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Diagram </tag>
             
         </tags>
       
@@ -578,7 +640,7 @@
       <link href="/2022/05/10/Retrospect/Bachelor/"/>
       <url>/2022/05/10/Retrospect/Bachelor/</url>
       
-        <content type="html"><![CDATA[<p>SW분야를 선택하고 스펙을 쌓으며 가장 고생했던 것 중 하나가 바로 <strong>조언해주는 사람이 없다는 것</strong>이었다.</p><p>어떤 분야든 멘토가 있다면 효율적으로 스펙을 쌓고 빠르게 기술을 습득할 수 있겠지만, 주변에 컴퓨터 분야에 종사하는 사람이 눈 씻고봐도 전혀 없었다.<br>심지어 대학교 자체를 나온 사람이 주변에 친언니(문과 전공) 하나밖에 없었기에, 혼자서 익스트림 칠전팔기 도전기를 찍었던 것 같다.</p><p>나같은 사람이 더 이상 없길 바라며, 나름 생각하는 꿀팁들을 적어보려고 한다.</p><blockquote><p>추가적으로 궁금한 내용 있으시면 언제든지 편하게 댓글 남겨주세요 :-)</p></blockquote><p><br><br></p><h2 id="언어-선택"><a href="#언어-선택" class="headerlink" title="언어 선택"></a>언어 선택</h2><p>본인이 하고 싶은 분야의 언어를 선택한다. 딱히 하고 싶은 분야가 없다면 제일 무난한 <code>Java</code>를 추천한다. 취업시장 자체가 서버 개발자 수요가 많은데, 그 중 전반적으로 가장 많이 구하는 기술 스택이 바로 <code>Java</code>이기 때문이다.<br>다만 스타트업을 노리고 있다면 <code>Javascript</code>, <code>Python</code>을 추천한다. 최근 스타트업들이 이 두 언어를 주요 기술 스택으로 선택하는 추세다.</p><p>코딩 테스트 언어로는 무난하게 <code>C/C++</code>, <code>Python</code>을 추천한다. 다른 언어를 선택해도 관계없다. 자신이 가장 자신있는 언어를 선택하는 것이 좋다.<br>주변에서 종종 시간초과 문제 때문에 <code>Python</code>을 망설이는 경우가 있는데, 시간초과 문제는 나중에 해결할 일이다. 일단 돌아가는 코드를 만들어야 부분점수라도 얻을 수 있지 않겠는가.</p><p>사실 학부생 수준에서 언어 선택은 크게 중요하지 않다. 왜냐면 취직해봤자 온보딩만 평균 1개월-3개월 정도 돌리는데 그러면 일은 커녕 공부만 주구장창 하고있기 때문이다.<br>(카카오 다니는 지인 왈, <strong>입사한지 5개월 됐는데 일 하나도 안하고 공부만 했어…</strong> <del>물경력</del>)<br>그래서 학부생 시절에 될 수 있으면 다양한 수업을 접하면서 여러 언어들을 익혀보는 것을 추천한다.<br>다만 분야마다 주력으로 하는 언어가 있기 때문에, 특정 분야를 가기로 결심했으면 그 언어는 공부해놓는게 좋다.</p><table>    <tbody><tr>        <td><b>분야</b></td>        <td><b>언어</b></td>    </tr>    <tr>        <td>AI/빅데이터</td>        <td>Python</td>    </tr>    <tr>        <td>서버</td>        <td>Java</td>    </tr>    <tr>        <td>프론트엔드</td>        <td>Javascript</td>    </tr>    <tr>        <td>하드웨어/임베디드</td>        <td>C, C++</td>    </tr></tbody></table><p><br><br></p><h2 id="졸업-전-반드시-들어야-할-전공-과목"><a href="#졸업-전-반드시-들어야-할-전공-과목" class="headerlink" title="졸업 전 반드시 들어야 할 전공 과목"></a>졸업 전 반드시 들어야 할 전공 과목</h2><ul><li>자료구조</li><li>알고리즘</li><li>데이터베이스</li><li>네트워크</li><li>운영체제</li></ul><p>대부분 기업들이 <code>코딩테스트 &gt; 면접</code> 과정을 거치는데, 먼저 코딩테스트는 대부분 자료구조, 알고리즘 문제가 출제된다.<br>면접에서는 데이터베이스, 네트워크, 운영체제에 관련해 질문이 따발총으로 들어오므로 꼭 수강해놓는 것을 추천한다.<br>이 과목들 중 하나라도 공부를 안하고 취뽀에 도전한다면 현실적으로 많이 힘들다.</p><p><br><br></p><h2 id="비전공자-개발자"><a href="#비전공자-개발자" class="headerlink" title="비전공자 개발자"></a>비전공자 개발자</h2><p>컴퓨터공학이 만만한 학문은 아니지만, 분야 특성 상 인터넷에 수많은 지료들이 존재하며 자료 공유가 활발한 편이다.<br>유튜브, 카카오톡 오픈톡방, 그 외 다양한 커뮤니티들 및 사이트에서 원하는 정보를 쉽게 찾을 수 있다.</p><p>그래도 적성이 안맞으면 굉장히 괴로운 분야이기 때문에 대학생이라면 프로그래밍 과목을 한 번 들어보고, 아니라면 인터넷 자료들을 통해 공부를 해보는 것을 추천한다.</p><p><br><br></p><h2 id="학교-x2F-비전공자-메리트"><a href="#학교-x2F-비전공자-메리트" class="headerlink" title="학교 / 비전공자 메리트"></a>학교 / 비전공자 메리트</h2><p>어떤 곳이든 기본적으로 학벌을 보기에 여기 또한 학벌의 존재를 피해갈 순 없다. 다만 다른 분야에 비하면 개발 자체는 학교 학과를 안 보는 직군으로 평가된다.<br>따라서 학교 네임밸류와 컴퓨터 외 전공 때문에 취업이 안된다고 말하는 사람들은 ‘내가 과연 열심히 살았나?’라며 솔직하게 자기반성의 시간을 가져야 한다. 정말 노력만 한다면 커버가 될 수 있기 때문이다.</p><blockquote><p>그럼에도 불구하고 나는 안된다 하시는 분들, 경쟁자들과 비빌 수 있는 스펙을 만들기 위해 부던히 노력을 했습니까? 가슴에 손을 얹고 한 번 생각해보시길 바랍니다.<br>(참고로 저는 전공자인데 문화생활 포기하고 공부만 했습니다. 졸업할 때까지…)</p></blockquote><p>비전공자들에 관련해서 추가적인 조언을 해보자면, 비전공자가 뽑히지 않는 이유는 <code>전공자와 비교했을 때 그만한 경험과 지식이 부족하다고 판단</code>되기 때문이다. 대부분의 비전공자들이 부트캠프나 국비지원으로 개발공부를 하는데, 이 모든 과정들이 길어봤자 1년이기 때문에 현실적으로도 4년제 전공생들과 비교되는건 당연하다.</p><p>그래도 개발 스펙을 쌓고자 한다면 개인적으로 추천하는 것은 <code>부트캠프</code>이다.<br>이미 개발자들 사이에서 <strong>국비지원 = 개발자 찍어대는 공장 -&gt; 국비지원 출신 = 코딩 대충 배운 사람</strong>으로 인식하는 경우가 많기 때문이다. (좆소기업을 유심히 살펴보면 국비지원 출신이 많은 경우를 찾을 수 있다)</p><p>다음은 그 중 추천하는 부트캠프 프로그램이다.</p><ul><li><a href="https://woowacourse.github.io/">우아한 테크코스 (우테코)</a></li><li><a href="https://boostcamp.connect.or.kr/">BoostCamp (부스트캠프 / 부캠)</a></li><li><a href="https://www.swmaestro.org/sw/main/main.do">SW마에스트로(소마)</a></li><li><a href="https://42seoul.kr/seoul42/main/view">42SEOUL</a>: 프랑스의 유명 프로그램인 42Ecole을 벤치마킹한 대한민국 정부 지원 SW 개발자 양성 프로그램이다. 전 세계적으로 유명한 프로그램인 만큼 회사 지원했을 때 도움되는 경우가 많다.</li><li><a href="https://www.ssafy.com/">Ssafy(싸피)</a>: 삼성에서 지원하는 SW 개발자 양성 프로그램이다. 졸예자 이상만 참가 가능하다.</li></ul><p>국비지원을 선택했더라도 자신의 노력에 달렸으니 더더욱 열심히 CS공부를 하는 것을 추천한다.</p><p><br><br></p><h2 id="개발자로-지원할-수-있는-기업"><a href="#개발자로-지원할-수-있는-기업" class="headerlink" title="개발자로 지원할 수 있는 기업"></a>개발자로 지원할 수 있는 기업</h2><p>크게 두 가지로 나뉜다.<br>(금융권 IT 등 다양하게 있겠지만 이 쪽으로는 잘 몰라서 패스)</p><ul><li><strong>대기업 IT 자회사</strong>: LG CNS, 현대오토에버, 삼성 SDS 등<ul><li>그룹 계열사의 IT 서비스를 개발 및 운영</li><li>흔히 대기업 SI로 불리며, 취업 시장에서 가장 많이 채용</li><li>장점: 높은 연봉과 안정성</li><li>단점: 수직적인 기업문화, 개발 기회가 적음(대체로 운영 업무 위주)</li></ul></li><li><strong>IT 서비스 기업</strong>: 네카라쿠배(네이버, 카카오, 라인, 쿠팡, 배달의 민족)<ul><li>개발적인 측면에서 자유를 보장받을 수 있으며 다양한 기회 또한 접할 수 있음</li><li>계속 개발 공부를 하면서 성장하고 싶다면 추천</li><li>장점: 자유로운 기업문화</li><li>단점: 평생 공부, 기업별 연봉차가 매우 큼(대기업 vs 스타트업), 안정성 보장 못함</li></ul></li></ul><p><br><br></p><h2 id="같이-읽어보면-좋은-글"><a href="#같이-읽어보면-좋은-글" class="headerlink" title="같이 읽어보면 좋은 글"></a>같이 읽어보면 좋은 글</h2><ul><li><a href="https://ruby-kim.github.io/2022/04/23/Retrospect/Junior/">[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정</a></li><li><a href="https://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/">개발자 포트폴리오, 이렇게 준비해보자</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>SW분야를 선택하고 스펙을 쌓으며 가장 고생했던 것 중 하나가 바로 <strong>조언해주는 사람이 없다는 것</strong>이었다.</p><p>어떤 분야든 멘토가 있다면 효율적으로 스펙을 쌓고 빠르게 기술을 습득할 수 있겠지만, 주변에 컴퓨터 분야에 종사하는 사람이 눈 씻고봐도 전혀 없었다.<br>심지어 대학교 자체를 나온 사람이 주변에 친언니(문과 전공) 하나밖에 없었기에, 혼자서 익스트림 칠전팔기 도전기를 찍었던 것 같다.</p><p>나같은 사람이 더 이상 없길 바라며, 나름 생각하는 꿀팁들을 적어보려고 한다.</p><blockquote><p>추가적으로 궁금한 내용 있으시면 언제든지 편하게 댓글 남겨주세요 :-)</p></blockquote><p><br><br></p><h2 id="언어-선택"><a href="#언어-선택" class="headerlink" title="언어 선택"></a>언어 선택</h2><p>본인이 하고 싶은 분야의 언어를 선택한다. 딱히 하고 싶은 분야가 없다면 제일 무난한 <code>Java</code>를 추천한다. 취업시장 자체가 서버 개발자 수요가 많은데, 그 중 전반적으로 가장 많이 구하는 기술 스택이 바로 <code>Java</code>이기 때문이다.<br>다만 스타트업을 노리고 있다면 <code>Javascript</code>, <code>Python</code>을 추천한다. 최근 스타트업들이 이 두 언어를 주요 기술 스택으로 선택하는 추세다.</p><p>코딩 테스트 언어로는 무난하게 <code>C/C++</code>, <code>Python</code>을 추천한다. 다른 언어를 선택해도 관계없다. 자신이 가장 자신있는 언어를 선택하는 것이 좋다.<br>주변에서 종종 시간초과 문제 때문에 <code>Python</code>을 망설이는 경우가 있는데, 시간초과 문제는 나중에 해결할 일이다. 일단 돌아가는 코드를 만들어야 부분점수라도 얻을 수 있지 않겠는가.</p><p>사실 학부생 수준에서 언어 선택은 크게 중요하지 않다. 왜냐면 취직해봤자 온보딩만 평균 1개월-3개월 정도 돌리는데 그러면 일은 커녕 공부만 주구장창 하고있기 때문이다.<br>(카카오 다니는 지인 왈, <strong>입사한지 5개월 됐는데 일 하나도 안하고 공부만 했어…</strong> <del>물경력</del>)<br>그래서 학부생 시절에 될 수 있으면 다양한 수업을 접하면서 여러 언어들을 익혀보는 것을 추천한다.<br>다만 분야마다 주력으로 하는 언어가 있기 때문에, 특정 분야를 가기로 결심했으면 그 언어는 공부해놓는게 좋다.</p><table>    <tbody><tr>        <td><b>분야</b></td>        <td><b>언어</b></td>    </tr>    <tr>        <td>AI/빅데이터</td>        <td>Python</td>    </tr>    <tr>        <td>서버</td>        <td>Java</td>    </tr>    <tr>        <td>프론트엔드</td>        <td>Javascript</td>    </tr>    <tr>        <td>하드웨어/임베디드</td>        <td>C, C++</td>    </tr></tbody></table><p><br><br></p><h2 id="졸업-전-반드시-들어야-할-전공-과목"><a href="#졸업-전-반드시-들어야-할-전공-과목" class="headerlink" title="졸업 전 반드시 들어야 할 전공 과목"></a>졸업 전 반드시 들어야 할 전공 과목</h2><ul><li>자료구조</li><li>알고리즘</li><li>데이터베이스</li><li>네트워크</li><li>운영체제</li></ul><p>대부분 기업들이 <code>코딩테스트 &gt; 면접</code> 과정을 거치는데, 먼저 코딩테스트는 대부분 자료구조, 알고리즘 문제가 출제된다.<br>면접에서는 데이터베이스, 네트워크, 운영체제에 관련해 질문이 따발총으로 들어오므로 꼭 수강해놓는 것을 추천한다.<br>이 과목들 중 하나라도 공부를 안하고 취뽀에 도전한다면 현실적으로 많이 힘들다.</p><p><br><br></p><h2 id="비전공자-개발자"><a href="#비전공자-개발자" class="headerlink" title="비전공자 개발자"></a>비전공자 개발자</h2><p>컴퓨터공학이 만만한 학문은 아니지만, 분야 특성 상 인터넷에 수많은 지료들이 존재하며 자료 공유가 활발한 편이다.<br>유튜브, 카카오톡 오픈톡방, 그 외 다양한 커뮤니티들 및 사이트에서 원하는 정보를 쉽게 찾을 수 있다.</p><p>그래도 적성이 안맞으면 굉장히 괴로운 분야이기 때문에 대학생이라면 프로그래밍 과목을 한 번 들어보고, 아니라면 인터넷 자료들을 통해 공부를 해보는 것을 추천한다.</p><p><br><br></p><h2 id="학교-x2F-비전공자-메리트"><a href="#학교-x2F-비전공자-메리트" class="headerlink" title="학교 / 비전공자 메리트"></a>학교 / 비전공자 메리트</h2><p>어떤 곳이든 기본적으로 학벌을 보기에 여기 또한 학벌의 존재를 피해갈 순 없다. 다만 다른 분야에 비하면 개발 자체는 학교 학과를 안 보는 직군으로 평가된다.<br>따라서 학교 네임밸류와 컴퓨터 외 전공 때문에 취업이 안된다고 말하는 사람들은 ‘내가 과연 열심히 살았나?’라며 솔직하게 자기반성의 시간을 가져야 한다. 정말 노력만 한다면 커버가 될 수 있기 때문이다.</p><blockquote><p>그럼에도 불구하고 나는 안된다 하시는 분들, 경쟁자들과 비빌 수 있는 스펙을 만들기 위해 부던히 노력을 하셨습니까? 남들이 놀 때 정말 잠도 안자고 공부하셨나요? 가슴에 손을 얹고 한 번 생각해보시길 바랍니다.</p></blockquote><p>비전공자들에 관련해서 추가적인 조언을 해보자면, 비전공자가 뽑히지 않는 이유는 <code>전공자와 비교했을 때 그만한 경험과 지식이 부족하다고 판단</code>되기 때문이다. 대부분의 비전공자들이 부트캠프나 국비지원으로 개발공부를 하는데, 이 모든 과정들이 길어봤자 1년이기 때문에 현실적으로도 4년제 전공생들과 비교되는건 당연하다.</p><p>그래도 개발 스펙을 쌓고자 한다면 개인적으로 추천하는 것은 <code>부트캠프</code>이다.<br>이미 개발자들 사이에서 <strong>국비지원 = 개발자 찍어대는 공장 -&gt; 국비지원 출신 = 코딩 대충 배운 사람</strong>으로 인식하는 경우가 많기 때문이다. (좆소기업을 유심히 살펴보면 국비지원 출신이 많은 경우를 찾을 수 있다)</p><p>다음은 그 중 추천하는 부트캠프 프로그램이다.</p><ul><li><a href="https://woowacourse.github.io/">우아한 테크코스 (우테코)</a></li><li><a href="https://boostcamp.connect.or.kr/">BoostCamp (부스트캠프 / 부캠)</a></li><li><a href="https://www.swmaestro.org/sw/main/main.do">SW마에스트로(소마)</a></li><li><a href="https://42seoul.kr/seoul42/main/view">42SEOUL</a>: 프랑스의 유명 프로그램인 42Ecole을 벤치마킹한 대한민국 정부 지원 SW 개발자 양성 프로그램이다. 전 세계적으로 유명한 프로그램인 만큼 회사 지원했을 때 도움되는 경우가 많다.</li><li><a href="https://www.ssafy.com/">Ssafy(싸피)</a>: 삼성에서 지원하는 SW 개발자 양성 프로그램이다. 졸예자 이상만 참가 가능하다.</li></ul><p>국비지원을 선택했더라도 자신의 노력에 달렸으니 더더욱 열심히 CS공부를 하는 것을 추천한다.</p><p><br><br></p><h2 id="개발자로-지원할-수-있는-기업"><a href="#개발자로-지원할-수-있는-기업" class="headerlink" title="개발자로 지원할 수 있는 기업"></a>개발자로 지원할 수 있는 기업</h2><p>크게 두 가지로 나뉜다.<br>(금융권 IT 등 다양하게 있겠지만 이 쪽으로는 잘 몰라서 패스)</p><ul><li><strong>대기업 IT 자회사</strong>: LG CNS, 현대오토에버, 삼성 SDS 등<ul><li>그룹 계열사의 IT 서비스를 개발 및 운영</li><li>흔히 대기업 SI로 불리며, 취업 시장에서 가장 많이 채용</li><li>장점: 높은 연봉과 안정성</li><li>단점: 수직적인 기업문화, 개발 기회가 적음(대체로 운영 업무 위주)</li></ul></li><li><strong>IT 서비스 기업</strong>: 네카라쿠배(네이버, 카카오, 라인, 쿠팡, 배달의 민족)<ul><li>개발적인 측면에서 자유를 보장받을 수 있으며 다양한 기회 또한 접할 수 있음</li><li>계속 개발 공부를 하면서 성장하고 싶다면 추천</li><li>장점: 자유로운 기업문화</li><li>단점: 평생 공부, 기업별 연봉차가 매우 큼(대기업 vs 스타트업), 안정성 보장 못함</li></ul></li></ul><p><br><br></p><h2 id="같이-읽어보면-좋은-글"><a href="#같이-읽어보면-좋은-글" class="headerlink" title="같이 읽어보면 좋은 글"></a>같이 읽어보면 좋은 글</h2><ul><li><a href="https://ruby-kim.github.io/2022/04/23/Retrospect/Junior/">[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정</a></li><li><a href="https://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/">개발자 포트폴리오, 이렇게 준비해보자</a></li></ul>]]></content>
       
       
       <categories>
@@ -623,11 +685,11 @@
             
             <tag> Architecture </tag>
             
-            <tag> API </tag>
+            <tag> Sidecar </tag>
             
             <tag> ESB </tag>
             
-            <tag> Sidecar </tag>
+            <tag> API </tag>
             
         </tags>
       
@@ -656,9 +718,9 @@
             
             <tag> Architecture </tag>
             
-            <tag> API </tag>
-            
             <tag> ESB </tag>
+            
+            <tag> API </tag>
             
         </tags>
       
@@ -791,11 +853,11 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -820,11 +882,11 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -849,11 +911,11 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -878,11 +940,11 @@
       
         <tags>
             
-            <tag> Hexo </tag>
-            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -1112,11 +1174,11 @@
       
         <tags>
             
-            <tag> API </tag>
-            
             <tag> Github </tag>
             
             <tag> Github Actions </tag>
+            
+            <tag> API </tag>
             
             <tag> Parsing </tag>
             
