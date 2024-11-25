@@ -1,0 +1,1657 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4223613861116790"crossorigin="anonymous"></script>
+
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4223613861116790"crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Docker 정리, 잡동사니">
+    <meta name="description" content="Docker 개념 및 명령어 정리">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="naver-site-verification" content="f4d0e3c893b2d90712d39536761907478c1ec622" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22Z5MEFCP7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-22Z5MEFCP7');
+</script>
+
+
+    <title>Docker 정리 | 잡동사니</title>
+    <link rel="icon" type="image/png" href="../../../../../favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="../../../../../libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../css/matery.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../css/my.css">
+
+    <script src="../../../../../libs/jquery/jquery-3.6.0.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="../../../../../index.html" class="waves-effect waves-light">
+                    
+                    <img src="../../../../../medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">잡동사니</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../index.html" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="../../../../../about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="../../../../../medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">잡동사니</div>
+        <div class="logo-desc">
+            
+            ☁ Cloud Engineer ☁
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../index.html" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="../../../../../about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ruby-kim/ruby-kim.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Github" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4223613861116790"
+    crossorigin="anonymous"></script>
+</header>
+
+    
+<script src="../../../../../libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        // TODO: Need to implement SHA256
+        if (pwd && pwd.length > 0) {
+            if (pwd !== prompt('비밀번호를 입력해주세요.')) {
+            // if (pwd !== CryptoJS.SHA256(prompt('비밀번호를 입력해주세요.')).toString(CryptoJS.enc.Hex)) {
+                alert('잘못된 비밀번호 입니다. 홈페이지로 돌아갑니다.');
+                location.href = '../../../../../index.html';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('../../../../../coverImages/docker.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Docker 정리</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="../../../../../libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="../../../../../tags/DevOps/">
+                                <span class="chip bg-color">DevOps</span>
+                            </a>
+                        
+                            <a href="../../../../../tags/Container/">
+                                <span class="chip bg-color">Container</span>
+                            </a>
+                        
+                            <a href="../../../../../tags/Docker/">
+                                <span class="chip bg-color">Docker</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="../../../../../categories/%E2%99%BC-DevOps/" class="post-category">
+                                ♼ DevOps
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2024-11-11
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    12 Min
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>이 글을 읽는 사람은 먼저 <a href="https://ruby-kim.github.io/2024/07/12/DevOps/Container/">Container 개념</a>부터 정리하고 읽는 것을 추천한다.</p>
+<p>Docker는 컨테이너 기반의 애플리케이션 개발, 배포, 실행을 자동화하는 오픈소스로 대부분의 기업들에서 컨테이너 관련 기술로 채택하는 기술이다.</p>
+<h2 id="1-Docker-개념"><a href="#1-Docker-개념" class="headerlink" title="1. Docker 개념"></a>1. Docker 개념</h2><h3 id="Docker-Image"><a href="#Docker-Image" class="headerlink" title="Docker Image"></a>Docker Image</h3><ul>
+<li>컨테이너를 실행하기 위한 읽기 전용 템플릿</li>
+<li>애플리케이션과 실행 환경 (라이브러리, 의존성) 포함</li>
+<li>이미지 빌드를 위해서는 <code>Dockerfile</code> 스크립트 파일이 필요: 단계별로 애플리케이션 설치 및 환경 설정 정의</li>
+</ul>
+<h3 id="Docker-Container"><a href="#Docker-Container" class="headerlink" title="Docker Container"></a>Docker Container</h3><ul>
+<li>이미지에서 생성된 실행 가능한 인스턴스</li>
+<li>애플리케이션과 환경이 실행되는 독립적인 단위</li>
+</ul>
+<h3 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h3><ul>
+<li>이미지 저장소 (ex. Docker Hub, AWS ECR, GCP Container Registry 등 포함)</li>
+</ul>
+<h2 id="2-Docker-명령어-정리"><a href="#2-Docker-명령어-정리" class="headerlink" title="2. Docker 명령어 정리"></a>2. Docker 명령어 정리</h2><h3 id="1-Docker-설치-확인"><a href="#1-Docker-설치-확인" class="headerlink" title="1) Docker 설치 확인"></a>1) Docker 설치 확인</h3><ul>
+<li><p>version 확인: <code>docker --version</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker --version
+Docker version 20.10.23, build 7155243
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<br>
+</li>
+<li><p>info 확인: <code>docker info</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker info
+Client:
+  Context:    default
+  Debug Mode: <span class="token boolean">false</span>
+  Plugins:
+  buildx: Docker Buildx <span class="token punctuation">(</span>Docker Inc., v0.10.3<span class="token punctuation">)</span>
+  compose: Docker Compose <span class="token punctuation">(</span>Docker Inc., v2.15.1<span class="token punctuation">)</span>
+  dev: Docker Dev Environments <span class="token punctuation">(</span>Docker Inc., v0.1.0<span class="token punctuation">)</span>
+  extension: Manages Docker extensions <span class="token punctuation">(</span>Docker Inc., v0.2.18<span class="token punctuation">)</span>
+  sbom: View the packaged-based Software Bill Of Materials <span class="token punctuation">(</span>SBOM<span class="token punctuation">)</span> <span class="token keyword">for</span> an image <span class="token punctuation">(</span>Anchore Inc., 0.6.0<span class="token punctuation">)</span>
+  scan: Docker Scan <span class="token punctuation">(</span>Docker Inc., v0.25.0<span class="token punctuation">)</span>
+  scout: Command line tool <span class="token keyword">for</span> Docker Scout <span class="token punctuation">(</span>Docker Inc., v0.6.0<span class="token punctuation">)</span>
+
+Server:
+  Containers: 4
+    Running: 0
+    Paused: 0
+    Stopped: 4
+  Images: 14
+  Server Version: 20.10.23
+  Storage Driver: overlay2
+    Backing Filesystem: extfs
+    Supports d_type: <span class="token boolean">true</span>
+    Native Overlay Diff: <span class="token boolean">true</span>
+    userxattr: <span class="token boolean">false</span>
+  Logging Driver: json-file
+  Cgroup Driver: cgroupfs
+  Cgroup Version: 2
+  Plugins:
+    Volume: local
+    Network: bridge host ipvlan macvlan null overlay
+    Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+  Swarm: inactive
+  Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc
+  Default Runtime: runc
+  Init Binary: docker-init
+  containerd version: 2456e983eb9e37e47538f59ea18f2043c9a73640
+  runc version: v1.1.4-0-g5fd4c4d
+  init version: de40ad0
+  Security Options:
+    seccomp
+      Profile: default
+    cgroupns
+  Kernel Version: 5.15.49-linuxkit
+  Operating System: Docker Desktop
+  OSType: linux
+  Architecture: aarch64
+  CPUs: 4
+  Total Memory: 7.668GiB
+  Name: docker-desktop
+  ID: 276G:OJLG:WHVN:JV37:CX4G:VAC2:K2AY:TJPC:M2RA:D5NR:DWTP:HU2G
+  Docker Root Dir: /var/lib/docker
+  Debug Mode: <span class="token boolean">false</span>
+  HTTP Proxy: http.docker.internal:3128
+  HTTPS Proxy: http.docker.internal:3128
+  No Proxy: hubproxy.docker.internal
+  Registry: https://index.docker.io/v1/
+  Labels:
+  Experimental: <span class="token boolean">false</span>
+  Insecure Registries:
+    hubproxy.docker.internal:5000
+    127.0.0.0/8
+  Live Restore Enabled: <span class="token boolean">false</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h3 id="2-Docker-이미지-관리"><a href="#2-Docker-이미지-관리" class="headerlink" title="2) Docker 이미지 관리"></a>2) Docker 이미지 관리</h3><ul>
+<li><p>Docker Hub에서 이미지 검색: <code>docker search &lt;이미지명&gt;</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker search <span class="token function">test</span>
+NAME                           DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+immcantation/test              Immcantation unit <span class="token function">test</span> image                    1                    
+pachyderm/test                                                                 0                    
+islandora/test                 This image is exclusively used <span class="token keyword">for</span> manually …   0                    
+okteto/test                                                                    0                    
+amir20/test                                                                    0                    
+kubeovn/test                                                                   0                    
+voxpupuli/test                 Container repo to <span class="token function">test</span> container build and V…   0                    
+corpusops/test                                                                 0                    
+ratelimitpreview/test                                                          0                    
+test/testimage20130921141042                                                   0                    
+test/testimage20130919235830                                                   0                    
+test/testimage20130921221004                                                   0                    
+test/testimage20130919223925                                                   0                    
+test/testimage20130921190956                                                   0                    
+test/testimage20130922032014                                                   0                    
+doct15/test                                                                    0                    
+flypenguin/test                A <span class="token function">test</span> container <span class="token keyword">for</span> <span class="token punctuation">..</span>. k8s :<span class="token punctuation">)</span>                 0                    <span class="token punctuation">[</span>OK<span class="token punctuation">]</span>
+brimworks/test                                                                 0                    
+flvranckx/test                 <span class="token function">test</span>                                            0                    
+chiphwang/test                                                                 0                    
+divyag2411/test                                                                0                    
+realmaccess/test                                                               0                    
+devopsatburst/test                                                             0                    
+hopar/test                     <span class="token function">test</span> descr                                      0                    
+femycatherine/test             <span class="token function">test</span>                                            0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+</li>
+<li><p>특정 이미지를 로컬로 다운로드: <code>docker pull &lt;이미지명&gt;:&lt;태그&gt;</code></p>
+</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker pull nginx:latest  
+latest: Pulling from library/nginx
+Digest: sha256:bc5eac5eafc581aeda3008b4b1f07ebba230de2f27d47767129a6a905c84f470
+Status: Image is up to <span class="token function">date</span> <span class="token keyword">for</span> nginx:latest
+docker.io/library/nginx:latest
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>로컬에 저장된 이미지 나열: <code>docker images</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker images
+REPOSITORY                                    TAG         IMAGE ID       CREATED       SIZE
+django-app                                    latest      cbb6dff7c55a   2 days ago    2.12GB
+postgres                                      15-alpine   c558f49f952d   3 days ago    256MB
+python                                        3.12-slim   e359a8be29f6   5 weeks ago   150MB
+redis                                         alpine      4a6fa001a1b0   7 weeks ago   48.3MB
+nginx                                         latest      7a3f95c07812   7 weeks ago   197MB
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>로컬에 저장된 이미지 삭제: `docker rmi &lt;이미지ID&gt;</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker images
+REPOSITORY                                    TAG         IMAGE ID       CREATED       SIZE
+python                                        latest      62639b6c3f3e   5 weeks ago   1.02GB
+
+$ docker rmi 626 <span class="token comment" spellcheck="true"># 전부 다 안써도 특정 이미지인지 인지할 수 있으면 됨</span>
+Untagged: python:latest
+Untagged: python@sha256:bc78d3c007f86dbb87d711b8b082d9d564b8025487e780d24ccb8581d83ef8b0
+Deleted: sha256:62639b6c3f3e77ebbbf3f18802d08351636f8dd6e0a94d1b225e9f5dc1c88044
+Deleted: sha256:476e07a0f38bafed4e474712d0e3d37dbcb7ff90d06e17bb8d1fc4b2f14e7d35
+Deleted: sha256:2c190c9407be9104a7d2b741a4d91364bf2be04b81784dddaf13c9f188562e4d
+Deleted: sha256:e00fefe3633c24a34f09149c5f3dbc2330630a365ffedff052f988c3585a1ee2
+Deleted: sha256:c6d7f5d3800ca99cabcb02e8b21872f3a09cebe3973f5c98ebb3840435e0fd0f
+Deleted: sha256:d4a8223e1c6c5461929b8b25b9bdb78d194803d9ca62f94f43df43d8e4b17e47
+Deleted: sha256:a354dc33fe33b2600cf4fb75dd3ad14d4e0eecb77da53b75d7aefa7487e3bd17
+Deleted: sha256:ec8ae7dad7aba50e0f8bff1dc969d34d3584fb7ada6ce9948dad83e95939b5cc
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3-Docker-컨테이너-관리"><a href="#3-Docker-컨테이너-관리" class="headerlink" title="3) Docker 컨테이너 관리"></a>3) Docker 컨테이너 관리</h3><ul>
+<li>컨테이너 실행: <code>docker run &lt;컨테이너명&gt; -p &lt;호스트포트&gt;:&lt;컨테이너포트&gt; &lt;이미지명&gt; &lt;option: 컨테이너 내부 명령어&gt;</code><ul>
+<li><code>-d</code>: 백그라운드 실행</li>
+<li><code>--name &lt;컨테이너명&gt;</code>: 컨테이너 이름 설정</li>
+<li><code>-p &lt;호스트포트&gt;:&lt;컨테이너포트&gt;</code>: 포트 매핑</li>
+<li><code>-e &lt;변수=값&gt;</code>: 환경변수</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker images
+REPOSITORY                                    TAG         IMAGE ID       CREATED       SIZE
+python                                        latest      62639b6c3f3e   5 weeks ago   1.02GB
+python                                        3.12-slim   e359a8be29f6   5 weeks ago   150MB
+
+<span class="token comment" spellcheck="true"># my-python이라는 컨테이너명으로</span>
+<span class="token comment" spellcheck="true"># 컨테이너 포트가 56인걸 호스트포트 1234로 연결</span>
+<span class="token comment" spellcheck="true"># 이미지명은 python이며, 백그라운드에서 실행</span>
+$ docker run -d --name my-python -p 1234:56 python
+b7711eb537add805b8628277d4c677dd3d91e009d3b64bbac81e60fa84f53928
+
+<span class="token comment" spellcheck="true"># 환경변수가 Foo를 설정하고 값을 bar로 설정</span>
+<span class="token comment" spellcheck="true"># 컨테이너 실행 이미지는 python:3.12-slim</span>
+<span class="token comment" spellcheck="true"># 컨테이너 내부 실행 명령어는 env (컨테이너 내부의 모든 환경변수 출력하는 unix 명령어)</span>
+$ docker run -e FOO<span class="token operator">=</span>bar python:3.12-slim <span class="token function">env</span>  
+PATH<span class="token operator">=</span>/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME<span class="token operator">=</span>b20562c470be
+FOO<span class="token operator">=</span>bar
+LANG<span class="token operator">=</span>C.UTF-8
+GPG_KEY<span class="token operator">=</span>7169605F62C751356D054A26A821E680E5FA6305
+PYTHON_VERSION<span class="token operator">=</span>3.12.7
+PYTHON_SHA256<span class="token operator">=</span>24887b92e2afd4a2ac602419ad4b596372f67ac9b077190f459aba390faf5550
+HOME<span class="token operator">=</span>/root
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>실행 중인 컨테이너 확인: <code>docker ps</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker images
+REPOSITORY                                    TAG         IMAGE ID       CREATED       SIZE
+django-app                                    latest      cbb6dff7c55a   2 days ago    2.12GB
+
+$ docker run -d django-app:latest
+275bdef89cc40711dad78833d7b5aeb27f75b4e423bea1279564a99dece45178
+
+$ docker <span class="token function">ps</span>
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS         PORTS      NAMES
+275bdef89cc4   django-app:latest   <span class="token string">"/bin/bash -c 'sourc…"</span>   3 seconds ago   Up 2 seconds   8000/tcp   relaxed_euclid
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>모든 컨테이너 확인 (중단된 컨테이너 포함): <code>docker ps -a</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker <span class="token function">ps</span> -a
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS                      PORTS      NAMES
+275bdef89cc4   django-app:latest      <span class="token string">"/bin/bash -c 'sourc…"</span>   About a minute ago   Up About a minute           8000/tcp   relaxed_euclid
+f6d665ae418b   python:3.12-slim       <span class="token string">"python3"</span>                2 minutes ago        Exited <span class="token punctuation">(</span>0<span class="token punctuation">)</span> 2 minutes ago               intelligent_easley
+7c72d2379677   python:3.12-slim       <span class="token string">"-d"</span>                     2 minutes ago       
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>컨테이너 내부 접속: `docker exec -it &lt;컨테이너ID&gt; /bin/bash</li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker <span class="token function">ps</span>
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS         PORTS      NAMES
+275bdef89cc4   django-app:latest   <span class="token string">"/bin/bash -c 'sourc…"</span>   7 minutes ago   Up 7 minutes   8000/tcp   relaxed_euclid
+
+$ docker <span class="token function">exec</span> -it 275bdef89cc4 /bin/bash
+$ root@275bdef89cc4:/app<span class="token comment" spellcheck="true"># </span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>실행 중인 컨테이너 중지: <code>docker stop &lt;컨테이너ID&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker <span class="token function">ps</span>
+CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS         PORTS      NAMES
+275bdef89cc4   django-app:latest   <span class="token string">"/bin/bash -c 'sourc…"</span>   8 minutes ago   Up 8 minutes   8000/tcp   relaxed_euclid
+
+$ docker stop 275bdef89cc4 
+275bdef89cc4
+
+$ docker <span class="token function">ps</span>
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+$ 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>중단된 컨테이너 시작: <code>docker start &lt;컨테이너ID&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker <span class="token function">ps</span> <span class="token comment" spellcheck="true"># 실행 중인 컨테이너 없음</span>
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+$ docker <span class="token function">ps</span> -a <span class="token comment" spellcheck="true"># 중단된 컨테이너를 확인해봄</span>
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS                      PORTS     NAMES
+275bdef89cc4   django-app:latest      <span class="token string">"/bin/bash -c 'sourc…"</span>   10 minutes ago   Exited <span class="token punctuation">(</span>0<span class="token punctuation">)</span> 2 minutes ago              relaxed_euclid
+
+$ docker start 275bdef89cc4 <span class="token comment" spellcheck="true"># 최근에 중단된거 재시작</span>
+275bdef89cc4
+
+$ <span class="token variable">$docker</span> <span class="token function">ps</span> 
+CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS         PORTS      NAMES
+275bdef89cc4   django-app:latest   <span class="token string">"/bin/bash -c 'sourc…"</span>   11 minutes ago   Up 3 seconds   8000/tcp   relaxed_euclid
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>중단된 컨테이너 삭제: <code>docker rm &lt;컨테이너ID&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker <span class="token function">ps</span> -a
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS                      PORTS     NAMES
+275bdef89cc4   django-app:latest      <span class="token string">"/bin/bash -c 'sourc…"</span>   15 minutes ago   Exited <span class="token punctuation">(</span>0<span class="token punctuation">)</span> 4 minutes ago              relaxed_euclid
+f6d665ae418b   python:3.12-slim       <span class="token string">"python3"</span>                17 minutes ago   Exited <span class="token punctuation">(</span>0<span class="token punctuation">)</span> 17 minutes ago             intelligent_easley
+7c72d2379677   python:3.12-slim       <span class="token string">"-d"</span>                     17 minutes ago   Created                               adoring_jang
+
+$ docker <span class="token function">rm</span> 27 <span class="token comment" spellcheck="true"># ID를 전부 다 쓰지 않아도, 해당 이미지를 찾을 수 있을 만큼만 작성해도 알아서 찾아서 종료함. 여러개 연속으로 쓰면 모두 타겟 잡아서 종료</span>
+27
+
+$ docker <span class="token function">ps</span> -a
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS                      PORTS     NAMES
+f6d665ae418b   python:3.12-slim       <span class="token string">"python3"</span>                17 minutes ago   Exited <span class="token punctuation">(</span>0<span class="token punctuation">)</span> 17 minutes ago             intelligent_easley
+7c72d2379677   python:3.12-slim       <span class="token string">"-d"</span>                     17 minutes ago   Created                               adoring_jang
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-Docker-컨테이너-로그-확인"><a href="#4-Docker-컨테이너-로그-확인" class="headerlink" title="4) Docker 컨테이너 로그 확인"></a>4) Docker 컨테이너 로그 확인</h3><ul>
+<li>컨테이너 실행 로그 출력: <code>docker logs &lt;컨테이너ID&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker images
+REPOSITORY                                    TAG         IMAGE ID       CREATED       SIZE
+django-app                                    latest      cbb6dff7c55a   2 days ago    2.12GB
+
+$ docker run -d django-app
+bdb4eb9c03161d8427278f3cfa5e96505d52d0aa76064ad0145ee88506cdbd5b
+
+$ docker <span class="token function">ps</span>
+CONTAINER ID   IMAGE        COMMAND                  CREATED         STATUS         PORTS      NAMES
+bdb4eb9c0316   django-app   <span class="token string">"/bin/bash -c 'sourc…"</span>   5 seconds ago   Up 4 seconds   8000/tcp   awesome_mccarthy
+
+$ docker logs bdb4
+Applying database migrations<span class="token punctuation">..</span>.
+Collecting static files<span class="token punctuation">..</span>.
+168 static files copied to <span class="token string">'/app/src/static'</span><span class="token keyword">.</span>
+Starting Gunicorn<span class="token punctuation">..</span>.
+
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Starting gunicorn 23.0.0
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Listening at: http://0.0.0.0:8000 <span class="token punctuation">(</span>1<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Using worker: <span class="token function">sync</span>
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>609<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Booting worker with pid: 609
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-Docker-네트워크-관리"><a href="#5-Docker-네트워크-관리" class="headerlink" title="5) Docker 네트워크 관리"></a>5) Docker 네트워크 관리</h3><ul>
+<li>네트워크 생성: <code>docker network create &lt;네트워크명&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker network create mynw 
+beb1bf647de5e6a2ea2debcd45a095b2c94b217a0c645e05ff33fd122ffdfe8a
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>컨테이너를 특정 네트워크에 연결: <code>docker run --name &lt;컨테이너명&gt; --network &lt;네트워크명&gt; &lt;이미지명&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker run -d django-app
+b4aa6fefecb97198ea2f7824f43e7eeb62ec3f065722b84a2d34ff9e1f834708
+
+$ docker run --name b4aa --network mynw
+Applying database migrations<span class="token punctuation">..</span>.
+Collecting static files<span class="token punctuation">..</span>.
+168 static files copied to <span class="token string">'/app/src/static'</span><span class="token keyword">.</span>
+Starting Gunicorn<span class="token punctuation">..</span>.
+
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Starting gunicorn 23.0.0
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Listening at: http://0.0.0.0:8000 <span class="token punctuation">(</span>1<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>1<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Using worker: <span class="token function">sync</span>
+<span class="token punctuation">[</span>2024-11-11 17:32:11 +0000<span class="token punctuation">]</span> <span class="token punctuation">[</span>609<span class="token punctuation">]</span> <span class="token punctuation">[</span>INFO<span class="token punctuation">]</span> Booting worker with pid: 609
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>Docker 네트워크 리스트 확인: <code>docker network ls</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker network <span class="token function">ls</span>
+NETWORK ID     NAME           DRIVER    SCOPE
+63d6218decce   bridge         bridge    local
+8207a8266c78   host           host      local
+beb1bf647de5   mynw           bridge    local
+5db98f6636e1   none           null      local
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>사용자 정의 네트워크 삭제: <code>docker network rm &lt;네트워크명&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker network <span class="token function">ls</span>
+NETWORK ID     NAME           DRIVER    SCOPE
+63d6218decce   bridge         bridge    local
+8207a8266c78   host           host      local
+beb1bf647de5   mynw           bridge    local
+5db98f6636e1   none           null      local
+
+$ docker network <span class="token function">rm</span> mynw
+mynw
+
+$ docker network <span class="token function">ls</span>
+NETWORK ID     NAME           DRIVER    SCOPE
+63d6218decce   bridge         bridge    local
+8207a8266c78   host           host      local
+5db98f6636e1   none           null      local
+
+$ docker network <span class="token function">rm</span> bridge <span class="token comment" spellcheck="true"># 사전 정의된 것에 대해서는 오류 발생</span>
+Error response from daemon: bridge is a pre-defined network and cannot be removed
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="6-Docker-Volume-관리"><a href="#6-Docker-Volume-관리" class="headerlink" title="6) Docker Volume 관리"></a>6) Docker Volume 관리</h3><ul>
+<li>데이터를 저장할 볼륨 생성: <code>docker volume create &lt;볼륨명&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker volume create myvo
+myvo
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>볼륨을 컨테이너에 마운트: <code>docker run -d --name &lt;컨테이너명&gt; -v &lt;볼륨명&gt;:&lt;컨테이너경로&gt; &lt;이미지명&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+nginx        latest    7a3f95c07812   7 weeks ago   197MB
+
+$ docker run -d --name my-nginx -v myvo:/app/data nginx
+007310e795a8096434dac9a75b83e238c0a698e36f660fe0e4552cf4b2d34df5
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>생성된 볼륨 리스트 확인: <code>docker volume ls</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker volume <span class="token function">ls</span>
+docker volume <span class="token function">ls</span>
+DRIVER    VOLUME NAME
+local     back_media_volume
+local     back_postgres_data
+local     back_static_volume
+local     myvo
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>특정 볼륨 삭제: <code>docker volume rm &lt;볼륨명&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker volume <span class="token function">ls</span>
+DRIVER    VOLUME NAME
+local     back_media_volume
+local     back_postgres_data
+local     back_static_volume
+local     myvo
+
+$ docker volume <span class="token function">rm</span> back_postgres_data
+back_postgres_data
+
+<span class="token comment" spellcheck="true"># 이미 볼륨이 컨테이너에 마운트 되어있으면 삭제 불가능</span>
+$ docker <span class="token function">ps</span> -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+007310e795a8   nginx     <span class="token string">"/docker-entrypoint.…"</span>   4 minutes ago   Up 4 minutes   80/tcp    my-nginx  <span class="token comment" spellcheck="true"># 여기에 myvo가 마운트 되어있음</span>
+
+$ docker volume <span class="token function">rm</span> myvo
+Error response from daemon: remove myvo: volume is <span class="token keyword">in</span> use - <span class="token punctuation">[</span>007310e795a8096434dac9a75b83e238c0a698e36f660fe0e4552cf4b2d34df5<span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="7-Dockerfile로-이미지-빌드"><a href="#7-Dockerfile로-이미지-빌드" class="headerlink" title="7) Dockerfile로 이미지 빌드"></a>7) Dockerfile로 이미지 빌드</h3><ul>
+<li><code>docker build -t &lt;이미지명&gt;:&lt;태그&gt; &lt;Dockerfile 경로&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker build -t my-app:1.0 <span class="token keyword">.</span>
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> Building 0.0s <span class="token punctuation">(</span>2/2<span class="token punctuation">)</span> FINISHED
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load build definition from Dockerfile                                              0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring dockerfile:  2B                                                               0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load <span class="token keyword">.</span> dockerignore                                                                0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring context: 2B                                                                   0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> exporting to image                                                                            0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> exporting layers                                                                           0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> writing image sha56:84b400a8fb9307f2ddc1dc29eef33c2bb664e2bdac75449d1f14e4cabaeb429        0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> naming to docker.io/library/my-app                                                         0.0s 
+
+
+ <span class="token comment" spellcheck="true"># 플랫폼이 다를 경우에는 --platform 명령어를 사용할 것</span>
+ $ docker build --platform linux/amd64,linux/arm64 -t my-app:1.0 <span class="token keyword">.</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-Docker-레지스트리"><a href="#8-Docker-레지스트리" class="headerlink" title="8) Docker 레지스트리"></a>8) Docker 레지스트리</h3><ul>
+<li>이미지 태그 지정: <code>docker tag &lt;이미지명&gt;:&lt;태그&gt; &lt;레지스트리URL&gt;/&lt;이미지명&gt;:&lt;태그&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">docker tag my-app:1.0 my-registry-url/my-app:1.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>이미지 푸시: <code>docker push &lt;레지스트리URL&gt;/&lt;이미지명&gt;:&lt;태그&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">docker push my-registry-url/my-app:1.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>이미지 풀: <code>docker pull &lt;레지스트리URL&gt;/&lt;이미지명&gt;:&lt;태그&gt;</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">docker pull my-registry-ur/my-app:1.0
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="9-Docker-Compose"><a href="#9-Docker-Compose" class="headerlink" title="9) Docker Compose"></a>9) Docker Compose</h3><ul>
+<li><strong>docker-compose.yaml</strong> 파일 기반으로 컨테이너 실행: <code>docker-compose up</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">docker-compose up
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<br>
+
+<ul>
+<li>실행 중인 docker-compose 서비스를 종료하고 네트웤, 볼륨 제거: <code>docker-compose down</code></li>
+</ul>
+<pre class="line-numbers language-bash"><code class="language-bash">docker-compose down
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="10-기타-유용한-명령어"><a href="#10-기타-유용한-명령어" class="headerlink" title="10) 기타 유용한 명령어"></a>10) 기타 유용한 명령어</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 컨테이너 상세정보 출력</span>
+docker inspect <span class="token operator">&lt;</span>컨테이너ID<span class="token operator">></span>
+
+<span class="token comment" spellcheck="true"># 로컬 이미지 크기 확인</span>
+docker image <span class="token function">ls</span> --format <span class="token string">"{{.Repository}}: {{.Size}}"</span>
+
+<span class="token comment" spellcheck="true"># docker가 사용하는 디스크 용량 확인</span>
+docker system <span class="token function">df</span>
+
+<span class="token comment" spellcheck="true"># 캐시 정리</span>
+docker system prune
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="../../../../../about" rel="external nofollow noreferrer">Ruby Kim</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://ruby-kim.github.io">http://ruby-kim.github.io</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="../../../../../about" target="_blank">Ruby Kim</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="../../../../../tags/DevOps/">
+                                    <span class="chip bg-color">DevOps</span>
+                                </a>
+                            
+                                <a href="../../../../../tags/Container/">
+                                    <span class="chip bg-color">Container</span>
+                                </a>
+                            
+                                <a href="../../../../../tags/Docker/">
+                                    <span class="chip bg-color">Docker</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="../../../../../libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="../../../../../libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="../../../../../css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>Comments</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="../../../../../libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c12f8521b335e062742b',
+        clientSecret: '4055e81aad344987f1b5f608c83e6827f77ea431',
+        repo: 'ruby-kim.github.io',
+        owner: 'ruby-kim',
+        admin: ["ruby-kim"],
+        id: '2024-11-11T02-44-35',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="../../../23/Tips/Tool/">
+                    <div class="card-image">
+                        
+                        <img src="../../../../../coverImages/mermaid.svg" class="responsive-img" alt="[TIPS] Mermaid 명령어로 Diagram 그리기">
+                        
+                        <span class="card-title">[TIPS] Mermaid 명령어로 Diagram 그리기</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            diagram이나 flow chart 그리기 귀찮으신 분들은 주목
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-11-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../../../../categories/%F0%9F%92%BE-Etc/" class="post-category">
+                                    💾 Etc
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../../../../tags/Diagram/">
+                        <span class="chip bg-color">Diagram</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="../../../09/OpenSource/2411(1)/">
+                    <div class="card-image">
+                        
+                        <img src="../../../../../coverImages/github.png" class="responsive-img" alt="[오픈소스] 2024년 11월 오픈소스 소식지 (1)">
+                        
+                        <span class="card-title">[오픈소스] 2024년 11월 오픈소스 소식지 (1)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            전 세계의 오픈소스 소식을 톺아보자: 24년 11월 (1)
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="../../../../../categories/%F0%9F%91%90-OpenSource/" class="post-category">
+                                    👐 OpenSource
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="../../../../../tags/Opensource/">
+                        <span class="chip bg-color">Opensource</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: 잡동사니<br />'
+            + 'Author: Ruby Kim<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + 'All articles in this blog are licensed under <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener noopener">CC BY-SA 4.0</a> unless otherwise stated.';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="../../../../../libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="../../../../../libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="../../../../../libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="../../../../../libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="../../../../../about" target="_blank">Ruby Kim</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
+                        class="white-color">24k</span>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "3";
+                        var startDate = "16";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'en';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/ruby-kim" class="tooltipped" target="_blank" data-tooltip="GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:dev.rubykim@gmail.com" class="tooltipped" target="_blank" data-tooltip="Email" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="../../../../../atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('../../../../../search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="../../../../../libs/materialize/materialize.min.js"></script>
+    <script src="../../../../../libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="../../../../../libs/aos/aos.js"></script>
+    <script src="../../../../../libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="../../../../../libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="../../../../../js/matery.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4223613861116790"
+    crossorigin="anonymous"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="../../../../../libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="../../../../../libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

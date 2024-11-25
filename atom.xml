@@ -107,6 +107,36 @@
   </entry>
   
   <entry>
+    <title>Docker 정리</title>
+    <link href="http://ruby-kim.github.io/2024/11/11/DevOps/Docker/"/>
+    <id>http://ruby-kim.github.io/2024/11/11/DevOps/Docker/</id>
+    <published>2024-11-10T17:44:35.000Z</published>
+    <updated>2024-11-25T18:16:10.654Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;이 글을 읽는 사람은 먼저 &lt;a href=&quot;https://ruby-kim.github.io/2024/07/12/DevOps/Container/&quot;&gt;Container 개념&lt;/a&gt;부터 정리하고 읽는 것을 추천한다.&lt;/p&gt;
+&lt;p&gt;Docker는 컨테이너</summary>
+        
+      
+    
+    
+    
+    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
+    
+    
+    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
+    
+    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
+    
+    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1)</title>
     <link href="http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/"/>
     <id>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</id>
@@ -155,6 +185,33 @@
     
     
     <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes 정리</title>
+    <link href="http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/"/>
+    <id>http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</id>
+    <published>2024-10-11T17:44:35.000Z</published>
+    <updated>2024-11-25T18:28:10.211Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;어느정도 개발공부를 한 사람이라면 Kubernetes(쿠버네티스)를 최소 한 번 이상은 접해봤을 것이다.&lt;br&gt;유명하다면 모두가 써봤다는 얘기고, 그말은 즉슨 무조건 공부를 해야하는 것이기 때문에(…) 오늘 날을 잡아서 개념 및 명령어를 한 번</summary>
+        
+      
+    
+    
+    
+    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
+    
+    
+    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
+    
+    <category term="Kubernates" scheme="http://ruby-kim.github.io/tags/Kubernates/"/>
     
   </entry>
   
@@ -398,6 +455,33 @@
   </entry>
   
   <entry>
+    <title>Container 정리</title>
+    <link href="http://ruby-kim.github.io/2024/07/12/DevOps/Container/"/>
+    <id>http://ruby-kim.github.io/2024/07/12/DevOps/Container/</id>
+    <published>2024-07-11T17:44:35.000Z</published>
+    <updated>2024-11-25T16:33:44.071Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;개발을 하다보면 아무래도 docker를 많이 쓰게 될텐데, 그 때 컨테이너 어쩔저쩔~~ 이라는 개념이 나오면서 사람들의 머리가 아파지기 시작한다.&lt;br&gt;따라서 컨테이너에 대해 개념을 잡고 싶은 사람이라면 이 글을 잘 읽어보길 추천한다. 배포</summary>
+        
+      
+    
+    
+    
+    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
+    
+    
+    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
+    
+    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[오픈소스] 2024년 6월 오픈소스 소식지 (2)</title>
     <link href="http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/"/>
     <id>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</id>
@@ -470,84 +554,6 @@
     
     
     <category term="Conference" scheme="http://ruby-kim.github.io/tags/Conference/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[오픈소스] 2024년 6월 오픈소스 소식지 (1)</title>
-    <link href="http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/"/>
-    <id>http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/</id>
-    <published>2024-06-09T21:13:35.000Z</published>
-    <updated>2024-06-14T07:55:08.090Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
-        
-      
-    
-    
-    
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
-    
-    
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[오픈소스] 2024년 5월 오픈소스 소식지 (2)</title>
-    <link href="http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/"/>
-    <id>http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/</id>
-    <published>2024-05-26T19:23:35.000Z</published>
-    <updated>2024-06-14T05:48:02.118Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
-        
-      
-    
-    
-    
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
-    
-    
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[오픈소스] 2024년 5월 오픈소스 소식지 (1)</title>
-    <link href="http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/"/>
-    <id>http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/</id>
-    <published>2024-05-12T15:44:35.000Z</published>
-    <updated>2024-06-14T07:36:31.955Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
-        
-      
-    
-    
-    
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
-    
-    
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
     
   </entry>
   

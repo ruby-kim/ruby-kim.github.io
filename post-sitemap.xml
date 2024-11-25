@@ -9,6 +9,38 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</loc>
+        <lastmod>2024-11-25T18:28:10.211Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/11/11/DevOps/Docker/</loc>
+        <lastmod>2024-11-25T18:16:10.654Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/07/12/DevOps/Container/</loc>
+        <lastmod>2024-11-25T16:33:44.071Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/05/12/DevOps/Intro/</loc>
+        <lastmod>2024-11-25T14:57:01.262Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS%26NCR/</loc>
         <lastmod>2024-11-25T06:55:05.894Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -315,14 +347,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2022/03/17/Etc/Github-Actions-env/</loc>
         <lastmod>2023-06-21T11:39:04.095Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/05/12/DevOps/Intro/</loc>
-        <lastmod>2023-06-21T11:39:04.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
