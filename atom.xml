@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-11-25T06:55:05.894Z</updated>
+  <updated>2024-12-21T20:43:14.480Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[GCP] GCP에서 사용자 인증정보(OAuth)를 사용해 Access Token 받아오기</title>
+    <link href="http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/"/>
+    <id>http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/</id>
+    <published>2024-12-20T02:44:35.000Z</published>
+    <updated>2024-12-21T20:43:14.480Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Google Calendar에 커피챗 일정을 잡아주는 프로그램을 만드는 중인데, 이 과정에서 Google Calendar API를 사용하기 위해서는 GCP로부터 Access Token 발급을 받아야 하므로 그 방법을 한 번 정리해보자고</summary>
+        
+      
+    
+    
+    
+    <category term="☁️ Cloud" scheme="http://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
+    
+    
+    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
+    
+    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
+    
+    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="NCP" scheme="http://ruby-kim.github.io/tags/NCP/"/>
+    
+    <category term="VPC" scheme="http://ruby-kim.github.io/tags/VPC/"/>
+    
+    <category term="Kubernetes" scheme="http://ruby-kim.github.io/tags/Kubernetes/"/>
+    
+  </entry>
   
   <entry>
     <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
@@ -40,6 +77,10 @@
     
     <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
     
+    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
+    
+    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
+    
     <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
     <category term="NCP" scheme="http://ruby-kim.github.io/tags/NCP/"/>
@@ -48,18 +89,14 @@
     
     <category term="Kubernetes" scheme="http://ruby-kim.github.io/tags/Kubernetes/"/>
     
-    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
-    
-    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
-    
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2)</title>
+    <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2): FindMy Flipper, shadPS4, Isaiah, Javascript 날짜 라이브러리 수정, Ruby 공식 문서 업데이트, ChartDB</title>
     <link href="http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/"/>
     <id>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</id>
     <published>2024-11-24T16:13:35.000Z</published>
-    <updated>2024-11-20T17:05:59.572Z</updated>
+    <updated>2024-12-19T18:02:50.255Z</updated>
     
     
       
@@ -137,11 +174,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1)</title>
+    <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1): Npm, OTranscribe, Verso, Blitz, PGlite, AudioFlux</title>
     <link href="http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/"/>
     <id>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</id>
     <published>2024-11-08T16:13:35.000Z</published>
-    <updated>2024-11-20T16:28:41.580Z</updated>
+    <updated>2024-12-19T18:01:55.763Z</updated>
     
     
       
@@ -163,11 +200,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 10월 오픈소스 소식지 (2)</title>
+    <title>[오픈소스] 2024년 10월 오픈소스 소식지 (2): GitOpper, Cardie, Age, rqlite 9.0, Yark, Viking</title>
     <link href="http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/"/>
     <id>http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/</id>
     <published>2024-10-26T16:13:35.000Z</published>
-    <updated>2024-11-20T15:50:15.967Z</updated>
+    <updated>2024-12-19T18:01:07.075Z</updated>
     
     
       
@@ -193,7 +230,7 @@
     <link href="http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/"/>
     <id>http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</id>
     <published>2024-10-11T17:44:35.000Z</published>
-    <updated>2024-11-25T18:28:10.211Z</updated>
+    <updated>2024-12-19T17:45:35.377Z</updated>
     
     
       
@@ -216,11 +253,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 10월 오픈소스 소식지 (1)</title>
+    <title>[오픈소스] 2024년 10월 오픈소스 소식지 (1): Cloudflare NoIP Alternative, StreamPot, MeTube, FastHTML, Docker-OSX, FakeTraveler</title>
     <link href="http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/"/>
     <id>http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/</id>
     <published>2024-10-11T16:13:35.000Z</published>
-    <updated>2024-11-20T15:48:00.939Z</updated>
+    <updated>2024-12-19T17:59:11.726Z</updated>
     
     
       
@@ -270,11 +307,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 9월 오픈소스 소식지 (2)</title>
+    <title>[오픈소스] 2024년 9월 오픈소스 소식지 (2): Typst, Jiff, Eza, Timeshift for Linux, Llama 3.1, 스위스 정부기관의 OSS 사용 의무화</title>
     <link href="http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/"/>
     <id>http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/</id>
     <published>2024-09-28T16:13:35.000Z</published>
-    <updated>2024-11-19T17:22:08.947Z</updated>
+    <updated>2024-12-19T17:58:29.368Z</updated>
     
     
       
@@ -325,11 +362,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 9월 오픈소스 소식지 (1)</title>
+    <title>[오픈소스] 2024년 9월 오픈소스 소식지 (1): Fusion OS, KUtrace, Gitlab 매각 검토 사건, SQLite Transactions, Sendune, Garage</title>
     <link href="http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/"/>
     <id>http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/</id>
     <published>2024-09-09T16:13:35.000Z</published>
-    <updated>2024-11-20T12:59:20.255Z</updated>
+    <updated>2024-12-19T17:57:41.449Z</updated>
     
     
       
@@ -351,11 +388,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 8월 오픈소스 소식지 (2)</title>
+    <title>[오픈소스] 2024년 8월 오픈소스 소식지 (2): RouteLLM, 비전 언어 모델, Tau, AuraFlow, gpu.cpp, Github 서버 다운</title>
     <link href="http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/"/>
     <id>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</id>
     <published>2024-08-26T16:13:35.000Z</published>
-    <updated>2024-11-20T16:31:58.918Z</updated>
+    <updated>2024-12-19T17:56:37.104Z</updated>
     
     
       
@@ -377,11 +414,39 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 8월 오픈소스 소식지 (1)</title>
+    <title>OAuth2.0를 알아보자</title>
+    <link href="http://ruby-kim.github.io/2024/08/20/Security/Oauth2/"/>
+    <id>http://ruby-kim.github.io/2024/08/20/Security/Oauth2/</id>
+    <published>2024-08-20T02:44:35.000Z</published>
+    <updated>2024-12-21T19:14:52.658Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;요즘 로그인 및 회원가입 구현 시 필수라는 Oauth2.0에 대해서 개념을 자세하게 톺아보고자 한다.&lt;/p&gt;
+&lt;h2 id=&quot;OAuth란&quot;&gt;&lt;a href=&quot;#OAuth란&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="🔐 Security" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%90-Security/"/>
+    
+    
+    <category term="Security" scheme="http://ruby-kim.github.io/tags/Security/"/>
+    
+    <category term="Auth" scheme="http://ruby-kim.github.io/tags/Auth/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[오픈소스] 2024년 8월 오픈소스 소식지 (1): Xpra, Rye, DB Browser for SQLite (DB4S), Crawlee for Python, AMD의 Silo AI 인수, Zed</title>
     <link href="http://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/"/>
     <id>http://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/</id>
     <published>2024-08-10T16:13:35.000Z</published>
-    <updated>2024-11-19T15:25:01.878Z</updated>
+    <updated>2024-12-19T17:55:49.179Z</updated>
     
     
       
@@ -403,11 +468,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 7월 오픈소스 소식지 (2)</title>
+    <title>[오픈소스] 2024년 7월 오픈소스 소식지 (2): SmoothMQ, OpenDNS, Ladybird, Windows 10의 Firefox 97 에러, Webflow</title>
     <link href="http://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/"/>
     <id>http://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/</id>
     <published>2024-07-28T22:23:35.000Z</published>
-    <updated>2024-11-19T11:36:24.635Z</updated>
+    <updated>2024-12-19T17:54:19.904Z</updated>
     
     
       
@@ -429,11 +494,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 7월 오픈소스 소식지 (1)</title>
+    <title>[오픈소스] 2024년 7월 오픈소스 소식지 (1): Google Sheets, Corcel, Python, Posit, Eclipse Theia IDE, Overleaf</title>
     <link href="http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/"/>
     <id>http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</id>
     <published>2024-07-12T21:13:35.000Z</published>
-    <updated>2024-11-17T17:21:58.227Z</updated>
+    <updated>2024-12-19T17:51:45.472Z</updated>
     
     
       
@@ -482,11 +547,11 @@
   </entry>
   
   <entry>
-    <title>[오픈소스] 2024년 6월 오픈소스 소식지 (2)</title>
+    <title>[오픈소스] 2024년 6월 오픈소스 소식지 (2): June-va, Farm, Llama.ttf, LetterDrop, LINQPad, CentOS Linux 7</title>
     <link href="http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/"/>
     <id>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</id>
     <published>2024-06-29T16:13:35.000Z</published>
-    <updated>2024-11-19T14:53:15.407Z</updated>
+    <updated>2024-12-19T17:53:46.878Z</updated>
     
     
       
@@ -504,56 +569,6 @@
     
     
     <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 2일차</title>
-    <link href="http://ruby-kim.github.io/2024/06/22/Conference/24USA/silicon-valley-2/"/>
-    <id>http://ruby-kim.github.io/2024/06/22/Conference/24USA/silicon-valley-2/</id>
-    <published>2024-06-22T03:22:10.000Z</published>
-    <updated>2024-07-04T02:14:56.048Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;1-PANEL-SESSION-The-Future-of-Tech-Startups-Trends-and-Predictions&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="✈️ Conference" scheme="http://ruby-kim.github.io/categories/%E2%9C%88%EF%B8%8F-Conference/"/>
-    
-    
-    <category term="Conference" scheme="http://ruby-kim.github.io/tags/Conference/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 1일차</title>
-    <link href="http://ruby-kim.github.io/2024/06/21/Conference/24USA/silicon-valley-1/"/>
-    <id>http://ruby-kim.github.io/2024/06/21/Conference/24USA/silicon-valley-1/</id>
-    <published>2024-06-20T16:43:12.000Z</published>
-    <updated>2024-06-30T07:44:53.853Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;그-많고-많은-컨퍼런스-중-실리콘밸리를-선택한-이유는&quot;&gt;&lt;a href=&quot;#그-많고-많은-컨퍼런스-중-실리콘밸리를-선택한-이유는&quot; class=&quot;headerlink&quot; title=&quot;그 많고 많은 컨퍼런스 중 실리콘밸리를 선택한</summary>
-        
-      
-    
-    
-    
-    <category term="✈️ Conference" scheme="http://ruby-kim.github.io/categories/%E2%9C%88%EF%B8%8F-Conference/"/>
-    
-    
-    <category term="Conference" scheme="http://ruby-kim.github.io/tags/Conference/"/>
     
   </entry>
   

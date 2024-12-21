@@ -9,8 +9,136 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/</loc>
+        <lastmod>2024-12-21T20:43:14.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/08/20/Security/Oauth2/</loc>
+        <lastmod>2024-12-21T19:14:52.658Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</loc>
+        <lastmod>2024-12-19T18:02:50.255Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</loc>
+        <lastmod>2024-12-19T18:01:55.763Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/</loc>
+        <lastmod>2024-12-19T18:01:07.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/</loc>
+        <lastmod>2024-12-19T17:59:11.726Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/</loc>
+        <lastmod>2024-12-19T17:58:29.368Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/</loc>
+        <lastmod>2024-12-19T17:57:41.449Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</loc>
+        <lastmod>2024-12-19T17:56:37.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/</loc>
+        <lastmod>2024-12-19T17:55:49.179Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/</loc>
+        <lastmod>2024-12-19T17:54:19.904Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</loc>
+        <lastmod>2024-12-19T17:53:46.878Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/</loc>
+        <lastmod>2024-12-19T17:53:40.230Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/</loc>
+        <lastmod>2024-12-19T17:53:32.883Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/</loc>
+        <lastmod>2024-12-19T17:53:21.628Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</loc>
+        <lastmod>2024-12-19T17:51:45.472Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</loc>
-        <lastmod>2024-11-25T18:28:10.211Z</lastmod>
+        <lastmod>2024-12-19T17:45:35.377Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -65,94 +193,6 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</loc>
-        <lastmod>2024-11-20T17:05:59.572Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</loc>
-        <lastmod>2024-11-20T16:31:58.918Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</loc>
-        <lastmod>2024-11-20T16:28:41.580Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/</loc>
-        <lastmod>2024-11-20T15:50:15.967Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/</loc>
-        <lastmod>2024-11-20T15:48:00.939Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/</loc>
-        <lastmod>2024-11-20T12:59:20.255Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/</loc>
-        <lastmod>2024-11-19T17:22:08.947Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/</loc>
-        <lastmod>2024-11-19T15:25:01.878Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</loc>
-        <lastmod>2024-11-19T14:53:15.407Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/</loc>
-        <lastmod>2024-11-19T11:36:24.635Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</loc>
-        <lastmod>2024-11-17T17:21:58.227Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</loc>
         <lastmod>2024-11-17T16:18:12.958Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -195,30 +235,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2024/06/21/Conference/24USA/silicon-valley-1/</loc>
         <lastmod>2024-06-30T07:44:53.853Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/</loc>
-        <lastmod>2024-06-14T07:55:08.090Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/</loc>
-        <lastmod>2024-06-14T07:36:31.955Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/</loc>
-        <lastmod>2024-06-14T05:48:02.118Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

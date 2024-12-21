@@ -4,6 +4,43 @@
   
     
     <entry>
+      <title>[GCP] GCP에서 사용자 인증정보(OAuth)를 사용해 Access Token 받아오기</title>
+      <link href="/2024/12/20/Cloud/GCP/Console/Oauth2/"/>
+      <url>/2024/12/20/Cloud/GCP/Console/Oauth2/</url>
+      
+        <content type="html"><![CDATA[<p>Google Calendar에 커피챗 일정을 잡아주는 프로그램을 만드는 중인데, 이 과정에서 Google Calendar API를 사용하기 위해서는 GCP로부터 Access Token 발급을 받아야 하므로 그 방법을 한 번 정리해보자고 한다.</p><h2 id="1-GCP-gt-API-및-서비스-gt-사용자-인증-정보에서-OAuth-client-생성"><a href="#1-GCP-gt-API-및-서비스-gt-사용자-인증-정보에서-OAuth-client-생성" class="headerlink" title="1. GCP > API 및 서비스 > 사용자 인증 정보에서 OAuth client 생성"></a>1. GCP &gt; API 및 서비스 &gt; 사용자 인증 정보에서 OAuth client 생성</h2><img src="./1.png" width="800"><p>이번 포스트에서는 클라이언트 생성 방법보다는 Access Token발급을 중점으로 다루고 있기 때문에 client 세팅 방법은 따로 안내하지 않겠다.</p><p>여기에서 우리가 확인해야 할 정보는 다음과 같다.</p><pre class="line-numbers language-bash"><code class="language-bash">GOOGLE_CLIENT_ID<span class="token operator">=</span><span class="token operator">&lt;</span>클라이언트 ID<span class="token operator">></span>GOOGLE_CLIENT_SECRET<span class="token operator">=</span><span class="token operator">&lt;</span>클라이언트 보안 비밀번호<span class="token operator">></span>GOOGLE_REDIRECT_URI<span class="token operator">=</span><span class="token operator">&lt;</span>승인된 리디렉션 URI주소<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><br><br></p><h2 id="2-Google-Calender의-Access-Token요청을-위한-URL-입력"><a href="#2-Google-Calender의-Access-Token요청을-위한-URL-입력" class="headerlink" title="2. Google Calender의 Access Token요청을 위한 URL 입력"></a>2. Google Calender의 Access Token요청을 위한 URL 입력</h2><p>아무 인터넷 창에다가 다음의 url을 입력한다.</p><pre class="line-numbers language-bash"><code class="language-bash">https://accounts.google.com/o/oauth2/v2/auth?scope<span class="token operator">=</span>https://www.googleapis.com/auth/calendar<span class="token operator">&amp;</span>access_type<span class="token operator">=</span>offline<span class="token operator">&amp;</span>include_granted_scopes<span class="token operator">=</span>true<span class="token operator">&amp;</span>response_type<span class="token operator">=</span>code<span class="token operator">&amp;</span>redirect_uri<span class="token operator">=</span><span class="token operator">&lt;</span>GOOGLE_REDIRECT_URI<span class="token operator">></span><span class="token operator">&amp;</span>client_id<span class="token operator">=</span><span class="token operator">&lt;</span>GOOGLE_CLIENT_ID<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><img src="./2.png" width="800"><img src="./3.png" width="800"><p>값이 잘 입력됐다면 google 계정으로 로그인이 나오며, 액세스 허용 여부를 물어보는 페이지를 볼 수 있다.</p><p><br><br></p><h2 id="3-Redirect-uri로-받아온-값-확인"><a href="#3-Redirect-uri로-받아온-값-확인" class="headerlink" title="3. Redirect uri로 받아온 값 확인"></a>3. Redirect uri로 받아온 값 확인</h2><p>위 이미지에서 “허용” 버튼을 누르면 창이 redirect uri로 이동한다.<br>이 때 주소창을 확인하면 response를 확인할 수 있다.</p><p>이 때 <code>CODE</code>부분을 잘 백업해두자. 그리고 코드의 유효시간은 10분인 것 또한 참고하자.</p><pre class="line-numbers language-bash"><code class="language-bash">http://localhost:3000/?code<span class="token operator">=</span><span class="token operator">&lt;</span>CODE<span class="token operator">></span><span class="token operator">&amp;</span>scope<span class="token operator">=</span>https://www.googleapis.com/auth/calendar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="4-Access-Token-발급받기"><a href="#4-Access-Token-발급받기" class="headerlink" title="4. Access Token 발급받기"></a>4. Access Token 발급받기</h2><p>이제 Access Token을 발급받을 준비가 되었다.<br>다음의 명령어를 입력해보자. curl이니 터미널에 입력하면 된다.</p><pre class="line-numbers language-bash"><code class="language-bash">curl --request POST \  --url https://oauth2.googleapis.com/token \  --header <span class="token string">'Content-Type: application/x-www-form-urlencoded'</span> \  --data <span class="token string">"code=&lt;CODE>"</span> \  --data <span class="token string">"client_id=&lt;GOOGLE_CLIENT_ID>"</span> \  --data <span class="token string">"client_secret=&lt;GOOGLE_CLIENT_SECRET>"</span> \  --data <span class="token string">"redirect_uri=&lt;GOOGLE_REDIRECT_URI>"</span> \  --data <span class="token string">"grant_type=authorization_code"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br><p>제대로 값이 전달되면 다음과 같은 response를 얻을 수 있다.</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">{</span>  <span class="token string">"access_token"</span><span class="token keyword">:</span> <span class="token operator">&lt;</span>ACCESS_TOKEN<span class="token operator">></span>,  <span class="token string">"expires_in"</span><span class="token keyword">:</span> 3599,  <span class="token string">"refresh_token"</span><span class="token keyword">:</span> <span class="token operator">&lt;</span>REFRESH_TOKEN<span class="token operator">></span>,  <span class="token string">"scope"</span><span class="token keyword">:</span> <span class="token string">"https://www.googleapis.com/auth/calendar"</span>,  <span class="token string">"token_type"</span><span class="token keyword">:</span> <span class="token string">"Bearer"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br><h3 id="4-1-Refresh-Token을-사용해서-Access-Token을-재발급-받기"><a href="#4-1-Refresh-Token을-사용해서-Access-Token을-재발급-받기" class="headerlink" title="4-1. Refresh Token을 사용해서 Access Token을 재발급 받기"></a>4-1. Refresh Token을 사용해서 Access Token을 재발급 받기</h3><p>결과를 보면 <code>expires_in</code>이 있는데, 3599초 즉 <code>1시간</code>만 Access Token을 사용할 수 있으며 이후로는 토큰 사용이 불가능하다.</p><p>나처럼 캘린더 일정을 계속 자동화해서 잡아야 하는 경우에는 <code>refresh_token</code>을 이용해서 <code>access_token</code>을 갱신해야 한다.<br>다행이도 Google OAuth2에서 제공하는 <strong>refresh_token</strong>은 만료되지 않는다.</p><br><p>만약 <strong>refresh_token</strong> 을 사용해서 <strong>access_token</strong>을 재발급 받고 싶으면 다음의 curl을 보내주자.</p><pre class="line-numbers language-bash"><code class="language-bash">curl --request POST \  --url https://oauth2.googleapis.com/token \  --header <span class="token string">'Content-Type: application/x-www-form-urlencoded'</span> \  --data <span class="token string">"client_id=&lt;GOOGLE_CLIENT_ID>"</span> \  --data <span class="token string">"client_secret=&lt;GOOGLE_CLIENT_SECRET>"</span> \  --data <span class="token string">"refresh_token=&lt;REFRESH_TOKEN>"</span> \  --data <span class="token string">"grant_type=refresh_token"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br><p>갱신 요청이 성공하면 새로운 <code>access_token</code>이 반환된다.</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">{</span>  <span class="token string">"access_token"</span><span class="token keyword">:</span> <span class="token operator">&lt;</span>ACCESS_TOKEN<span class="token operator">></span>,  <span class="token string">"expires_in"</span><span class="token keyword">:</span> 3599,  <span class="token string">"scope"</span><span class="token keyword">:</span> <span class="token string">"https://www.googleapis.com/auth/calendar"</span>,  <span class="token string">"token_type"</span><span class="token keyword">:</span> <span class="token string">"Bearer"</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="5-JS코드로-Access-Token-Refresh-Token으로-재발급까지-을-받아보자"><a href="#5-JS코드로-Access-Token-Refresh-Token으로-재발급까지-을-받아보자" class="headerlink" title="5. JS코드로 Access Token (+Refresh Token으로 재발급까지)을 받아보자"></a>5. JS코드로 Access Token (+Refresh Token으로 재발급까지)을 받아보자</h2><p>이렇게 보면 이론은 쉽지만 실전은 어렵기도 하고, 위의 방식대로 하기에는 여간 귀찮은게 많기 때문에 코드로 한 번에 구현을 해봤다.</p><p>만약 이 코드를 돌렸는데 403 Forbidden이 나온다면 GCP에서 <a href="https://console.cloud.google.com/apis/api/calendar-json.googleapis.com/metrics">Google Calendar API</a> 사용을 허가했는지 확인해보자.</p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># .env.local</span>GOOGLE_CLIENT_ID<span class="token operator">=</span><span class="token operator">&lt;</span>클라이언트 ID<span class="token operator">></span>GOOGLE_CLIENT_SECRET<span class="token operator">=</span><span class="token operator">&lt;</span>클라이언트 보안 비밀번호<span class="token operator">></span>GOOGLE_REDIRECT_URI<span class="token operator">=</span><span class="token operator">&lt;</span>승인된 리디렉션 URI주소<span class="token operator">></span>GOOGLE_REFRESH_TOKEN<span class="token operator">==</span><span class="token operator">&lt;</span>refresh token값<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// oauth.js</span><span class="token keyword">import</span> <span class="token punctuation">{</span> google <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'googleapis'</span><span class="token punctuation">;</span><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getOAuth2Client</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">const</span> oAuth2Client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">google<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>OAuth2</span><span class="token punctuation">(</span>    process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>GOOGLE_CLIENT_ID<span class="token punctuation">,</span>    process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>GOOGLE_CLIENT_SECRET<span class="token punctuation">,</span>    process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>GOOGLE_REDIRECT_URI  <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// Refresh token 설정</span>  oAuth2Client<span class="token punctuation">.</span><span class="token function">setCredentials</span><span class="token punctuation">(</span><span class="token punctuation">{</span>    refresh_token<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>GOOGLE_REFRESH_TOKEN<span class="token punctuation">,</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">try</span> <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">// Access token 갱신</span>    <span class="token keyword">const</span> <span class="token punctuation">{</span> token <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> oAuth2Client<span class="token punctuation">.</span><span class="token function">getAccessToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    oAuth2Client<span class="token punctuation">.</span><span class="token function">setCredentials</span><span class="token punctuation">(</span><span class="token punctuation">{</span> access_token<span class="token punctuation">:</span> token <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> oAuth2Client<span class="token punctuation">;</span>  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Failed to refresh access token:'</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Failed to get access token.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ☁️ Cloud </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Network </tag>
+            
+            <tag> Container </tag>
+            
+            <tag> Docker </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> NCP </tag>
+            
+            <tag> VPC </tag>
+            
+            <tag> Kubernetes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
       <link href="/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/"/>
       <url>/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/</url>
@@ -22,6 +59,10 @@
             
             <tag> Network </tag>
             
+            <tag> Container </tag>
+            
+            <tag> Docker </tag>
+            
             <tag> Cloud </tag>
             
             <tag> NCP </tag>
@@ -30,10 +71,6 @@
             
             <tag> Kubernetes </tag>
             
-            <tag> Container </tag>
-            
-            <tag> Docker </tag>
-            
         </tags>
       
     </entry>
@@ -41,7 +78,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2)</title>
+      <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2): FindMy Flipper, shadPS4, Isaiah, Javascript 날짜 라이브러리 수정, Ruby 공식 문서 업데이트, ChartDB</title>
       <link href="/2024/11/25/OpenSource/2411(2)/"/>
       <url>/2024/11/25/OpenSource/2411(2)/</url>
       
@@ -120,7 +157,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1)</title>
+      <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1): Npm, OTranscribe, Verso, Blitz, PGlite, AudioFlux</title>
       <link href="/2024/11/09/OpenSource/2411(1)/"/>
       <url>/2024/11/09/OpenSource/2411(1)/</url>
       
@@ -145,7 +182,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 10월 오픈소스 소식지 (2)</title>
+      <title>[오픈소스] 2024년 10월 오픈소스 소식지 (2): GitOpper, Cardie, Age, rqlite 9.0, Yark, Viking</title>
       <link href="/2024/10/27/OpenSource/2410(2)/"/>
       <url>/2024/10/27/OpenSource/2410(2)/</url>
       
@@ -197,7 +234,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 10월 오픈소스 소식지 (1)</title>
+      <title>[오픈소스] 2024년 10월 오픈소스 소식지 (1): Cloudflare NoIP Alternative, StreamPot, MeTube, FastHTML, Docker-OSX, FakeTraveler</title>
       <link href="/2024/10/12/OpenSource/2410(1)/"/>
       <url>/2024/10/12/OpenSource/2410(1)/</url>
       
@@ -249,7 +286,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 9월 오픈소스 소식지 (2)</title>
+      <title>[오픈소스] 2024년 9월 오픈소스 소식지 (2): Typst, Jiff, Eza, Timeshift for Linux, Llama 3.1, 스위스 정부기관의 OSS 사용 의무화</title>
       <link href="/2024/09/29/OpenSource/2409(2)/"/>
       <url>/2024/09/29/OpenSource/2409(2)/</url>
       
@@ -301,7 +338,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 9월 오픈소스 소식지 (1)</title>
+      <title>[오픈소스] 2024년 9월 오픈소스 소식지 (1): Fusion OS, KUtrace, Gitlab 매각 검토 사건, SQLite Transactions, Sendune, Garage</title>
       <link href="/2024/09/10/OpenSource/2409(1)/"/>
       <url>/2024/09/10/OpenSource/2409(1)/</url>
       
@@ -326,7 +363,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 8월 오픈소스 소식지 (2)</title>
+      <title>[오픈소스] 2024년 8월 오픈소스 소식지 (2): RouteLLM, 비전 언어 모델, Tau, AuraFlow, gpu.cpp, Github 서버 다운</title>
       <link href="/2024/08/27/OpenSource/2408(2)/"/>
       <url>/2024/08/27/OpenSource/2408(2)/</url>
       
@@ -351,7 +388,34 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 8월 오픈소스 소식지 (1)</title>
+      <title>OAuth2.0를 알아보자</title>
+      <link href="/2024/08/20/Security/Oauth2/"/>
+      <url>/2024/08/20/Security/Oauth2/</url>
+      
+        <content type="html"><![CDATA[<p>요즘 로그인 및 회원가입 구현 시 필수라는 Oauth2.0에 대해서 개념을 자세하게 톺아보고자 한다.</p><h2 id="OAuth란"><a href="#OAuth란" class="headerlink" title="OAuth란?"></a>OAuth란?</h2><p>풀네임으로는 Open Authorization으로 부르며, 웹 및 애플리케이션 인증 및 권한을 부여하는 개방형 표준 프로토콜이다.</p><p>설명에 앞서, 일단 유명 포털의 개발 문서에서 정의된 내용을 한 번 가져와봤다.</p><blockquote><p>이 프로토콜에서는 third-party 애플리케이션이 사용자의 리소스에 접근하기 위한 절차를 정의하고 서비스 제공자의 API를 사용할 수 있는 권한을 부여합니다.<br>대표적으로 네이버 로그인, 구글 로그인과 같은 소셜 미디어 간편 로그인이 있습니다.<br>OAuth2.0을 사용해 third-party 애플리케이션이 사용자의 소셜미디어 프로필 정보에 접근할 수 있도록 합니다.<br>B2B PRISM Live Studio 역시 OAuth2.0을 사용하여 권한을 관리하기 때문에 OAuth2.0의 기본 개념을 안내하고, 권한 부여 방법을 설명합니다.</p><p>출처: <a href="https://guide.ncloud-docs.com/docs/b2bpls-oauth2">NCP 개발 문서</a></p></blockquote><p>어느 정도 개발자 짬이 찬 사람이라면 바로 이해할 수 있겠지만, 개발에 입문한지 별로 안됐거나 개발 문서 읽는게 아직 익숙치 않은 사람들은 뭔 소린가 싶을 것이다.</p><p>쉽게 설명하자면, <code>OAuth는 다른 사이트, 앱에서 소셜 회원가입/로그인 (또는 간편 회원가입/로그인이라고 함)을 할 때 사용되는 것</code>이라고 보면 된다.<br>가령 어떤 사이트에 로그인을 할 때 <strong>Google로 로그인하기</strong>, <strong>Naver로 로그인하기</strong>가 보인다면 이 때 OAuth를 사용한다는 의미이다.</p><p><br><br></p><h2 id="OAuth-“2-0”"><a href="#OAuth-“2-0”" class="headerlink" title="OAuth “2.0”"></a>OAuth “2.0”</h2><p>인터넷에 검색해보면 대부분 <code>2.0</code>이라는 버전을 찾을 수 있는데, 현재 대중적으로 사용하는 버전이 <code>2.0</code>이기 때문이다.</p><p>즉 이전 버전(=1.0)이 있었으며, 이전 버전에서 보완할 점이 생겨서 2.0이 나왔다고 생각하면 된다.</p><p>이전에 사용한 것에서 어떤 문제가 있었는지, 그리고 최근에는 왜 2.0을 사용하는지 알아보자.</p><h3 id="1-기존-인증-방식-Basic-Authentication"><a href="#1-기존-인증-방식-Basic-Authentication" class="headerlink" title="(1) 기존 인증 방식: Basic Authentication"></a>(1) 기존 인증 방식: Basic Authentication</h3><p>어쨌든간에 개발자 입장에서 로그인 한 유저에게 프로그램 접근 권한을 주기 위해서는 인증이 된 유저라고 표시를 해야하긴 한다.</p><p>따라서 기존에는 Basic Authentication (흔히 Auth라고 부름)에 따라, 애플리케이션에 사용자의 아이디 &amp; 비밀번호를 직접 제공해 접근 권한을 줬다.</p><p>하지만 다음의 문제가 항상 거론되었고, 이 때문에 OAuth 1.0이 생겨났다.</p><ul><li>보안 취약성: 클라이언트가 사용자의 자격 증명을 저장하거나 전송하는 과정에서 유출 위험</li><li>권한 관리 불가: 특정 자원에 대한 제한적인 권한 부여가 불가능. (모든 권한이 열림)</li><li>복잡성 증가: 사용자 비밀번호가 변경되면, 이를 사용하는 모든 서비스에서 수정해야 함</li></ul><p>한줄 요약하면 <strong>해킹 당하면 모든 정보가 털려서 문제</strong>라는 의미이다.</p><h3 id="2-OAuth-1-0의-등장-및-제한점"><a href="#2-OAuth-1-0의-등장-및-제한점" class="headerlink" title="(2) OAuth 1.0의 등장 및 제한점"></a>(2) OAuth 1.0의 등장 및 제한점</h3><h5 id="개발-배경"><a href="#개발-배경" class="headerlink" title="개발 배경"></a>개발 배경</h5><p>소프트웨어는 나날이 발전하고 있고, 이 때문에 사람들은 보안에 대해 깊게 생각하게 되었다.<br>그래서 나온 개념이 바로 OAuth 1.0이다.</p><p>개발자 입장에서는 보안을 되게 민감하게 받아들여야 하고, 하지만 관리가 매우 빡세다보니 구글이나 네이버같이 <strong>(주로) 대기업에서 이미 구현해둔 인증 로직을 가져와서 사용</strong>하는 것이다.<br>대기업에서 구현한 인증 로직은 아무래도 중소규모 기업들에 비해 보안 관리가 빡셀 것이며, 만약에 정보가 털렸다고 해도 책임이 대기업에게 있지 우리같은 소시민에게는 없기 때문이다.<br><del>폭탄 돌리기</del><br><del>물론 구현 잘못해서 정보 노출되게 코딩하면 우리 잘못이긴 하다</del></p><p>물론 그 외에도, 이런 인증 로직 하나 구현하는게 좀 빡센 편이라 이미 구현한거 가져와서 개발 시간을 아끼는겸 사용하기도 한다.</p><h5 id="Auth와-다른-점"><a href="#Auth와-다른-점" class="headerlink" title="Auth와 다른 점"></a>Auth와 다른 점</h5><p>OAuth 1.0에서는 남이 구현한 사용자 인증 로직을 가져오는 것이기 때문에, 내가 해당 인증 로직을 가져와도 되는가를 증명할 수단이 필요하다. 이것이 바로 <code>HMAC-SHA1 (서명 기반 인증)</code>이다.<br>이 로직을 이용하면 기존에 구현된 인증 로직을 바탕으로, 아이디 및 비밀번호를 넣으면 접근 권한을 받아올 수 있다.</p><h5 id="한계점"><a href="#한계점" class="headerlink" title="한계점"></a>한계점</h5><ul><li>복잡한 프로세스: 요청마다 일일이 서명 생성 및 검증이 필요 -&gt; 구현 및 디버깅이 어려우며, 개발자에게 너무 많은 학습을 요구함</li><li>확장성 부족: 특정 인증/권한 시나리오에 맞춰 설계되어 다양한 클라이언트 유형(SPA, 모바일 애플리케이션 등)에 적용하기 어려움</li><li><strong>TSL 의존성 부족</strong>: 사실 상 원인<ul><li>서명으로 보안은 강화했으나, TLS를 필수로 요구하지 않아 <strong>Man-in-the-Middle</strong>에 매우 취약적</li><li>(참고) Man-in-the-Middle(중간자 공격): 두 당사자 간의 통신을 가로채서 조작 및 엿듣는 사이버 공격 방식<blockquote><p>(위치 선정)<br>공격자는 클라이언트(사용자)가 사용하고 있는 wifi에 접속함<br>그리고 클라이언트와 서버 사이의 통신 경로에 잠복</p><p>(통신 가로채기)<br>이 때 클라이언트가 서버에게 요청을 보냄<br>서버에 도달하기 전에 해당 요청을 공격자가 가로챔<br>클라이언트가 요청한 정보를 수정하거나 읽고 서버에 전달</p><p>(응답 가로채기)<br>마찬가지로, 서버에서 클라이언트에게 보낸 응답도 공격자가 가로챔<br>서버가 보낸 응답 내용을 수정하거나 읽고 클라이언트에게 전달</p></blockquote></li></ul></li></ul><h3 id="3-OAuth-2-0의-등장"><a href="#3-OAuth-2-0의-등장" class="headerlink" title="(3) OAuth 2.0의 등장"></a>(3) OAuth 2.0의 등장</h3><p>이렇게 OAuth 1.0의 한계를 극복하고자 나온 것이 바로 OAuth 2.0이다.</p><ul><li>프로세스 간소화: 서명 대신 <code>Access Token</code>을 사용해서 요청을 단순화</li><li>확장성 및 표준화<ul><li>확장 가능한 구조로, 추가적인 인증 메커니즘(JWT, OpenID Connect 등)과 쉽게 통합 가능</li><li>다양한 플랫폼과 서비스(Google, Facebook, GitHub 등)에서 표준으로 채택</li><li>다양한 클라이언트 유형 지원<ul><li>다양한 Grant Type 제공:<ul><li>Authorization Code Grant: 서버 사이드 애플리케이션.</li><li>Implicit Grant: 브라우저 기반 애플리케이션.</li><li>Client Credentials Grant: 서버 간 통신.</li><li>Resource Owner Password Grant: 신뢰할 수 있는 클라이언트.</li></ul></li><li>각 시나리오에 맞는 유연한 인증 방식 제공.</li></ul></li></ul></li><li>TSL 필수 사용: 데이터 전송 중에 보안을 보장하여 데이터의 무결성 입증 가능</li></ul><br><p>기능이 개선이 되었지만, 이것이 그렇다고 ✨만능✨인 것은 아니다.<br>현재 크게 두 가지 단점이 있는데, 바로</p><ul><li>초기 설정이 까다롭고</li><li><strong>Access Token</strong>이 유출되면 악용될 가능성이 매우 높아지기 때문이다.</li></ul><p>이 또한 언젠가 해결해야 하는 문제로 토론이 이루어지고 있으나, 현재까지로는 토큰만 유출 안되면 이론상 완벽하기 때문에 다들 바로 표준으로 채택한 것이다.<br>따라서 2.0이 2012년에 나왔는데, 현재까지 3.0은 나오지 않은 상태이다.</p><img src="./2.png" width="800"><h3 id="4-OAuth-2-0-주요-용어"><a href="#4-OAuth-2-0-주요-용어" class="headerlink" title="(4) OAuth 2.0 주요 용어"></a>(4) OAuth 2.0 주요 용어</h3><ul><li>Resource Owner (자원 소유자)<ul><li>자원의 주인. 일반적으로 사용자를 지칭함</li><li>ex) Facebook 계정을 가진 사용자</li></ul></li><li>Client (클라이언트)<ul><li>자원 소유자가 허용한 자원에 접근하려는 애플리케이션</li><li>ex) 자신의 Google Drive에 파일을 업로드하는 서비스</li></ul></li><li>Authorization Server (인증 서버)<ul><li>클라이언트가 인가 코드 또는 토큰을 요청하는 서버</li><li>예: Google, Facebook 등</li></ul></li><li>Resource Server (자원 서버)<ul><li>보호된 자원이 저장된 서버</li><li>예: Google Drive API 서버</li></ul></li><li>Access Token (액세스 토큰)<ul><li>클라이언트가 자원 서버에 접근할 때 사용하는 임시 키</li><li>만료 시간이 있음</li></ul></li></ul><h3 id="5-OAuth-2-0-작동-방식"><a href="#5-OAuth-2-0-작동-방식" class="headerlink" title="(5) OAuth 2.0 작동 방식"></a>(5) OAuth 2.0 작동 방식</h3><img src="./1.png" width="500"><p>출처: <a href="https://developers.google.com/identity/protocols/oauth2?hl=ko">GCP 개발 문서</a></p><ol><li><strong>Request token</strong><ul><li>사용자(클라이언트)는 로그인을 시도함. 이 때 Google이나 Naver같은 소셜 로그인을 선택함 = 사용자는 사용자 권한을 얻기 위해 인증을 받아야함</li><li>이때 사용하는 토큰은 업체마다 구현이 다름: 개발문서를 꼭 참고할 것</li></ul></li><li><strong>Authorization code</strong><ul><li>사용자가 인증 서버에서 로그인을 완료하면, 인증 서버는 Authorization code를 redirect url로 전달함</li><li>이 때 code는 임시로, 시간이 지나면 다시 재발급을 받아야 함</li></ul></li><li><strong>Exchange code for token &amp; Token response</strong>: code를 이용해서 curl 요청을 보냄으로써 <code>Access token</code>을 발급함</li><li><strong>Use token to call API</strong><ul><li>API를 요청할 때, Access token을 사용해서 사용자 정보를 인증함</li><li>설명을 위해 로그인을 예시로 들었기 때문에, 여기서는 login API가 사용될 것이고 인증이 잘 됐다면 바로 로그인이 될 것임</li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🔐 Security </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Security </tag>
+            
+            <tag> Auth </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[오픈소스] 2024년 8월 오픈소스 소식지 (1): Xpra, Rye, DB Browser for SQLite (DB4S), Crawlee for Python, AMD의 Silo AI 인수, Zed</title>
       <link href="/2024/08/11/OpenSource/2408(1)/"/>
       <url>/2024/08/11/OpenSource/2408(1)/</url>
       
@@ -376,7 +440,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 7월 오픈소스 소식지 (2)</title>
+      <title>[오픈소스] 2024년 7월 오픈소스 소식지 (2): SmoothMQ, OpenDNS, Ladybird, Windows 10의 Firefox 97 에러, Webflow</title>
       <link href="/2024/07/29/OpenSource/2407(2)/"/>
       <url>/2024/07/29/OpenSource/2407(2)/</url>
       
@@ -401,11 +465,11 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 7월 오픈소스 소식지 (1)</title>
+      <title>[오픈소스] 2024년 7월 오픈소스 소식지 (1): Google Sheets, Corcel, Python, Posit, Eclipse Theia IDE, Overleaf</title>
       <link href="/2024/07/13/OpenSource/2407(1)/"/>
       <url>/2024/07/13/OpenSource/2407(1)/</url>
       
-        <content type="html"><![CDATA[<p><img src="0.png"></p><p>(참고/출처)<br>2024년 정보통신산업진흥원: <a href="https://www.oss.kr/open_up_intro">OpenUP 프로그램</a>의 2024년 기여형 프론티어로서, 오픈소스SW를 함께 개발 및 공유하기 위해 작성되었습니다.<br>해당 내용은 제 github 홈페이지의 Explore repositories 및 feed 내용을 토대로 만들어졌으며, 게시글에 문의 사항이 있으신 분들은 댓글 또는 <a href="mailto:dev.rubykim@gmail.com">dev.rubykim@gmail.com</a>으로 연락 부탁드립니다.</p><p><br><br><br></p><h2 id="Google-Sheets-JavaScript-gt-WasmGC-이전"><a href="#Google-Sheets-JavaScript-gt-WasmGC-이전" class="headerlink" title="Google Sheets: JavaScript -> WasmGC 이전"></a>Google Sheets: JavaScript -&gt; WasmGC 이전</h2><ul><li>Google Sheets가 성능 향상을 위해 JavaScript에서 WasmGC(WebAssembly Garbage Collection)으로 전환</li><li>초기에는 성능이 느렸지만 JS버전보다 두 배 빠르게 최적화됨</li><li>하지만 여전히 Excel같은 네이티브 애플리케이션에 비해 느리다고 반응이 많으며, 웹 기술에 있어서 최적화에 지속적인 발전을 강조함</li></ul><br><h2 id="Corcel-WordPress-백엔드로-최적화된-라이브러리"><a href="#Corcel-WordPress-백엔드로-최적화된-라이브러리" class="headerlink" title="Corcel: WordPress 백엔드로 최적화된 라이브러리"></a>Corcel: WordPress 백엔드로 최적화된 라이브러리</h2><img src="./1.png" width="200"><ul><li>Repository: <a href="https://github.com/corcel/corcel">https://github.com/corcel/corcel</a></li><li>Laravel의 Eloquent ORM을 기반으로 구축된 PHP 라이브러리로: WordPress 데이터베이스에서 직접 데이터를 가져올 수 있으며, Composer를 통해 Laravel 또는 다른 PHP 프로젝트에서 사용할 수 있음</li><li>주요 기능: 사용자 정의 게시물 유형, 숏코드, 분류법, 페이지, 첨부 파일, 수정본, 썸네일, 옵션, 메뉴, 사용자 및 인증</li><li>설치 및 구성은 간단하며, Laravel 5.5+ 버전에서는 자동 등록이 가능함<ul><li>단 이전 버전이나 Laravel이 아닌 프로젝트의 경우 수동 설정이 필요함</li></ul></li><li>WordPress 데이터와의 매끄러운 인터페이스로 찬사를 받고 있으며, WordPress 데이터베이스와 상호작용이 필요한 PHP 프로젝트에 유지 가능한 솔루션을 제공하여 Prismic, Strapi, Shopify와 같은 도구들과 비교해도 긍정적인 평가를 받고 있음</li></ul><br><h2 id="Python-애플-앱-스토어-거부-사건"><a href="#Python-애플-앱-스토어-거부-사건" class="headerlink" title="Python: 애플 앱 스토어 거부 사건"></a>Python: 애플 앱 스토어 거부 사건</h2><ul><li>Python 3.11에서 3.12로 업그레이드 되면서, 일부 Python앱이 urllib파서에 포함된 <code>itms-services</code> 문자열 때문에 Apple의 앱 스토어에서 거부됨<ul><li>macOS의 샌드박스 앱에서 금지되어 있는 문자열임</li><li>PyInstall로 빌드된 경우 발생하는 것을 보고됨</li></ul></li><li>Python 3.13에서 “앱 스토어 준수”라는 빌드 타임 옵션을 추가하기로 합의가 이루어졌으며, 앱 스토어 제출 시 문제가 되는 코드를 제거하여 자유로은 SW 프로젝트가 될 수 있도록 결정함</li><li>대안으로는 SignPath의 무료 인증서를 사용하는 것으로 제안됨</li></ul><br><h2 id="Posit-RStudio-개발자가-제작한-Visual-Studio-Code-기반-R-및-Python-IDE"><a href="#Posit-RStudio-개발자가-제작한-Visual-Studio-Code-기반-R-및-Python-IDE" class="headerlink" title="Posit: RStudio 개발자가 제작한 Visual Studio Code 기반 R 및 Python IDE"></a>Posit: RStudio 개발자가 제작한 Visual Studio Code 기반 R 및 Python IDE</h2><img src="./2.svg" width="200"><ul><li>Homepage: <a href="https://positron.posit.co/">https://positron.posit.co/</a></li><li>Repository: <a href="https://github.com/posit-dev/positron">https://github.com/posit-dev/positron</a></li><li>macOS, Windows 및 Linux에서 사용할 수 있으며, 추가 확장 없이 R과 Python을 기본적으로 지원</li><li>IDE에는 데이터 및 변수 탐색기가 포함되어 있어 데이터 조작이 용이하며, OpenVSX 레지스트리를 통해 다른 VS Code 확장 기능도 지원하지만 아직 초기 개발 단계에 있음</li></ul><br><h2 id="Eclipse-Theia-IDE"><a href="#Eclipse-Theia-IDE" class="headerlink" title="Eclipse Theia IDE"></a>Eclipse Theia IDE</h2><ul><li>Eclipse 재단에서 Theia IDE를 이제 정식으로 사용할 수 있다고 발표함</li><li>이에 따라 Microsoft의 Visual Studio Code에 대한 오픈소스 대안으로 자기매김을 하는 중</li><li>Ericsson, IBM, Google과 같은 주요 기업들의 기여를 받고 있음</li><li>코드를 fork하지 않아도 광범위한 커스터마이징을 허용하여 데스크탑 및 클라우드 IDE 모두에 적합함</li></ul><br><h2 id=""><a href="#" class="headerlink" title=""></a></h2><img src="./3.png" width="300"><ul><li>Repository: <a href="https://github.com/overleaf/overleaf">https://github.com/overleaf/overleaf</a></li><li>Overleaf: 호스팅 서비스와 로컬 배포 모두 가능한 오픈 소스 실시간 협업 LaTeX 편집기 -&gt; 주로 논문 작성에 사용됨</li><li>Overleaf Server Pro: 보안(SSO와 LDAP 또는 SAML) 및 고급 협업 도구를 포함</li><li>이 프로젝트는 배포를 위해 Docker를 사용하며, 자세한 빌드 지침과 기여는 GNU Affero General Public License Version 3에 의거함</li><li>Markdown에 대한 Pandoc 지원과 같은 추가 기능에 대한 요청이 있으며, 이에 대한 기여가 필요함</li></ul>]]></content>
+        <content type="html"><![CDATA[<p><img src="0.png"></p><p>(참고/출처)<br>2024년 정보통신산업진흥원: <a href="https://www.oss.kr/open_up_intro">OpenUP 프로그램</a>의 2024년 기여형 프론티어로서, 오픈소스SW를 함께 개발 및 공유하기 위해 작성되었습니다.<br>해당 내용은 제 github 홈페이지의 Explore repositories 및 feed 내용을 토대로 만들어졌으며, 게시글에 문의 사항이 있으신 분들은 댓글 또는 <a href="mailto:dev.rubykim@gmail.com">dev.rubykim@gmail.com</a>으로 연락 부탁드립니다.</p><p><br><br><br></p><h2 id="Google-Sheets-JavaScript-gt-WasmGC-이전"><a href="#Google-Sheets-JavaScript-gt-WasmGC-이전" class="headerlink" title="Google Sheets: JavaScript -> WasmGC 이전"></a>Google Sheets: JavaScript -&gt; WasmGC 이전</h2><ul><li>Google Sheets가 성능 향상을 위해 JavaScript에서 WasmGC(WebAssembly Garbage Collection)으로 전환</li><li>초기에는 성능이 느렸지만 JS버전보다 두 배 빠르게 최적화됨</li><li>하지만 여전히 Excel같은 네이티브 애플리케이션에 비해 느리다고 반응이 많으며, 웹 기술에 있어서 최적화에 지속적인 발전을 강조함</li></ul><br><h2 id="Corcel-WordPress-백엔드로-최적화된-라이브러리"><a href="#Corcel-WordPress-백엔드로-최적화된-라이브러리" class="headerlink" title="Corcel: WordPress 백엔드로 최적화된 라이브러리"></a>Corcel: WordPress 백엔드로 최적화된 라이브러리</h2><img src="./1.png" width="200"><ul><li>Repository: <a href="https://github.com/corcel/corcel">https://github.com/corcel/corcel</a></li><li>Laravel의 Eloquent ORM을 기반으로 구축된 PHP 라이브러리로: WordPress 데이터베이스에서 직접 데이터를 가져올 수 있으며, Composer를 통해 Laravel 또는 다른 PHP 프로젝트에서 사용할 수 있음</li><li>주요 기능: 사용자 정의 게시물 유형, 숏코드, 분류법, 페이지, 첨부 파일, 수정본, 썸네일, 옵션, 메뉴, 사용자 및 인증</li><li>설치 및 구성은 간단하며, Laravel 5.5+ 버전에서는 자동 등록이 가능함<ul><li>단 이전 버전이나 Laravel이 아닌 프로젝트의 경우 수동 설정이 필요함</li></ul></li><li>WordPress 데이터와의 매끄러운 인터페이스로 찬사를 받고 있으며, WordPress 데이터베이스와 상호작용이 필요한 PHP 프로젝트에 유지 가능한 솔루션을 제공하여 Prismic, Strapi, Shopify와 같은 도구들과 비교해도 긍정적인 평가를 받고 있음</li></ul><br><h2 id="Python-애플-앱-스토어-거부-사건"><a href="#Python-애플-앱-스토어-거부-사건" class="headerlink" title="Python: 애플 앱 스토어 거부 사건"></a>Python: 애플 앱 스토어 거부 사건</h2><ul><li>Python 3.11에서 3.12로 업그레이드 되면서, 일부 Python앱이 urllib파서에 포함된 <code>itms-services</code> 문자열 때문에 Apple의 앱 스토어에서 거부됨<ul><li>macOS의 샌드박스 앱에서 금지되어 있는 문자열임</li><li>PyInstall로 빌드된 경우 발생하는 것을 보고됨</li></ul></li><li>Python 3.13에서 “앱 스토어 준수”라는 빌드 타임 옵션을 추가하기로 합의가 이루어졌으며, 앱 스토어 제출 시 문제가 되는 코드를 제거하여 자유로은 SW 프로젝트가 될 수 있도록 결정함</li><li>대안으로는 SignPath의 무료 인증서를 사용하는 것으로 제안됨</li></ul><br><h2 id="Posit-RStudio-개발자가-제작한-Visual-Studio-Code-기반-R-및-Python-IDE"><a href="#Posit-RStudio-개발자가-제작한-Visual-Studio-Code-기반-R-및-Python-IDE" class="headerlink" title="Posit: RStudio 개발자가 제작한 Visual Studio Code 기반 R 및 Python IDE"></a>Posit: RStudio 개발자가 제작한 Visual Studio Code 기반 R 및 Python IDE</h2><img src="./2.svg" width="200"><ul><li>Homepage: <a href="https://positron.posit.co/">https://positron.posit.co/</a></li><li>Repository: <a href="https://github.com/posit-dev/positron">https://github.com/posit-dev/positron</a></li><li>macOS, Windows 및 Linux에서 사용할 수 있으며, 추가 확장 없이 R과 Python을 기본적으로 지원</li><li>IDE에는 데이터 및 변수 탐색기가 포함되어 있어 데이터 조작이 용이하며, OpenVSX 레지스트리를 통해 다른 VS Code 확장 기능도 지원하지만 아직 초기 개발 단계에 있음</li></ul><br><h2 id="Eclipse-Theia-IDE"><a href="#Eclipse-Theia-IDE" class="headerlink" title="Eclipse Theia IDE"></a>Eclipse Theia IDE</h2><ul><li>Eclipse 재단에서 Theia IDE를 이제 정식으로 사용할 수 있다고 발표함</li><li>이에 따라 Microsoft의 Visual Studio Code에 대한 오픈소스 대안으로 자기매김을 하는 중</li><li>Ericsson, IBM, Google과 같은 주요 기업들의 기여를 받고 있음</li><li>코드를 fork하지 않아도 광범위한 커스터마이징을 허용하여 데스크탑 및 클라우드 IDE 모두에 적합함</li></ul><br><h2 id="Overleaf-LaTeX-편집기"><a href="#Overleaf-LaTeX-편집기" class="headerlink" title="Overleaf: LaTeX 편집기"></a>Overleaf: LaTeX 편집기</h2><img src="./3.png" width="300"><ul><li>Repository: <a href="https://github.com/overleaf/overleaf">https://github.com/overleaf/overleaf</a></li><li>Overleaf: 호스팅 서비스와 로컬 배포 모두 가능한 오픈 소스 실시간 협업 LaTeX 편집기 -&gt; 주로 논문 작성에 사용됨</li><li>Overleaf Server Pro: 보안(SSO와 LDAP 또는 SAML) 및 고급 협업 도구를 포함</li><li>이 프로젝트는 배포를 위해 Docker를 사용하며, 자세한 빌드 지침과 기여는 GNU Affero General Public License Version 3에 의거함</li><li>Markdown에 대한 Pandoc 지원과 같은 추가 기능에 대한 요청이 있으며, 이에 대한 기여가 필요함</li></ul>]]></content>
       
       
       <categories>
@@ -453,7 +517,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 6월 오픈소스 소식지 (2)</title>
+      <title>[오픈소스] 2024년 6월 오픈소스 소식지 (2): June-va, Farm, Llama.ttf, LetterDrop, LINQPad, CentOS Linux 7</title>
       <link href="/2024/06/30/OpenSource/2406(2)/"/>
       <url>/2024/06/30/OpenSource/2406(2)/</url>
       
@@ -528,7 +592,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 6월 오픈소스 소식지 (1)</title>
+      <title>[오픈소스] 2024년 6월 오픈소스 소식지 (1): Alacritty, WinDirStat Microsoft, Emacs Easy Draw, MagicUI, Spot</title>
       <link href="/2024/06/10/OpenSource/2406(1)/"/>
       <url>/2024/06/10/OpenSource/2406(1)/</url>
       
@@ -553,7 +617,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 5월 오픈소스 소식지 (2)</title>
+      <title>[오픈소스] 2024년 5월 오픈소스 소식지 (2): Quill, DuckDuckGo, NoTunes, OpenAI, Secret Llama</title>
       <link href="/2024/05/27/OpenSource/2405(2)/"/>
       <url>/2024/05/27/OpenSource/2405(2)/</url>
       
@@ -578,7 +642,7 @@
     
     
     <entry>
-      <title>[오픈소스] 2024년 5월 오픈소스 소식지 (1)</title>
+      <title>[오픈소스] 2024년 5월 오픈소스 소식지 (1): Penpot, CoreNet, Redka, Valkey, Asciinema, Llama3</title>
       <link href="/2024/05/13/OpenSource/2405(1)/"/>
       <url>/2024/05/13/OpenSource/2405(1)/</url>
       
@@ -619,9 +683,9 @@
       
         <tags>
             
-            <tag> Python3 </tag>
-            
             <tag> Javascript </tag>
+            
+            <tag> Python3 </tag>
             
             <tag> Regex </tag>
             
@@ -766,11 +830,11 @@
             
             <tag> Architecture </tag>
             
-            <tag> Sidecar </tag>
+            <tag> API </tag>
             
             <tag> ESB </tag>
             
-            <tag> API </tag>
+            <tag> Sidecar </tag>
             
         </tags>
       
@@ -799,9 +863,9 @@
             
             <tag> Architecture </tag>
             
-            <tag> ESB </tag>
-            
             <tag> API </tag>
+            
+            <tag> ESB </tag>
             
         </tags>
       
@@ -1255,11 +1319,11 @@
       
         <tags>
             
+            <tag> API </tag>
+            
             <tag> Github </tag>
             
             <tag> Github Actions </tag>
-            
-            <tag> API </tag>
             
             <tag> Parsing </tag>
             
