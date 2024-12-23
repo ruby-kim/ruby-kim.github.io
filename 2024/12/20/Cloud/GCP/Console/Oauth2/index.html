@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    533
+                    558
                 </div>
                 
 
@@ -505,7 +505,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Google Calendar에 커피챗 일정을 잡아주는 프로그램을 만드는 중인데, 이 과정에서 Google Calendar API를 사용하기 위해서는 GCP로부터 Access Token 발급을 받아야 하므로 그 방법을 한 번 정리해보자고 한다.</p>
+                <p>Google Calendar에 커피챗 일정을 잡아주는 프로그램을 만드는 중인데, 이 과정에서 Google Calendar API를 사용하기 위해서는 GCP로부터 Access Token 발급을 받아야 하므로 그 방법을 한 번 정리해보자고 한다.<br><code>scope</code>부분만 원하는 서비스로 선택하면 해당 서비스의 Access Token을 받을 수 있으며 여기서는 내가 작업 중인 Google Calendar를 예시로 글을 작성해본다.</p>
 <h2 id="1-GCP-gt-API-및-서비스-gt-사용자-인증-정보에서-OAuth-client-생성"><a href="#1-GCP-gt-API-및-서비스-gt-사용자-인증-정보에서-OAuth-client-생성" class="headerlink" title="1. GCP > API 및 서비스 > 사용자 인증 정보에서 OAuth client 생성"></a>1. GCP &gt; API 및 서비스 &gt; 사용자 인증 정보에서 OAuth client 생성</h2><img src="./1.png" width="800">
 
 <p>이번 포스트에서는 클라이언트 생성 방법보다는 Access Token발급을 중점으로 다루고 있기 때문에 client 세팅 방법은 따로 안내하지 않겠다.</p>
@@ -523,9 +523,8 @@ GOOGLE_REDIRECT_URI<span class="token operator">=</span><span class="token opera
 
 <p>값이 잘 입력됐다면 google 계정으로 로그인이 나오며, 액세스 허용 여부를 물어보는 페이지를 볼 수 있다.</p>
 <p><br><br></p>
-<h2 id="3-Redirect-uri로-받아온-값-확인"><a href="#3-Redirect-uri로-받아온-값-확인" class="headerlink" title="3. Redirect uri로 받아온 값 확인"></a>3. Redirect uri로 받아온 값 확인</h2><p>위 이미지에서 “허용” 버튼을 누르면 창이 redirect uri로 이동한다.<br>이 때 주소창을 확인하면 response를 확인할 수 있다.</p>
-<p>이 때 <code>CODE</code>부분을 잘 백업해두자. 그리고 코드의 유효시간은 10분인 것 또한 참고하자.</p>
-<pre class="line-numbers language-bash"><code class="language-bash">http://localhost:3000/?code<span class="token operator">=</span><span class="token operator">&lt;</span>CODE<span class="token operator">></span><span class="token operator">&amp;</span>scope<span class="token operator">=</span>https://www.googleapis.com/auth/calendar
+<h2 id="3-Redirect-uri로-받아온-값-확인"><a href="#3-Redirect-uri로-받아온-값-확인" class="headerlink" title="3. Redirect uri로 받아온 값 확인"></a>3. Redirect uri로 받아온 값 확인</h2><p>위 이미지에서 “허용” 버튼을 누르면 redirect uri로 바로 이동한다.<br>이 때 주소창을 확인하면 response를 확인할 수 있으며, <code>CODE</code>부분을 잘 백업해두자.<br>코드의 유효시간은 10분인 것 또한 참고할 것</p>
+<pre class="line-numbers language-bash"><code class="language-bash">GOOGLE_REDIRECT_URI/?code<span class="token operator">=</span><span class="token operator">&lt;</span>CODE<span class="token operator">></span><span class="token operator">&amp;</span>scope<span class="token operator">=</span>https://www.googleapis.com/auth/calendar
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="4-Access-Token-발급받기"><a href="#4-Access-Token-발급받기" class="headerlink" title="4. Access Token 발급받기"></a>4. Access Token 발급받기</h2><p>이제 Access Token을 발급받을 준비가 되었다.<br>다음의 명령어를 입력해보자. curl이니 터미널에 입력하면 된다.</p>
 <pre class="line-numbers language-bash"><code class="language-bash">curl --request POST \
@@ -574,8 +573,8 @@ GOOGLE_REDIRECT_URI<span class="token operator">=</span><span class="token opera
   <span class="token string">"token_type"</span><span class="token keyword">:</span> <span class="token string">"Bearer"</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5-JS코드로-Access-Token-Refresh-Token으로-재발급까지-을-받아보자"><a href="#5-JS코드로-Access-Token-Refresh-Token으로-재발급까지-을-받아보자" class="headerlink" title="5. JS코드로 Access Token (+Refresh Token으로 재발급까지)을 받아보자"></a>5. JS코드로 Access Token (+Refresh Token으로 재발급까지)을 받아보자</h2><p>이렇게 보면 이론은 쉽지만 실전은 어렵기도 하고, 위의 방식대로 하기에는 여간 귀찮은게 많기 때문에 코드로 한 번에 구현을 해봤다.</p>
-<p>만약 이 코드를 돌렸는데 403 Forbidden이 나온다면 GCP에서 <a target="_blank" rel="noopener" href="https://console.cloud.google.com/apis/api/calendar-json.googleapis.com/metrics">Google Calendar API</a> 사용을 허가했는지 확인해보자.</p>
+<h2 id="5-JS코드로-Access-Token-Refresh-Token으로-재발급까지-을-받아보자"><a href="#5-JS코드로-Access-Token-Refresh-Token으로-재발급까지-을-받아보자" class="headerlink" title="5. JS코드로 Access Token (+Refresh Token으로 재발급까지)을 받아보자"></a>5. JS코드로 Access Token (+Refresh Token으로 재발급까지)을 받아보자</h2><p>이러한 작업들을 일일이 하기에는 여러모로 피곤하니, 코드로 한 번 구현을 해봤다.</p>
+<p>만약 이 코드를 돌렸는데 403 Forbidden이 나온다면 GCP에서 현재 사용하는 서비스의 API 사용을 허가했는지 확인해보자.<br>서비스 리스트는 <a target="_blank" rel="noopener" href="https://console.cloud.google.com/apis/api">https://console.cloud.google.com/apis/api</a> 에서 확인할 수 있다.</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># .env.local</span>
 GOOGLE_CLIENT_ID<span class="token operator">=</span><span class="token operator">&lt;</span>클라이언트 ID<span class="token operator">></span>
 GOOGLE_CLIENT_SECRET<span class="token operator">=</span><span class="token operator">&lt;</span>클라이언트 보안 비밀번호<span class="token operator">></span>
@@ -1090,7 +1089,7 @@ GOOGLE_REFRESH_TOKEN<span class="token operator">==</span><span class="token ope
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;Total Words:&nbsp;<span
-                        class="white-color">25.5k</span>
+                        class="white-color">25.6k</span>
             
             
             
