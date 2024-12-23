@@ -20,19 +20,11 @@
       
         <tags>
             
-            <tag> Network </tag>
-            
-            <tag> Container </tag>
-            
-            <tag> Docker </tag>
-            
             <tag> Cloud </tag>
             
-            <tag> NCP </tag>
+            <tag> OAuth2 </tag>
             
-            <tag> VPC </tag>
-            
-            <tag> Kubernetes </tag>
+            <tag> GCP </tag>
             
         </tags>
       
@@ -407,6 +399,8 @@
             <tag> Security </tag>
             
             <tag> Auth </tag>
+            
+            <tag> OAuth2 </tag>
             
         </tags>
       
