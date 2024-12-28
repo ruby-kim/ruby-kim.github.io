@@ -9,8 +9,16 @@
 
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/</loc>
-        <lastmod>2024-12-23T03:57:38.591Z</lastmod>
+        <loc>http://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</loc>
+        <lastmod>2024-12-28T17:43:08.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2022/04/22/Frontend/Reactjs/ReactLifeCycle/</loc>
+        <lastmod>2024-12-28T15:57:13.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +26,15 @@
 
     <url>
         <loc>http://ruby-kim.github.io/2024/08/20/Security/Oauth2/</loc>
-        <lastmod>2024-12-23T03:57:32.243Z</lastmod>
+        <lastmod>2024-12-28T15:55:34.092Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/</loc>
+        <lastmod>2024-12-23T03:57:38.591Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -235,14 +251,6 @@
     <url>
         <loc>http://ruby-kim.github.io/2024/06/21/Conference/24USA/silicon-valley-1/</loc>
         <lastmod>2024-06-30T07:44:53.853Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://ruby-kim.github.io/2022/04/22/Reactjs/ReactLifeCycle/</loc>
-        <lastmod>2023-06-21T11:39:04.141Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

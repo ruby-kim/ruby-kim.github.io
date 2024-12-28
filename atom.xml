@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-12-23T03:57:38.591Z</updated>
+  <updated>2024-12-28T17:43:08.479Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Next.js] 배포하기: AWS Amplify vs Github pages vs fly.io vs Vercel vs Netlify</title>
+    <link href="http://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/"/>
+    <id>http://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</id>
+    <published>2024-12-29T14:44:35.000Z</published>
+    <updated>2024-12-28T17:43:08.479Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;프로젝트를 하다보면 언젠가 배포를 해야 하는 순간이 온다.&lt;/p&gt;
+&lt;p&gt;필자 또한 최근 nextJS로 간단한 홈페이지를 만들었는데, 막상 배포를 하려니 nextJS라 고려해야할 점이 많아서 한 번 정리해보고자 한다.&lt;/p&gt;
+&lt;p&gt;결론만 볼</summary>
+        
+      
+    
+    
+    
+    <category term="✨ Frontend" scheme="http://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
+    
+    
+    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
+    
+    <category term="Frontend" scheme="http://ruby-kim.github.io/tags/Frontend/"/>
+    
+    <category term="NextJS" scheme="http://ruby-kim.github.io/tags/NextJS/"/>
+    
+  </entry>
   
   <entry>
     <title>[GCP] GCP에서 사용자 인증정보(OAuth)를 사용해 Access Token 받아오기</title>
@@ -37,9 +68,9 @@
     <category term="☁️ Cloud" scheme="http://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
     
     
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
-    
     <category term="OAuth2" scheme="http://ruby-kim.github.io/tags/OAuth2/"/>
+    
+    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
     <category term="GCP" scheme="http://ruby-kim.github.io/tags/GCP/"/>
     
@@ -67,11 +98,11 @@
     <category term="☁️ Cloud" scheme="http://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
     
     
-    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
-    
     <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
     
     <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
+    
+    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
     
     <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
@@ -410,7 +441,7 @@
     <link href="http://ruby-kim.github.io/2024/08/20/Security/Oauth2/"/>
     <id>http://ruby-kim.github.io/2024/08/20/Security/Oauth2/</id>
     <published>2024-08-20T02:44:35.000Z</published>
-    <updated>2024-12-23T03:57:32.243Z</updated>
+    <updated>2024-12-28T15:55:34.092Z</updated>
     
     
       
@@ -537,32 +568,6 @@
     <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
     
     <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[오픈소스] 2024년 6월 오픈소스 소식지 (2): June-va, Farm, Llama.ttf, LetterDrop, LINQPad, CentOS Linux 7</title>
-    <link href="http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/"/>
-    <id>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</id>
-    <published>2024-06-29T16:13:35.000Z</published>
-    <updated>2024-12-19T17:53:46.878Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
-        
-      
-    
-    
-    
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
-    
-    
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
     
   </entry>
   
