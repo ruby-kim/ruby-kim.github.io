@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://ruby-kim.github.io/2025/01/30/Frontend/Vuejs/SEO/</loc>
+        <lastmod>2025-01-02T12:15:01.925Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</loc>
         <lastmod>2024-12-28T17:54:05.607Z</lastmod>
         <changefreq>weekly</changefreq>

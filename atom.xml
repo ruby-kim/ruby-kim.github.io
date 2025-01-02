@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2024-12-28T17:54:05.607Z</updated>
+  <updated>2025-01-02T12:15:01.925Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)</title>
+    <link href="http://ruby-kim.github.io/2025/01/30/Frontend/Vuejs/SEO/"/>
+    <id>http://ruby-kim.github.io/2025/01/30/Frontend/Vuejs/SEO/</id>
+    <published>2025-01-30T14:44:35.000Z</published>
+    <updated>2025-01-02T12:15:01.925Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;개발 포트폴리오 사이트를 만들었는데, 배포는 성공했다만 생각해보니 검색 유입을 위한 SEO(Search Engine Optimization) 최적화를 하지 않았음을 깨달았다 (…)&lt;br&gt;따라서 Vue3로 하는 방법을 간략히 정리해보고자</summary>
+        
+      
+    
+    
+    
+    <category term="✨ Frontend" scheme="http://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
+    
+    
+    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
+    
+    <category term="Frontend" scheme="http://ruby-kim.github.io/tags/Frontend/"/>
+    
+    <category term="Vue" scheme="http://ruby-kim.github.io/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>[Next.js] 배포하기: AWS Amplify vs Github pages vs fly.io vs Vercel vs Netlify</title>
@@ -541,33 +570,6 @@
     
     
     <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Container 정리</title>
-    <link href="http://ruby-kim.github.io/2024/07/12/DevOps/Container/"/>
-    <id>http://ruby-kim.github.io/2024/07/12/DevOps/Container/</id>
-    <published>2024-07-11T17:44:35.000Z</published>
-    <updated>2024-11-25T16:33:44.071Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;개발을 하다보면 아무래도 docker를 많이 쓰게 될텐데, 그 때 컨테이너 어쩔저쩔~~ 이라는 개념이 나오면서 사람들의 머리가 아파지기 시작한다.&lt;br&gt;따라서 컨테이너에 대해 개념을 잡고 싶은 사람이라면 이 글을 잘 읽어보길 추천한다. 배포</summary>
-        
-      
-    
-    
-    
-    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
-    
-    
-    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
-    
-    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
     
   </entry>
   
