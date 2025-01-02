@@ -6,7 +6,7 @@
   <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="http://ruby-kim.github.io/"/>
-  <updated>2025-01-02T12:22:22.912Z</updated>
+  <updated>2025-01-02T12:23:54.996Z</updated>
   <id>http://ruby-kim.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/"/>
     <id>http://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</id>
     <published>2025-01-01T14:44:35.000Z</published>
-    <updated>2025-01-02T12:22:22.912Z</updated>
+    <updated>2025-01-02T12:23:54.996Z</updated>
     
     
       
@@ -72,9 +72,9 @@
     
     <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
     
-    <category term="Frontend" scheme="http://ruby-kim.github.io/tags/Frontend/"/>
-    
     <category term="NextJS" scheme="http://ruby-kim.github.io/tags/NextJS/"/>
+    
+    <category term="Frontend" scheme="http://ruby-kim.github.io/tags/Frontend/"/>
     
   </entry>
   
@@ -131,9 +131,9 @@
     
     <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
     
-    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
-    
     <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
+    
+    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
     
     <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
     
