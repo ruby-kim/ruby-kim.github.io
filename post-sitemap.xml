@@ -2,14 +2,14 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://ruby-kim.github.io/</loc>
+        <loc>https://dev.anb-network.com/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
 
     <url>
-        <loc>http://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</loc>
+        <loc>https://dev.anb-network.com/2025/01/01/Frontend/Vuejs/SEO/</loc>
         <lastmod>2025-01-02T12:23:54.996Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -17,7 +17,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</loc>
+        <loc>https://dev.anb-network.com/2024/12/29/Frontend/Nextjs/Deployment/</loc>
         <lastmod>2024-12-28T17:54:05.607Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -25,7 +25,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/22/Frontend/Reactjs/ReactLifeCycle/</loc>
+        <loc>https://dev.anb-network.com/2022/04/22/Frontend/Reactjs/ReactLifeCycle/</loc>
         <lastmod>2024-12-28T15:57:13.802Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -33,7 +33,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/08/20/Security/Oauth2/</loc>
+        <loc>https://dev.anb-network.com/2024/08/20/Security/Oauth2/</loc>
         <lastmod>2024-12-28T15:55:34.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -41,7 +41,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/</loc>
+        <loc>https://dev.anb-network.com/2024/12/20/Cloud/GCP/Console/Oauth2/</loc>
         <lastmod>2024-12-23T03:57:38.591Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -49,7 +49,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</loc>
+        <loc>https://dev.anb-network.com/2024/11/25/OpenSource/2411(2)/</loc>
         <lastmod>2024-12-19T18:02:50.255Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -57,7 +57,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</loc>
+        <loc>https://dev.anb-network.com/2024/11/09/OpenSource/2411(1)/</loc>
         <lastmod>2024-12-19T18:01:55.763Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -65,7 +65,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/</loc>
+        <loc>https://dev.anb-network.com/2024/10/27/OpenSource/2410(2)/</loc>
         <lastmod>2024-12-19T18:01:07.075Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -73,7 +73,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/</loc>
+        <loc>https://dev.anb-network.com/2024/10/12/OpenSource/2410(1)/</loc>
         <lastmod>2024-12-19T17:59:11.726Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -81,7 +81,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/</loc>
+        <loc>https://dev.anb-network.com/2024/09/29/OpenSource/2409(2)/</loc>
         <lastmod>2024-12-19T17:58:29.368Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -89,7 +89,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/</loc>
+        <loc>https://dev.anb-network.com/2024/09/10/OpenSource/2409(1)/</loc>
         <lastmod>2024-12-19T17:57:41.449Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -97,7 +97,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</loc>
+        <loc>https://dev.anb-network.com/2024/08/27/OpenSource/2408(2)/</loc>
         <lastmod>2024-12-19T17:56:37.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -105,7 +105,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/</loc>
+        <loc>https://dev.anb-network.com/2024/08/11/OpenSource/2408(1)/</loc>
         <lastmod>2024-12-19T17:55:49.179Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -113,7 +113,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/</loc>
+        <loc>https://dev.anb-network.com/2024/07/29/OpenSource/2407(2)/</loc>
         <lastmod>2024-12-19T17:54:19.904Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -121,7 +121,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/06/30/OpenSource/2406(2)/</loc>
+        <loc>https://dev.anb-network.com/2024/06/30/OpenSource/2406(2)/</loc>
         <lastmod>2024-12-19T17:53:46.878Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -129,7 +129,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/06/10/OpenSource/2406(1)/</loc>
+        <loc>https://dev.anb-network.com/2024/06/10/OpenSource/2406(1)/</loc>
         <lastmod>2024-12-19T17:53:40.230Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -137,7 +137,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/05/27/OpenSource/2405(2)/</loc>
+        <loc>https://dev.anb-network.com/2024/05/27/OpenSource/2405(2)/</loc>
         <lastmod>2024-12-19T17:53:32.883Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -145,7 +145,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/05/13/OpenSource/2405(1)/</loc>
+        <loc>https://dev.anb-network.com/2024/05/13/OpenSource/2405(1)/</loc>
         <lastmod>2024-12-19T17:53:21.628Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -153,7 +153,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</loc>
+        <loc>https://dev.anb-network.com/2024/07/13/OpenSource/2407(1)/</loc>
         <lastmod>2024-12-19T17:51:45.472Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -161,7 +161,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</loc>
+        <loc>https://dev.anb-network.com/2024/10/12/DevOps/Kubernetes/</loc>
         <lastmod>2024-12-19T17:45:35.377Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -169,7 +169,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/11/11/DevOps/Docker/</loc>
+        <loc>https://dev.anb-network.com/2024/11/11/DevOps/Docker/</loc>
         <lastmod>2024-11-25T18:16:10.654Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -177,7 +177,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/07/12/DevOps/Container/</loc>
+        <loc>https://dev.anb-network.com/2024/07/12/DevOps/Container/</loc>
         <lastmod>2024-11-25T16:33:44.071Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -185,7 +185,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/05/12/DevOps/Intro/</loc>
+        <loc>https://dev.anb-network.com/2022/05/12/DevOps/Intro/</loc>
         <lastmod>2024-11-25T14:57:01.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -193,7 +193,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS%26NCR/</loc>
+        <loc>https://dev.anb-network.com/2024/11/25/Cloud/NCP/Console/NKS%26NCR/</loc>
         <lastmod>2024-11-25T06:55:05.894Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -201,7 +201,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/11/23/Tips/Tool/</loc>
+        <loc>https://dev.anb-network.com/2024/11/23/Tips/Tool/</loc>
         <lastmod>2024-11-25T06:51:39.938Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -209,7 +209,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
+        <loc>https://dev.anb-network.com/2022/05/10/Retrospect/Bachelor/</loc>
         <lastmod>2024-11-22T06:50:29.477Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -217,7 +217,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</loc>
+        <loc>https://dev.anb-network.com/2024/09/30/Certificate/AWS/CloudPractitioner/</loc>
         <lastmod>2024-11-17T16:18:12.958Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -225,7 +225,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/11/25/Tips/Regex/</loc>
+        <loc>https://dev.anb-network.com/2022/11/25/Tips/Regex/</loc>
         <lastmod>2024-11-14T15:41:16.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -233,7 +233,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/</loc>
+        <loc>https://dev.anb-network.com/2024/09/12/Retrospect/Portfolio/</loc>
         <lastmod>2024-11-14T15:33:01.045Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -241,7 +241,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
+        <loc>https://dev.anb-network.com/2022/04/23/Retrospect/Junior/</loc>
         <lastmod>2024-10-30T23:44:17.393Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -249,7 +249,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/06/22/Conference/24USA/silicon-valley-2/</loc>
+        <loc>https://dev.anb-network.com/2024/06/22/Conference/24USA/silicon-valley-2/</loc>
         <lastmod>2024-07-04T02:14:56.048Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -257,7 +257,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2024/06/21/Conference/24USA/silicon-valley-1/</loc>
+        <loc>https://dev.anb-network.com/2024/06/21/Conference/24USA/silicon-valley-1/</loc>
         <lastmod>2024-06-30T07:44:53.853Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -265,7 +265,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</loc>
+        <loc>https://dev.anb-network.com/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</loc>
         <lastmod>2023-06-21T11:39:04.139Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -273,7 +273,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
+        <loc>https://dev.anb-network.com/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
         <lastmod>2023-06-21T11:39:04.139Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -281,7 +281,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/</loc>
+        <loc>https://dev.anb-network.com/2022/03/28/Projects/AutomaticTechBlogManagement/Gitblog-Tistory/</loc>
         <lastmod>2023-06-21T11:39:04.137Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -289,7 +289,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/30/NS/SSLTSL/</loc>
+        <loc>https://dev.anb-network.com/2022/03/30/NS/SSLTSL/</loc>
         <lastmod>2023-06-21T11:39:04.135Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -297,7 +297,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</loc>
+        <loc>https://dev.anb-network.com/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</loc>
         <lastmod>2023-06-21T11:39:04.135Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -305,7 +305,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/05/30/NS/Basic/</loc>
+        <loc>https://dev.anb-network.com/2022/05/30/NS/Basic/</loc>
         <lastmod>2023-06-21T11:39:04.132Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -313,7 +313,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/11/Hexo/RecommendTheme/</loc>
+        <loc>https://dev.anb-network.com/2022/04/11/Hexo/RecommendTheme/</loc>
         <lastmod>2023-06-21T11:39:04.107Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -321,7 +321,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/07/Hexo/Install/</loc>
+        <loc>https://dev.anb-network.com/2022/04/07/Hexo/Install/</loc>
         <lastmod>2023-06-21T11:39:04.105Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -329,7 +329,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/15/Hexo/Backup/</loc>
+        <loc>https://dev.anb-network.com/2022/04/15/Hexo/Backup/</loc>
         <lastmod>2023-06-21T11:39:04.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -337,7 +337,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/12/Hexo/InitTheme/</loc>
+        <loc>https://dev.anb-network.com/2022/04/12/Hexo/InitTheme/</loc>
         <lastmod>2023-06-21T11:39:04.104Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -345,7 +345,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/</loc>
+        <loc>https://dev.anb-network.com/2022/05/17/Etc/Windows-Mac-Osx-Nvm-Install/</loc>
         <lastmod>2023-06-21T11:39:04.103Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -353,7 +353,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/21/Etc/Github-Wiki-TOC/</loc>
+        <loc>https://dev.anb-network.com/2022/04/21/Etc/Github-Wiki-TOC/</loc>
         <lastmod>2023-06-21T11:39:04.102Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -361,7 +361,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/16/Etc/Python-env/</loc>
+        <loc>https://dev.anb-network.com/2022/03/16/Etc/Python-env/</loc>
         <lastmod>2023-06-21T11:39:04.102Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -369,7 +369,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/</loc>
+        <loc>https://dev.anb-network.com/2022/03/18/Etc/Github-PAT/</loc>
         <lastmod>2023-06-21T11:39:04.097Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -377,7 +377,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/03/17/Etc/Github-Actions-env/</loc>
+        <loc>https://dev.anb-network.com/2022/03/17/Etc/Github-Actions-env/</loc>
         <lastmod>2023-06-21T11:39:04.095Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -385,7 +385,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/30/Architecture/MSA-outer-service-mesh/</loc>
+        <loc>https://dev.anb-network.com/2022/04/30/Architecture/MSA-outer-service-mesh/</loc>
         <lastmod>2023-06-21T11:39:04.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -393,7 +393,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</loc>
+        <loc>https://dev.anb-network.com/2022/04/28/Architecture/MSA-outer-gateway/</loc>
         <lastmod>2023-06-21T11:39:04.089Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -401,7 +401,7 @@
     </url>
 
     <url>
-        <loc>http://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
+        <loc>https://dev.anb-network.com/2022/04/26/Architecture/MSA-Intro/</loc>
         <lastmod>2023-06-21T11:39:04.087Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

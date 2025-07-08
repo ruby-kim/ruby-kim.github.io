@@ -3,12 +3,12 @@
 
 
     <sitemap>
-        <loc>http://ruby-kim.github.io/post-sitemap.xml</loc>
+        <loc>https://dev.anb-network.com/post-sitemap.xml</loc>
         <lastmod>2025-01-02T12:23:54.996Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://ruby-kim.github.io/page-sitemap.xml</loc>
+        <loc>https://dev.anb-network.com/page-sitemap.xml</loc>
         <lastmod>2023-06-21T11:39:04.159Z</lastmod>
     </sitemap>
 

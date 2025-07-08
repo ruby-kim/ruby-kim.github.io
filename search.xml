@@ -111,9 +111,9 @@
             
             <tag> Container </tag>
             
-            <tag> Network </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Network </tag>
             
             <tag> Cloud </tag>
             
@@ -1292,9 +1292,9 @@
             
             <tag> Github </tag>
             
-            <tag> .env </tag>
-            
             <tag> Github Actions </tag>
+            
+            <tag> .env </tag>
             
         </tags>
       
@@ -1348,9 +1348,9 @@
       
         <tags>
             
-            <tag> Python3 </tag>
-            
             <tag> .env </tag>
+            
+            <tag> Python3 </tag>
             
         </tags>
       

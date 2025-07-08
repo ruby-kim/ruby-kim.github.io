@@ -3,11 +3,11 @@
   <title>잡동사니</title>
   
   <subtitle>☁ Cloud Engineer ☁</subtitle>
-  <link href="http://ruby-kim.github.io/atom.xml" rel="self"/>
+  <link href="https://dev.anb-network.com/atom.xml" rel="self"/>
   
-  <link href="http://ruby-kim.github.io/"/>
+  <link href="https://dev.anb-network.com/"/>
   <updated>2025-01-02T12:23:54.996Z</updated>
-  <id>http://ruby-kim.github.io/</id>
+  <id>https://dev.anb-network.com/</id>
   
   <author>
     <name>Ruby Kim</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)</title>
-    <link href="http://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/"/>
-    <id>http://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</id>
+    <link href="https://dev.anb-network.com/2025/01/01/Frontend/Vuejs/SEO/"/>
+    <id>https://dev.anb-network.com/2025/01/01/Frontend/Vuejs/SEO/</id>
     <published>2025-01-01T14:44:35.000Z</published>
     <updated>2025-01-02T12:23:54.996Z</updated>
     
@@ -34,23 +34,23 @@
     
     
     
-    <category term="✨ Frontend" scheme="http://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
+    <category term="✨ Frontend" scheme="https://dev.anb-network.com/categories/%E2%9C%A8-Frontend/"/>
     
     
-    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
+    <category term="Javascript" scheme="https://dev.anb-network.com/tags/Javascript/"/>
     
-    <category term="Frontend" scheme="http://ruby-kim.github.io/tags/Frontend/"/>
+    <category term="Frontend" scheme="https://dev.anb-network.com/tags/Frontend/"/>
     
-    <category term="Vue" scheme="http://ruby-kim.github.io/tags/Vue/"/>
+    <category term="Vue" scheme="https://dev.anb-network.com/tags/Vue/"/>
     
-    <category term="SEO" scheme="http://ruby-kim.github.io/tags/SEO/"/>
+    <category term="SEO" scheme="https://dev.anb-network.com/tags/SEO/"/>
     
   </entry>
   
   <entry>
     <title>[Next.js] 배포하기: AWS Amplify vs Github pages vs fly.io vs Vercel vs Netlify</title>
-    <link href="http://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/"/>
-    <id>http://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</id>
+    <link href="https://dev.anb-network.com/2024/12/29/Frontend/Nextjs/Deployment/"/>
+    <id>https://dev.anb-network.com/2024/12/29/Frontend/Nextjs/Deployment/</id>
     <published>2024-12-29T14:44:35.000Z</published>
     <updated>2024-12-28T17:54:05.607Z</updated>
     
@@ -67,21 +67,21 @@
     
     
     
-    <category term="✨ Frontend" scheme="http://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
+    <category term="✨ Frontend" scheme="https://dev.anb-network.com/categories/%E2%9C%A8-Frontend/"/>
     
     
-    <category term="Javascript" scheme="http://ruby-kim.github.io/tags/Javascript/"/>
+    <category term="Javascript" scheme="https://dev.anb-network.com/tags/Javascript/"/>
     
-    <category term="NextJS" scheme="http://ruby-kim.github.io/tags/NextJS/"/>
+    <category term="NextJS" scheme="https://dev.anb-network.com/tags/NextJS/"/>
     
-    <category term="Frontend" scheme="http://ruby-kim.github.io/tags/Frontend/"/>
+    <category term="Frontend" scheme="https://dev.anb-network.com/tags/Frontend/"/>
     
   </entry>
   
   <entry>
     <title>[GCP] GCP에서 사용자 인증정보(OAuth)를 사용해 Access Token 받아오기</title>
-    <link href="http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/"/>
-    <id>http://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/</id>
+    <link href="https://dev.anb-network.com/2024/12/20/Cloud/GCP/Console/Oauth2/"/>
+    <id>https://dev.anb-network.com/2024/12/20/Cloud/GCP/Console/Oauth2/</id>
     <published>2024-12-20T02:44:35.000Z</published>
     <updated>2024-12-23T03:57:38.591Z</updated>
     
@@ -96,21 +96,21 @@
     
     
     
-    <category term="☁️ Cloud" scheme="http://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
+    <category term="☁️ Cloud" scheme="https://dev.anb-network.com/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
     
     
-    <category term="OAuth2" scheme="http://ruby-kim.github.io/tags/OAuth2/"/>
+    <category term="OAuth2" scheme="https://dev.anb-network.com/tags/OAuth2/"/>
     
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="Cloud" scheme="https://dev.anb-network.com/tags/Cloud/"/>
     
-    <category term="GCP" scheme="http://ruby-kim.github.io/tags/GCP/"/>
+    <category term="GCP" scheme="https://dev.anb-network.com/tags/GCP/"/>
     
   </entry>
   
   <entry>
     <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
-    <link href="http://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/"/>
-    <id>http://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/</id>
+    <link href="https://dev.anb-network.com/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/"/>
+    <id>https://dev.anb-network.com/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/</id>
     <published>2024-11-25T02:44:35.000Z</published>
     <updated>2024-11-25T06:55:05.894Z</updated>
     
@@ -126,29 +126,29 @@
     
     
     
-    <category term="☁️ Cloud" scheme="http://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
+    <category term="☁️ Cloud" scheme="https://dev.anb-network.com/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
     
     
-    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
+    <category term="Container" scheme="https://dev.anb-network.com/tags/Container/"/>
     
-    <category term="Network" scheme="http://ruby-kim.github.io/tags/Network/"/>
+    <category term="Docker" scheme="https://dev.anb-network.com/tags/Docker/"/>
     
-    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
+    <category term="Network" scheme="https://dev.anb-network.com/tags/Network/"/>
     
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="Cloud" scheme="https://dev.anb-network.com/tags/Cloud/"/>
     
-    <category term="NCP" scheme="http://ruby-kim.github.io/tags/NCP/"/>
+    <category term="NCP" scheme="https://dev.anb-network.com/tags/NCP/"/>
     
-    <category term="VPC" scheme="http://ruby-kim.github.io/tags/VPC/"/>
+    <category term="VPC" scheme="https://dev.anb-network.com/tags/VPC/"/>
     
-    <category term="Kubernetes" scheme="http://ruby-kim.github.io/tags/Kubernetes/"/>
+    <category term="Kubernetes" scheme="https://dev.anb-network.com/tags/Kubernetes/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 11월 오픈소스 소식지 (2): FindMy Flipper, shadPS4, Isaiah, Javascript 날짜 라이브러리 수정, Ruby 공식 문서 업데이트, ChartDB</title>
-    <link href="http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/"/>
-    <id>http://ruby-kim.github.io/2024/11/25/OpenSource/2411(2)/</id>
+    <link href="https://dev.anb-network.com/2024/11/25/OpenSource/2411(2)/"/>
+    <id>https://dev.anb-network.com/2024/11/25/OpenSource/2411(2)/</id>
     <published>2024-11-24T16:13:35.000Z</published>
     <updated>2024-12-19T18:02:50.255Z</updated>
     
@@ -164,17 +164,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>[TIPS] Mermaid 명령어로 Diagram 그리기</title>
-    <link href="http://ruby-kim.github.io/2024/11/23/Tips/Tool/"/>
-    <id>http://ruby-kim.github.io/2024/11/23/Tips/Tool/</id>
+    <link href="https://dev.anb-network.com/2024/11/23/Tips/Tool/"/>
+    <id>https://dev.anb-network.com/2024/11/23/Tips/Tool/</id>
     <published>2024-11-23T14:44:35.000Z</published>
     <updated>2024-11-25T06:51:39.938Z</updated>
     
@@ -190,17 +190,17 @@
     
     
     
-    <category term="💾 Etc" scheme="http://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    <category term="💾 Etc" scheme="https://dev.anb-network.com/categories/%F0%9F%92%BE-Etc/"/>
     
     
-    <category term="Diagram" scheme="http://ruby-kim.github.io/tags/Diagram/"/>
+    <category term="Diagram" scheme="https://dev.anb-network.com/tags/Diagram/"/>
     
   </entry>
   
   <entry>
     <title>Docker 정리</title>
-    <link href="http://ruby-kim.github.io/2024/11/11/DevOps/Docker/"/>
-    <id>http://ruby-kim.github.io/2024/11/11/DevOps/Docker/</id>
+    <link href="https://dev.anb-network.com/2024/11/11/DevOps/Docker/"/>
+    <id>https://dev.anb-network.com/2024/11/11/DevOps/Docker/</id>
     <published>2024-11-10T17:44:35.000Z</published>
     <updated>2024-11-25T18:16:10.654Z</updated>
     
@@ -216,21 +216,21 @@
     
     
     
-    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
+    <category term="♼ DevOps" scheme="https://dev.anb-network.com/categories/%E2%99%BC-DevOps/"/>
     
     
-    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
+    <category term="DevOps" scheme="https://dev.anb-network.com/tags/DevOps/"/>
     
-    <category term="Container" scheme="http://ruby-kim.github.io/tags/Container/"/>
+    <category term="Container" scheme="https://dev.anb-network.com/tags/Container/"/>
     
-    <category term="Docker" scheme="http://ruby-kim.github.io/tags/Docker/"/>
+    <category term="Docker" scheme="https://dev.anb-network.com/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 11월 오픈소스 소식지 (1): Npm, OTranscribe, Verso, Blitz, PGlite, AudioFlux</title>
-    <link href="http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/"/>
-    <id>http://ruby-kim.github.io/2024/11/09/OpenSource/2411(1)/</id>
+    <link href="https://dev.anb-network.com/2024/11/09/OpenSource/2411(1)/"/>
+    <id>https://dev.anb-network.com/2024/11/09/OpenSource/2411(1)/</id>
     <published>2024-11-08T16:13:35.000Z</published>
     <updated>2024-12-19T18:01:55.763Z</updated>
     
@@ -246,17 +246,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 10월 오픈소스 소식지 (2): GitOpper, Cardie, Age, rqlite 9.0, Yark, Viking</title>
-    <link href="http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/"/>
-    <id>http://ruby-kim.github.io/2024/10/27/OpenSource/2410(2)/</id>
+    <link href="https://dev.anb-network.com/2024/10/27/OpenSource/2410(2)/"/>
+    <id>https://dev.anb-network.com/2024/10/27/OpenSource/2410(2)/</id>
     <published>2024-10-26T16:13:35.000Z</published>
     <updated>2024-12-19T18:01:07.075Z</updated>
     
@@ -272,17 +272,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>Kubernetes 정리</title>
-    <link href="http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/"/>
-    <id>http://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</id>
+    <link href="https://dev.anb-network.com/2024/10/12/DevOps/Kubernetes/"/>
+    <id>https://dev.anb-network.com/2024/10/12/DevOps/Kubernetes/</id>
     <published>2024-10-11T17:44:35.000Z</published>
     <updated>2024-12-19T17:45:35.377Z</updated>
     
@@ -297,19 +297,19 @@
     
     
     
-    <category term="♼ DevOps" scheme="http://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
+    <category term="♼ DevOps" scheme="https://dev.anb-network.com/categories/%E2%99%BC-DevOps/"/>
     
     
-    <category term="DevOps" scheme="http://ruby-kim.github.io/tags/DevOps/"/>
+    <category term="DevOps" scheme="https://dev.anb-network.com/tags/DevOps/"/>
     
-    <category term="Kubernates" scheme="http://ruby-kim.github.io/tags/Kubernates/"/>
+    <category term="Kubernates" scheme="https://dev.anb-network.com/tags/Kubernates/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 10월 오픈소스 소식지 (1): Cloudflare NoIP Alternative, StreamPot, MeTube, FastHTML, Docker-OSX, FakeTraveler</title>
-    <link href="http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/"/>
-    <id>http://ruby-kim.github.io/2024/10/12/OpenSource/2410(1)/</id>
+    <link href="https://dev.anb-network.com/2024/10/12/OpenSource/2410(1)/"/>
+    <id>https://dev.anb-network.com/2024/10/12/OpenSource/2410(1)/</id>
     <published>2024-10-11T16:13:35.000Z</published>
     <updated>2024-12-19T17:59:11.726Z</updated>
     
@@ -325,17 +325,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>[AWS] Cloud Practitioner 시험 준비 및 후기</title>
-    <link href="http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/"/>
-    <id>http://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</id>
+    <link href="https://dev.anb-network.com/2024/09/30/Certificate/AWS/CloudPractitioner/"/>
+    <id>https://dev.anb-network.com/2024/09/30/Certificate/AWS/CloudPractitioner/</id>
     <published>2024-09-30T14:44:35.000Z</published>
     <updated>2024-11-17T16:18:12.958Z</updated>
     
@@ -351,19 +351,19 @@
     
     
     
-    <category term="👩‍💻 AWS" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    <category term="👩‍💻 AWS" scheme="https://dev.anb-network.com/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
     
     
-    <category term="AWS" scheme="http://ruby-kim.github.io/tags/AWS/"/>
+    <category term="AWS" scheme="https://dev.anb-network.com/tags/AWS/"/>
     
-    <category term="Cloud" scheme="http://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="Cloud" scheme="https://dev.anb-network.com/tags/Cloud/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 9월 오픈소스 소식지 (2): Typst, Jiff, Eza, Timeshift for Linux, Llama 3.1, 스위스 정부기관의 OSS 사용 의무화</title>
-    <link href="http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/"/>
-    <id>http://ruby-kim.github.io/2024/09/29/OpenSource/2409(2)/</id>
+    <link href="https://dev.anb-network.com/2024/09/29/OpenSource/2409(2)/"/>
+    <id>https://dev.anb-network.com/2024/09/29/OpenSource/2409(2)/</id>
     <published>2024-09-28T16:13:35.000Z</published>
     <updated>2024-12-19T17:58:29.368Z</updated>
     
@@ -379,17 +379,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>개발자 포트폴리오, 이렇게 준비해보자</title>
-    <link href="http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/"/>
-    <id>http://ruby-kim.github.io/2024/09/12/Retrospect/Portfolio/</id>
+    <link href="https://dev.anb-network.com/2024/09/12/Retrospect/Portfolio/"/>
+    <id>https://dev.anb-network.com/2024/09/12/Retrospect/Portfolio/</id>
     <published>2024-09-12T14:44:35.000Z</published>
     <updated>2024-11-14T15:33:01.045Z</updated>
     
@@ -406,19 +406,19 @@
     
     
     
-    <category term="🎈 Retrospect" scheme="http://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
+    <category term="🎈 Retrospect" scheme="https://dev.anb-network.com/categories/%F0%9F%8E%88-Retrospect/"/>
     
     
-    <category term="Retrospect" scheme="http://ruby-kim.github.io/tags/Retrospect/"/>
+    <category term="Retrospect" scheme="https://dev.anb-network.com/tags/Retrospect/"/>
     
-    <category term="Job" scheme="http://ruby-kim.github.io/tags/Job/"/>
+    <category term="Job" scheme="https://dev.anb-network.com/tags/Job/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 9월 오픈소스 소식지 (1): Fusion OS, KUtrace, Gitlab 매각 검토 사건, SQLite Transactions, Sendune, Garage</title>
-    <link href="http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/"/>
-    <id>http://ruby-kim.github.io/2024/09/10/OpenSource/2409(1)/</id>
+    <link href="https://dev.anb-network.com/2024/09/10/OpenSource/2409(1)/"/>
+    <id>https://dev.anb-network.com/2024/09/10/OpenSource/2409(1)/</id>
     <published>2024-09-09T16:13:35.000Z</published>
     <updated>2024-12-19T17:57:41.449Z</updated>
     
@@ -434,17 +434,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 8월 오픈소스 소식지 (2): RouteLLM, 비전 언어 모델, Tau, AuraFlow, gpu.cpp, Github 서버 다운</title>
-    <link href="http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/"/>
-    <id>http://ruby-kim.github.io/2024/08/27/OpenSource/2408(2)/</id>
+    <link href="https://dev.anb-network.com/2024/08/27/OpenSource/2408(2)/"/>
+    <id>https://dev.anb-network.com/2024/08/27/OpenSource/2408(2)/</id>
     <published>2024-08-26T16:13:35.000Z</published>
     <updated>2024-12-19T17:56:37.104Z</updated>
     
@@ -460,17 +460,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>OAuth2.0를 알아보자</title>
-    <link href="http://ruby-kim.github.io/2024/08/20/Security/Oauth2/"/>
-    <id>http://ruby-kim.github.io/2024/08/20/Security/Oauth2/</id>
+    <link href="https://dev.anb-network.com/2024/08/20/Security/Oauth2/"/>
+    <id>https://dev.anb-network.com/2024/08/20/Security/Oauth2/</id>
     <published>2024-08-20T02:44:35.000Z</published>
     <updated>2024-12-28T15:55:34.092Z</updated>
     
@@ -486,21 +486,21 @@
     
     
     
-    <category term="🔐 Security" scheme="http://ruby-kim.github.io/categories/%F0%9F%94%90-Security/"/>
+    <category term="🔐 Security" scheme="https://dev.anb-network.com/categories/%F0%9F%94%90-Security/"/>
     
     
-    <category term="Security" scheme="http://ruby-kim.github.io/tags/Security/"/>
+    <category term="Security" scheme="https://dev.anb-network.com/tags/Security/"/>
     
-    <category term="Auth" scheme="http://ruby-kim.github.io/tags/Auth/"/>
+    <category term="Auth" scheme="https://dev.anb-network.com/tags/Auth/"/>
     
-    <category term="OAuth2" scheme="http://ruby-kim.github.io/tags/OAuth2/"/>
+    <category term="OAuth2" scheme="https://dev.anb-network.com/tags/OAuth2/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 8월 오픈소스 소식지 (1): Xpra, Rye, DB Browser for SQLite (DB4S), Crawlee for Python, AMD의 Silo AI 인수, Zed</title>
-    <link href="http://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/"/>
-    <id>http://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/</id>
+    <link href="https://dev.anb-network.com/2024/08/11/OpenSource/2408(1)/"/>
+    <id>https://dev.anb-network.com/2024/08/11/OpenSource/2408(1)/</id>
     <published>2024-08-10T16:13:35.000Z</published>
     <updated>2024-12-19T17:55:49.179Z</updated>
     
@@ -516,17 +516,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 7월 오픈소스 소식지 (2): SmoothMQ, OpenDNS, Ladybird, Windows 10의 Firefox 97 에러, Webflow</title>
-    <link href="http://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/"/>
-    <id>http://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/</id>
+    <link href="https://dev.anb-network.com/2024/07/29/OpenSource/2407(2)/"/>
+    <id>https://dev.anb-network.com/2024/07/29/OpenSource/2407(2)/</id>
     <published>2024-07-28T22:23:35.000Z</published>
     <updated>2024-12-19T17:54:19.904Z</updated>
     
@@ -542,17 +542,17 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
   <entry>
     <title>[오픈소스] 2024년 7월 오픈소스 소식지 (1): Google Sheets, Corcel, Python, Posit, Eclipse Theia IDE, Overleaf</title>
-    <link href="http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/"/>
-    <id>http://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</id>
+    <link href="https://dev.anb-network.com/2024/07/13/OpenSource/2407(1)/"/>
+    <id>https://dev.anb-network.com/2024/07/13/OpenSource/2407(1)/</id>
     <published>2024-07-12T21:13:35.000Z</published>
     <updated>2024-12-19T17:51:45.472Z</updated>
     
@@ -568,10 +568,10 @@
     
     
     
-    <category term="👐 OpenSource" scheme="http://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
+    <category term="👐 OpenSource" scheme="https://dev.anb-network.com/categories/%F0%9F%91%90-OpenSource/"/>
     
     
-    <category term="Opensource" scheme="http://ruby-kim.github.io/tags/Opensource/"/>
+    <category term="Opensource" scheme="https://dev.anb-network.com/tags/Opensource/"/>
     
   </entry>
   
