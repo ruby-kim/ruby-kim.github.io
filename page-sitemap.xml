@@ -10,6 +10,15 @@
     
     
     <url>
+        <loc>https://dev.anb-network.com/tutoring/</loc>
+        <lastmod>2025-07-08T09:58:14.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://dev.anb-network.com/contact/</loc>
         <lastmod>2023-06-21T11:39:04.159Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -29,15 +38,6 @@
     
     <url>
         <loc>https://dev.anb-network.com/tags/</loc>
-        <lastmod>2023-06-21T11:39:04.159Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://dev.anb-network.com/tutoring/</loc>
         <lastmod>2023-06-21T11:39:04.159Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

@@ -488,7 +488,7 @@
             <div id="articleContent">
                 <p>Github blog에 글을 업로드하면 다른 블로그들도 자동 업로드가 되도록 세팅해주기 위해 데이터 분석이 필요하다.<br><strong>rss</strong>는 최신 글 업로드 현황을 파악하는 용도로, <strong>markdown</strong>은 포스트 내용을 위해 분석할 계획이다.</p>
 <h2 id="사전-준비물"><a href="#사전-준비물" class="headerlink" title="사전 준비물"></a>사전 준비물</h2><hr>
-<p>Github blog를 분석하기 위해서는 먼저 Personal Access Token을 이용해 Github repository 접근 권한을 가져와야 한다.<br>아래의 url을 통해 발급부터 세팅까지 해보자.<br><a target="_blank" rel="noopener" href="https://ruby-kim.github.io/2022/03/18/Etc/Github-PAT/">Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</a></p>
+<p>Github blog를 분석하기 위해서는 먼저 Personal Access Token을 이용해 Github repository 접근 권한을 가져와야 한다.<br>아래의 url을 통해 발급부터 세팅까지 해보자.<br><a href="https://dev.anb-network.com/2022/03/18/Etc/Github-PAT/">Github: Personal Access Token을 이용해 로컬에서 원하는 repository를 조작해보자</a></p>
 <br>
 
 <h2 id="import-modules"><a href="#import-modules" class="headerlink" title="import modules"></a>import modules</h2><hr>
@@ -553,7 +553,7 @@ class GithubBlog:
 <li>블로그 카테고리를 보면 앞에 이모지를 사용했는데, 몇 이모지들은 합쳐져서 만들어져서 그런지 <code>\u200d</code>라는 값이 생성되어 빼버렸다.<ul>
 <li>원래 결과물: 👩‍💻</li>
 <li>파싱 결과물: 👩\ud200d💻</li>
-<li>혹시 이모티콘 합친 결과물이 안보일 시 <a target="_blank" rel="noopener" href="https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/">Github blog</a>로 와서 보세요</li>
+<li>혹시 이모티콘 합친 결과물이 안보일 시 <a href="https://dev.anb-network.com/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/">Github blog</a>로 와서 보세요</li>
 </ul>
 </li>
 <li>해당 코드를 실행 시 결과물은 다음처럼 나온다. <img src="3.png"></li>
@@ -617,7 +617,7 @@ def preprocess(content, target_path):
         value = head[colon + 1:].replace('"', '').replace("\u200d", '').strip()
 
         if key == 'img':
-            value = f"https://github.com/ruby-kim/ruby-kim.github.io/blob/master{value}?raw=true"
+            value = f"https://github.com/ruby-kim/dev.anb-network.com/blob/master{value}?raw=true"
         content_head[key] = value
 
     # body preprocessing
@@ -627,7 +627,7 @@ def preprocess(content, target_path):
         if '![]' in body and '.png)' in body:
             uploaded_date = content_head["date"].split()[0].replace('-', '/')
             img_filename = body.replace("![](", "").replace(")", "")
-            body = body.replace(img_filename, f"https://github.com/ruby-kim/ruby-kim.github.io/blob/master/"
+            body = body.replace(img_filename, f"https://github.com/ruby-kim/dev.anb-network.com/blob/master/"
                                             f"{uploaded_date + '/' + target_path_name + '/' + img_filename}?raw=true")
         content_body.append(body)
     return content_head, '\n'.join(content_body)
@@ -638,13 +638,13 @@ def preprocess(content, target_path):
 <li>따라서 <code>---</code>기준으로 글 정보(head)와 글 내용(body)를 분리 후 전처리를 진행해야 한다.</li>
 <li>그 중 <code>---</code>는 총 2개가 있으므로, 오른쪽에 있는 <code>---</code>를 찾기 위해 rindex()를 생성했다.</li>
 <li>hexo 블로그 .md파일을 잘 살펴보면 이미지 업로드 부분이 있는데, 이대로 바로 데이터를 보내버리면 이미지 로딩이 안되기 때문에 유효한 이미지 url을 생성할 수 있도록 전처리를 진행했다.</li>
-<li>이미지는 원래 private repository에서 불러오려 했으나, private이라 뒤에 토큰값이 붙어 실제 <a target="_blank" rel="noopener" href="https://github.com/ruby-kim/ruby-kim.github.io">github blog repository</a>에서 이미지 url을 가져왔다.</li>
+<li>이미지는 원래 private repository에서 불러오려 했으나, private이라 뒤에 토큰값이 붙어 실제 <a target="_blank" rel="noopener" href="https://github.com/ruby-kim/dev.anb-network.com">github blog repository</a>에서 이미지 url을 가져왔다.</li>
 <li>코드 실행 시 결과물은 다음처럼 나온다.<br>(맨 처음 사진과 비교해보면 똑같은 내용임을 확인할 수 있다) <img src="5.png"></li>
 </ul>
 <br>
 
 <h2 id="개인정보-env에-저장-및-코드-수정"><a href="#개인정보-env에-저장-및-코드-수정" class="headerlink" title="개인정보 .env에 저장 및 코드 수정"></a>개인정보 .env에 저장 및 코드 수정</h2><hr>
-<p><a target="_blank" rel="noopener" href="https://ruby-kim.github.io/2022/03/16/Etc/Python-env/">Python3에서 환경변수 .env 사용하기</a></p>
+<p><a href="https://dev.anb-network.com/2022/03/16/Etc/Python-env/">Python3에서 환경변수 .env 사용하기</a></p>
 <br>
 
 <h2 id="전체-코드"><a href="#전체-코드" class="headerlink" title="전체 코드"></a>전체 코드</h2><hr>
@@ -653,7 +653,7 @@ def preprocess(content, target_path):
 </ul>
 <p><br><br></p>
 <h2 id="관련-포스트-더보기"><a href="#관련-포스트-더보기" class="headerlink" title="관련 포스트 더보기"></a>관련 포스트 더보기</h2><hr>
-<p><a target="_blank" rel="noopener" href="https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
+<p><a href="https://dev.anb-network.com/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/">[Automatic Tech Blog Management] Intro</a></p>
 
                 
             </div>

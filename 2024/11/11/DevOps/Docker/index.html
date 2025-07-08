@@ -486,7 +486,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>이 글을 읽는 사람은 먼저 <a target="_blank" rel="noopener" href="https://ruby-kim.github.io/2024/07/12/DevOps/Container/">Container 개념</a>부터 정리하고 읽는 것을 추천한다.</p>
+                <p>이 글을 읽는 사람은 먼저 <a href="https://dev.anb-network.com/2024/07/12/DevOps/Container/">Container 개념</a>부터 정리하고 읽는 것을 추천한다.</p>
 <p>Docker는 컨테이너 기반의 애플리케이션 개발, 배포, 실행을 자동화하는 오픈소스로 대부분의 기업들에서 컨테이너 관련 기술로 채택하는 기술이다.</p>
 <h2 id="1-Docker-개념"><a href="#1-Docker-개념" class="headerlink" title="1. Docker 개념"></a>1. Docker 개념</h2><h3 id="Docker-Image"><a href="#Docker-Image" class="headerlink" title="Docker Image"></a>Docker Image</h3><ul>
 <li>컨테이너를 실행하기 위한 읽기 전용 템플릿</li>
@@ -578,30 +578,30 @@ Server:
 <li><p>Docker Hub에서 이미지 검색: <code>docker search &lt;이미지명&gt;</code></p>
 <pre class="line-numbers language-bash"><code class="language-bash">$ docker search <span class="token function">test</span>
 NAME                           DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
-immcantation/test              Immcantation unit <span class="token function">test</span> image                    1                    
-pachyderm/test                                                                 0                    
-islandora/test                 This image is exclusively used <span class="token keyword">for</span> manually …   0                    
-okteto/test                                                                    0                    
-amir20/test                                                                    0                    
-kubeovn/test                                                                   0                    
-voxpupuli/test                 Container repo to <span class="token function">test</span> container build and V…   0                    
-corpusops/test                                                                 0                    
-ratelimitpreview/test                                                          0                    
-test/testimage20130921141042                                                   0                    
-test/testimage20130919235830                                                   0                    
-test/testimage20130921221004                                                   0                    
-test/testimage20130919223925                                                   0                    
-test/testimage20130921190956                                                   0                    
-test/testimage20130922032014                                                   0                    
-doct15/test                                                                    0                    
+immcantation/test              Immcantation unit <span class="token function">test</span> image                    1
+pachyderm/test                                                                 0
+islandora/test                 This image is exclusively used <span class="token keyword">for</span> manually …   0
+okteto/test                                                                    0
+amir20/test                                                                    0
+kubeovn/test                                                                   0
+voxpupuli/test                 Container repo to <span class="token function">test</span> container build and V…   0
+corpusops/test                                                                 0
+ratelimitpreview/test                                                          0
+test/testimage20130921141042                                                   0
+test/testimage20130919235830                                                   0
+test/testimage20130921221004                                                   0
+test/testimage20130919223925                                                   0
+test/testimage20130921190956                                                   0
+test/testimage20130922032014                                                   0
+doct15/test                                                                    0
 flypenguin/test                A <span class="token function">test</span> container <span class="token keyword">for</span> <span class="token punctuation">..</span>. k8s :<span class="token punctuation">)</span>                 0                    <span class="token punctuation">[</span>OK<span class="token punctuation">]</span>
-brimworks/test                                                                 0                    
-flvranckx/test                 <span class="token function">test</span>                                            0                    
-chiphwang/test                                                                 0                    
-divyag2411/test                                                                0                    
-realmaccess/test                                                               0                    
-devopsatburst/test                                                             0                    
-hopar/test                     <span class="token function">test</span> descr                                      0                    
+brimworks/test                                                                 0
+flvranckx/test                 <span class="token function">test</span>                                            0
+chiphwang/test                                                                 0
+divyag2411/test                                                                0
+realmaccess/test                                                               0
+devopsatburst/test                                                             0
+hopar/test                     <span class="token function">test</span> descr                                      0
 femycatherine/test             <span class="token function">test</span>                                            0
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <br>
@@ -609,7 +609,7 @@ femycatherine/test             <span class="token function">test</span>         
 <li><p>특정 이미지를 로컬로 다운로드: <code>docker pull &lt;이미지명&gt;:&lt;태그&gt;</code></p>
 </li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ docker pull nginx:latest  
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker pull nginx:latest
 latest: Pulling from library/nginx
 Digest: sha256:bc5eac5eafc581aeda3008b4b1f07ebba230de2f27d47767129a6a905c84f470
 Status: Image is up to <span class="token function">date</span> <span class="token keyword">for</span> nginx:latest
@@ -672,7 +672,7 @@ b7711eb537add805b8628277d4c677dd3d91e009d3b64bbac81e60fa84f53928
 <span class="token comment" spellcheck="true"># 환경변수가 Foo를 설정하고 값을 bar로 설정</span>
 <span class="token comment" spellcheck="true"># 컨테이너 실행 이미지는 python:3.12-slim</span>
 <span class="token comment" spellcheck="true"># 컨테이너 내부 실행 명령어는 env (컨테이너 내부의 모든 환경변수 출력하는 unix 명령어)</span>
-$ docker run -e FOO<span class="token operator">=</span>bar python:3.12-slim <span class="token function">env</span>  
+$ docker run -e FOO<span class="token operator">=</span>bar python:3.12-slim <span class="token function">env</span>
 PATH<span class="token operator">=</span>/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 HOSTNAME<span class="token operator">=</span>b20562c470be
 FOO<span class="token operator">=</span>bar
@@ -707,7 +707,7 @@ CONTAINER ID   IMAGE               COMMAND                  CREATED         STAT
 CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS                      PORTS      NAMES
 275bdef89cc4   django-app:latest      <span class="token string">"/bin/bash -c 'sourc…"</span>   About a minute ago   Up About a minute           8000/tcp   relaxed_euclid
 f6d665ae418b   python:3.12-slim       <span class="token string">"python3"</span>                2 minutes ago        Exited <span class="token punctuation">(</span>0<span class="token punctuation">)</span> 2 minutes ago               intelligent_easley
-7c72d2379677   python:3.12-slim       <span class="token string">"-d"</span>                     2 minutes ago       
+7c72d2379677   python:3.12-slim       <span class="token string">"-d"</span>                     2 minutes ago
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>컨테이너 내부 접속: `docker exec -it &lt;컨테이너ID&gt; /bin/bash</li>
@@ -717,7 +717,7 @@ CONTAINER ID   IMAGE               COMMAND                  CREATED         STAT
 275bdef89cc4   django-app:latest   <span class="token string">"/bin/bash -c 'sourc…"</span>   7 minutes ago   Up 7 minutes   8000/tcp   relaxed_euclid
 
 $ docker <span class="token function">exec</span> -it 275bdef89cc4 /bin/bash
-$ root@275bdef89cc4:/app<span class="token comment" spellcheck="true"># </span>
+$ root@275bdef89cc4:/app<span class="token comment" spellcheck="true">#</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <br>
 
@@ -728,12 +728,12 @@ $ root@275bdef89cc4:/app<span class="token comment" spellcheck="true"># </span>
 CONTAINER ID   IMAGE               COMMAND                  CREATED         STATUS         PORTS      NAMES
 275bdef89cc4   django-app:latest   <span class="token string">"/bin/bash -c 'sourc…"</span>   8 minutes ago   Up 8 minutes   8000/tcp   relaxed_euclid
 
-$ docker stop 275bdef89cc4 
+$ docker stop 275bdef89cc4
 275bdef89cc4
 
 $ docker <span class="token function">ps</span>
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-$ 
+$
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <br>
 
@@ -750,7 +750,7 @@ CONTAINER ID   IMAGE                  COMMAND                  CREATED          
 $ docker start 275bdef89cc4 <span class="token comment" spellcheck="true"># 최근에 중단된거 재시작</span>
 275bdef89cc4
 
-$ <span class="token variable">$docker</span> <span class="token function">ps</span> 
+$ <span class="token variable">$docker</span> <span class="token function">ps</span>
 CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS         PORTS      NAMES
 275bdef89cc4   django-app:latest   <span class="token string">"/bin/bash -c 'sourc…"</span>   11 minutes ago   Up 3 seconds   8000/tcp   relaxed_euclid
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
@@ -801,7 +801,7 @@ Starting Gunicorn<span class="token punctuation">..</span>.
 <h3 id="5-Docker-네트워크-관리"><a href="#5-Docker-네트워크-관리" class="headerlink" title="5) Docker 네트워크 관리"></a>5) Docker 네트워크 관리</h3><ul>
 <li>네트워크 생성: <code>docker network create &lt;네트워크명&gt;</code></li>
 </ul>
-<pre class="line-numbers language-bash"><code class="language-bash">$ docker network create mynw 
+<pre class="line-numbers language-bash"><code class="language-bash">$ docker network create mynw
 beb1bf647de5e6a2ea2debcd45a095b2c94b217a0c645e05ff33fd122ffdfe8a
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <br>
@@ -918,14 +918,14 @@ Error response from daemon: remove myvo: volume is <span class="token keyword">i
 </ul>
 <pre class="line-numbers language-bash"><code class="language-bash">$ docker build -t my-app:1.0 <span class="token keyword">.</span>
 <span class="token punctuation">[</span>+<span class="token punctuation">]</span> Building 0.0s <span class="token punctuation">(</span>2/2<span class="token punctuation">)</span> FINISHED
- <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load build definition from Dockerfile                                              0.0s 
- <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring dockerfile:  2B                                                               0.0s 
- <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load <span class="token keyword">.</span> dockerignore                                                                0.0s 
- <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring context: 2B                                                                   0.0s 
- <span class="token operator">=</span><span class="token operator">></span> exporting to image                                                                            0.0s 
- <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> exporting layers                                                                           0.0s 
- <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> writing image sha56:84b400a8fb9307f2ddc1dc29eef33c2bb664e2bdac75449d1f14e4cabaeb429        0.0s 
- <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> naming to docker.io/library/my-app                                                         0.0s 
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load build definition from Dockerfile                                              0.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring dockerfile:  2B                                                               0.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">[</span>internal<span class="token punctuation">]</span> load <span class="token keyword">.</span> dockerignore                                                                0.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> transferring context: 2B                                                                   0.0s
+ <span class="token operator">=</span><span class="token operator">></span> exporting to image                                                                            0.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> exporting layers                                                                           0.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> writing image sha56:84b400a8fb9307f2ddc1dc29eef33c2bb664e2bdac75449d1f14e4cabaeb429        0.0s
+ <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">=</span><span class="token operator">></span> naming to docker.io/library/my-app                                                         0.0s
 
 
  <span class="token comment" spellcheck="true"># 플랫폼이 다를 경우에는 --platform 명령어를 사용할 것</span>
