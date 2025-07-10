@@ -1,1 +1,78 @@
 /* Here is your custom css styles. */
+
+/* About: Program */
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 1.5rem;
+}
+
+.program-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-4px);
+}
+
+.program-card h5 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.program-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Post detail: Related post list */
+.related-posts-list {
+    margin-top: 2rem;
+}
+
+.related-posts-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.related-posts-ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.related-posts-ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.related-posts-ul li:last-child {
+    border-bottom: none;
+}
+
+.related-posts-ul li a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.related-posts-ul li a:hover {
+    color: #0077cc;
+}
+
+.related-posts-grid h3 {
+    font-size: 1rem; /* 예: 기본보다 살짝 작게 (16px) */
+    font-weight: 500;
+    margin: 0.2rem 0;
+    line-height: 1.4;
+}

@@ -6,7 +6,7 @@
   <link href="https://ruby-kim.github.io/atom.xml" rel="self"/>
   
   <link href="https://ruby-kim.github.io/"/>
-  <updated>2025-01-02T12:23:54.996Z</updated>
+  <updated>2025-07-10T16:27:30.587Z</updated>
   <id>https://ruby-kim.github.io/</id>
   
   <author>
@@ -17,18 +17,74 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>직접 개발한 사이트, 애드센스 등록 성공!</title>
+    <link href="https://ruby-kim.github.io/2025/07/10/Etc/Build-Site-Adsense/"/>
+    <id>https://ruby-kim.github.io/2025/07/10/Etc/Build-Site-Adsense/</id>
+    <published>2025-07-09T16:44:35.000Z</published>
+    <updated>2025-07-10T16:27:30.587Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;예전부터 직접 만든 사이트에 애드센스를 달아보고 싶었는데, 이번에 애드센스를 무사히 통과했다!&lt;/p&gt;
+&lt;p&gt;이번 포스팅에서는 어떤 방식으로 만들었고, 심사를 위해 어떤 부분을 신경 썼는지, 그리고 실제 심사 전략까지</summary>
+        
+      
+    
+    
+    
+    <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    
+    
+    <category term="Adsense" scheme="https://ruby-kim.github.io/tags/Adsense/"/>
+    
+    <category term="NextJS" scheme="https://ruby-kim.github.io/tags/NextJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[GCP] GCP Professional Cloud Architect(PCA) 자격증 시험 준비 및 합격 후기</title>
+    <link href="https://ruby-kim.github.io/2025/06/10/Certificate/GCP/GoogleCloudPCA/"/>
+    <id>https://ruby-kim.github.io/2025/06/10/Certificate/GCP/GoogleCloudPCA/</id>
+    <published>2025-06-10T14:44:35.000Z</published>
+    <updated>2025-07-10T12:40:44.456Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;GCP-사전-지식&quot;&gt;&lt;a href=&quot;#GCP-사전-지식&quot; class=&quot;headerlink&quot; title=&quot;GCP 사전 지식&quot;&gt;&lt;/a&gt;GCP 사전 지식&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;없음. 대충 들은건 있어가지고 어떤 서비스가 있는지는 아는데,</summary>
+        
+      
+    
+    
+    
+    <category term="📝 Certificate" scheme="https://ruby-kim.github.io/categories/%F0%9F%93%9D-Certificate/"/>
+    
+    
+    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)</title>
     <link href="https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/"/>
     <id>https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</id>
     <published>2025-01-01T14:44:35.000Z</published>
-    <updated>2025-01-02T12:23:54.996Z</updated>
+    <updated>2025-07-10T11:25:55.315Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;개발 포트폴리오 사이트를 만들었는데, 배포는 성공했다만 생각해보니 검색 유입을 위한 SEO(Search Engine Optimization) 최적화를 하지 않았음을 깨달았다 (…)&lt;br&gt;따라서 Vue3로 하는 방법을 간략히 정리해보고자</summary>
+    <summary type="html">&lt;p&gt;개발 포트폴리오 사이트를 만들었는데, 배포는 성공했다만 생각해보니 검색 유입을 위한 SEO(Search Engine Optimization) 최적화를 하지 않았음을 깨달았다..&lt;br&gt;따라서 Vue3로 하는 방법을 간략히 정리해보고자</summary>
         
       
     
@@ -70,9 +126,9 @@
     <category term="✨ Frontend" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
     
     
-    <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
-    
     <category term="NextJS" scheme="https://ruby-kim.github.io/tags/NextJS/"/>
+    
+    <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
     
     <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
     
@@ -337,7 +393,7 @@
     <link href="https://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/"/>
     <id>https://ruby-kim.github.io/2024/09/30/Certificate/AWS/CloudPractitioner/</id>
     <published>2024-09-30T14:44:35.000Z</published>
-    <updated>2024-11-17T16:18:12.958Z</updated>
+    <updated>2025-07-10T11:29:36.493Z</updated>
     
     
       
@@ -351,7 +407,7 @@
     
     
     
-    <category term="👩‍💻 AWS" scheme="https://ruby-kim.github.io/categories/%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB-AWS/"/>
+    <category term="📝 Certificate" scheme="https://ruby-kim.github.io/categories/%F0%9F%93%9D-Certificate/"/>
     
     
     <category term="AWS" scheme="https://ruby-kim.github.io/tags/AWS/"/>
@@ -503,58 +559,6 @@
     <id>https://ruby-kim.github.io/2024/08/11/OpenSource/2408(1)/</id>
     <published>2024-08-10T16:13:35.000Z</published>
     <updated>2024-12-19T17:55:49.179Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
-        
-      
-    
-    
-    
-    <category term="👐 OpenSource" scheme="https://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
-    
-    
-    <category term="Opensource" scheme="https://ruby-kim.github.io/tags/Opensource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[오픈소스] 2024년 7월 오픈소스 소식지 (2): SmoothMQ, OpenDNS, Ladybird, Windows 10의 Firefox 97 에러, Webflow</title>
-    <link href="https://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/"/>
-    <id>https://ruby-kim.github.io/2024/07/29/OpenSource/2407(2)/</id>
-    <published>2024-07-28T22:23:35.000Z</published>
-    <updated>2024-12-19T17:54:19.904Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;(참고/출처)&lt;br&gt;2024년 정보통신산업진흥원: &lt;a href=&quot;https://www.oss.kr/open_up_intro&quot;&gt;OpenUP 프로그램&lt;/a&gt;의 2024년 기여형 프론티어로서,</summary>
-        
-      
-    
-    
-    
-    <category term="👐 OpenSource" scheme="https://ruby-kim.github.io/categories/%F0%9F%91%90-OpenSource/"/>
-    
-    
-    <category term="Opensource" scheme="https://ruby-kim.github.io/tags/Opensource/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[오픈소스] 2024년 7월 오픈소스 소식지 (1): Google Sheets, Corcel, Python, Posit, Eclipse Theia IDE, Overleaf</title>
-    <link href="https://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/"/>
-    <id>https://ruby-kim.github.io/2024/07/13/OpenSource/2407(1)/</id>
-    <published>2024-07-12T21:13:35.000Z</published>
-    <updated>2024-12-19T17:51:45.472Z</updated>
     
     
       
