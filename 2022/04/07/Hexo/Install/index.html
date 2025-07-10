@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="ko">
 
 
 <head>
@@ -47,9 +47,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
-
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="atom.xml" title="잡동사니" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -502,7 +502,7 @@
 <p><br><br></p>
 <h2 id="Hexo-설치-및-기본-세팅하기"><a href="#Hexo-설치-및-기본-세팅하기" class="headerlink" title="Hexo 설치 및 기본 세팅하기"></a>Hexo 설치 및 기본 세팅하기</h2><hr>
 <ul>
-<li>github repository 생성: <code>자신의 github 계정명.github.io</code> (ex. <a target="_blank" rel="noopener" href="https://github.com/ruby-kim/dev.anb-network.com">dev.anb-network.com</a>)</li>
+<li>github repository 생성: <code>자신의 github 계정명.github.io</code> (ex. <a target="_blank" rel="noopener" href="https://github.com/ruby-kim/ruby-kim.github.io">ruby-kim.github.io</a>)</li>
 <li>터미널에서 <code>npm</code>을 이용하여 hexo-cli 설치 및 hexo folder 생성<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g
 hexo init <span class="token string">"원하는 폴더명"</span>
 <span class="token function">cd</span> <span class="token string">"원하는 폴더명"</span>
@@ -569,7 +569,7 @@ hexo init <span class="token string">"원하는 폴더명"</span>
 <li>아래의 명령어로 블로그를 배포한다.<pre class="line-numbers language-bash"><code class="language-bash">hexo d -g        <span class="token comment" spellcheck="true"># 또는 hexo deploy -generate</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li>이후 <code>자신의 github 닉네임.github.io</code>(ex: <a href="https://dev.anb-network.com/">https://dev.anb-network.com/</a>) 에 접속하면 local에서만 봤던 내용을 확인할 수 있다.</li>
+<li>이후 <code>자신의 github 닉네임.github.io</code>(ex: <a href="https://ruby-kim.github.io/">https://ruby-kim.github.io/</a>) 에 접속하면 local에서만 봤던 내용을 확인할 수 있다.</li>
 <li>만약 블로그 수정 내역 반영이 안됐다면, 아래의 명령어를 입력 후 다시 블로그를 배포해본다.<pre class="line-numbers language-bash"><code class="language-bash">hexo clean
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
@@ -600,7 +600,7 @@ hexo init <span class="token string">"원하는 폴더명"</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://dev.anb-network.com">https://dev.anb-network.com</a>
+                    <a href="https://ruby-kim.github.io">https://ruby-kim.github.io</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1048,7 +1048,7 @@ hexo init <span class="token string">"원하는 폴더명"</span>
                         var diffDays = Math.floor((diff / days) - diffYears * 365);
 
                         // 区分是否有年份.
-                        var language = 'en';
+                        var language = 'ko';
                         if (startYear === String(todayYear)) {
                             document.getElementById("year").innerHTML = todayYear;
                             var daysTip = 'This site has been running for ' + diffDays + ' days';

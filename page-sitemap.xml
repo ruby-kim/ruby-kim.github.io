@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://dev.anb-network.com/</loc>
+        <loc>https://ruby-kim.github.io/</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
@@ -10,8 +10,8 @@
     
     
     <url>
-        <loc>https://dev.anb-network.com/tutoring/</loc>
-        <lastmod>2025-07-08T09:58:14.298Z</lastmod>
+        <loc>https://ruby-kim.github.io/tutoring/</loc>
+        <lastmod>2025-07-10T11:19:57.476Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -19,7 +19,7 @@
     
     
     <url>
-        <loc>https://dev.anb-network.com/contact/</loc>
+        <loc>https://ruby-kim.github.io/contact/</loc>
         <lastmod>2023-06-21T11:39:04.159Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -28,7 +28,7 @@
     
     
     <url>
-        <loc>https://dev.anb-network.com/categories/</loc>
+        <loc>https://ruby-kim.github.io/categories/</loc>
         <lastmod>2023-06-21T11:39:04.159Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -37,7 +37,7 @@
     
     
     <url>
-        <loc>https://dev.anb-network.com/tags/</loc>
+        <loc>https://ruby-kim.github.io/tags/</loc>
         <lastmod>2023-06-21T11:39:04.159Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -46,7 +46,7 @@
     
     
     <url>
-        <loc>https://dev.anb-network.com/about/</loc>
+        <loc>https://ruby-kim.github.io/about/</loc>
         <lastmod>2023-06-21T11:39:04.158Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
