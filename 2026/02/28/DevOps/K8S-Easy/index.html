@@ -1,0 +1,1212 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Kubernetes 용어 완전 쉽게 이해하기, 잡동사니">
+    <meta name="description" content="Kubernetes의 pod, namespace, port, ingress, volume, configmap 등 용어가 어렵다면 이걸로 마스터 해보자">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="naver-site-verification" content="f4d0e3c893b2d90712d39536761907478c1ec622" />
+    <meta name="google-adsense-account" content="ca-pub-2159344226108747">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22Z5MEFCP7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-22Z5MEFCP7');
+</script>
+
+
+    <title>Kubernetes 용어 완전 쉽게 이해하기 | 잡동사니</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <!-- Typography: Pretendard (Korean) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">잡동사니</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">잡동사니</div>
+        <div class="logo-desc">
+            
+            ☁ Cloud Engineer ☁
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ruby-kim/ruby-kim.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Github" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        // TODO: Need to implement SHA256
+        if (pwd && pwd.length > 0) {
+            if (pwd !== prompt('비밀번호를 입력해주세요.')) {
+            // if (pwd !== CryptoJS.SHA256(prompt('비밀번호를 입력해주세요.')).toString(CryptoJS.enc.Hex)) {
+                alert('잘못된 비밀번호 입니다. 홈페이지로 돌아갑니다.');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/coverImages/kubernetes.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Kubernetes 용어 완전 쉽게 이해하기</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/DevOps/">
+                                <span class="chip bg-color">DevOps</span>
+                            </a>
+                        
+                            <a href="/tags/Kubernates/">
+                                <span class="chip bg-color">Kubernates</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E2%99%BC-DevOps/" class="post-category">
+                                ♼ DevOps
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2026-02-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    833
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    5 Min
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>요즘 프로젝트 멘토링에서 K8S 수업을 하고 있는데, 다들 용어 습득에 매우 어려움을 겪으시더라… 그래서 <strong>아주 완전 쉽게</strong> 이해하실 수 있도록 준비해본게 나름 괜찮은 것 같아서 ^_^ 블로그 글로 한 번 남겨본다.</p>
+<p>모든 개념이 들어있진 않으니 참고하세요</p>
+<h2 id="1-Node-노드"><a href="#1-Node-노드" class="headerlink" title="1. Node 노드"></a>1. Node 노드</h2><p>여러분들 앞에 10년도 더 된, 사용하지 않는 고물 노트북이 있다고 가정해보자.</p>
+<p>이거를 여러분들의 <strong>홈서버</strong>로 설정하여 프로그램을 돌리거나 gdrive같은 <strong>파일저장시스템</strong>을 만든다고 하자. 그리고 여러분들은 가족들 모두가 이용할 수 있도록 설정을 세분화 하고 싶다고 하자.</p>
+<p>이 때 여러분들이 <strong>K8S</strong>로 시스템을 관리한다고 하면, node는 <strong>실제 물리적 공간 = 노트북</strong>이 된다.</p>
+<p>그 중에서도</p>
+<ul>
+<li><strong>Master Node</strong>: 직접 일은 안하고 명령만 내리는 일종의 <strong>두뇌</strong> (예시에서는 노트북이 두뇌 역할을 겸하는 중)</li>
+<li><strong>Worker Node</strong>: 쫄따구(Pod)가 실제로 거주하며 일하는 <strong>물리적 공간</strong>을 의미한다.</li>
+</ul>
+<h2 id="2-Namespace-네임스페이스"><a href="#2-Namespace-네임스페이스" class="headerlink" title="2. Namespace 네임스페이스"></a>2. Namespace 네임스페이스</h2><p>Namespace는 가상 구역을 나눌 때 사용한다. 즉 <strong>Node를 가상으로 N등분 한거</strong>라고 이해하면 된다.</p>
+<p>노트북에서 A, B, C라는 Namespace(=구역)을 나누면 가족 1, 가족 2, 가족 3이 각각의 영역을 사용하면 된다는 얘기다.</p>
+<p>분명 서버 테스트를 한다고 이것저것 돌려보면 오류가 날 가능성이 있다. 이 때 namespace를 기준으로 세팅을 하면 서로의 영역을 터치하지 않기 때문에 다른 쪽에서 에러가 났다한들 다른 프로그램은 잘 돌아가는걸 볼 수 있다.</p>
+<h2 id="3-Pod-파드"><a href="#3-Pod-파드" class="headerlink" title="3. Pod 파드"></a>3. Pod 파드</h2><p>실제 이 체계에서 가장 <strong>쫄따구 / 노예</strong> 계급이라고 생각하면 된다. 얘가 실무 처리를 다 한다.</p>
+<p>여기서 시스템 서버 돌리기 등이 일어난다.</p>
+<p>만약 서비스에 사람들이 많이 들어온다? 그러면 일이 바쁘단 얘기가 되는 것이며, 그럼 노예를 더 뽑아서 일을 시켜야 한다는 의미가 되므로 Pod들이 우후죽순 여러 개가 생겨난다고 보면 된다.</p>
+<p>반대로 서비스에 사람들이 줄어들었다, 그러면 필요없는 Pod들이 삭제된다.</p>
+<p>즉, <strong>Pod들은 추가되거나 삭제되는 것에서 매우 자유롭다고 생각하면 된다.</strong> <del>마치 회사 인원감축 때 가장 잘리기 쉬운 말단사원처럼……</del></p>
+<h2 id="4-Service-서비스"><a href="#4-Service-서비스" class="headerlink" title="4. Service 서비스"></a>4. Service 서비스</h2><p>현실세계에서 다른 집으로 이사를 갔다고 쳐보자. 집 주소는 바뀌겠지만 자신의 핸드폰 번호는 번호 변경 서비스 신청을 하지 않는 이상 <strong>그대로일 것이다</strong>.</p>
+<p>앞서 <strong>Pod는</strong> 추가/삭제에 매우 자유롭다고 말했는데, 이 얘기는 바로 노예의 정보가 자주 바뀐다는 의미 = <strong>주소가 고정되어 있지 않다</strong>는 뜻이 된다.</p>
+<p>우리 입장에서는 이 Pod에서 원하는 서버를 돌리는건데, 이걸 못찾는다? 그러면 이걸 매번 어디있는지 찾아서 돌아가라! 라고 명령을 내려야 하는게 여간 귀찮은 일이 아니다. 이 때 나오는 개념이 바로 <strong>Service</strong>이다.</p>
+<p>Service를 사용하면 <strong>주소를 고정</strong>함으로써 Pod의 내용물이 바뀌더라도 알아서 변경 주소로 매핑이 되어 우리가 편하게 이용할 수 있다.</p>
+<h2 id="5-Port-포트"><a href="#5-Port-포트" class="headerlink" title="5. Port 포트"></a>5. Port 포트</h2><p>보통의 회사같은 경우 마케팅 / IT / HR / 경영 부서가 각각 있을 것이다. 회사다보니 사람들이 이직 또는 퇴사를 하면서 인원변동이 있을 것이지만, 부서 자체는 사라지는 일이 거의 없다.</p>
+<p>여기 k8s에서도 마찬가지다. 어쨌든간에 관리직이든 노예든 모두가 일을 할텐데, 현실세계에서 우리가 이직이나 퇴사를 하는 것처럼 얘들이 평생을 바쳐 일을 하지 않는다. 자원이 변경될 수 있다. 하지만 자원들이 <strong>속한 공간은 변경되지 않는다</strong>.</p>
+<p>그래서 Port는 <strong>실제 일하는 공간의 주소</strong>라고 생각하면 된다.</p>
+<ul>
+<li>targetPort: Pod들이 실제로 머무는 주소 - 101동 101호같은 주소에서 <strong>101호</strong>를 의미</li>
+<li>port: 서비스의 주소 - 여러 개의 서비스가 있으니 “A 서비스는 80번”, “B 서비스는 81번” 식으로 이름을 붙여줌</li>
+<li>nodePort: 외부에서 노트북(Node) IP를 치고 들어올 때 쓰는 일종의 <strong>정문 번호</strong></li>
+</ul>
+<h2 id="6-Deployment-ReplicaSet"><a href="#6-Deployment-ReplicaSet" class="headerlink" title="6. Deployment / ReplicaSet"></a>6. Deployment / ReplicaSet</h2><p>위에서 pod들이 실질적인 일을 한다고 했는데, 여기서 deployment와 replicaSet은 그 pod들의 상사 역할이라고 생각하면 된다.</p>
+<p>즉 <strong>Deployment &gt; ReplicaSet &gt; Pod</strong> 순이며,</p>
+<ul>
+<li>Deployment가 “새 버전 업데이트”, “롤백” 같은 <strong>전체적인 전략</strong>을 짜면</li>
+<li>ReplicaSet이 Deployment의 명령을 받고 <strong>오직 Pod의 숫자 관리</strong>에 집중을 한다. 예를 들면 “지금 바빠 죽겠는데 pod가 하나네? 더 만들자” 이런식으로 된다.</li>
+<li>그리고 실질적으로 Pod가 그 일을 한다고 생각하면 된다.</li>
+</ul>
+<p>그래서 실제로 명령어를 쳐보면,</p>
+<ul>
+<li>Deployment: my-web</li>
+<li>ReplicaSet: my-web-123abc</li>
+<li>Pod: my-web-random-123abc-def456</li>
+</ul>
+<p>이런식으로 종속되어 있는 형태로 이름이 지어지는 것을 알 수 있다.</p>
+<h2 id="7-Ingress-Egress"><a href="#7-Ingress-Egress" class="headerlink" title="7. Ingress / Egress"></a>7. Ingress / Egress</h2><p>위에서 우리는 port라는 것을 설명했는데, port는 쉽게 “주소”를 얘기한다고 했다.</p>
+<p>만약에 노트북을 홈서버로 만들었다고 하면, 보통은 공부 목적으로 프로젝트를 만들어 배포 연습도 할 것이다.</p>
+<p>근데 그런 프로젝트가 한 두개여도 포트 번호를 외우는데 귀찮은데, 이게 20개 30개가 넘는다고 하자. 이걸 언제 다 외우겠는가??</p>
+<p>이 때 필요한게 바로 <strong>Ingress</strong>이다. Ingress는 <strong>포트 번호를 외우기 싫을 때, 도메인에 연결해서 쉽게 우리의 포트와 매핑을 해주는 것</strong>이라고 생각하면 된다.</p>
+<br>
+
+<p>그럼 <strong>Egress</strong>는 무엇이냐, 일단 Ingress는 영단어만 보면 “들어온다”는 뜻이다. 즉 Egress는 그 반대로 “밖으로 나가는 것”에 대한 것이 된다.</p>
+<p>그럼 데이터가 밖으로 나가는 경우가 무엇이 있을까? 보통은 사용자가 서버에서 데이터를 다운로드받을 때를 생각하겠지만, 여러 관점에서 생각해볼 때 <strong>해킹당했을 때 데이터가 밖으로 나갈 것</strong>도 고려해야 한다.</p>
+<p>그래서 Egress는 <strong>데이터를 밖으로 꺼낼 때 얼마나 차단할지</strong>를 설정해서, 해킹 방지용에 많이 사용한다고 생각하면 된다.</p>
+<h2 id="8-Volume"><a href="#8-Volume" class="headerlink" title="8. Volume"></a>8. Volume</h2><p>지금까지는 프로그램에 대한 얘기를 했다. pod를 통해 실질적으로 프로그램을 돌린다고 했는데, pod는 결국 노예이기 때문에 필요 없으면 바로 컷을 당하는 불쌍한 아이다.</p>
+<p>그러면 이 얘기는 즉슨, pod가 사라지면 기존에 pod 안에 있던 데이터는 전부 하늘나라로 날아가게 된다는 얘기다. 우리의 데이터는 그럼 영원한 이별을 맞이하게 된다는 그런 슬픈 이야기가….</p>
+<p>그럼 데이터를 안날아가게 하는 방법이 있냐? 당연히 있다. 이 때 나오는 개념이 바로 <strong>Volume</strong>이다.</p>
+<p>Volume을 사용하면 <strong>하드디스크에 데이터를 안전하게 저장해서 영구 보관을 할 수 있다.</strong></p>
+<p>노트북으로 서버를 만들었다면, 이 노트북의 하드디스크게 데이터를 저장하게 될 것이다.</p>
+<p>우리는 이것을 <strong>PV(Persistent Volume)</strong> 이라고 부르며, 파일을 저장하고 관리하는 경험을 하고 싶을 때 <strong>PVC(Persistent Volume Claim)</strong> 이라는 저장소 요청소를 만들어서 k8s에 제출하면 파일을 업로드할 수 있다.</p>
+
+                
+            </div>
+            <hr/>
+
+            
+                
+                <div class="related-posts-container">
+                    <h2 class="related-posts-title">📌 관련 글</h2>
+                    <div class="related-posts-grid">
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/10/12/DevOps/Kubernetes/" title="Kubernetes 정리" rel="bookmark">Kubernetes 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/07/12/DevOps/Container/" title="Container 정리" rel="bookmark">Container 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/05/12/DevOps/Intro/" title="DevOps 개요" rel="bookmark">DevOps 개요</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/11/11/DevOps/Docker/" title="Docker 정리" rel="bookmark">Docker 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/" title="bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기" rel="bookmark">bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기</a></h3></div></li></ul>
+                    </div>
+                </div>
+            
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ruby Kim</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/">https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Ruby Kim</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>Comments</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c12f8521b335e062742b',
+        clientSecret: '4055e81aad344987f1b5f608c83e6827f77ea431',
+        repo: 'ruby-kim.github.io',
+        owner: 'ruby-kim',
+        admin: ["ruby-kim"],
+        id: '2026-02-28T00-38-35',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2026/02/28/Tips/UbuntuServer-Setting/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/ubuntu.png" class="responsive-img" alt="안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기)">
+                        
+                        <span class="card-title">안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            나만의 갓성비 홈서버를 만들어보자
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-02-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%92%BE-Etc/" class="post-category">
+                                    💾 Etc
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Infrastructure/">
+                        <span class="chip bg-color">Infrastructure</span>
+                    </a>
+                    
+                    <a href="/tags/Ubuntu/">
+                        <span class="chip bg-color">Ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/Windows/">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/08/25/HealthCare/HL7/fhir/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/healthcare.png" class="responsive-img" alt="[HealthCare] HL7 FHIR 완전 정리">
+                        
+                        <span class="card-title">[HealthCare] HL7 FHIR 완전 정리</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            최신 의료 데이터 표준 FHIR(Fast Healthcare Interoperability Resources)을 정리했다. JSON 기반 구조, 주요 리소스, 실제 예시, 그리고 활용 사례까지 한눈에 본다.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%8F%A5-HealthCare/" class="post-category">
+                                    🏥 HealthCare
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/EHR/">
+                        <span class="chip bg-color">EHR</span>
+                    </a>
+                    
+                    <a href="/tags/HL7/">
+                        <span class="chip bg-color">HL7</span>
+                    </a>
+                    
+                    <a href="/tags/HealthCare/">
+                        <span class="chip bg-color">HealthCare</span>
+                    </a>
+                    
+                    <a href="/tags/FHIR/">
+                        <span class="chip bg-color">FHIR</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: 잡동사니<br />'
+            + 'Author: Ruby Kim<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + 'All articles in this blog are licensed under <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a> unless otherwise stated.';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="site-footer">
+    
+
+    <div class="footer-inner container">
+        <!-- Col 1: Blog info -->
+        <div class="footer-col footer-col--brand">
+            <a href="/" class="footer-brand">잡동사니</a>
+            <p class="footer-desc">☁ Cloud Engineer ☁</p>
+            
+                <p class="footer-runtime" id="sitetime"></p>
+                <script>
+                    (function () {
+                        var t1 = Date.UTC(
+                            "2022", "3",
+                            "16",  "0",
+                            "0","0"
+                        );
+                        var diff  = Date.now() - t1;
+                        var days  = Math.floor(diff / 86400000);
+                        var years = Math.floor(days / 365);
+                        var rem   = days - years * 365;
+                        var txt   = years > 0
+                            ? years + '년 ' + rem + '일째 운영 중'
+                            : rem + '일째 운영 중';
+                        document.getElementById('sitetime').textContent = txt;
+                    })();
+                </script>
+            
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col footer-col--nav">
+            <h6 class="footer-heading">Menu</h6>
+            <ul class="footer-nav-list">
+                
+                    
+                    <li><a href="/">Index</a></li>
+                
+                    
+                    <li><a href="/tags">Tags</a></li>
+                
+                    
+                    <li><a href="/categories">Categories</a></li>
+                
+                    
+                    <li><a href="/archives">Archives</a></li>
+                
+                    
+                    <li><a href="/about">About</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Col 3: Social -->
+        <div class="footer-col footer-col--social">
+            <h6 class="footer-heading">Connect</h6>
+            <div class="footer-social-icons">
+                
+                    <a href="https://github.com/ruby-kim" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                
+                
+                    <a href="mailto:dev.rubykim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                
+                
+                
+                    <a href="/atom.xml" target="_blank" aria-label="RSS"><i class="fas fa-rss"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <span>
+                &copy;
+                
+                    2022–2026
+                
+                <a href="/about">Ruby Kim</a>
+            </span>
+            <span class="footer-bottom-stack">
+                Built with <a href="https://hexo.io/" target="_blank">Hexo</a>
+                &amp; <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <div id="backTop" class="top-scroll">
+    <a class="back-top-btn" href="#!" aria-label="맨 위로">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

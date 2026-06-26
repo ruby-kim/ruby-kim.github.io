@@ -1,0 +1,1250 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="[HealthCare] EHR 연동: HL7 / IEEE 11073 SDC 총정리, 잡동사니">
+    <meta name="description" content="의료데이터 스타트업을 운영하거나 병원과 시스템 연동 시 반드시 알아야 할 내용 총정리">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="naver-site-verification" content="f4d0e3c893b2d90712d39536761907478c1ec622" />
+    <meta name="google-adsense-account" content="ca-pub-2159344226108747">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22Z5MEFCP7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-22Z5MEFCP7');
+</script>
+
+
+    <title>[HealthCare] EHR 연동: HL7 / IEEE 11073 SDC 총정리 | 잡동사니</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <!-- Typography: Pretendard (Korean) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">잡동사니</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">잡동사니</div>
+        <div class="logo-desc">
+            
+            ☁ Cloud Engineer ☁
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ruby-kim/ruby-kim.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Github" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        // TODO: Need to implement SHA256
+        if (pwd && pwd.length > 0) {
+            if (pwd !== prompt('비밀번호를 입력해주세요.')) {
+            // if (pwd !== CryptoJS.SHA256(prompt('비밀번호를 입력해주세요.')).toString(CryptoJS.enc.Hex)) {
+                alert('잘못된 비밀번호 입니다. 홈페이지로 돌아갑니다.');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/coverImages/healthcare.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">[HealthCare] EHR 연동: HL7 / IEEE 11073 SDC 총정리</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/EHR/">
+                                <span class="chip bg-color">EHR</span>
+                            </a>
+                        
+                            <a href="/tags/HL7/">
+                                <span class="chip bg-color">HL7</span>
+                            </a>
+                        
+                            <a href="/tags/IEEE/">
+                                <span class="chip bg-color">IEEE</span>
+                            </a>
+                        
+                            <a href="/tags/SDC/">
+                                <span class="chip bg-color">SDC</span>
+                            </a>
+                        
+                            <a href="/tags/HealthCare/">
+                                <span class="chip bg-color">HealthCare</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%F0%9F%8F%A5-HealthCare/" class="post-category">
+                                🏥 HealthCare
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2025-01-10
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    478
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    2 Min
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="EHR-연동-HL7-IEEE-11073-SDC-올인원-정리"><a href="#EHR-연동-HL7-IEEE-11073-SDC-올인원-정리" class="headerlink" title="EHR 연동: HL7 / IEEE 11073 SDC 올인원 정리"></a>EHR 연동: HL7 / IEEE 11073 SDC 올인원 정리</h2><p>나는 이래봬도 의료데이터를 활용해서 개발하는 사람인데, 최근 부트캠프 멘토링을 하다보면 의료기술 쪽으로 프로그램이 많이 생기길래 정리해두면 좋겠다 싶어 글을 작성해봤다.</p>
+<p>의료데이터 스타트업을 운영하거나, 병원과 시스템을 연동하려 한다면 반드시 알아야 할 것이 있다.<br>바로 <strong>HL7</strong>과 <strong>IEEE 11073 SDC</strong>이다. 이 글에서는 두 표준이 무엇인지, 어떻게 쓰이는지, 그리고 최신 동향까지 한 번에 정리하였다.</p>
+<hr>
+<h3 id="1-EHR이란-무엇인가"><a href="#1-EHR이란-무엇인가" class="headerlink" title="1. EHR이란 무엇인가"></a>1. EHR이란 무엇인가</h3><ul>
+<li><strong>EHR (Electronic Health Record)</strong> 는 전자의무기록 시스템을 말한다.</li>
+<li>환자의 진료기록, 검사결과, 처방, 영상 등 모든 의료 데이터를 담는다.</li>
+<li>문제는 병원마다 시스템과 기기가 제각각이라서 서로 데이터를 주고받기 어렵다는 점이다.</li>
+<li>그래서 <strong>국제 표준 언어</strong>가 필요하게 되었다. 이게 바로 HL7의 탄생 계기이다.</li>
+</ul>
+<hr>
+<h3 id="2-HL7-병원-시스템-간-언어"><a href="#2-HL7-병원-시스템-간-언어" class="headerlink" title="2. HL7: 병원 시스템 간 언어"></a>2. HL7: 병원 시스템 간 언어</h3><ul>
+<li><strong>HL7 (Health Level Seven)</strong> 은 병원 전산끼리 정보를 주고받는 국제 표준이다.</li>
+<li><strong>HL7 v2</strong>는 1980년대부터 쓰였고, 여전히 대부분의 병원에서 사용한다.</li>
+<li><strong>HL7 v3</strong>는 XML 기반으로 복잡하여 널리 퍼지지 못했다.</li>
+<li><strong>FHIR (Fast Healthcare Interoperability Resources)</strong> 는 최신 표준으로 JSON과 API 기반이라 현대적인 시스템과 잘 맞는다.</li>
+<li>요약하자면 <strong>옛날에는 텍스트, 중간에는 XML, 지금은 JSON(FHIR)</strong> 시대라고 할 수 있다.</li>
+</ul>
+<hr>
+<h3 id="3-IEEE-11073-SDC-의료기기-연결-언어"><a href="#3-IEEE-11073-SDC-의료기기-연결-언어" class="headerlink" title="3. IEEE 11073 SDC: 의료기기 연결 언어"></a>3. IEEE 11073 SDC: 의료기기 연결 언어</h3><ul>
+<li><strong>SDC (Service-oriented Device Connectivity)</strong> 는 의료기기를 네트워크에 연결하기 위한 국제 표준이다.</li>
+<li>의료기기가 “나는 혈압 데이터를 제공한다” “나는 산소포화도를 알려줄 수 있다”와 같이 스스로 기능을 설명할 수 있게 정의하였다.</li>
+<li>환자 모니터, 인퓨전 펌프, 수술 장비 등 다양한 기기가 SDC를 통해 안전하게 데이터를 주고받는다.</li>
+<li>단순한 측정값 전송뿐 아니라 알림, 원격 제어까지 지원한다.</li>
+<li>보안은 <strong>TLS와 X.509 인증서</strong>를 통해 이루어진다.</li>
+</ul>
+<hr>
+<h3 id="4-HL7-SDC-조합-왜-필요한가"><a href="#4-HL7-SDC-조합-왜-필요한가" class="headerlink" title="4. HL7 + SDC 조합: 왜 필요한가"></a>4. HL7 + SDC 조합: 왜 필요한가</h3><ul>
+<li>병원에는 수많은 기기가 있고, 각각이 데이터를 쏟아낸다.</li>
+<li>각 병원마다 데이터 세팅이 다르기 때문에, 이 데이터를 EHR에 직접 연결하면 포맷 충돌과 오류가 발생한다. 그래서 중간에서 standard 구조로 리팩토링을 해줘야 알아서들 편하게 데이터를 다룰 수 있다.</li>
+<li>그래서 <strong>구조는 이렇게 나뉜다</strong>:<pre class="language-text" data-language="text"><code class="language-text">[의료기기] --SDC--&gt; [게이트웨이] --HL7/FHIR--&gt; [EHR]</code></pre>
+<ul>
+<li>의료기기: 혈압 120/80 mmHg 데이터를 생성한다.</li>
+<li>SDC 게이트웨이: 이를 SDC 언어로 받아 HL7/FHIR로 변환한다.</li>
+<li>EHR: 변환된 데이터를 환자 기록에 저장한다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-실제-데이터-흐름-예시"><a href="#5-실제-데이터-흐름-예시" class="headerlink" title="5. 실제 데이터 흐름 예시"></a>5. 실제 데이터 흐름 예시</h3><h4 id="1-SDC에서-나온-값"><a href="#1-SDC에서-나온-값" class="headerlink" title="1) SDC에서 나온 값"></a>1) SDC에서 나온 값</h4><pre class="language-text" data-language="text"><code class="language-text">Metric: BloodPressure
+Value: 120/80
+Unit: mmHg</code></pre>
+
+<h4 id="2-게이트웨이가-변환한-FHIR-JSON"><a href="#2-게이트웨이가-변환한-FHIR-JSON" class="headerlink" title="2) 게이트웨이가 변환한 FHIR(JSON)"></a>2) 게이트웨이가 변환한 FHIR(JSON)</h4><pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"resourceType"</span><span class="token operator">:</span> <span class="token string">"Observation"</span><span class="token punctuation">,</span>
+  <span class="token property">"subject"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">"reference"</span><span class="token operator">:</span> <span class="token string">"Patient/12345"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"device"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">"reference"</span><span class="token operator">:</span> <span class="token string">"Device/dev-mds-01"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"effectiveDateTime"</span><span class="token operator">:</span> <span class="token string">"2025-08-26T10:30:00+09:00"</span><span class="token punctuation">,</span>
+  <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"final"</span><span class="token punctuation">,</span>
+  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">"coding"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"system"</span><span class="token operator">:</span> <span class="token string">"http://loinc.org"</span><span class="token punctuation">,</span> <span class="token property">"code"</span><span class="token operator">:</span> <span class="token string">"85354-9"</span><span class="token punctuation">,</span> <span class="token property">"display"</span><span class="token operator">:</span> <span class="token string">"Blood pressure panel"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"component"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"code"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">"coding"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"system"</span><span class="token operator">:</span> <span class="token string">"http://loinc.org"</span><span class="token punctuation">,</span> <span class="token property">"code"</span><span class="token operator">:</span> <span class="token string">"8480-6"</span><span class="token punctuation">,</span> <span class="token property">"display"</span><span class="token operator">:</span> <span class="token string">"Systolic blood pressure"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"valueQuantity"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token number">120</span><span class="token punctuation">,</span> <span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"mmHg"</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"code"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">"coding"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"system"</span><span class="token operator">:</span> <span class="token string">"http://loinc.org"</span><span class="token punctuation">,</span> <span class="token property">"code"</span><span class="token operator">:</span> <span class="token string">"8462-4"</span><span class="token punctuation">,</span> <span class="token property">"display"</span><span class="token operator">:</span> <span class="token string">"Diastolic blood pressure"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">"valueQuantity"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token property">"value"</span><span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span> <span class="token property">"unit"</span><span class="token operator">:</span> <span class="token string">"mmHg"</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+
+<hr>
+<h3 id="6-최신-버전-기준"><a href="#6-최신-버전-기준" class="headerlink" title="6. 최신 버전 기준"></a>6. 최신 버전 기준</h3><ul>
+<li><strong>HL7 v2:</strong> 2.9.1 (2024)</li>
+<li><strong>FHIR:</strong> R5 (2023, 최신 안정판)</li>
+<li><strong>IEEE 11073 SDC:</strong><ul>
+<li>10207 (BICEPS, 데이터 모델)</li>
+<li>20702 (MDPWS, 통신)</li>
+<li>20701 (아키텍처 바인딩)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="7-정리"><a href="#7-정리" class="headerlink" title="7. 정리"></a>7. 정리</h3><ul>
+<li><strong>HL7/FHIR</strong>은 병원 전산끼리 소통하는 언어이다.</li>
+<li><strong>SDC</strong>는 의료기기끼리 소통하는 언어이다.</li>
+<li><strong>게이트웨이</strong>는 두 언어를 번역한다.</li>
+<li>최신 연동은 <strong>SDC + FHIR</strong> 조합으로 한다.</li>
+<li>다만 현실적으로 병원 내부에는 <strong>HL7 v2</strong>도 병행해야 한다.</li>
+<li>이 구조를 이해하면 헬스데이터 스타트업이 병원과 연동하는 모든 흐름을 설계할 수 있다.</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+                
+                <div class="related-posts-container">
+                    <h2 class="related-posts-title">📌 관련 글</h2>
+                    <div class="related-posts-grid">
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/02/20/HealthCare/HL7/v2/" title="[HealthCare] HL7 v2 정리" rel="bookmark">[HealthCare] HL7 v2 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/08/02/HealthCare/HL7/cda/" title="[HealthCare] HL7 CDA 표준 정리" rel="bookmark">[HealthCare] HL7 CDA 표준 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/08/25/HealthCare/HL7/fhir/" title="[HealthCare] HL7 FHIR 완전 정리" rel="bookmark">[HealthCare] HL7 FHIR 완전 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/03/05/HealthCare/HL7/v3/" title="[HealthCare] HL7 v3의 실패 이유 정리" rel="bookmark">[HealthCare] HL7 v3의 실패 이유 정리</a></h3></div></li></ul>
+                    </div>
+                </div>
+            
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ruby Kim</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/">https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Ruby Kim</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>Comments</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c12f8521b335e062742b',
+        clientSecret: '4055e81aad344987f1b5f608c83e6827f77ea431',
+        repo: 'ruby-kim.github.io',
+        owner: 'ruby-kim',
+        admin: ["ruby-kim"],
+        id: '2025-01-10T23-44-35',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2025/02/20/HealthCare/HL7/v2/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/healthcare.png" class="responsive-img" alt="[HealthCare] HL7 v2 정리">
+                        
+                        <span class="card-title">[HealthCare] HL7 v2 정리</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            의료데이터 스타트업을 운영하거나 병원과 시스템 연동 시 반드시 알아야 하는, HL7 v2 총정리.
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2025-02-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%8F%A5-HealthCare/" class="post-category">
+                                    🏥 HealthCare
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/EHR/">
+                        <span class="chip bg-color">EHR</span>
+                    </a>
+                    
+                    <a href="/tags/HL7/">
+                        <span class="chip bg-color">HL7</span>
+                    </a>
+                    
+                    <a href="/tags/SDC/">
+                        <span class="chip bg-color">SDC</span>
+                    </a>
+                    
+                    <a href="/tags/HealthCare/">
+                        <span class="chip bg-color">HealthCare</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/01/01/Frontend/Vuejs/SEO/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/vuelogo.png" class="responsive-img" alt="[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)">
+                        
+                        <span class="card-title">[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Vue.js 검색엔진 최적화하기
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-01-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E2%9C%A8-Frontend/" class="post-category">
+                                    ✨ Frontend
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                    <a href="/tags/Javascript/">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                    <a href="/tags/Frontend/">
+                        <span class="chip bg-color">Frontend</span>
+                    </a>
+                    
+                    <a href="/tags/SEO/">
+                        <span class="chip bg-color">SEO</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: 잡동사니<br />'
+            + 'Author: Ruby Kim<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + 'All articles in this blog are licensed under <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a> unless otherwise stated.';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="site-footer">
+    
+
+    <div class="footer-inner container">
+        <!-- Col 1: Blog info -->
+        <div class="footer-col footer-col--brand">
+            <a href="/" class="footer-brand">잡동사니</a>
+            <p class="footer-desc">☁ Cloud Engineer ☁</p>
+            
+                <p class="footer-runtime" id="sitetime"></p>
+                <script>
+                    (function () {
+                        var t1 = Date.UTC(
+                            "2022", "3",
+                            "16",  "0",
+                            "0","0"
+                        );
+                        var diff  = Date.now() - t1;
+                        var days  = Math.floor(diff / 86400000);
+                        var years = Math.floor(days / 365);
+                        var rem   = days - years * 365;
+                        var txt   = years > 0
+                            ? years + '년 ' + rem + '일째 운영 중'
+                            : rem + '일째 운영 중';
+                        document.getElementById('sitetime').textContent = txt;
+                    })();
+                </script>
+            
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col footer-col--nav">
+            <h6 class="footer-heading">Menu</h6>
+            <ul class="footer-nav-list">
+                
+                    
+                    <li><a href="/">Index</a></li>
+                
+                    
+                    <li><a href="/tags">Tags</a></li>
+                
+                    
+                    <li><a href="/categories">Categories</a></li>
+                
+                    
+                    <li><a href="/archives">Archives</a></li>
+                
+                    
+                    <li><a href="/about">About</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Col 3: Social -->
+        <div class="footer-col footer-col--social">
+            <h6 class="footer-heading">Connect</h6>
+            <div class="footer-social-icons">
+                
+                    <a href="https://github.com/ruby-kim" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                
+                
+                    <a href="mailto:dev.rubykim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                
+                
+                
+                    <a href="/atom.xml" target="_blank" aria-label="RSS"><i class="fas fa-rss"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <span>
+                &copy;
+                
+                    2022–2026
+                
+                <a href="/about">Ruby Kim</a>
+            </span>
+            <span class="footer-bottom-stack">
+                Built with <a href="https://hexo.io/" target="_blank">Hexo</a>
+                &amp; <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <div id="backTop" class="top-scroll">
+    <a class="back-top-btn" href="#!" aria-label="맨 위로">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

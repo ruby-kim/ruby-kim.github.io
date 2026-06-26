@@ -1,0 +1,1264 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기), 잡동사니">
+    <meta name="description" content="나만의 갓성비 홈서버를 만들어보자">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="naver-site-verification" content="f4d0e3c893b2d90712d39536761907478c1ec622" />
+    <meta name="google-adsense-account" content="ca-pub-2159344226108747">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22Z5MEFCP7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-22Z5MEFCP7');
+</script>
+
+
+    <title>안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기) | 잡동사니</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <!-- Typography: Pretendard (Korean) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">잡동사니</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">잡동사니</div>
+        <div class="logo-desc">
+            
+            ☁ Cloud Engineer ☁
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ruby-kim/ruby-kim.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Github" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        // TODO: Need to implement SHA256
+        if (pwd && pwd.length > 0) {
+            if (pwd !== prompt('비밀번호를 입력해주세요.')) {
+            // if (pwd !== CryptoJS.SHA256(prompt('비밀번호를 입력해주세요.')).toString(CryptoJS.enc.Hex)) {
+                alert('잘못된 비밀번호 입니다. 홈페이지로 돌아갑니다.');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/coverImages/ubuntu.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Infrastructure/">
+                                <span class="chip bg-color">Infrastructure</span>
+                            </a>
+                        
+                            <a href="/tags/Ubuntu/">
+                                <span class="chip bg-color">Ubuntu</span>
+                            </a>
+                        
+                            <a href="/tags/Windows/">
+                                <span class="chip bg-color">Windows</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%F0%9F%92%BE-Etc/" class="post-category">
+                                💾 Etc
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2026-02-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    822
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    5 Min
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>동생이 집에 홈서버 있으면 쓰고싶다 하길래 굳이 필요한가 싶어 빠꾸시켰는데, 생각을 해보니 하나 장만하면 동생이 컴퓨터 공부를 하는데 제격이겠다 싶어서 오랜만에 만들어봤다.</p>
+<p>나는 집에서 안쓰는, 2017년인가에 구매한 삼성의 always9 노트북으로 홈서버를 만들었다.</p>
+<h2 id="0-준비물"><a href="#0-준비물" class="headerlink" title="0. 준비물"></a>0. 준비물</h2><ul>
+<li>Ubuntu Server 이미지를 구울 <strong>USB</strong></li>
+<li>안쓰는 노트북 (여기서는 삼성 always9 사용)</li>
+<li>사용 중인 노트북 (ubuntu server와의 통신을 위함)</li>
+</ul>
+<h2 id="1-Ubuntu-Server-이미지-다운로드"><a href="#1-Ubuntu-Server-이미지-다운로드" class="headerlink" title="1. Ubuntu Server 이미지 다운로드"></a>1. Ubuntu Server 이미지 다운로드</h2><ul>
+<li>사이트: <a target="_blank" rel="noopener" href="https://ubuntu.com/download/server">https://ubuntu.com/download/server</a></li>
+</ul>
+<p>일단 홈서버는, 컴퓨터가 계속 돌아간다는 가정이 있어야 하기 때문에 <strong>에너지를 가장 안 잡아먹는</strong>형태로 구현을 해야한다.</p>
+<p>우리가 생각하는 우분투 데스크톱은 GUI가 있어 CPU, RAM같은 컴퓨터 자원을 많이 잡아먹기 때문에, 아주 최소한의 필수 기능만 들어있는 <strong>Ubuntu Server</strong>를 사용했다.</p>
+<p>애초에 ubuntu server는 SSH를 통해 명령어를 입력하는 방식이 최적화되어 있기도 하고, attack surface도 적어서 다른 것들에 비해 매우 안전한 편이기도 하다.</p>
+<p>다들 알겠지만 프로그램은 <strong>LTS</strong>버전이 가장 안정적이다!</p>
+<h2 id="2-USB에-이미지-굽기"><a href="#2-USB에-이미지-굽기" class="headerlink" title="2. USB에 이미지 굽기"></a>2. USB에 이미지 굽기</h2><p>그냥 파일을 담으면 안된다. iso로 다운받아질텐데, 이거를 노트북에 꽂았을 때 <strong>부팅이 가능한 상태</strong>로 만들어야 한다.</p>
+<p>그래서 windows를 사용 중이라면 <a target="_blank" rel="noopener" href="https://rufus.ie/ko/">Rufus</a>를, 맥북을 사용 중이라면 <a target="_blank" rel="noopener" href="https://etcher.balena.io/">BalenaEtcher</a>를 이용해서 usb를 구워준다.</p>
+<h2 id="3-노트북에서-부팅-설정-잡기"><a href="#3-노트북에서-부팅-설정-잡기" class="headerlink" title="3. 노트북에서 부팅 설정 잡기"></a>3. 노트북에서 부팅 설정 잡기</h2><p>USB를 구웠다면, 이제 ubuntu server를 설치할 노트북의 부팅 설정을 잡아줘야 한다. 그래야 usb를 선택해서 기존의 환경을 싹 다 밀고 ubuntu server를 설치할 수 있기 때문이다.</p>
+<p>노트북마다 전원키가 다를 수 있는 점을 참고하길 바라며, 여기서는 삼성 always9 세팅으로 설명을 적어본다.</p>
+<ul>
+<li>전원이 켜지자마자 <code>F2</code>를 연타하여 삼성 BIOS 설정 화면으로 들어간다.</li>
+<li>필자의 기억이 정확히 안나서 해당 메뉴이 명확한지 확신이 안들지만 일단 이런 느낌의 항목을 찾을 수 있을 것이다. BIOS에서 아래의 세팅이 잘 되어 있는지 확인해보자<ul>
+<li>Secure Boot (Control): Off 또는 Disabled</li>
+<li>OS Mode Selection: UEFI가 들어있는 메뉴로 변경</li>
+<li>Fast BIOS Mode: Off</li>
+<li>Battery Life Extender+: On</li>
+<li>USB S3 Wakeup: On</li>
+</ul>
+</li>
+<li>위 설정을 완료했다면 Save를 한 후, 재부팅을 하자마자 다시 F2를 연타하자</li>
+</ul>
+<h2 id="4-Ubuntu-Server-설치하기"><a href="#4-Ubuntu-Server-설치하기" class="headerlink" title="4. Ubuntu Server 설치하기"></a>4. Ubuntu Server 설치하기</h2><p>여기까지 잘 됐다면, <code>Try or install Ubuntu Server</code>, <code>Ubuntu server with the hwe kernel....</code> 이라는 선택지가 나올 것이다.</p>
+<p>여기에서 맨 위의 <code>Try or install Ubuntu Server</code>를 Enter로 선택하거나, 아니면 가만히 있음 알아서 Ubuntu Server 설치로 이동하게 될 것이다.</p>
+<p>그렇게 1분 정도 기다리면 영어가 올라오면서, 기본 세팅이 되는 것을 확인할 수 있다.</p>
+<ul>
+<li>Language: English 선택 (한글 지원 안됨)</li>
+<li>Network: 일단 나중에 설정할 예정이니 바로 Done으로 넘어가기</li>
+<li>Storage Configuration: <code>Use an entire disk</code>를 선택하면 기존의 프로그램 및 파일들이 싹다 없어진다. 그리고 <code>Done</code>을 누르면 <code>Confirm destructive action</code>이 나오는데, <code>Continue</code>를 선택하면 이 순간 Windows OS와 영원한 작별인사를 하게 된다는 점을 알아두자</li>
+<li>Profile Setup<ul>
+<li>Your name: 본인 이름</li>
+<li>Your server’s name: 서버 이름</li>
+<li>Pick a username: 로그인 아이디</li>
+<li>Password: 비밀번호</li>
+</ul>
+</li>
+</ul>
+<p>이 모든 세팅이 완료된다면, <code>Install complete</code>가 나오고 <code>Reboot Now</code>가 나오는데, Reboot now를 누른 후 바로 꽂혀있는 USB를 제거한다.</p>
+<p>설치가 잘됐다면 <code>end ssh host keys...</code> <code>datasource datasourceone up xxx seconds</code>라고 하면서 무한커서가 나오는데, 세팅이 잘 됐다는 의미이다.</p>
+<p>이 때 엔터를 한두번 하면 <code>login:</code>이라며 커서가 깜빡이는데, <code>Pick a username</code>에 입력했던 아이디를 입력, 엔터 후 password도 잘 입력을 하면 서버 로그인에 성공할 것이다.</p>
+<h2 id="5-노트북-뚜껑-닫기-설정-Lid-Switch-설정"><a href="#5-노트북-뚜껑-닫기-설정-Lid-Switch-설정" class="headerlink" title="5. 노트북 뚜껑 닫기 설정 (Lid Switch 설정)"></a>5. 노트북 뚜껑 닫기 설정 (Lid Switch 설정)</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/logind.conf</code></pre>
+
+<p>아래 항목들을 다음같이 변경해준다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">HandleLidSwitch</span><span class="token operator">=</span>ignore
+<span class="token assign-left variable">HandleLidSwitchExternalPower</span><span class="token operator">=</span>ignore
+<span class="token assign-left variable">HandleLidSwitchDocked</span><span class="token operator">=</span>ignore</code></pre>
+
+<p>이후 변경사항을 적용해준다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart systemd-logind</code></pre>
+
+<p>이 세팅을 해주면 노트북 뚜껑을 닫아도 프로그램이 계속 작동되는걸 볼 수 있을 것이다.</p>
+<h2 id="6-와이파이-Wi-Fi-잡기"><a href="#6-와이파이-Wi-Fi-잡기" class="headerlink" title="6. 와이파이 Wi-Fi 잡기"></a>6. 와이파이 Wi-Fi 잡기</h2><p>외부와의 통신을 위해 와이파이를 잡아줘야 한다.</p>
+<p>ubuntu server는 <code>netplan</code>이라는 도구를 이용해 네트워크를 관리해준다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ip</span> <span class="token function">link</span></code></pre>
+
+<p>위 명령어를 입력하면, <code>wlp...</code>로 시작하는 이름이 보일 것이다. (대부분 이름이 <strong>wlp1s0</strong>임)</p>
+<p>이 이름을 잘 백업해놓자. 이후로 설정 파일을 만들어서 wifi 연결을 잡아줄 것이다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/netplan/01-netcfg.yaml</code></pre>
+
+<p>파일 내용은 다음과 같이 만들어준다.<br>참고로 <code>.</code>하나가 스페이스바 한 번이니, 형식에 맞춰서 잘 작성을 할 것을 권장한다. 의외로 여기에서 오류가 굉장히 많이 나더라;</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">network:
+<span class="token punctuation">..</span>version: <span class="token number">2</span>
+<span class="token punctuation">..</span>renderer: networkd
+<span class="token punctuation">..</span>wifis:
+<span class="token punctuation">..</span><span class="token punctuation">..</span>wlp1s0:            <span class="token comment"># 아까 백업하라고 했던 네트워크 이름</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>dhcp4: <span class="token function">yes</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>access-points:
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token string">"와이파이이름"</span><span class="token builtin class-name">:</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>password: <span class="token string">"비밀번호"</span></code></pre>
+
+<p>이후, 파일의 권한을 소유자만 읽고 쓸 수 있게 변경해준다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">600</span> /etc/netplan/01-netcfg.yaml</code></pre>
+
+<p>이 변경사항을 적용한다. 그러면 인터넷이랑 연결이 될 것이다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> netplan apply</code></pre>
+
+<p>만약에 인터넷 연결을 확인하고 싶다면, 다음의 명령어를 입력하면 된다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ping</span> <span class="token parameter variable">-c</span> <span class="token number">3</span> google.com</code></pre>
+
+<p>핑이 3번 잘 와리가리 했다면, 인터넷이 잘 통한다는 의미이다. 만약 “Temporary failure in name resolution….”같은 문장이 나오면 띄어쓰기나 와이파이 이름, 비밀번호 오타일 수 있으니 꼭 확인해보자</p>
+<h2 id="7-IP-확인하기"><a href="#7-IP-확인하기" class="headerlink" title="7. IP 확인하기"></a>7. IP 확인하기</h2><p>홈서버는 만들어졌다. 근데 주소를 알아야 와리가리를 할 수 있기 때문에, IP를 꼭 알아내야 한다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ip</span> addr show wlp1s0</code></pre>
+
+<p>위 명령어를 입력하면, 어떤 내용들이 쫙 나오는데 여기에서 <code>inet</code>다음에 나오는 숫자를 확인하면 된다.<br><br>보통은 <code>192.168.0.xxx</code> 또는 <code>172.x.x.x</code>형식으로 나올 것이다.</p>
+<h2 id="8-다른-컴퓨터에서-홈서버-연결해보기"><a href="#8-다른-컴퓨터에서-홈서버-연결해보기" class="headerlink" title="8. 다른 컴퓨터에서 홈서버 연결해보기"></a>8. 다른 컴퓨터에서 홈서버 연결해보기</h2><p>이제 모든 준비는 끝났다. 홈서버에 직접 접속을 확인해보자</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token string">"Pick a username에 입력했던 값"</span>@<span class="token string">"서버IP주소"</span>  <span class="token comment"># 예: ssh systemadmin@192.168.0.1</span></code></pre>
+
+<p>맨 처음 접속하면 Are you sure you want to continue connecting? 이라는 문구가 나오는데, 바로 yes를 타이핑한다. 그러면 비밀번호를 입력하라는데, 비밀번호를 입력하면 로그인이 잘 될 것이다.</p>
+<img src="/2026/02/28/Tips/UbuntuServer-Setting/1.png" class="" title="unbutu server 접속 결과물">
+
+
+
+<p><br><br><br></p>
+<p>저기에서 자원을 효율적으로 관리하고 싶은 사람들은 k8s를 세팅해서 운영하면 된다.</p>
+<p>세팅법 다 까먹은 줄 알았는데 아주 잘된다 좋아요~~</p>
+
+                
+            </div>
+            <hr/>
+
+            
+                
+                <div class="related-posts-container">
+                    <h2 class="related-posts-title">📌 관련 글</h2>
+                    <div class="related-posts-grid">
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/03/15/NS/ZeroTrustHomeInfra/" title="Proxmox와 Tailscale로 구축하는 Zero-Trust 홈 인프라 (feat. WOL 원격 대시보드 만들기)" rel="bookmark">Proxmox와 Tailscale로 구축하는 Zero-Trust 홈 인프라 (feat. WOL 원격 대시보드 만들기)</a></h3></div></li></ul>
+                    </div>
+                </div>
+            
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ruby Kim</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/">https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Ruby Kim</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>Comments</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c12f8521b335e062742b',
+        clientSecret: '4055e81aad344987f1b5f608c83e6827f77ea431',
+        repo: 'ruby-kim.github.io',
+        owner: 'ruby-kim',
+        admin: ["ruby-kim"],
+        id: '2026-02-28T17-44-35',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2026/03/15/NS/ZeroTrustHomeInfra/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/proxmox.avif" class="responsive-img" alt="Proxmox와 Tailscale로 구축하는 Zero-Trust 홈 인프라 (feat. WOL 원격 대시보드 만들기)">
+                        
+                        <span class="card-title">Proxmox와 Tailscale로 구축하는 Zero-Trust 홈 인프라 (feat. WOL 원격 대시보드 만들기)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            포트 포워딩 없는 제로 트러스트(Zero Trust) 홈서버 구축기부터 원격 WOL 전원 제어 대시보드 제작까지
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%94%90-Network-Security/" class="post-category">
+                                    🔐 Network/Security
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Network/">
+                        <span class="chip bg-color">Network</span>
+                    </a>
+                    
+                    <a href="/tags/Proxmox/">
+                        <span class="chip bg-color">Proxmox</span>
+                    </a>
+                    
+                    <a href="/tags/Tailscale/">
+                        <span class="chip bg-color">Tailscale</span>
+                    </a>
+                    
+                    <a href="/tags/ZeroTrust/">
+                        <span class="chip bg-color">ZeroTrust</span>
+                    </a>
+                    
+                    <a href="/tags/WOL/">
+                        <span class="chip bg-color">WOL</span>
+                    </a>
+                    
+                    <a href="/tags/Infrastructure/">
+                        <span class="chip bg-color">Infrastructure</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/02/28/DevOps/K8S-Easy/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/kubernetes.png" class="responsive-img" alt="Kubernetes 용어 완전 쉽게 이해하기">
+                        
+                        <span class="card-title">Kubernetes 용어 완전 쉽게 이해하기</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Kubernetes의 pod, namespace, port, ingress, volume, configmap 등 용어가 어렵다면 이걸로 마스터 해보자
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-02-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E2%99%BC-DevOps/" class="post-category">
+                                    ♼ DevOps
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DevOps/">
+                        <span class="chip bg-color">DevOps</span>
+                    </a>
+                    
+                    <a href="/tags/Kubernates/">
+                        <span class="chip bg-color">Kubernates</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: 잡동사니<br />'
+            + 'Author: Ruby Kim<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + 'All articles in this blog are licensed under <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a> unless otherwise stated.';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="site-footer">
+    
+
+    <div class="footer-inner container">
+        <!-- Col 1: Blog info -->
+        <div class="footer-col footer-col--brand">
+            <a href="/" class="footer-brand">잡동사니</a>
+            <p class="footer-desc">☁ Cloud Engineer ☁</p>
+            
+                <p class="footer-runtime" id="sitetime"></p>
+                <script>
+                    (function () {
+                        var t1 = Date.UTC(
+                            "2022", "3",
+                            "16",  "0",
+                            "0","0"
+                        );
+                        var diff  = Date.now() - t1;
+                        var days  = Math.floor(diff / 86400000);
+                        var years = Math.floor(days / 365);
+                        var rem   = days - years * 365;
+                        var txt   = years > 0
+                            ? years + '년 ' + rem + '일째 운영 중'
+                            : rem + '일째 운영 중';
+                        document.getElementById('sitetime').textContent = txt;
+                    })();
+                </script>
+            
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col footer-col--nav">
+            <h6 class="footer-heading">Menu</h6>
+            <ul class="footer-nav-list">
+                
+                    
+                    <li><a href="/">Index</a></li>
+                
+                    
+                    <li><a href="/tags">Tags</a></li>
+                
+                    
+                    <li><a href="/categories">Categories</a></li>
+                
+                    
+                    <li><a href="/archives">Archives</a></li>
+                
+                    
+                    <li><a href="/about">About</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Col 3: Social -->
+        <div class="footer-col footer-col--social">
+            <h6 class="footer-heading">Connect</h6>
+            <div class="footer-social-icons">
+                
+                    <a href="https://github.com/ruby-kim" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                
+                
+                    <a href="mailto:dev.rubykim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                
+                
+                
+                    <a href="/atom.xml" target="_blank" aria-label="RSS"><i class="fas fa-rss"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <span>
+                &copy;
+                
+                    2022–2026
+                
+                <a href="/about">Ruby Kim</a>
+            </span>
+            <span class="footer-bottom-stack">
+                Built with <a href="https://hexo.io/" target="_blank">Hexo</a>
+                &amp; <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <div id="backTop" class="top-scroll">
+    <a class="back-top-btn" href="#!" aria-label="맨 위로">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

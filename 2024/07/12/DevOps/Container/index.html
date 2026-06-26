@@ -1,0 +1,1304 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Container 정리, 잡동사니">
+    <meta name="description" content="Container 개념 잡기">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="naver-site-verification" content="f4d0e3c893b2d90712d39536761907478c1ec622" />
+    <meta name="google-adsense-account" content="ca-pub-2159344226108747">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22Z5MEFCP7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-22Z5MEFCP7');
+</script>
+
+
+    <title>Container 정리 | 잡동사니</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <!-- Typography: Pretendard (Korean) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">잡동사니</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">잡동사니</div>
+        <div class="logo-desc">
+            
+            ☁ Cloud Engineer ☁
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ruby-kim/ruby-kim.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Github" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        // TODO: Need to implement SHA256
+        if (pwd && pwd.length > 0) {
+            if (pwd !== prompt('비밀번호를 입력해주세요.')) {
+            // if (pwd !== CryptoJS.SHA256(prompt('비밀번호를 입력해주세요.')).toString(CryptoJS.enc.Hex)) {
+                alert('잘못된 비밀번호 입니다. 홈페이지로 돌아갑니다.');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/coverImages/container.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Container 정리</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/DevOps/">
+                                <span class="chip bg-color">DevOps</span>
+                            </a>
+                        
+                            <a href="/tags/Container/">
+                                <span class="chip bg-color">Container</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E2%99%BC-DevOps/" class="post-category">
+                                ♼ DevOps
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2024-07-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    842
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    5 Min
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>개발을 하다보면 아무래도 docker를 많이 쓰게 될텐데, 그 때 컨테이너 어쩔저쩔~~ 이라는 개념이 나오면서 사람들의 머리가 아파지기 시작한다.<br>따라서 컨테이너에 대해 개념을 잡고 싶은 사람이라면 이 글을 잘 읽어보길 추천한다. 배포 세팅(특히 devops, cloud native)에서 많이 언급되는 개념이기 때문이다.</p>
+<h2 id="1-Container란"><a href="#1-Container란" class="headerlink" title="1. Container란"></a>1. Container란</h2><p>컨테이너는 애플리케이션과 필요한 라이브러리, 종속성을 하나로 묶어 어디서나 실행할 수 있는 일종의 <strong>가벼운 실행 환경</strong>이다.</p>
+<p>따라서 특정 OS나 환경에 의존하지 않고 동일하게 실행된다는 의미다.</p>
+<blockquote>
+<p>쉽게 풀어보자면, 프로젝트를 진행하는데 A는 Windows에서, B는 MacOS에서 진행한다고 쳐보자.<br>따라서 각 환경마다 세팅이 다르기 때문에 각자 라이브러리 및 종속성을 같은 세팅으로 다운받더라도 오류가 날 수 있다는 의미다.<br>이 때 컨테이너를 사용하면 OS가 다름에도 불구하고 동일하게 프로그램이 실행된다. </p>
+</blockquote>
+<h2 id="2-Container에서-사용하는-중요-개념"><a href="#2-Container에서-사용하는-중요-개념" class="headerlink" title="2. Container에서 사용하는 중요 개념"></a>2. Container에서 사용하는 중요 개념</h2><p>말로만 적으면 이해가 어렵기 때문에 시나리오를 하나 정의해서 설명을 해보도록 하겠다.</p>
+<blockquote>
+<p><code>상황</code></p>
+<ul>
+<li>A: Windows 사용자, B: Macbook 사용자</li>
+<li>이 둘은 팀플로 <strong>Python Flask 웹 애플리케이션</strong>을 개발 중</li>
+<li>A는 로컬 Windows에서, B는 로컬 Macbook에서 작업 중임 = 프로젝트 실행 환경이 다름</li>
+<li>A는 컨테이너 기술을 사용하여 동일한 환경에서 실행될 수 있도록 설정하고 이를 B에게 공유하려고 함</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">개념</th>
+<th align="center">설명</th>
+<th align="center">예시</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Container</td>
+<td align="center">애플리케이션 실행 환경</td>
+<td align="center">- A는 Python Flask 애플리케이션을 실행하기 위해 컨테이너를 사용함<br>- B는 A가 만든 컨테이너를 그대로 실행하면 동일한 환경에서 앱이 실행됨</td>
+</tr>
+<tr>
+<td align="center">Container Image</td>
+<td align="center">실행 환경을 템플릿으로 저장</td>
+<td align="center">- A는 컨테이너 실행을 위한 환경(Python, Flask, 그 외 기타 requirements.txt 의존성 모듈)을 이미지로 저장</td>
+</tr>
+<tr>
+<td align="center">Container Runtime</td>
+<td align="center">컨테이너를 실행 및 관리</td>
+<td align="center">- A와 B 모두 컨테이너 런타임을 사용하여 컨테이너를 실행</td>
+</tr>
+<tr>
+<td align="center">Container Orchestration</td>
+<td align="center">여러 컨테이너의 배포, 스케일링, 관리 등을 자동화</td>
+<td align="center">- A와 B의 프로젝트가 성장하며 트래픽이 증가하면, 오케스트레이션 도구로 컨테이너를 확장</td>
+</tr>
+<tr>
+<td align="center">Namespaces</td>
+<td align="center">컨테이너의 리소스(CPU, 메모리 등) 격리</td>
+<td align="center">- Flask 웹 컨테이너 / PostgreSQL 데이터베이스 컨테이너 / Redis 캐시 컨테이너 (각각 분리)<br>- 컨테이너별로 독립된 네트워크 스택(IP주소, 포트, 라우팅 테이블 등)을 가짐<br>- A의 로컬 시스템에서 실행 중인 프로세스를 확인할 때, 컨테이너의 내부 프로세스를 검색할 수 없음</td>
+</tr>
+<tr>
+<td align="center">CGroups(Control Groups)</td>
+<td align="center">리소스 사용량 제한</td>
+<td align="center">- Flask 웹 컨테이너 / PostgreSQL 데이터베이스 컨테이너 / Redis 캐시 컨테이너 (각각 분리)<br>- A가 컨테이너를 생성할 때 한 쪽 컨테이너로만 너무 많이 리소스를 사용하지 않도록 제어</td>
+</tr>
+<tr>
+<td align="center">Networking</td>
+<td align="center">컨테이너 간 외부 통신</td>
+<td align="center">- Flask 웹 컨테이너 / PostgreSQL 데이터베이스 컨테이너 / Redis 캐시 컨테이너 (각각 분리)<br>- A와 B는 웹 컨테이너와 데이터베이스 컨테이너를 연결하여 사용</td>
+</tr>
+<tr>
+<td align="center">Registry</td>
+<td align="center">컨테이너 이미지를 저장 및 배포</td>
+<td align="center">- A는 컨테이너 이미지를 Hub에 업로드하여 B와 공유<br>- B는 Hub에서 이미지를 다운받아 사용</td>
+</tr>
+</tbody></table>
+<h2 id="3-Container-VS-VM-Virtual-Machine"><a href="#3-Container-VS-VM-Virtual-Machine" class="headerlink" title="3. Container VS VM(Virtual Machine)"></a>3. Container VS VM(Virtual Machine)</h2><table>
+<thead>
+<tr>
+<th align="center">Container</th>
+<th align="center">Virtual Machine</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Kernal 공유</td>
+<td align="center">Hypervisor 기반</td>
+</tr>
+<tr>
+<td align="center">빠른 속도, 가벼움, 이식성</td>
+<td align="center">높은 격리성, 완전한 OS 제공</td>
+</tr>
+</tbody></table>
+<h3 id="Kernal-커널-서로-사이좋게-양보하며-컴퓨터-자원-공유"><a href="#Kernal-커널-서로-사이좋게-양보하며-컴퓨터-자원-공유" class="headerlink" title="Kernal (커널): 서로 사이좋게 양보하며 컴퓨터 자원 공유"></a>Kernal (커널): 서로 사이좋게 양보하며 컴퓨터 자원 공유</h3><ul>
+<li>OS의 핵심 부분으로, HW와 SW간의 다리 역할</li>
+<li>애플리케이션이 하드웨어 자원(CPU, 메모리, 디스크, 네트워크 등)을 사용할 수 있도록 중개</li>
+</ul>
+<blockquote>
+<p><code>상황</code> </p>
+<ul>
+<li>C, D, E는 각각 Flask, PostgreSQL, Redis로 실행 중</li>
+<li>CPU는 4코어, 메모리는 8GB로 설정</li>
+</ul>
+<p><code>예시</code></p>
+<ul>
+<li>C가 러닝 중일 때 (D와 E는 유휴 상태):<ul>
+<li>C(Flask) 가 모든 CPU와 메모리를 사용</li>
+<li>다른 컨테이너(D, E)가 비활성 상태이므로 커널은 자원을 C에 최대한 배분</li>
+</ul>
+</li>
+<li>D(PostgreSQL) 러닝 시작: 커널이 자원을 동적으로 조정<ul>
+<li>C(Flask)** 가 CPU 2코어, 메모리 4GB를 사용하도록 줄임</li>
+<li>D(PostgreSQL)*에게 CPU 2코어, 메모리 4GB를 배분</li>
+<li>자원이 부족할 경우 <strong>cgroups(Control Groups)</strong> 설정에 따라 특정 컨테이너(C 또는 D)의 자원을 제한</li>
+</ul>
+</li>
+<li>D와 E가 동시에 러닝 시작: 자원이 더 많이 나눠짐<ul>
+<li>C(Flask): CPU 1코어, 메모리 3GB</li>
+<li>D(PostgreSQL): CPU 2코어, 메모리 3GB</li>
+<li>E(Redis): CPU 1코어, 메모리 2GB</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="Hypervisor-하이퍼바이저-사이가-안좋아서-자원을-빌리되-서로-공유하지-않음"><a href="#Hypervisor-하이퍼바이저-사이가-안좋아서-자원을-빌리되-서로-공유하지-않음" class="headerlink" title="Hypervisor (하이퍼바이저): 사이가 안좋아서 자원을 빌리되 서로 공유하지 않음"></a>Hypervisor (하이퍼바이저): 사이가 안좋아서 자원을 빌리되 서로 공유하지 않음</h3><ul>
+<li>가상화를 위한 소프트웨어</li>
+<li>물리적 하드웨어(= 실제 컴퓨터)에서 여러 개의 VM을 실행할 수 있게함</li>
+</ul>
+<blockquote>
+<p><code>상황</code></p>
+<ul>
+<li>C, D, E는 각각 Windows, Ubuntu, CentOS로 실행 중<br>CPU는 8코어, 메모리는 16GB로 설정</li>
+</ul>
+<p><code>예시</code></p>
+<ul>
+<li>C가 실행 중일 때 (D와 E는 비활성 상태):<ul>
+<li>C(Windows)가 CPU 8코어, 메모리 16GB를 사용</li>
+<li>다른 VM(D, E)이 비활성 상태이므로 하이퍼바이저는 모든 자원을 C에 배분</li>
+</ul>
+</li>
+<li>D(Ubuntu)가 실행을 시작하면: 하이퍼바이저가 자원을 동적으로 조정<ul>
+<li>C(Windows): CPU 4코어, 메모리 8GB</li>
+<li>D(Ubuntu): CPU 4코어, 메모리 8GB</li>
+<li>각 VM은 독립된 OS와 애플리케이션을 실행하며 서로 영향을 주지 않음</li>
+</ul>
+</li>
+<li>D와 E(CentOS)가 동시에 실행을 시작하면: 자원이 세 VM으로 나눠짐<ul>
+<li>C(Windows): CPU 3코어, 메모리 6GB</li>
+<li>D(Ubuntu): CPU 3코어, 메모리 6GB</li>
+<li>E(CentOS): CPU 2코어, 메모리 4GB</li>
+<li>각 VM은 독립된 OS와 애플리케이션을 실행하며 서로 영향을 주지 않음<br>=&gt; 많아지면 컴퓨터 속도 저하 원인</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="4-Container-도구들"><a href="#4-Container-도구들" class="headerlink" title="4. Container 도구들"></a>4. Container 도구들</h2><p>(하나씩 글 작성 ing. 작성할 때마다 링크 추가 예정)</p>
+<h3 id="Container-Runtime"><a href="#Container-Runtime" class="headerlink" title="Container Runtime"></a>Container Runtime</h3><ul>
+<li>Docker: 컨테이너 생태계를 주도한 대표적인 런타임</li>
+<li>Containerd: Docker의 핵심 런타임으로 분리되어 Kubernetes에서 직접 사용 가능</li>
+<li>Podman: 데몬리스 컨테이너 실행환경으로 Docker의 대체제</li>
+<li>CRI-O: Kubernetes와 호환되는 경량 런타임</li>
+</ul>
+<h3 id="Container-Ochestration"><a href="#Container-Ochestration" class="headerlink" title="Container Ochestration"></a>Container Ochestration</h3><ul>
+<li>Kubernetes: 가장 널리 사용되는 컨테이너 오케스트레이션 도구. 자동 스케일링, 복구, 배포 지원</li>
+<li>Docker Swarm: 간단한 오케스트레이션에 적합한 Docker 내장 도구</li>
+<li>Nomad: HashiCorp에서 개발한 경량 오케스트레이션 도구</li>
+</ul>
+<h3 id="Container-Image"><a href="#Container-Image" class="headerlink" title="Container Image"></a>Container Image</h3><ul>
+<li>Buildah: Docker 없이 이미지를 빌드 가능</li>
+<li>Kaniko: 클라우드 환경에서 안전하게 이미지 빌드</li>
+</ul>
+<h3 id="컨테이너-보안-도구"><a href="#컨테이너-보안-도구" class="headerlink" title="컨테이너 보안 도구"></a>컨테이너 보안 도구</h3><ul>
+<li>Falco: 실시간 컨테이너 보안 이벤트 감지</li>
+<li>Aqua Security: 컨테이너 환경 보안을 포괄적으로 관리</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+                
+                <div class="related-posts-container">
+                    <h2 class="related-posts-title">📌 관련 글</h2>
+                    <div class="related-posts-grid">
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/11/11/DevOps/Docker/" title="Docker 정리" rel="bookmark">Docker 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/02/28/DevOps/K8S-Easy/" title="Kubernetes 용어 완전 쉽게 이해하기" rel="bookmark">Kubernetes 용어 완전 쉽게 이해하기</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/05/12/DevOps/Intro/" title="DevOps 개요" rel="bookmark">DevOps 개요</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/10/12/DevOps/Kubernetes/" title="Kubernetes 정리" rel="bookmark">Kubernetes 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/" title="bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기" rel="bookmark">bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/11/25/Cloud/NCP/Console/NKS&NCR/" title="[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기" rel="bookmark">[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</a></h3></div></li></ul>
+                    </div>
+                </div>
+            
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ruby Kim</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ruby-kim.github.io/2024/07/12/DevOps/Container/">https://ruby-kim.github.io/2024/07/12/DevOps/Container/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Ruby Kim</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>Comments</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c12f8521b335e062742b',
+        clientSecret: '4055e81aad344987f1b5f608c83e6827f77ea431',
+        repo: 'ruby-kim.github.io',
+        owner: 'ruby-kim',
+        admin: ["ruby-kim"],
+        id: '2024-07-12T02-44-35',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2024/08/20/Security/Oauth2/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/base.png" class="responsive-img" alt="OAuth2.0를 알아보자">
+                        
+                        <span class="card-title">OAuth2.0를 알아보자</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            OAuth 개념을 A to Z 까지
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-08-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%94%90-Security/" class="post-category">
+                                    🔐 Security
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Security/">
+                        <span class="chip bg-color">Security</span>
+                    </a>
+                    
+                    <a href="/tags/Auth/">
+                        <span class="chip bg-color">Auth</span>
+                    </a>
+                    
+                    <a href="/tags/OAuth2/">
+                        <span class="chip bg-color">OAuth2</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/06/22/Conference/24-silicon-valley-2/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/24techsummit.png" class="responsive-img" alt="[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 2일차">
+                        
+                        <span class="card-title">[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 2일차</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            실리콘밸리 컨퍼런스 후기 (2)
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-06-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E2%9C%88%EF%B8%8F-Conference/" class="post-category">
+                                    ✈️ Conference
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Conference/">
+                        <span class="chip bg-color">Conference</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: 잡동사니<br />'
+            + 'Author: Ruby Kim<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + 'All articles in this blog are licensed under <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a> unless otherwise stated.';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="site-footer">
+    
+
+    <div class="footer-inner container">
+        <!-- Col 1: Blog info -->
+        <div class="footer-col footer-col--brand">
+            <a href="/" class="footer-brand">잡동사니</a>
+            <p class="footer-desc">☁ Cloud Engineer ☁</p>
+            
+                <p class="footer-runtime" id="sitetime"></p>
+                <script>
+                    (function () {
+                        var t1 = Date.UTC(
+                            "2022", "3",
+                            "16",  "0",
+                            "0","0"
+                        );
+                        var diff  = Date.now() - t1;
+                        var days  = Math.floor(diff / 86400000);
+                        var years = Math.floor(days / 365);
+                        var rem   = days - years * 365;
+                        var txt   = years > 0
+                            ? years + '년 ' + rem + '일째 운영 중'
+                            : rem + '일째 운영 중';
+                        document.getElementById('sitetime').textContent = txt;
+                    })();
+                </script>
+            
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col footer-col--nav">
+            <h6 class="footer-heading">Menu</h6>
+            <ul class="footer-nav-list">
+                
+                    
+                    <li><a href="/">Index</a></li>
+                
+                    
+                    <li><a href="/tags">Tags</a></li>
+                
+                    
+                    <li><a href="/categories">Categories</a></li>
+                
+                    
+                    <li><a href="/archives">Archives</a></li>
+                
+                    
+                    <li><a href="/about">About</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Col 3: Social -->
+        <div class="footer-col footer-col--social">
+            <h6 class="footer-heading">Connect</h6>
+            <div class="footer-social-icons">
+                
+                    <a href="https://github.com/ruby-kim" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                
+                
+                    <a href="mailto:dev.rubykim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                
+                
+                
+                    <a href="/atom.xml" target="_blank" aria-label="RSS"><i class="fas fa-rss"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <span>
+                &copy;
+                
+                    2022–2026
+                
+                <a href="/about">Ruby Kim</a>
+            </span>
+            <span class="footer-bottom-stack">
+                Built with <a href="https://hexo.io/" target="_blank">Hexo</a>
+                &amp; <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <div id="backTop" class="top-scroll">
+    <a class="back-top-btn" href="#!" aria-label="맨 위로">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

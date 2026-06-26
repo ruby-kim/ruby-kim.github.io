@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Ruby Kim</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://ruby-kim.github.io/</id>
+  <link href="https://ruby-kim.github.io/" rel="alternate"/>
+  <link href="https://ruby-kim.github.io/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Ruby Kim</rights>
+  <subtitle>☁ Cloud Engineer ☁</subtitle>
+  <title>잡동사니</title>
+  <updated>2026-06-26T17:13:42.716Z</updated>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🔐 Network/Security" scheme="https://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
+    <category term="DevOps" scheme="https://ruby-kim.github.io/tags/DevOps/"/>
+    <category term="Security" scheme="https://ruby-kim.github.io/tags/Security/"/>
+    <category term="AWS" scheme="https://ruby-kim.github.io/tags/AWS/"/>
+    <category term="SSM" scheme="https://ruby-kim.github.io/tags/SSM/"/>
+    <category term="Session Manager" scheme="https://ruby-kim.github.io/tags/Session-Manager/"/>
+    <category term="RDS" scheme="https://ruby-kim.github.io/tags/RDS/"/>
+    <category term="EC2" scheme="https://ruby-kim.github.io/tags/EC2/"/>
+    <category term="Bastion" scheme="https://ruby-kim.github.io/tags/Bastion/"/>
+    <category term="IAM" scheme="https://ruby-kim.github.io/tags/IAM/"/>
+    <category term="CloudFormation" scheme="https://ruby-kim.github.io/tags/CloudFormation/"/>
+    <id>https://ruby-kim.github.io/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/</id>
+    <link href="https://ruby-kim.github.io/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/"/>
+    <published>2026-06-27T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>RDS는 Private Subnet에 두고, 관문 역할을 하는 작은 EC2 bastion을 Public에 두고]]>
+    </summary>
+    <title>bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기</title>
+    <updated>2026-06-26T17:13:42.716Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    <category term="Git" scheme="https://ruby-kim.github.io/tags/Git/"/>
+    <id>https://ruby-kim.github.io/2026/03/30/Etc/Initial-Main-Branch/</id>
+    <link href="https://ruby-kim.github.io/2026/03/30/Etc/Initial-Main-Branch/"/>
+    <published>2026-03-29T15:48:35.000Z</published>
+    <summary>
+      <![CDATA[<p>개인 프로젝트라 귀찮아서 git flow 전략을 안쓰고 대충 main에 넣었더니 후회가 빗발치기 시작했다..<br>고로 main branch를 깔끔하게 초기 상태로 돌리는 방법에 대해 해보겠다.</p>
+<h2 id="사전-세팅"><a]]>
+    </summary>
+    <title>이미 커밋된 main branch 초기화하기</title>
+    <updated>2026-05-31T08:35:33.158Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    <category term="Bot" scheme="https://ruby-kim.github.io/tags/Bot/"/>
+    <category term="Discord" scheme="https://ruby-kim.github.io/tags/Discord/"/>
+    <category term="Python" scheme="https://ruby-kim.github.io/tags/Python/"/>
+    <id>https://ruby-kim.github.io/2026/03/26/Etc/Discord-Bot/</id>
+    <link href="https://ruby-kim.github.io/2026/03/26/Etc/Discord-Bot/"/>
+    <published>2026-03-26T03:44:35.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="만들게-된-이유"><a href="#만들게-된-이유" class="headerlink" title="만들게 된 이유"></a>만들게 된 이유</h2><p>최근 특정 프로그램에서 멘토링을 많이 하고 있는데, 멘토링 보고서를 제출할 때마다]]>
+    </summary>
+    <title>타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기</title>
+    <updated>2026-05-31T08:35:33.154Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="☁️ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
+    <category term="Architecture" scheme="https://ruby-kim.github.io/tags/Architecture/"/>
+    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="Terraform" scheme="https://ruby-kim.github.io/tags/Terraform/"/>
+    <id>https://ruby-kim.github.io/2026/03/17/Cloud/CrossAccountDNS/</id>
+    <link href="https://ruby-kim.github.io/2026/03/17/Cloud/CrossAccountDNS/"/>
+    <published>2026-03-17T11:00:00.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>최근 회사에서 멀티 환경 클라우드 플랫폼을 구성하고 있는데 블로그 글로 남기면 좋을 것 같아서 작성해본다.</p>
+<p>회사에서는 주로 AWS를 쓰기 때문에, 본 글은 AWS를 예시로 작성을]]>
+    </summary>
+    <title>Terraform + Organizations로 Cross-Account DNS 관리하기</title>
+    <updated>2026-05-31T08:35:33.050Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🔐 Network/Security" scheme="https://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
+    <category term="Network" scheme="https://ruby-kim.github.io/tags/Network/"/>
+    <category term="Proxmox" scheme="https://ruby-kim.github.io/tags/Proxmox/"/>
+    <category term="Tailscale" scheme="https://ruby-kim.github.io/tags/Tailscale/"/>
+    <category term="ZeroTrust" scheme="https://ruby-kim.github.io/tags/ZeroTrust/"/>
+    <category term="WOL" scheme="https://ruby-kim.github.io/tags/WOL/"/>
+    <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
+    <id>https://ruby-kim.github.io/2026/03/15/NS/ZeroTrustHomeInfra/</id>
+    <link href="https://ruby-kim.github.io/2026/03/15/NS/ZeroTrustHomeInfra/"/>
+    <published>2026-03-15T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="1-개요"><a href="#1-개요" class="headerlink" title="1. 개요"></a>1. 개요</h2><a href="/2026/02/28/Tips/UbuntuServer-Setting/" title="안쓰는]]>
+    </summary>
+    <title>Proxmox와 Tailscale로 구축하는 Zero-Trust 홈 인프라 (feat. WOL 원격 대시보드 만들기)</title>
+    <updated>2026-05-31T08:35:33.197Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
+    <category term="Ubuntu" scheme="https://ruby-kim.github.io/tags/Ubuntu/"/>
+    <category term="Windows" scheme="https://ruby-kim.github.io/tags/Windows/"/>
+    <id>https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/</id>
+    <link href="https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/"/>
+    <published>2026-02-28T08:44:35.000Z</published>
+    <summary>
+      <![CDATA[<p>동생이 집에 홈서버 있으면 쓰고싶다 하길래 굳이 필요한가 싶어 빠꾸시켰는데, 생각을 해보니 하나 장만하면 동생이 컴퓨터 공부를 하는데 제격이겠다 싶어서 오랜만에 만들어봤다.</p>
+<p>나는 집에서 안쓰는, 2017년인가에 구매한 삼성의]]>
+    </summary>
+    <title>안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기)</title>
+    <updated>2026-05-31T08:35:33.217Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="♼ DevOps" scheme="https://ruby-kim.github.io/categories/%E2%99%BC-DevOps/"/>
+    <category term="DevOps" scheme="https://ruby-kim.github.io/tags/DevOps/"/>
+    <category term="Kubernates" scheme="https://ruby-kim.github.io/tags/Kubernates/"/>
+    <id>https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/</id>
+    <link href="https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/"/>
+    <published>2026-02-27T15:38:35.000Z</published>
+    <summary>
+      <![CDATA[<p>요즘 프로젝트 멘토링에서 K8S 수업을 하고 있는데, 다들 용어 습득에 매우 어려움을 겪으시더라… 그래서 <strong>아주 완전 쉽게</strong> 이해하실 수 있도록 준비해본게 나름 괜찮은 것 같아서 ^_^ 블로그 글로 한 번]]>
+    </summary>
+    <title>Kubernetes 용어 완전 쉽게 이해하기</title>
+    <updated>2026-05-31T08:35:33.153Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
+    <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
+    <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="FHIR" scheme="https://ruby-kim.github.io/tags/FHIR/"/>
+    <id>https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/</id>
+    <link href="https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/"/>
+    <published>2025-08-25T11:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="HL7-FHIR-완전-정리"><a href="#HL7-FHIR-완전-정리" class="headerlink" title="HL7 FHIR 완전 정리"></a>HL7 FHIR 완전 정리</h2><p>헬스데이터 스타트업이라면]]>
+    </summary>
+    <title>[HealthCare] HL7 FHIR 완전 정리</title>
+    <updated>2026-05-31T08:35:33.172Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
+    <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
+    <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
+    <id>https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/</id>
+    <link href="https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/"/>
+    <published>2025-08-02T11:30:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="HL7-CDA-표준-정리"><a href="#HL7-CDA-표준-정리" class="headerlink" title="HL7 CDA 표준 정리"></a>HL7 CDA 표준 정리</h2><p>헬스데이터 스타트업이라면 반드시 알아야 할]]>
+    </summary>
+    <title>[HealthCare] HL7 CDA 표준 정리</title>
+    <updated>2026-05-31T08:35:33.172Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    <category term="Adsense" scheme="https://ruby-kim.github.io/tags/Adsense/"/>
+    <category term="NextJS" scheme="https://ruby-kim.github.io/tags/NextJS/"/>
+    <id>https://ruby-kim.github.io/2025/07/10/Etc/Build-Site-Adsense/</id>
+    <link href="https://ruby-kim.github.io/2025/07/10/Etc/Build-Site-Adsense/"/>
+    <published>2025-07-09T16:44:35.000Z</published>
+    <summary>
+      <![CDATA[<p>예전부터 직접 만든 사이트에 애드센스를 달아보고 싶었는데, 이번에 애드센스를 무사히 통과했다!</p>
+<p>이번 포스팅에서는 어떤 방식으로 만들었고, 심사를 위해 어떤 부분을 신경 썼는지, 그리고 실제 심사 전략까지]]>
+    </summary>
+    <title>직접 개발한 사이트, 애드센스 등록 성공!</title>
+    <updated>2026-05-31T08:35:33.154Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="📝 Certificate" scheme="https://ruby-kim.github.io/categories/%F0%9F%93%9D-Certificate/"/>
+    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
+    <id>https://ruby-kim.github.io/2025/06/10/Certificate/GCP/GoogleCloudPCA/</id>
+    <link href="https://ruby-kim.github.io/2025/06/10/Certificate/GCP/GoogleCloudPCA/"/>
+    <published>2025-06-10T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="GCP-사전-지식"><a href="#GCP-사전-지식" class="headerlink" title="GCP 사전 지식"></a>GCP 사전 지식</h2><ul>
+<li>없음. 대충 들은건 있어가지고 어떤 서비스가 있는지는 아는데,]]>
+    </summary>
+    <title>[GCP] GCP Professional Cloud Architect(PCA) 자격증 시험 준비 및 합격 후기</title>
+    <updated>2026-05-31T08:35:33.050Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
+    <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
+    <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
+    <id>https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/</id>
+    <link href="https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/"/>
+    <published>2025-03-05T12:10:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="HL7-v3의-실패-이유-정리"><a href="#HL7-v3의-실패-이유-정리" class="headerlink" title="HL7 v3의 실패 이유 정리"></a>HL7 v3의 실패 이유 정리</h2><p>헬스데이터 스타트업이라면]]>
+    </summary>
+    <title>[HealthCare] HL7 v3의 실패 이유 정리</title>
+    <updated>2026-05-31T08:35:33.172Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="💻 Language" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BB-Language/"/>
+    <category term="Java" scheme="https://ruby-kim.github.io/tags/Java/"/>
+    <category term="Spring" scheme="https://ruby-kim.github.io/tags/Spring/"/>
+    <category term="Gradle" scheme="https://ruby-kim.github.io/tags/Gradle/"/>
+    <category term="Maven" scheme="https://ruby-kim.github.io/tags/Maven/"/>
+    <category term="IntelliJ" scheme="https://ruby-kim.github.io/tags/IntelliJ/"/>
+    <id>https://ruby-kim.github.io/2025/02/28/Language/Java-faq/</id>
+    <link href="https://ruby-kim.github.io/2025/02/28/Language/Java-faq/"/>
+    <published>2025-02-28T13:10:00.000Z</published>
+    <summary>
+      <![CDATA[<p>스프링(Spring)이나 자바(Java)를 공부하다 보면 가장 먼저 부딪히는 부분이 있다.<br>바로 <strong>JDK 버전 차이</strong>, <strong>javac/java 명령어</strong>, 그리고]]>
+    </summary>
+    <title>[Java] JDK 버전, javac와 java 차이, 그리고 IDE 빌드 시스템 정리</title>
+    <updated>2026-05-31T08:35:33.195Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
+    <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
+    <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
+    <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <id>https://ruby-kim.github.io/2025/02/20/HealthCare/HL7/v2/</id>
+    <link href="https://ruby-kim.github.io/2025/02/20/HealthCare/HL7/v2/"/>
+    <published>2025-02-20T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="HL7-표준-정리-레거시부터-최신까지"><a href="#HL7-표준-정리-레거시부터-최신까지" class="headerlink" title="HL7 표준 정리: 레거시부터 최신까지"></a>HL7 표준 정리: 레거시부터]]>
+    </summary>
+    <title>[HealthCare] HL7 v2 정리</title>
+    <updated>2026-05-31T08:35:33.172Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
+    <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
+    <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
+    <category term="IEEE" scheme="https://ruby-kim.github.io/tags/IEEE/"/>
+    <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <id>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</id>
+    <link href="https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/"/>
+    <published>2025-01-10T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="EHR-연동-HL7-IEEE-11073-SDC-올인원-정리"><a href="#EHR-연동-HL7-IEEE-11073-SDC-올인원-정리" class="headerlink" title="EHR 연동: HL7 / IEEE 11073]]>
+    </summary>
+    <title>[HealthCare] EHR 연동: HL7 / IEEE 11073 SDC 총정리</title>
+    <updated>2026-05-31T08:35:33.172Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="✨ Frontend" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
+    <category term="Vue" scheme="https://ruby-kim.github.io/tags/Vue/"/>
+    <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
+    <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
+    <category term="SEO" scheme="https://ruby-kim.github.io/tags/SEO/"/>
+    <id>https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</id>
+    <link href="https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/"/>
+    <published>2025-01-01T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<p>개발 포트폴리오 사이트를 만들었는데, 배포는 성공했다만 생각해보니 검색 유입을 위한 SEO(Search Engine Optimization) 최적화를 하지 않았음을 깨달았다..<br>따라서 Vue3로 하는 방법을 간략히 정리해보고자]]>
+    </summary>
+    <title>[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)</title>
+    <updated>2026-05-31T08:35:33.161Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="✨ Frontend" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
+    <category term="NextJS" scheme="https://ruby-kim.github.io/tags/NextJS/"/>
+    <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
+    <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
+    <id>https://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</id>
+    <link href="https://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/"/>
+    <published>2024-12-29T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<p>프로젝트를 하다보면 언젠가 배포를 해야 하는 순간이 온다.</p>
+<p>필자 또한 최근 nextJS로 간단한 홈페이지를 만들었는데, 막상 배포를 하려니 nextJS라 고려해야할 점이 많아서 한 번 정리해보고자 한다.</p>
+<p>결론만 볼]]>
+    </summary>
+    <title>[Next.js] 배포하기: AWS Amplify vs Github pages vs fly.io vs Vercel vs Netlify</title>
+    <updated>2026-05-31T08:35:33.160Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="☁️ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
+    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="OAuth2" scheme="https://ruby-kim.github.io/tags/OAuth2/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
+    <id>https://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/</id>
+    <link href="https://ruby-kim.github.io/2024/12/20/Cloud/GCP/Console/Oauth2/"/>
+    <published>2024-12-20T02:44:35.000Z</published>
+    <summary>
+      <![CDATA[<p>Google Calendar에 커피챗 일정을 잡아주는 프로그램을 만드는 중인데, 이 과정에서 Google Calendar API를 사용하기 위해서는 GCP로부터 Access Token 발급을 받아야 하므로 그 방법을 한 번 정리해보자고]]>
+    </summary>
+    <title>[GCP] GCP에서 사용자 인증정보(OAuth)를 사용해 Access Token 받아오기</title>
+    <updated>2026-05-31T08:35:33.050Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="☁️ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
+    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="Container" scheme="https://ruby-kim.github.io/tags/Container/"/>
+    <category term="Docker" scheme="https://ruby-kim.github.io/tags/Docker/"/>
+    <category term="Network" scheme="https://ruby-kim.github.io/tags/Network/"/>
+    <category term="NCP" scheme="https://ruby-kim.github.io/tags/NCP/"/>
+    <category term="VPC" scheme="https://ruby-kim.github.io/tags/VPC/"/>
+    <category term="Kubernetes" scheme="https://ruby-kim.github.io/tags/Kubernetes/"/>
+    <id>
+      <![CDATA[https://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&NCR/]]>
+    </id>
+    <link href="https://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/"/>
+    <published>2024-11-25T02:44:35.000Z</published>
+    <summary>
+      <![CDATA[<p>최근 멘토링에서 ncloud를 사용하여 서버배포를 하고싶다는 요청을 받았는데, 나 또한 네이버 클라우드는 경험이 없는지라 ㅎㅎ;; 공부삼아 한 번 세팅을 해봤다.</p>
+<p>일단 클라우드에서 Kubernetes로 container를 배포를]]>
+    </summary>
+    <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
+    <updated>2026-05-31T08:35:33.052Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    <category term="Diagram" scheme="https://ruby-kim.github.io/tags/Diagram/"/>
+    <id>https://ruby-kim.github.io/2024/11/23/Tips/Tool/</id>
+    <link href="https://ruby-kim.github.io/2024/11/23/Tips/Tool/"/>
+    <published>2024-11-23T14:44:35.000Z</published>
+    <summary>
+      <![CDATA[<p>프로젝트를 하다보면 flow chart나 diagram을 그려야 하는데, 이게 여간 귀찮은 일이 아닐 수 없다.<br>빠르고 간단하게 그리고 싶은 분들은 Mermaid 명령어로 그려보는걸 추천한다.</p>
+<h2 id="Mermaid"><a]]>
+    </summary>
+    <title>[TIPS] Mermaid 명령어로 Diagram 그리기</title>
+    <updated>2026-05-31T08:35:33.216Z</updated>
+  </entry>
+</feed>
