@@ -55,9 +55,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -523,7 +523,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>RDS는 Private Subnet에 두고, 관문 역할을 하는 작은 EC2 bastion을 Public에 두고 SSH로 터널링으로 접속하는 구조는 흔하다. 이 회사에 들어와서 배웠던 솔루션도, 자격증 공부를 하면서 이것저것 맛보면서 배운 내용도 바로 이거였다.</p>
+                <h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>RDS는 Private Subnet에 두고, Public Subnet의 EC2 bastion을 SSH로 경유하는 구조는 인프라 구축 시 흔히 쓰이는 패턴이다. 이 회사에 들어와서 배웠던 솔루션도, 자격증 공부를 하면서 이것저것 맛보면서 배운 내용도 바로 이거였다.</p>
 <p>문제는 보안 그룹에 SSH(22) + <code>0.0.0.0/0</code>이 그대로 남아 있었다는 것이었다. 조금 찜찜했지만, 몰아치는 일을 쳐내면서 그렇게 바쁘게 살았더니… 어느 날 모니터링 도구에서 출처 불명의 ip 접속이 찍혀있더라 ㅎㅎ… 정황상 데이터 유출 흔적은 없었지만, 인프라 접근 경로 전체를 다시 봐야겠다는 판단이 들었다.</p>
 <p>급하게 EC2를 내려 접근을 끊었고, 해킹 위협에서 벗어났지만 나 또한 DB에 접근을 할 수 없게 되었다… 그래서 내부 관계자들만 완벽하게 쓸 수 있는! 구조로 DB 접근을 세팅해봤다.</p>
 <p>정리한 내용은 다음과 같다.</p>

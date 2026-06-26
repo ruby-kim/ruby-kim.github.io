@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, Ruby Kim</rights>
   <subtitle>☁ Cloud Engineer ☁</subtitle>
   <title>잡동사니</title>
-  <updated>2026-06-26T17:13:42.716Z</updated>
+  <updated>2026-06-26T17:45:51.307Z</updated>
   <entry>
     <author>
       <name>Ruby Kim</name>
@@ -30,10 +30,10 @@
     <link href="https://ruby-kim.github.io/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/"/>
     <published>2026-06-27T14:44:35.000Z</published>
     <summary>
-      <![CDATA[<h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>RDS는 Private Subnet에 두고, 관문 역할을 하는 작은 EC2 bastion을 Public에 두고]]>
+      <![CDATA[<h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>RDS는 Private Subnet에 두고, Public Subnet의 EC2 bastion을 SSH로]]>
     </summary>
     <title>bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기</title>
-    <updated>2026-06-26T17:13:42.716Z</updated>
+    <updated>2026-06-26T17:45:51.307Z</updated>
   </entry>
   <entry>
     <author>
