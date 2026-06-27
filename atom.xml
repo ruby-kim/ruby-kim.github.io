@@ -8,16 +8,37 @@
   <link href="https://ruby-kim.github.io/" rel="alternate"/>
   <link href="https://ruby-kim.github.io/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, Ruby Kim</rights>
-  <subtitle>☁ Cloud Engineer ☁</subtitle>
+  <subtitle>AI Platform Engineer</subtitle>
   <title>잡동사니</title>
-  <updated>2026-06-26T17:46:33.057Z</updated>
+  <updated>2026-06-27T18:24:46.809Z</updated>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="☁ Cloud/GCP" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud-GCP/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
+    <category term="Firebase Hosting" scheme="https://ruby-kim.github.io/tags/Firebase-Hosting/"/>
+    <category term="Cloud Run" scheme="https://ruby-kim.github.io/tags/Cloud-Run/"/>
+    <category term="Next.js" scheme="https://ruby-kim.github.io/tags/Next-js/"/>
+    <category term="Firestore" scheme="https://ruby-kim.github.io/tags/Firestore/"/>
+    <category term="ISR" scheme="https://ruby-kim.github.io/tags/ISR/"/>
+    <category term="CDN" scheme="https://ruby-kim.github.io/tags/CDN/"/>
+    <category term="Serverless" scheme="https://ruby-kim.github.io/tags/Serverless/"/>
+    <id>https://ruby-kim.github.io/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/</id>
+    <link href="https://ruby-kim.github.io/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/"/>
+    <published>2026-06-28T05:30:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>최근 애드센스+협찬을 할겸 기존 블로그는 폐쇄하고 AI 다국어 번역 자동화가 달린 개인 블로그 사이트를 만들고]]>
+    </summary>
+    <title>Firebase Hosting에서 Firestore read를 거의 안 쓰게 만든 캐시 구조 만들기</title>
+    <updated>2026-06-27T18:24:46.809Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Ruby Kim</name>
     </author>
     <category term="🔐 Network/Security" scheme="https://ruby-kim.github.io/categories/%F0%9F%94%90-Network-Security/"/>
     <category term="DevOps" scheme="https://ruby-kim.github.io/tags/DevOps/"/>
-    <category term="Security" scheme="https://ruby-kim.github.io/tags/Security/"/>
     <category term="AWS" scheme="https://ruby-kim.github.io/tags/AWS/"/>
     <category term="SSM" scheme="https://ruby-kim.github.io/tags/SSM/"/>
     <category term="Session Manager" scheme="https://ruby-kim.github.io/tags/Session-Manager/"/>
@@ -25,6 +46,7 @@
     <category term="EC2" scheme="https://ruby-kim.github.io/tags/EC2/"/>
     <category term="Bastion" scheme="https://ruby-kim.github.io/tags/Bastion/"/>
     <category term="IAM" scheme="https://ruby-kim.github.io/tags/IAM/"/>
+    <category term="Security" scheme="https://ruby-kim.github.io/tags/Security/"/>
     <category term="CloudFormation" scheme="https://ruby-kim.github.io/tags/CloudFormation/"/>
     <id>https://ruby-kim.github.io/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/</id>
     <link href="https://ruby-kim.github.io/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/"/>
@@ -33,7 +55,7 @@
       <![CDATA[<h2 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h2><p>RDS는 Private Subnet에 두고, Public Subnet의 EC2 bastion을 SSH로]]>
     </summary>
     <title>bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기</title>
-    <updated>2026-06-26T17:46:33.057Z</updated>
+    <updated>2026-06-27T16:41:52.053Z</updated>
   </entry>
   <entry>
     <author>
@@ -209,7 +231,7 @@
 <li>없음. 대충 들은건 있어가지고 어떤 서비스가 있는지는 아는데,]]>
     </summary>
     <title>[GCP] GCP Professional Cloud Architect(PCA) 자격증 시험 준비 및 합격 후기</title>
-    <updated>2026-05-31T08:35:33.050Z</updated>
+    <updated>2026-06-27T17:26:13.271Z</updated>
   </entry>
   <entry>
     <author>
@@ -290,9 +312,9 @@
       <name>Ruby Kim</name>
     </author>
     <category term="✨ Frontend" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
-    <category term="Vue" scheme="https://ruby-kim.github.io/tags/Vue/"/>
     <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
     <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
+    <category term="Vue" scheme="https://ruby-kim.github.io/tags/Vue/"/>
     <category term="SEO" scheme="https://ruby-kim.github.io/tags/SEO/"/>
     <id>https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</id>
     <link href="https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/"/>
@@ -362,21 +384,5 @@
     </summary>
     <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
     <updated>2026-05-31T08:35:33.052Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Ruby Kim</name>
-    </author>
-    <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
-    <category term="Diagram" scheme="https://ruby-kim.github.io/tags/Diagram/"/>
-    <id>https://ruby-kim.github.io/2024/11/23/Tips/Tool/</id>
-    <link href="https://ruby-kim.github.io/2024/11/23/Tips/Tool/"/>
-    <published>2024-11-23T14:44:35.000Z</published>
-    <summary>
-      <![CDATA[<p>프로젝트를 하다보면 flow chart나 diagram을 그려야 하는데, 이게 여간 귀찮은 일이 아닐 수 없다.<br>빠르고 간단하게 그리고 싶은 분들은 Mermaid 명령어로 그려보는걸 추천한다.</p>
-<h2 id="Mermaid"><a]]>
-    </summary>
-    <title>[TIPS] Mermaid 명령어로 Diagram 그리기</title>
-    <updated>2026-05-31T08:35:33.216Z</updated>
   </entry>
 </feed>

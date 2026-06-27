@@ -152,7 +152,7 @@
         <div class="logo-name">잡동사니</div>
         <div class="logo-desc">
             
-            ☁ Cloud Engineer ☁
+            AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록
             
         </div>
     </div>
@@ -432,10 +432,6 @@
                                 <span class="chip bg-color">DevOps</span>
                             </a>
                         
-                            <a href="/tags/Security/">
-                                <span class="chip bg-color">Security</span>
-                            </a>
-                        
                             <a href="/tags/AWS/">
                                 <span class="chip bg-color">AWS</span>
                             </a>
@@ -462,6 +458,10 @@
                         
                             <a href="/tags/IAM/">
                                 <span class="chip bg-color">IAM</span>
+                            </a>
+                        
+                            <a href="/tags/Security/">
+                                <span class="chip bg-color">Security</span>
                             </a>
                         
                             <a href="/tags/CloudFormation/">
@@ -498,14 +498,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    7 Min
                 </div>
                 
 
@@ -531,7 +531,7 @@
 <li>인바운드 <code>0.0.0.0/0</code> 전부 제거</li>
 <li>SSM Session Manager 포트 포워딩으로 RDS 접속</li>
 <li>IAM Identity Center(SSO) + AWS Profile 기반 인증</li>
-<li>DB 자격 증명은 Secrets Manager에서 조회</li>
+<li>DB 자격 증명은 Secrets Manager에서 조회 (Profile에서 CLI을 이용해 자동으로 정보 받기)</li>
 <li>인프라는 CloudFormation, 운영 문서·자동화 스크립트 정리</li>
 </ul>
 <h2 id="1-레거시-설정의-문제점"><a href="#1-레거시-설정의-문제점" class="headerlink" title="1. 레거시 설정의 문제점"></a>1. 레거시 설정의 문제점</h2><table>
@@ -605,7 +605,7 @@
        │                                                                                                   ▲
        └──────────────── localhost:13306 포트 포워딩 ─────────────────────────────────────────────────────────┘
        │
-       └── DB 비밀번호: Secrets Manager에서 조회</code></pre>
+       └── DB 계정: Profile + Secrets Manager CLI로 자동 조회</code></pre>
 
 <h2 id="3-구축-내용"><a href="#3-구축-내용" class="headerlink" title="3. 구축 내용"></a>3. 구축 내용</h2><h3 id="3-1-인프라-CloudFormation"><a href="#3-1-인프라-CloudFormation" class="headerlink" title="3.1 인프라 (CloudFormation)"></a>3.1 인프라 (CloudFormation)</h3><p>SG, IAM Role, SSM 관련 설정은 CloudFormation으로 관리한다. (환경이 많기 때문에 노가다를 할 수 없으니 IaC가 필수이다)</p>
 <p>EC2 Instance Role에는 관리형 정책 <code>AmazonSSMManagedInstanceCore</code>를 붙인다.</p>
@@ -625,6 +625,11 @@
       <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
       <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"ssm:TerminateSession"</span><span class="token punctuation">,</span> <span class="token string">"ssm:ResumeSession"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token string">"arn:aws:ssm:ap-northeast-2:ACCOUNT_ID:session/${aws:username}-*"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"Effect"</span><span class="token operator">:</span> <span class="token string">"Allow"</span><span class="token punctuation">,</span>
+      <span class="token property">"Action"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"secretsmanager:GetSecretValue"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"Resource"</span><span class="token operator">:</span> <span class="token string">"arn:aws:secretsmanager:ap-northeast-2:ACCOUNT_ID:secret:rds/mydb-*"</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
@@ -638,14 +643,40 @@ Outbound: 443 → SSM, DB 포트 → RDS SG
 Inbound:  3306/5432 ← EC2 Bastion SG만</code></pre>
 
 <p>마이그레이션 후 전체 SG를 훑어서 <code>0.0.0.0/0</code> 잔존 규칙이 없는지 확인했다.</p>
-<h3 id="3-3-접속-방법"><a href="#3-3-접속-방법" class="headerlink" title="3.3 접속 방법"></a>3.3 접속 방법</h3><p>환경별 Profile이 여러 개라, 팀원이 매번 긴 CLI를 치지 않도록 자동화 스크립트를 만들고 운영 문서에 정리했다.</p>
+<h3 id="3-3-접속-방법"><a href="#3-3-접속-방법" class="headerlink" title="3.3 접속 방법"></a>3.3 접속 방법</h3><p>환경별 Profile이 여러 개라, 팀원이 매번 긴 CLI를 치지 않도록 자동화 스크립트를 만들고 운영 문서에 정리했다. Secrets Manager에서 username/password를 받아온 뒤 바로 SSM 터널을 여는 한 스크립트로 묶었다.</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token comment"># db-tunnel.sh — 환경별 Profile 지정 후 실행</span>
+<span class="token comment"># db-tunnel.sh — Profile 지정 → DB 계정 출력 → SSM 포트 포워딩</span>
 
 <span class="token assign-left variable">PROFILE</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${1<span class="token operator">:?</span>Usage<span class="token operator">:</span> .<span class="token operator">/</span>db-tunnel.sh &lt;aws-profile&gt;}</span>"</span>
 <span class="token assign-left variable">INSTANCE_ID</span><span class="token operator">=</span><span class="token string">"i-0abc123def456789"</span>
 <span class="token assign-left variable">RDS_HOST</span><span class="token operator">=</span><span class="token string">"mydb.xxxxx.ap-northeast-2.rds.amazonaws.com"</span>
 <span class="token assign-left variable">LOCAL_PORT</span><span class="token operator">=</span><span class="token string">"13306"</span>
+
+<span class="token comment"># Profile별 Secret ARN 매핑 (환경마다 다름)</span>
+<span class="token keyword">case</span> <span class="token string">"<span class="token variable">$PROFILE</span>"</span> <span class="token keyword">in</span>
+  company-dev<span class="token punctuation">)</span>     <span class="token assign-left variable">SECRET_ID</span><span class="token operator">=</span><span class="token string">"rds/dev/mydb"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  company-staging<span class="token punctuation">)</span> <span class="token assign-left variable">SECRET_ID</span><span class="token operator">=</span><span class="token string">"rds/staging/mydb"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  company-prod<span class="token punctuation">)</span>    <span class="token assign-left variable">SECRET_ID</span><span class="token operator">=</span><span class="token string">"rds/prod/mydb"</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+  *<span class="token punctuation">)</span> <span class="token builtin class-name">echo</span> <span class="token string">"Unknown profile: <span class="token variable">$PROFILE</span>"</span> <span class="token operator">&gt;</span><span class="token file-descriptor important">&amp;2</span><span class="token punctuation">;</span> <span class="token builtin class-name">exit</span> <span class="token number">1</span> <span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token keyword">esac</span>
+
+<span class="token assign-left variable">SECRET_JSON</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>aws secretsmanager get-secret-value <span class="token punctuation">\</span>
+  <span class="token parameter variable">--profile</span> <span class="token string">"<span class="token variable">$PROFILE</span>"</span> <span class="token punctuation">\</span>
+  --secret-id <span class="token string">"<span class="token variable">$SECRET_ID</span>"</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--query</span> SecretString <span class="token punctuation">\</span>
+  <span class="token parameter variable">--output</span> text<span class="token variable">)</span></span>
+
+<span class="token assign-left variable">DB_USER</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$SECRET_JSON</span>"</span> <span class="token operator">|</span> jq <span class="token parameter variable">-r</span> .username<span class="token variable">)</span></span>
+<span class="token assign-left variable">DB_PASS</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$SECRET_JSON</span>"</span> <span class="token operator">|</span> jq <span class="token parameter variable">-r</span> .password<span class="token variable">)</span></span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">"── DB 접속 정보 (DBeaver·TablePlus 등에 입력) ──"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"Host:     localhost"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"Port:     <span class="token variable">$LOCAL_PORT</span>"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"User:     <span class="token variable">$DB_USER</span>"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"Password: <span class="token variable">$DB_PASS</span>"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"──────────────────────────────────────────────"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"터널 연결 중... (종료: Ctrl+C)"</span>
+<span class="token builtin class-name">echo</span>
 
 aws ssm start-session <span class="token punctuation">\</span>
   <span class="token parameter variable">--profile</span> <span class="token string">"<span class="token variable">$PROFILE</span>"</span> <span class="token punctuation">\</span>
@@ -657,20 +688,25 @@ aws ssm start-session <span class="token punctuation">\</span>
     <span class="token entity" title="\&quot;">\"</span>localPortNumber<span class="token entity" title="\&quot;">\"</span>:[<span class="token entity" title="\&quot;">\"</span><span class="token variable">$LOCAL_PORT</span><span class="token entity" title="\&quot;">\"</span>]
   }"</span></code></pre>
 
-<p>DB 클라이언트 접속 정보:</p>
-<pre class="language-none"><code class="language-none">Host:     localhost
-Port:     13306
-User:     (Secrets Manager에서 확인)
-Password: (Secrets Manager에서 확인)</code></pre>
+<p>RDS가 Secrets Manager와 연동돼 있으면 SecretString은 보통 아래 형태다. <code>jq</code>로 username/password만 꺼내면 된다.</p>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"username"</span><span class="token operator">:</span> <span class="token string">"admin"</span><span class="token punctuation">,</span>
+  <span class="token property">"password"</span><span class="token operator">:</span> <span class="token string">"********"</span><span class="token punctuation">,</span>
+  <span class="token property">"engine"</span><span class="token operator">:</span> <span class="token string">"mysql"</span><span class="token punctuation">,</span>
+  <span class="token property">"host"</span><span class="token operator">:</span> <span class="token string">"mydb.xxxxx.ap-northeast-2.rds.amazonaws.com"</span><span class="token punctuation">,</span>
+  <span class="token property">"port"</span><span class="token operator">:</span> <span class="token number">3306</span><span class="token punctuation">,</span>
+  <span class="token property">"dbname"</span><span class="token operator">:</span> <span class="token string">"mydb"</span>
+<span class="token punctuation">}</span></code></pre>
 
-<p>비밀번호는 <code>.env</code>나 개인 메모에 두지 않고, Secrets Manager에서 가져와 쓴다.</p>
+<p>터널은 <code>localhost:13306</code>으로 붙기 때문에 host/port는 스크립트에서 고정값으로 두고, Secret에서는 <strong>username/password만</strong> 가져온다. <code>start-session</code>은 터널이 열려 있는 동안 프로세스를 붙잡기 때문에, creds 조회를 터널 시작 <strong>앞</strong>에 넣었다. 출력된 계정 정보를 DB 클라이언트에 붙여넣은 뒤 터널이 유지되는 동안 접속하면 된다.</p>
+<p>Profile이 없거나 <code>secretsmanager:GetSecretValue</code> 권한이 없는 사람은 애초에 Secret을 읽을 수 없다. 콘솔 URL을 공유하는 것보다 IAM으로 경계가 더 명확하다.</p>
 <h3 id="3-4-SSO-로그인-흐름"><a href="#3-4-SSO-로그인-흐름" class="headerlink" title="3.4 SSO 로그인 흐름"></a>3.4 SSO 로그인 흐름</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. SSO 로그인 (환경별 Profile)</span>
 aws sso login <span class="token parameter variable">--profile</span> company-dev
 
-<span class="token comment"># 2. 터널 시작</span>
+<span class="token comment"># 2. 스크립트 실행 — 계정 정보 출력 후 터널 유지 (종료: Ctrl+C)</span>
 ./db-tunnel.sh company-dev
 
-<span class="token comment"># 3. 별도 터미널에서 DB 클라이언트 접속</span></code></pre>
+<span class="token comment"># 3. 출력된 Host/User/Password로 DB 클라이언트 접속</span></code></pre>
 
 <p>Profile이 여러 개인 환경(dev/staging/prod)에서는 스크립트에 Profile을 인자로 넘기는 방식이 실수를 줄인다.</p>
 <p>전환 작업 자체는 AWS 공식 문서 순서대로 진행했고, 딱히 막히는 이슈는 없었다. CloudFormation으로 VPC·IAM이 이미 잡혀 있었고, 로컬에서는 SSO 로그인 → 스크립트 실행 → <code>localhost</code>로 DB 붙이면 끝이다.</p>
@@ -691,7 +727,7 @@ aws sso login <span class="token parameter variable">--profile</span> company-de
 </tr>
 <tr>
 <td>Secrets Manager</td>
-<td>DB 자격 증명 중앙 관리, 로컬 저장 금지</td>
+<td>DB 자격 증명 중앙 관리, Profile + CLI로 조회, 로컬 저장 금지</td>
 </tr>
 <tr>
 <td>SG 전수 조사</td>
@@ -728,7 +764,7 @@ aws sso login <span class="token parameter variable">--profile</span> company-de
 <tr>
 <td>DB 자격 증명</td>
 <td>분산 관리</td>
-<td>Secrets Manager</td>
+<td>Secrets Manager + Profile 기반 CLI 조회</td>
 </tr>
 <tr>
 <td>인프라 관리</td>
@@ -767,7 +803,7 @@ aws sso login <span class="token parameter variable">--profile</span> company-de
                 <div class="related-posts-container">
                     <h2 class="related-posts-title">📌 관련 글</h2>
                     <div class="related-posts-grid">
-                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/07/12/DevOps/Container/" title="Container 정리" rel="bookmark">Container 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/02/28/DevOps/K8S-Easy/" title="Kubernetes 용어 완전 쉽게 이해하기" rel="bookmark">Kubernetes 용어 완전 쉽게 이해하기</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/05/12/DevOps/Intro/" title="DevOps 개요" rel="bookmark">DevOps 개요</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/11/11/DevOps/Docker/" title="Docker 정리" rel="bookmark">Docker 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/10/12/DevOps/Kubernetes/" title="Kubernetes 정리" rel="bookmark">Kubernetes 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/03/30/NS/SSLTSL/" title="SSL/TSL 개념과 기본 동작 원리" rel="bookmark">SSL/TSL 개념과 기본 동작 원리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/08/20/Security/Oauth2/" title="OAuth2.0를 알아보자" rel="bookmark">OAuth2.0를 알아보자</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/09/30/Certificate/AWS/CloudPractitioner/" title="[AWS] Cloud Practitioner 시험 준비 및 후기" rel="bookmark">[AWS] Cloud Practitioner 시험 준비 및 후기</a></h3></div></li></ul>
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/07/12/DevOps/Container/" title="Container 정리" rel="bookmark">Container 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/11/11/DevOps/Docker/" title="Docker 정리" rel="bookmark">Docker 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/05/12/DevOps/Intro/" title="DevOps 개요" rel="bookmark">DevOps 개요</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/02/28/DevOps/K8S-Easy/" title="Kubernetes 용어 완전 쉽게 이해하기" rel="bookmark">Kubernetes 용어 완전 쉽게 이해하기</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/10/12/DevOps/Kubernetes/" title="Kubernetes 정리" rel="bookmark">Kubernetes 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/09/30/Certificate/AWS/CloudPractitioner/" title="[AWS] Cloud Practitioner 시험 준비 및 후기" rel="bookmark">[AWS] Cloud Practitioner 시험 준비 및 후기</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/03/30/NS/SSLTSL/" title="SSL/TSL 개념과 기본 동작 원리" rel="bookmark">SSL/TSL 개념과 기본 동작 원리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/08/20/Security/Oauth2/" title="OAuth2.0를 알아보자" rel="bookmark">OAuth2.0를 알아보자</a></h3></div></li></ul>
                     </div>
                 </div>
             
@@ -893,83 +929,73 @@ aws sso login <span class="token parameter variable">--profile</span> company-de
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2026/06/27/NS/AWS-SSM-ZeroTrust-RDS/">
+                <a href="/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/">
                     <div class="card-image">
                         
-                        <img src="/coverImages/aws.png" class="responsive-img" alt="bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기">
+                        <img src="/coverImages/gcp.png" class="responsive-img" alt="Firebase Hosting에서 Firestore read를 거의 안 쓰게 만든 캐시 구조 만들기">
                         
-                        <span class="card-title">bastion SSH를 걷어내고 SSM 포트 포워딩으로 RDS 접근 구조 정리하기</span>
+                        <span class="card-title">Firebase Hosting에서 Firestore read를 거의 안 쓰게 만든 캐시 구조 만들기</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            bastion SSH 인바운드를 제거하고, SSO Profile + SSM 포트 포워딩 + Secrets Manager 기반으로 RDS 접근 구조를 재정비해봤다
+                            Firebase Hosting(Next.js) · Firestore 3중 캐시와 Push invalidation으로 사이트 비용 줄이기
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-06-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-06-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%F0%9F%94%90-Network-Security/" class="post-category">
-                                    🔐 Network/Security
+                            <a href="/categories/%E2%98%81-Cloud-GCP/" class="post-category">
+                                    ☁ Cloud/GCP
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/DevOps/">
-                        <span class="chip bg-color">DevOps</span>
+                    <a href="/tags/GCP/">
+                        <span class="chip bg-color">GCP</span>
                     </a>
                     
-                    <a href="/tags/Security/">
-                        <span class="chip bg-color">Security</span>
+                    <a href="/tags/Firebase-Hosting/">
+                        <span class="chip bg-color">Firebase Hosting</span>
                     </a>
                     
-                    <a href="/tags/AWS/">
-                        <span class="chip bg-color">AWS</span>
+                    <a href="/tags/Cloud-Run/">
+                        <span class="chip bg-color">Cloud Run</span>
                     </a>
                     
-                    <a href="/tags/SSM/">
-                        <span class="chip bg-color">SSM</span>
+                    <a href="/tags/Next-js/">
+                        <span class="chip bg-color">Next.js</span>
                     </a>
                     
-                    <a href="/tags/Session-Manager/">
-                        <span class="chip bg-color">Session Manager</span>
+                    <a href="/tags/Firestore/">
+                        <span class="chip bg-color">Firestore</span>
                     </a>
                     
-                    <a href="/tags/RDS/">
-                        <span class="chip bg-color">RDS</span>
+                    <a href="/tags/ISR/">
+                        <span class="chip bg-color">ISR</span>
                     </a>
                     
-                    <a href="/tags/EC2/">
-                        <span class="chip bg-color">EC2</span>
+                    <a href="/tags/CDN/">
+                        <span class="chip bg-color">CDN</span>
                     </a>
                     
-                    <a href="/tags/Bastion/">
-                        <span class="chip bg-color">Bastion</span>
-                    </a>
-                    
-                    <a href="/tags/IAM/">
-                        <span class="chip bg-color">IAM</span>
-                    </a>
-                    
-                    <a href="/tags/CloudFormation/">
-                        <span class="chip bg-color">CloudFormation</span>
+                    <a href="/tags/Serverless/">
+                        <span class="chip bg-color">Serverless</span>
                     </a>
                     
                 </div>
@@ -1193,7 +1219,7 @@ aws sso login <span class="token parameter variable">--profile</span> company-de
         <!-- Col 1: Blog info -->
         <div class="footer-col footer-col--brand">
             <a href="/" class="footer-brand">잡동사니</a>
-            <p class="footer-desc">☁ Cloud Engineer ☁</p>
+            <p class="footer-desc">AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록</p>
             
                 <p class="footer-runtime" id="sitetime"></p>
                 <script>

@@ -10,15 +10,6 @@
     
     
     <url>
-        <loc>https://ruby-kim.github.io/categories/</loc>
-        <lastmod>2026-05-31T08:35:33.218Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://ruby-kim.github.io/about/</loc>
         <lastmod>2026-05-31T08:35:33.218Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -28,7 +19,7 @@
     
     
     <url>
-        <loc>https://ruby-kim.github.io/contact/</loc>
+        <loc>https://ruby-kim.github.io/categories/</loc>
         <lastmod>2026-05-31T08:35:33.218Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -38,6 +29,15 @@
     
     <url>
         <loc>https://ruby-kim.github.io/tags/</loc>
+        <lastmod>2026-05-31T08:35:33.218Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://ruby-kim.github.io/contact/</loc>
         <lastmod>2026-05-31T08:35:33.218Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

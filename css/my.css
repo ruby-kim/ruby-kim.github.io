@@ -237,8 +237,6 @@ header .button-collapse i {
 /* ================================================================
    INLINE CODE
    ================================================================ */
-code { color: #34495e !important; }
-
 #articleContent :not(pre) > code {
     background: #f1f5f9 !important;
     color: #34495e !important;
@@ -250,7 +248,49 @@ code { color: #34495e !important; }
 }
 
 /* ================================================================
-   CODE BLOCKS
+   CODE BLOCKS — PrismJS (syntax_highlighter: prismjs)
+   ================================================================ */
+#articleContent .code-area {
+    border-radius: var(--radius) !important;
+    overflow: hidden !important;
+    margin: 1.6rem 0 !important;
+    background: #1e1e2e !important;
+    box-shadow: 0 4px 22px rgba(0,0,0,.28) !important;
+    border: 1px solid rgba(255,255,255,.06) !important;
+}
+
+#articleContent pre[class*="language-"] {
+    background: #1e1e2e !important;
+    margin: 0 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.72 !important;
+    color: #cdd6f4 !important;
+    overflow-x: auto;
+    border-radius: 0 !important;
+}
+
+#articleContent pre[class*="language-"] > code[class*="language-"] {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    font-size: inherit !important;
+    border-radius: 0 !important;
+    top: auto !important;
+}
+
+#articleContent .code-area .code_lang {
+    filter: none !important;
+    color: #585b70 !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    top: 0.85rem !important;
+    right: 3rem !important;
+}
+
+/* ================================================================
+   CODE BLOCKS — highlight.js (legacy)
    ================================================================ */
 figure.highlight {
     border-radius: var(--radius) !important;
@@ -543,6 +583,111 @@ figure.highlight .gutter .code-area::after {
     font-size: 0.875rem;
     color: #64748b;
 }
+
+/* ================================================================
+   ABOUT WORK — projects + links as one block
+   ================================================================ */
+.about-work .my-projects {
+    padding-bottom: 0 !important;
+}
+
+.about-work .my-links {
+    padding: 1.25rem 1.5rem 0.8rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.about-work .link-cards {
+    margin-bottom: 0;
+}
+
+.about-work .link-cards .col {
+    margin-bottom: 1rem;
+}
+
+.about-work .link-card {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* ================================================================
+   LINK CARDS (About page — outbound links)
+   ================================================================ */
+.my-links {
+    padding: 1.25rem 1.5rem 0.8rem;
+}
+
+.link-cards {
+    margin-bottom: 0;
+}
+
+.link-cards .col {
+    margin-bottom: 1rem;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-xs);
+    text-decoration: none !important;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+}
+
+.link-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+
+.link-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
+.link-card-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.link-card-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.link-card-hint {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.link-card-arrow {
+    color: #94a3b8;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+    transition: color 0.18s;
+}
+
+.link-card:hover .link-card-arrow { color: var(--blue); }
+.link-card:hover .link-card-title { color: var(--blue); }
 
 /* ================================================================
    PAGINATION
