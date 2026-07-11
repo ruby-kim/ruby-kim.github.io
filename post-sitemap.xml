@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>https://ruby-kim.github.io/2026/07/11/AI/Pydantic-AI/</loc>
+        <lastmod>2026-07-11T17:44:20.446Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ruby-kim.github.io/2026/03/26/Etc/Discord-Bot/</loc>
+        <lastmod>2026-07-11T14:58:35.477Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/</loc>
         <lastmod>2026-06-27T18:26:50.273Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -306,14 +322,6 @@
 
     <url>
         <loc>https://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</loc>
-        <lastmod>2026-05-31T08:35:33.154Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ruby-kim.github.io/2026/03/26/Etc/Discord-Bot/</loc>
         <lastmod>2026-05-31T08:35:33.154Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -55,9 +55,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -470,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    641
+                    640
                 </div>
                 
 
@@ -523,8 +523,7 @@
 <p>핵심은 코드와 운영 정책을 분리한 점이다.<br>로직은 공통 엔진으로 두고, 질문/문구/분기 조건은 프로필 파일에서 바꿀 수 있게 만들었다.</p>
 <h2 id="왜-DB-대신-JSON을-썼는가"><a href="#왜-DB-대신-JSON을-썼는가" class="headerlink" title="왜 DB 대신 JSON을 썼는가"></a>왜 DB 대신 JSON을 썼는가</h2><p>처음부터 DB를 도입하지는 않았다. 어차피 나 혼자 쓸, 아주 자그마한 아이기 때문이었다.<br>그래서 초기에 바로 JSON 저장소를 선택했다.</p>
 <ul>
-<li>장점: 구축 속도가 빨랐고, 데이터 구조 확인/수정이 직관적이었다.</li>
-<li>장점: Git 기반 백업 및 변경 추적이 쉬웠다.</li>
+<li>장점: 구축 속도가 빨랐고, 데이터 구조 확인/수정이 직관적 + it 기반 백업 및 변경 추적이 쉬웠다.</li>
 <li>단점: 동시성, 트랜잭션, 대량 데이터 처리에는 불리하다.</li>
 </ul>
 <p>현재 단계에서는 장점이 단점을 상회한다고 판단했다.<br>대신 파일 구조와 저장 포맷을 명확히 해두어, 추후 DB로 이관하기 쉽게 설계했다.</p>
@@ -574,6 +573,13 @@
 
             
                 
+                <div class="related-posts-container">
+                    <h2 class="related-posts-title">📌 관련 글</h2>
+                    <div class="related-posts-grid">
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/07/11/AI/Pydantic-AI/" title="Pydantic AI 기본 정리" rel="bookmark">Pydantic AI 기본 정리</a></h3></div></li></ul>
+                    </div>
+                </div>
+            
 
             
 

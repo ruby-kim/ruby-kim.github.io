@@ -10,7 +10,26 @@
   <rights>All rights reserved 2026, Ruby Kim</rights>
   <subtitle>AI Platform Engineer</subtitle>
   <title>잡동사니</title>
-  <updated>2026-06-27T18:26:50.273Z</updated>
+  <updated>2026-07-11T17:44:20.446Z</updated>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🤖 AI" scheme="https://ruby-kim.github.io/categories/%F0%9F%A4%96-AI/"/>
+    <category term="Python" scheme="https://ruby-kim.github.io/tags/Python/"/>
+    <category term="Pydantic AI" scheme="https://ruby-kim.github.io/tags/Pydantic-AI/"/>
+    <category term="Agent" scheme="https://ruby-kim.github.io/tags/Agent/"/>
+    <category term="LLM" scheme="https://ruby-kim.github.io/tags/LLM/"/>
+    <id>https://ruby-kim.github.io/2026/07/11/AI/Pydantic-AI/</id>
+    <link href="https://ruby-kim.github.io/2026/07/11/AI/Pydantic-AI/"/>
+    <published>2026-07-11T14:44:00.000Z</published>
+    <summary>
+      <![CDATA[<p>공식 문서: <a href="https://pydantic.dev/docs/ai/">https://pydantic.dev/docs/ai/</a></p>
+<h2 id="Pydantic-AI이란"><a href="#Pydantic-AI이란"]]>
+    </summary>
+    <title>Pydantic AI 기본 정리</title>
+    <updated>2026-07-11T17:44:20.446Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Ruby Kim</name>
@@ -88,7 +107,7 @@
       <![CDATA[<h2 id="만들게-된-이유"><a href="#만들게-된-이유" class="headerlink" title="만들게 된 이유"></a>만들게 된 이유</h2><p>최근 특정 프로그램에서 멘토링을 많이 하고 있는데, 멘토링 보고서를 제출할 때마다]]>
     </summary>
     <title>타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기</title>
-    <updated>2026-05-31T08:35:33.154Z</updated>
+    <updated>2026-07-11T14:58:35.477Z</updated>
   </entry>
   <entry>
     <author>
@@ -360,29 +379,5 @@
     </summary>
     <title>[GCP] GCP에서 사용자 인증정보(OAuth)를 사용해 Access Token 받아오기</title>
     <updated>2026-05-31T08:35:33.050Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Ruby Kim</name>
-    </author>
-    <category term="☁️ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81%EF%B8%8F-Cloud/"/>
-    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
-    <category term="Container" scheme="https://ruby-kim.github.io/tags/Container/"/>
-    <category term="Docker" scheme="https://ruby-kim.github.io/tags/Docker/"/>
-    <category term="Network" scheme="https://ruby-kim.github.io/tags/Network/"/>
-    <category term="NCP" scheme="https://ruby-kim.github.io/tags/NCP/"/>
-    <category term="VPC" scheme="https://ruby-kim.github.io/tags/VPC/"/>
-    <category term="Kubernetes" scheme="https://ruby-kim.github.io/tags/Kubernetes/"/>
-    <id>
-      <![CDATA[https://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&NCR/]]>
-    </id>
-    <link href="https://ruby-kim.github.io/2024/11/25/Cloud/NCP/Console/NKS&amp;NCR/"/>
-    <published>2024-11-25T02:44:35.000Z</published>
-    <summary>
-      <![CDATA[<p>최근 멘토링에서 ncloud를 사용하여 서버배포를 하고싶다는 요청을 받았는데, 나 또한 네이버 클라우드는 경험이 없는지라 ㅎㅎ;; 공부삼아 한 번 세팅을 해봤다.</p>
-<p>일단 클라우드에서 Kubernetes로 container를 배포를]]>
-    </summary>
-    <title>[NCP] 콘솔에서 NKS(Ncloud Kubernetes Service) 및 NCR(Ncloud Container Registry) 세팅으로 배포하기</title>
-    <updated>2026-05-31T08:35:33.052Z</updated>
   </entry>
 </feed>
