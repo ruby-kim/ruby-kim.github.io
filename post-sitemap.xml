@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
+        <lastmod>2026-07-12T12:09:35.604Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2026/07/12/AI/Pydantic-AI-Core-Concepts/</loc>
         <lastmod>2026-07-12T08:30:01.649Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -97,14 +105,6 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
-        <lastmod>2026-05-31T08:35:33.201Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://ruby-kim.github.io/2022/05/10/Retrospect/Bachelor/</loc>
         <lastmod>2026-05-31T08:35:33.201Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -113,7 +113,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</loc>
+        <loc>https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
         <lastmod>2026-05-31T08:35:33.200Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -121,7 +121,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
+        <loc>https://ruby-kim.github.io/2022/03/16/Projects/AutomaticTechBlogManagement/Intro/</loc>
         <lastmod>2026-05-31T08:35:33.200Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -217,14 +217,6 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</loc>
-        <lastmod>2026-05-31T08:35:33.172Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/</loc>
         <lastmod>2026-05-31T08:35:33.172Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -242,6 +234,14 @@
 
     <url>
         <loc>https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/</loc>
+        <lastmod>2026-05-31T08:35:33.172Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</loc>
         <lastmod>2026-05-31T08:35:33.172Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -281,7 +281,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/22/Frontend/Reactjs/ReactLifeCycle/</loc>
+        <loc>https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</loc>
         <lastmod>2026-05-31T08:35:33.161Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -289,7 +289,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</loc>
+        <loc>https://ruby-kim.github.io/2022/04/22/Frontend/Reactjs/ReactLifeCycle/</loc>
         <lastmod>2026-05-31T08:35:33.161Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -337,7 +337,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2024/07/12/DevOps/Container/</loc>
+        <loc>https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/</loc>
         <lastmod>2026-05-31T08:35:33.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -361,7 +361,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/</loc>
+        <loc>https://ruby-kim.github.io/2024/07/12/DevOps/Container/</loc>
         <lastmod>2026-05-31T08:35:33.153Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

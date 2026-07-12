@@ -54,7 +54,6 @@
       <name>Ruby Kim</name>
     </author>
     <category term="☁ Cloud/GCP" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud-GCP/"/>
-    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="Firebase Hosting" scheme="https://ruby-kim.github.io/tags/Firebase-Hosting/"/>
     <category term="Cloud Run" scheme="https://ruby-kim.github.io/tags/Cloud-Run/"/>
     <category term="Next.js" scheme="https://ruby-kim.github.io/tags/Next-js/"/>
@@ -62,6 +61,7 @@
     <category term="ISR" scheme="https://ruby-kim.github.io/tags/ISR/"/>
     <category term="CDN" scheme="https://ruby-kim.github.io/tags/CDN/"/>
     <category term="Serverless" scheme="https://ruby-kim.github.io/tags/Serverless/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <id>https://ruby-kim.github.io/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/</id>
     <link href="https://ruby-kim.github.io/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/"/>
     <published>2026-06-28T05:30:00.000Z</published>
@@ -116,9 +116,9 @@
       <name>Ruby Kim</name>
     </author>
     <category term="💾 Etc" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BE-Etc/"/>
+    <category term="Python" scheme="https://ruby-kim.github.io/tags/Python/"/>
     <category term="Bot" scheme="https://ruby-kim.github.io/tags/Bot/"/>
     <category term="Discord" scheme="https://ruby-kim.github.io/tags/Discord/"/>
-    <category term="Python" scheme="https://ruby-kim.github.io/tags/Python/"/>
     <id>https://ruby-kim.github.io/2026/03/26/Etc/Discord-Bot/</id>
     <link href="https://ruby-kim.github.io/2026/03/26/Etc/Discord-Bot/"/>
     <published>2026-03-26T03:44:35.000Z</published>
@@ -208,8 +208,8 @@
     <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <category term="FHIR" scheme="https://ruby-kim.github.io/tags/FHIR/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <id>https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/</id>
     <link href="https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/"/>
     <published>2025-08-25T11:00:00.000Z</published>
@@ -315,8 +315,8 @@
     <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
     <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
     <id>https://ruby-kim.github.io/2025/02/20/HealthCare/HL7/v2/</id>
     <link href="https://ruby-kim.github.io/2025/02/20/HealthCare/HL7/v2/"/>
     <published>2025-02-20T14:44:35.000Z</published>
@@ -333,9 +333,9 @@
     <category term="🏥 HealthCare" scheme="https://ruby-kim.github.io/categories/%F0%9F%8F%A5-HealthCare/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <category term="IEEE" scheme="https://ruby-kim.github.io/tags/IEEE/"/>
     <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
-    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <id>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</id>
     <link href="https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/"/>
     <published>2025-01-10T14:44:35.000Z</published>
@@ -351,8 +351,8 @@
     </author>
     <category term="✨ Frontend" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
     <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
-    <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
     <category term="Vue" scheme="https://ruby-kim.github.io/tags/Vue/"/>
+    <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
     <category term="SEO" scheme="https://ruby-kim.github.io/tags/SEO/"/>
     <id>https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</id>
     <link href="https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/"/>
