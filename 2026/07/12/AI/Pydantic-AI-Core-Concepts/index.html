@@ -1,0 +1,1462 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Pydantic AI Core Concepts 정리, 잡동사니">
+    <meta name="description" content="Pydantic AI의 핵심 개념을 Agent 중심으로 정리">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="naver-site-verification" content="f4d0e3c893b2d90712d39536761907478c1ec622" />
+    <meta name="google-adsense-account" content="ca-pub-2159344226108747">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22Z5MEFCP7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-22Z5MEFCP7');
+</script>
+
+
+    <title>Pydantic AI Core Concepts 정리 | 잡동사니</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <!-- Typography: Pretendard (Korean) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">잡동사니</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">잡동사니</div>
+        <div class="logo-desc">
+            
+            AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ruby-kim/ruby-kim.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Github" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        // TODO: Need to implement SHA256
+        if (pwd && pwd.length > 0) {
+            if (pwd !== prompt('비밀번호를 입력해주세요.')) {
+            // if (pwd !== CryptoJS.SHA256(prompt('비밀번호를 입력해주세요.')).toString(CryptoJS.enc.Hex)) {
+                alert('잘못된 비밀번호 입니다. 홈페이지로 돌아갑니다.');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/coverImages/python.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Pydantic AI Core Concepts 정리</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/Pydantic-AI/">
+                                <span class="chip bg-color">Pydantic AI</span>
+                            </a>
+                        
+                            <a href="/tags/Agent/">
+                                <span class="chip bg-color">Agent</span>
+                            </a>
+                        
+                            <a href="/tags/LLM/">
+                                <span class="chip bg-color">LLM</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%F0%9F%A4%96-AI/" class="post-category">
+                                🤖 AI
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2026-07-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    1.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    7 Min
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Pydantic AI 기본 세팅을 보고 나면 공식 문서에서 Core Concepts를 만나게 된다.</p>
+<p>목록만 보면 <code>Agents</code>, <code>Dependencies</code>, <code>Output</code>, <code>Capabilities</code>, <code>Hooks</code>, <code>Agent Specs</code>, <code>Messages and chat history</code>, <code>Direct Model Requests</code>가 나오는데, 처음에는 뭐가 뭐랑 연결되는지 잘 안 보인다.</p>
+<p>이번 글에서는 각 개념을 깊게 파기보다는, <strong>Agent를 실제 서비스 코드처럼 구성하려면 어떤 부품들이 필요한지</strong> 기준으로 정리해보려고 한다.</p>
+<p>공식 문서:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/agents/">Agents</a></li>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/dependencies/">Dependencies</a></li>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/output/">Output</a></li>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/capabilities/">Capabilities</a></li>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/hooks/">Hooks</a></li>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/agent-specs/">Agent Specs</a></li>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/messages/">Messages and chat history</a></li>
+<li><a target="_blank" rel="noopener" href="https://pydantic.dev/docs/ai/direct/">Direct Model Requests</a></li>
+</ul>
+<h2 id="전체-그림"><a href="#전체-그림" class="headerlink" title="전체 그림"></a>전체 그림</h2><p>Pydantic AI는 단순히 모델에게 프롬프트를 보내는 라이브러리라기보다는, LLM을 실제 Python 애플리케이션 안에서 다루기 위한 Agent 프레임워크에 가깝다.</p>
+<p>큰 구조는 이렇게 보면 된다.</p>
+<pre class="language-none"><code class="language-none">Agent
+ ├─ instructions
+ ├─ dependencies
+ ├─ tools / capabilities
+ ├─ output
+ ├─ hooks
+ ├─ messages / chat history
+ └─ model request</code></pre>
+
+<p>즉 <code>Agent</code>가 중심이고, 나머지 개념들은 Agent가 실행될 때 필요한 설정, 외부 값, 기능, 출력 형식, 대화 기록을 붙이는 방식이다.</p>
+<h2 id="Agents"><a href="#Agents" class="headerlink" title="Agents"></a>Agents</h2><p><code>Agent</code>는 Pydantic AI에서 가장 중심이 되는 객체다.</p>
+<p>쉽게 말하면 아래 요소들을 하나로 묶은 실행 단위다.</p>
+<ul>
+<li>어떤 모델을 쓸지</li>
+<li>어떤 역할을 줄지</li>
+<li>어떤 tool을 사용할 수 있는지</li>
+<li>실행할 때 어떤 외부 값이 필요한지</li>
+<li>최종 결과를 어떤 타입으로 받을지</li>
+</ul>
+<p>가장 단순한 Agent는 이렇게 만든다.</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pydantic_ai <span class="token keyword">import</span> Agent
+
+agent <span class="token operator">=</span> Agent<span class="token punctuation">(</span>
+    <span class="token string">'openai:gpt-5.2'</span><span class="token punctuation">,</span>
+    instructions<span class="token operator">=</span><span class="token string">'너는 쇼핑몰 고객센터 상담원이야.'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+result <span class="token operator">=</span> agent<span class="token punctuation">.</span>run_sync<span class="token punctuation">(</span><span class="token string">'배송 조회는 어디서 해?'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>output<span class="token punctuation">)</span></code></pre>
+
+<p>이 정도면 그냥 LLM 호출처럼 보인다. 하지만 여기에 <code>deps</code>, <code>tool</code>, <code>output_type</code>이 붙기 시작하면 단순 호출이 아니라 하나의 서비스 로직에 가까워진다.</p>
+<pre class="language-python" data-language="python"><code class="language-python">agent <span class="token operator">=</span> Agent<span class="token punctuation">(</span>
+    <span class="token string">'openai:gpt-5.2'</span><span class="token punctuation">,</span>
+    deps_type<span class="token operator">=</span>Deps<span class="token punctuation">,</span>
+    output_type<span class="token operator">=</span>SupportAnswer<span class="token punctuation">,</span>
+    instructions<span class="token operator">=</span><span class="token string">'너는 쇼핑몰 고객센터 상담원이야.'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>이렇게 되면 Agent는 “쇼핑몰 상담 역할을 하고, 실행 시점의 의존성을 받고, 최종 답변은 <code>SupportAnswer</code> 형태로 반환하는 객체”가 된다.</p>
+<h2 id="Dependencies"><a href="#Dependencies" class="headerlink" title="Dependencies"></a>Dependencies</h2><p><code>Dependencies</code>는 Agent를 실행할 때 같이 넘기는 외부 값이다.</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> dataclasses <span class="token keyword">import</span> dataclass
+
+<span class="token decorator annotation punctuation">@dataclass</span>
+<span class="token keyword">class</span> <span class="token class-name">Deps</span><span class="token punctuation">:</span>
+    user_id<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    membership<span class="token punctuation">:</span> <span class="token builtin">str</span></code></pre>
+
+<p>이런 값은 사용자마다 달라진다.</p>
+<pre class="language-python" data-language="python"><code class="language-python">result <span class="token operator">=</span> agent<span class="token punctuation">.</span>run_sync<span class="token punctuation">(</span>
+    <span class="token string">'내 할인율 적용하면 얼마야?'</span><span class="token punctuation">,</span>
+    deps<span class="token operator">=</span>Deps<span class="token punctuation">(</span>user_id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> membership<span class="token operator">=</span><span class="token string">'gold'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>여기서 <code>deps</code>는 “이번 실행은 user_id가 1이고, 회원 등급은 gold인 상태로 실행한다”는 의미에 가깝다.</p>
+<p>조금 더 실제 서비스에 가까워지면 DB 연결이나 API client도 들어갈 수 있다.</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token decorator annotation punctuation">@dataclass</span>
+<span class="token keyword">class</span> <span class="token class-name">Deps</span><span class="token punctuation">:</span>
+    user_id<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    db<span class="token punctuation">:</span> DatabaseConn
+    payment_client<span class="token punctuation">:</span> PaymentClient</code></pre>
+
+<p><code>@agent.tool</code> 안에서는 <code>RunContext</code>를 통해 이 값을 꺼내 쓴다.</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pydantic_ai <span class="token keyword">import</span> RunContext
+
+<span class="token decorator annotation punctuation">@agent<span class="token punctuation">.</span>tool</span>
+<span class="token keyword">def</span> <span class="token function">get_membership</span><span class="token punctuation">(</span>ctx<span class="token punctuation">:</span> RunContext<span class="token punctuation">[</span>Deps<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""현재 사용자의 회원 등급을 가져온다."""</span>
+    <span class="token keyword">return</span> ctx<span class="token punctuation">.</span>deps<span class="token punctuation">.</span>membership</code></pre>
+
+<p>이렇게 넘긴 <code>deps</code>는 매 실행마다 달라질 수 있다. 예를 들어 같은 <code>Agent</code>라도 어떤 요청에서는 <code>gold</code> 회원으로, 다른 요청에서는 <code>basic</code> 회원으로 실행할 수 있다.</p>
+<pre class="language-python" data-language="python"><code class="language-python">result <span class="token operator">=</span> agent<span class="token punctuation">.</span>run_sync<span class="token punctuation">(</span>
+    <span class="token string">'내 회원 등급이 뭐야?'</span><span class="token punctuation">,</span>
+    deps<span class="token operator">=</span>Deps<span class="token punctuation">(</span>user_id<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> membership<span class="token operator">=</span><span class="token string">'gold'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>핵심은 <code>deps</code>가 LLM에게 바로 보여주는 값이 아니라, <code>tool</code>이 실행될 때 참고하는 실행 context라는 점이다.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p><code>Output</code>은 Agent의 최종 결과를 어떤 형태로 받을지 정하는 개념이다.</p>
+<p>LLM 응답을 문자열로만 받으면 간단하긴 하지만, 서비스 코드에서 다시 쓰기 어렵다.</p>
+<p>예를 들어 고객센터 Agent가 아래처럼 답한다고 해보자.</p>
+<pre class="language-none"><code class="language-none">주문 상태는 배송 중이고, 위험도는 2입니다.</code></pre>
+
+<p>사람이 읽기엔 괜찮지만 코드에서는 <code>배송 중</code>, <code>2</code>를 다시 파싱해야 한다.</p>
+<p>그래서 Pydantic AI에서는 <code>output_type</code>으로 최종 응답 구조를 지정할 수 있다.</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel<span class="token punctuation">,</span> Field
+<span class="token keyword">from</span> pydantic_ai <span class="token keyword">import</span> Agent
+
+<span class="token keyword">class</span> <span class="token class-name">SupportAnswer</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    message<span class="token punctuation">:</span> <span class="token builtin">str</span>
+    order_status<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">|</span> <span class="token boolean">None</span>
+    risk<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> Field<span class="token punctuation">(</span>ge<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> le<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
+
+agent <span class="token operator">=</span> Agent<span class="token punctuation">(</span>
+    <span class="token string">'openai:gpt-5.2'</span><span class="token punctuation">,</span>
+    output_type<span class="token operator">=</span>SupportAnswer<span class="token punctuation">,</span>
+    instructions<span class="token operator">=</span><span class="token string">'너는 쇼핑몰 고객센터 상담원이야.'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>이렇게 하면 <code>result.output</code>은 그냥 문자열이 아니라 <code>SupportAnswer</code> 객체가 된다.</p>
+<pre class="language-python" data-language="python"><code class="language-python">result <span class="token operator">=</span> agent<span class="token punctuation">.</span>run_sync<span class="token punctuation">(</span><span class="token string">'내 주문 어디까지 왔어?'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>output<span class="token punctuation">.</span>message<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>output<span class="token punctuation">.</span>order_status<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>output<span class="token punctuation">.</span>risk<span class="token punctuation">)</span></code></pre>
+
+<p><code>output_type</code>은 “예쁘게 답변해줘”가 아니라, <strong>최종 답변은 이 구조로 줘</strong>에 가깝다.</p>
+<p>LLM 결과를 코드에서 믿고 쓰려면 이 부분이 꽤 중요하다.</p>
+<h2 id="Capabilities"><a href="#Capabilities" class="headerlink" title="Capabilities"></a>Capabilities</h2><p><code>Capabilities</code>는 Agent에 붙일 수 있는 기능 묶음이다.</p>
+<p>tool 하나를 직접 붙이는 것보다 더 큰 단위라고 보면 된다. 예를 들어 어떤 capability는 tool, instructions, hooks, model settings 같은 것을 한 번에 포함할 수 있다.</p>
+<p>공식 문서의 예시는 이런 느낌이다.</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> pydantic_ai <span class="token keyword">import</span> Agent
+<span class="token keyword">from</span> pydantic_ai<span class="token punctuation">.</span>capabilities <span class="token keyword">import</span> Thinking<span class="token punctuation">,</span> WebSearch
+
+agent <span class="token operator">=</span> Agent<span class="token punctuation">(</span>
+    <span class="token string">'anthropic:claude-sonnet-4-6'</span><span class="token punctuation">,</span>
+    instructions<span class="token operator">=</span><span class="token string">'짧게 답해줘.'</span><span class="token punctuation">,</span>
+    capabilities<span class="token operator">=</span><span class="token punctuation">[</span>
+        Thinking<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        WebSearch<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>쉽게 말하면:</p>
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>느낌</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tool</td>
+<td>Agent가 호출할 수 있는 함수 하나</td>
+</tr>
+<tr>
+<td>capability</td>
+<td>Agent에 붙이는 재사용 가능한 기능 묶음</td>
+</tr>
+</tbody></table>
+<p>처음 공부할 때는 tool을 먼저 이해하고, capability는 “여러 기능을 재사용하기 좋게 묶는 방식” 정도로 보면 충분하다.</p>
+<h2 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h2><p><code>Hooks</code>는 Agent 실행 흐름 중간에 끼어드는 처리다.</p>
+<p>웹 프레임워크의 middleware나 callback을 떠올리면 이해하기 쉽다.</p>
+<p>예를 들어 이런 상황에서 쓸 수 있다.</p>
+<ul>
+<li>모델 요청 전에 로그 남기기</li>
+<li>tool 호출 전에 권한 검사하기</li>
+<li>tool 호출 결과를 기록하기</li>
+<li>특정 tool은 사용자 승인 후에만 실행하기</li>
+<li>실행 비용이나 토큰 사용량을 추적하기</li>
+</ul>
+<p>즉 hook은 Agent의 본래 역할을 바꾸기보다는, 실행 과정의 관찰, 검사, 제어를 넣을 때 쓴다.</p>
+<p>초반에는 필수 개념은 아니지만, 실제 서비스로 갈수록 중요해진다. 특히 결제, 주문 취소, 메일 발송처럼 상태를 바꾸는 tool이 있다면 hook이나 승인 흐름을 고민해야 한다.</p>
+<h2 id="Agent-Specs"><a href="#Agent-Specs" class="headerlink" title="Agent Specs"></a>Agent Specs</h2><p><code>Agent Specs</code>는 Agent를 Python 코드가 아니라 설정 파일 형태로 정의하는 방식이다.</p>
+<p>보통은 이렇게 코드로 Agent를 만든다.</p>
+<pre class="language-python" data-language="python"><code class="language-python">agent <span class="token operator">=</span> Agent<span class="token punctuation">(</span>
+    <span class="token string">'openai:gpt-5.2'</span><span class="token punctuation">,</span>
+    instructions<span class="token operator">=</span><span class="token string">'너는 쇼핑몰 상담원이야.'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>그런데 Agent 설정이 많아지면 코드 안에 전부 박아두는 게 부담스러울 수 있다. 이때 YAML이나 JSON 같은 설정 파일로 Agent를 정의하면 관리하기 편해진다.</p>
+<p>이 개념은 처음부터 깊게 볼 필요는 없다.</p>
+<p>다만 Agent가 여러 개 생기거나, 환경별로 설정을 다르게 관리하거나, 비개발자가 일부 설정을 조정해야 하는 상황에서는 의미가 있다.</p>
+<p>쉽게 말하면:</p>
+<pre class="language-none"><code class="language-none">Agent Specs = Agent 설정을 코드 밖으로 빼서 정의하는 방식</code></pre>
+
+<h2 id="Messages-and-chat-history"><a href="#Messages-and-chat-history" class="headerlink" title="Messages and chat history"></a>Messages and chat history</h2><p>LLM은 이전 대화를 자동으로 영원히 기억하지 않는다.</p>
+<p>대화형 Agent를 만들려면 이전 메시지를 같이 넘겨줘야 한다.</p>
+<p>예를 들어 이런 흐름을 생각해보자.</p>
+<pre class="language-none"><code class="language-none">사용자: 내 이름은 홍길동이야.
+AI: 알겠어.
+
+사용자: 내 이름 뭐였지?</code></pre>
+
+<p>두 번째 질문에 답하려면 첫 번째 대화 기록이 필요하다.</p>
+<p>Pydantic AI에서는 이전 실행에서 나온 messages를 다음 실행에 넘겨서 대화를 이어갈 수 있다.</p>
+<pre class="language-python" data-language="python"><code class="language-python">first <span class="token operator">=</span> agent<span class="token punctuation">.</span>run_sync<span class="token punctuation">(</span><span class="token string">'내 이름은 홍길동이야.'</span><span class="token punctuation">)</span>
+
+second <span class="token operator">=</span> agent<span class="token punctuation">.</span>run_sync<span class="token punctuation">(</span>
+    <span class="token string">'내 이름 뭐였지?'</span><span class="token punctuation">,</span>
+    message_history<span class="token operator">=</span>first<span class="token punctuation">.</span>all_messages<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>이런 메시지 기록은 챗봇을 만들 때 거의 필수다.</p>
+<p>다만 대화가 길어질수록 토큰이 늘어나기 때문에, 실제 서비스에서는 어느 정도 요약하거나 필요한 메시지만 남기는 전략도 필요하다.</p>
+<h2 id="Direct-Model-Requests"><a href="#Direct-Model-Requests" class="headerlink" title="Direct Model Requests"></a>Direct Model Requests</h2><p><code>Direct Model Requests</code>는 Agent를 거치지 않고 모델에 직접 요청하는 방식이다.</p>
+<p>Agent는 많은 걸 관리해준다.</p>
+<ul>
+<li>instructions</li>
+<li>deps</li>
+<li>tools</li>
+<li>output validation</li>
+<li>message history</li>
+<li>hooks</li>
+</ul>
+<p>그런데 아주 단순한 모델 호출에는 이 모든 게 필요 없을 수 있다.</p>
+<p>예를 들어 짧은 문장 하나를 분류하거나, 내부 테스트용으로 모델 응답만 빠르게 보고 싶을 수 있다. 이런 경우에는 Agent를 만들지 않고 모델에 직접 요청하는 방식이 더 가볍다.</p>
+<p>쉽게 말하면:</p>
+<table>
+<thead>
+<tr>
+<th>방식</th>
+<th>언제 쓰는지</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Agent</td>
+<td>역할, tool, deps, output 검증이 필요한 흐름</td>
+</tr>
+<tr>
+<td>Direct Model Request</td>
+<td>Agent까지 필요 없는 단순 모델 호출</td>
+</tr>
+</tbody></table>
+<p>초반에는 Agent 중심으로 공부하면 된다. Direct Model Request는 “Agent 없이도 모델만 직접 부를 수 있구나” 정도로 잡아두면 충분하다.</p>
+<h2 id="같이-보면-좋은-관계"><a href="#같이-보면-좋은-관계" class="headerlink" title="같이 보면 좋은 관계"></a>같이 보면 좋은 관계</h2><p>각 개념을 따로 보면 흩어져 보이는데, 실제로는 이렇게 연결된다.</p>
+<pre class="language-none"><code class="language-none">Agent
+ ├─ instructions: 역할 정의
+ ├─ deps_type: 실행에 필요한 외부 값 타입
+ ├─ tools: LLM이 호출할 수 있는 실제 코드
+ ├─ output_type: 최종 결과 구조
+ ├─ capabilities: 재사용 가능한 기능 묶음
+ ├─ hooks: 실행 중간 처리
+ └─ message_history: 이전 대화 기록</code></pre>
+
+<p>예를 들어 쇼핑몰 상담 Agent를 만든다면 이렇게 나눌 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th>개념</th>
+<th>쇼핑몰 예시</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Agent</td>
+<td>쇼핑몰 상담원</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>친절하게 주문/배송/환불 문의에 답하라</td>
+</tr>
+<tr>
+<td>deps</td>
+<td>현재 user_id, DB 연결, 회원 등급</td>
+</tr>
+<tr>
+<td>tools</td>
+<td>주문 조회, 재고 조회, 장바구니 추가</td>
+</tr>
+<tr>
+<td>output</td>
+<td>답변 문구, 위험도, 추가 확인 필요 여부</td>
+</tr>
+<tr>
+<td>capabilities</td>
+<td>웹 검색, thinking, 공통 정책 묶음</td>
+</tr>
+<tr>
+<td>hooks</td>
+<td>결제/취소 전 승인, 로그 기록</td>
+</tr>
+<tr>
+<td>messages</td>
+<td>이전 상담 대화</td>
+</tr>
+</tbody></table>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>Pydantic AI의 Core Concepts는 전부 Agent를 중심으로 이해하면 된다.</p>
+<p>처음부터 모든 기능을 외울 필요는 없다. 우선순위를 잡으면 이 정도가 좋다.</p>
+<ol>
+<li><code>Agent</code>: 실행의 중심</li>
+<li><code>Output</code>: 최종 답변 구조화</li>
+<li><code>Dependencies</code>: 실행마다 달라지는 config + 외부 의존성</li>
+<li><code>Tools</code>: LLM이 호출할 수 있는 실제 코드</li>
+<li><code>Messages</code>: 대화 기록</li>
+<li><code>Capabilities</code>: 기능 묶음</li>
+<li><code>Hooks</code>: 실행 중간 제어</li>
+<li><code>Agent Specs</code>: 설정 파일 기반 Agent 정의</li>
+<li><code>Direct Model Requests</code>: Agent 없이 모델 직접 호출</li>
+</ol>
+<p>핵심은 이거다.</p>
+<p>Pydantic AI는 LLM에게 모든 걸 맡기는 도구가 아니다. Agent를 중심으로 역할, 외부 데이터, 실행 가능한 코드, 출력 검증, 대화 기록을 묶어서 <strong>LLM을 실제 서비스 코드 안에서 안정적으로 쓰게 해주는 프레임워크</strong>에 가깝다.</p>
+
+                
+            </div>
+            <hr/>
+
+            
+                
+                <div class="related-posts-container">
+                    <h2 class="related-posts-title">📌 관련 글</h2>
+                    <div class="related-posts-grid">
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/07/11/AI/Pydantic-AI/" title="Pydantic AI 기본 정리" rel="bookmark">Pydantic AI 기본 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/03/26/Etc/Discord-Bot/" title="타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기" rel="bookmark">타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기</a></h3></div></li></ul>
+                    </div>
+                </div>
+            
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ruby Kim</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ruby-kim.github.io/2026/07/12/AI/Pydantic-AI-Core-Concepts/">https://ruby-kim.github.io/2026/07/12/AI/Pydantic-AI-Core-Concepts/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Ruby Kim</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>Comments</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c12f8521b335e062742b',
+        clientSecret: '4055e81aad344987f1b5f608c83e6827f77ea431',
+        repo: 'ruby-kim.github.io',
+        owner: 'ruby-kim',
+        admin: ["ruby-kim"],
+        id: '2026-07-12T02-30-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2026/07/12/AI/Pydantic-AI-Core-Concepts/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/python.png" class="responsive-img" alt="Pydantic AI Core Concepts 정리">
+                        
+                        <span class="card-title">Pydantic AI Core Concepts 정리</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Pydantic AI의 핵심 개념을 Agent 중심으로 정리
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%A4%96-AI/" class="post-category">
+                                    🤖 AI
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/Pydantic-AI/">
+                        <span class="chip bg-color">Pydantic AI</span>
+                    </a>
+                    
+                    <a href="/tags/Agent/">
+                        <span class="chip bg-color">Agent</span>
+                    </a>
+                    
+                    <a href="/tags/LLM/">
+                        <span class="chip bg-color">LLM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/07/11/AI/Pydantic-AI/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/python.png" class="responsive-img" alt="Pydantic AI 기본 정리">
+                        
+                        <span class="card-title">Pydantic AI 기본 정리</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Pydantic AI가 뭔지, 기본 세팅은 어떻게 하는지 정리
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%A4%96-AI/" class="post-category">
+                                    🤖 AI
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/Pydantic-AI/">
+                        <span class="chip bg-color">Pydantic AI</span>
+                    </a>
+                    
+                    <a href="/tags/Agent/">
+                        <span class="chip bg-color">Agent</span>
+                    </a>
+                    
+                    <a href="/tags/LLM/">
+                        <span class="chip bg-color">LLM</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: 잡동사니<br />'
+            + 'Author: Ruby Kim<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + 'All articles in this blog are licensed under <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a> unless otherwise stated.';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="site-footer">
+    
+
+    <div class="footer-inner container">
+        <!-- Col 1: Blog info -->
+        <div class="footer-col footer-col--brand">
+            <a href="/" class="footer-brand">잡동사니</a>
+            <p class="footer-desc">AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록</p>
+            
+                <p class="footer-runtime" id="sitetime"></p>
+                <script>
+                    (function () {
+                        var t1 = Date.UTC(
+                            "2022", "3",
+                            "16",  "0",
+                            "0","0"
+                        );
+                        var diff  = Date.now() - t1;
+                        var days  = Math.floor(diff / 86400000);
+                        var years = Math.floor(days / 365);
+                        var rem   = days - years * 365;
+                        var txt   = years > 0
+                            ? years + '년 ' + rem + '일째 운영 중'
+                            : rem + '일째 운영 중';
+                        document.getElementById('sitetime').textContent = txt;
+                    })();
+                </script>
+            
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col footer-col--nav">
+            <h6 class="footer-heading">Menu</h6>
+            <ul class="footer-nav-list">
+                
+                    
+                    <li><a href="/">Index</a></li>
+                
+                    
+                    <li><a href="/tags">Tags</a></li>
+                
+                    
+                    <li><a href="/categories">Categories</a></li>
+                
+                    
+                    <li><a href="/archives">Archives</a></li>
+                
+                    
+                    <li><a href="/about">About</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Col 3: Social -->
+        <div class="footer-col footer-col--social">
+            <h6 class="footer-heading">Connect</h6>
+            <div class="footer-social-icons">
+                
+                    <a href="https://github.com/ruby-kim" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                
+                
+                    <a href="mailto:dev.rubykim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                
+                
+                
+                    <a href="/atom.xml" target="_blank" aria-label="RSS"><i class="fas fa-rss"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <span>
+                &copy;
+                
+                    2022–2026
+                
+                <a href="/about">Ruby Kim</a>
+            </span>
+            <span class="footer-bottom-stack">
+                Built with <a href="https://hexo.io/" target="_blank">Hexo</a>
+                &amp; <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <div id="backTop" class="top-scroll">
+    <a class="back-top-btn" href="#!" aria-label="맨 위로">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

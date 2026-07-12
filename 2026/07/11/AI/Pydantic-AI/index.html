@@ -55,9 +55,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
-
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -539,20 +539,15 @@ result.output</code></pre>
 </tr>
 </tbody></table>
 <h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><p>Python 3.10 이상이 필요하다.</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> pydantic-ai</code></pre>
-
-<p><code>uv</code>를 쓰고 있다면 이렇게 추가하면 된다.</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">uv <span class="token function">add</span> pydantic-ai</code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> pydantic-ai
+<span class="token comment"># uv add pydantic-ai</span></code></pre>
 
 <p>특정 provider만 가볍게 쓰고 싶다면 <code>pydantic-ai-slim</code>도 있다. 예를 들어 OpenAI만 쓸 거라면 이런 식이다.</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> <span class="token string">"pydantic-ai-slim[openai]"</span></code></pre>
 
-<p>처음 공부할 때는 그냥 <code>pydantic-ai</code>로 설치해도 충분하다.</p>
-<h2 id="API-키-세팅"><a href="#API-키-세팅" class="headerlink" title="API 키 세팅"></a>API 키 세팅</h2><p>OpenAI를 쓸 거면 환경변수에 API 키를 넣어둔다.</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">OPENAI_API_KEY</span><span class="token operator">=</span><span class="token string">"..."</span></code></pre>
-
-<p>Anthropic을 쓴다면 아래처럼 넣으면 된다.</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">ANTHROPIC_API_KEY</span><span class="token operator">=</span><span class="token string">"..."</span></code></pre>
+<h2 id="API-키-세팅"><a href="#API-키-세팅" class="headerlink" title="API 키 세팅"></a>API 키 세팅</h2><p>.env같은 환경변수를 설정하는 곳에 API 키를 넣어둔다.</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">OPENAI_API_KEY</span><span class="token operator">=</span><span class="token string">"..."</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">ANTHROPIC_API_KEY</span><span class="token operator">=</span><span class="token string">"..."</span></code></pre>
 
 <p>모델 이름은 <code>provider:model</code> 형태로 적는다.</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token string">'openai:gpt-5.2'</span>
@@ -669,7 +664,7 @@ result <span class="token operator">=</span> agent<span class="token punctuation
 <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>output<span class="token punctuation">)</span></code></pre>
 
 <p>여기서 <code>get_product_price()</code>나 <code>get_discount_rate()</code> 함수 자체는 AI가 아니다. 그냥 실행 가능한 Python 코드다. 지금은 예제를 짧게 보려고 <code>dict</code>를 썼지만, 실제 서비스라면 DB 조회나 외부 API 호출이 들어갈 자리다.</p>
-<p>AI가 하는 일은 이 함수를 직접 구현하는 게 아니라, 사용자의 자연어 질문을 보고 tool 호출이 필요한지 판단하는 것이다. 위 코드는 대략 이런 흐름으로 돌아간다.</p>
+<p>AI가 하는 일은 이 함수를 직접 구현하는 게 아니라, <strong>사용자의 자연어 질문을 보고 tool 호출이 필요한지 판단</strong>하는 것이다. 위 코드는 대략 이런 흐름으로 돌아간다.</p>
 <ol>
 <li>사용자가 <code>키보드랑 마우스 같이 사면 내 회원 할인 받아서 20만원 안 넘을까?</code>라고 묻는다.</li>
 <li>LLM은 <code>키보드</code>, <code>마우스</code> 가격과 현재 회원 할인율이 필요하다고 판단한다.</li>
@@ -710,8 +705,8 @@ ctx<span class="token punctuation">.</span>deps<span class="token punctuation">.
 <p>그리고 <code>product_name</code> 같은 함수 인자는 사용자 질문에서 모델이 알아서 뽑아 넣는다. 그래서 tool 함수의 이름, 인자 이름, docstring을 너무 대충 적으면 모델이 엉뚱하게 호출할 수 있다.</p>
 <h3 id="deps"><a href="#deps" class="headerlink" title="deps"></a>deps</h3><p><code>deps</code>는 Agent를 실행할 때 같이 넘기는 외부 값이다. 쉽게 말하면 “이번 실행은 어떤 사용자/환경에서 돌아가는지”에 대한 정보다.</p>
 <p>예를 들어 로그인한 사용자 ID, DB 연결 객체, API client, 설정값처럼 tool 안에서 필요하지만 전역 변수로 두기 애매한 값들이 여기에 들어간다.</p>
-<p>회원 등급처럼 사용자마다 달라지는 값도 <code>deps</code>로 넘기기 좋다. 같은 질문이라도 <code>basic</code> 유저인지, <code>gold</code> 유저인지에 따라 tool 결과가 달라져야 하기 때문이다.</p>
-<p>위의 가격 조회 예시를 조금 바꿔서, 사용자 등급에 따라 할인율이 달라진다고 해보자.</p>
+<p>회원 등급처럼 사용자마다 달라지는 값도 <code>deps</code>로 넘기기 좋다. 같은 질문이라도 <code>basic</code> 유저인지, <code>gold</code> 유저인지에 따라 tool 결과나 지시문이 달라져야 하기 때문이다.</p>
+<p>아래 예시는 <code>deps</code>가 <code>tool</code>과 <code>instructions</code> 둘 다에 어떻게 들어가는지 한 번에 보여준다.</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> dataclasses <span class="token keyword">import</span> dataclass
 <span class="token keyword">from</span> pydantic_ai <span class="token keyword">import</span> Agent<span class="token punctuation">,</span> RunContext
 
@@ -737,6 +732,13 @@ discount_rates <span class="token operator">=</span> <span class="token punctuat
     <span class="token string">'vip'</span><span class="token punctuation">:</span> <span class="token number">0.2</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 
+<span class="token decorator annotation punctuation">@agent<span class="token punctuation">.</span>instructions</span>
+<span class="token keyword">def</span> <span class="token function">add_membership_instruction</span><span class="token punctuation">(</span>ctx<span class="token punctuation">:</span> RunContext<span class="token punctuation">[</span>Deps<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> ctx<span class="token punctuation">.</span>deps<span class="token punctuation">.</span>membership <span class="token operator">==</span> <span class="token string">'vip'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'VIP 회원에게는 전용 혜택과 우선 상담 가능 여부도 같이 안내해줘.'</span>
+
+    <span class="token keyword">return</span> <span class="token string">'일반 회원에게는 기본 할인 정보만 간단히 안내해줘.'</span>
+
 <span class="token decorator annotation punctuation">@agent<span class="token punctuation">.</span>tool</span>
 <span class="token keyword">def</span> <span class="token function">get_discounted_price</span><span class="token punctuation">(</span>ctx<span class="token punctuation">:</span> RunContext<span class="token punctuation">[</span>Deps<span class="token punctuation">]</span><span class="token punctuation">,</span> product_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
     <span class="token triple-quoted-string string">"""현재 사용자의 회원 등급을 기준으로 상품 할인 가격을 조회한다."""</span>
@@ -754,13 +756,11 @@ result <span class="token operator">=</span> agent<span class="token punctuation
 <p>이 흐름은 이렇게 보면 된다.</p>
 <ol>
 <li><code>run_sync()</code>를 실행할 때 <code>deps=Deps(...)</code>를 같이 넘긴다.</li>
-<li><code>get_discounted_price()</code> tool 안에서 <code>ctx.deps.membership</code>을 읽는다.</li>
-<li>사용자의 회원 등급이 <code>gold</code>라서 10% 할인된 가격을 계산한다.</li>
-<li>LLM은 tool 결과를 받아서 최종 답변을 만든다.</li>
+<li><code>@agent.instructions</code>가 <code>ctx.deps.membership</code>을 보고 VIP용 또는 일반용 지시문을 추가한다.</li>
+<li><code>@agent.tool</code>이 같은 <code>ctx.deps.membership</code>을 보고 할인율을 계산한다.</li>
+<li>LLM은 지시문과 tool 결과를 같이 받아서 최종 답변을 만든다.</li>
 </ol>
-<p>여기서는 <code>ctx.deps.membership</code>처럼 실행할 때 넘긴 값이 필요하기 때문에 <code>@agent.tool</code>을 사용했다.</p>
-<p>반대로 tool 함수가 사용자 정보나 DB 연결 같은 외부 context 없이, 인자만으로 동작한다면 <code>@agent.tool_plain</code>을 쓰면 된다.</p>
-<p>정리하면 <code>deps</code>는 AI에게 직접 보여주고 싶은 값이라기보다, tool이 실행될 때 필요한 서버 쪽 context에 가깝다. 로그인한 사용자마다 다른 값을 써야 하거나, 테스트할 때 DB client를 바꿔 끼우고 싶을 때 특히 유용하다.</p>
+<p>즉, <code>deps</code>는 AI에게 직접 보여주고 싶은 값이라기보다, <code>tool</code>과 <code>instructions</code>가 같이 참고하는 실행 context에 가깝다.</p>
 <h3 id="output-type"><a href="#output-type" class="headerlink" title="output_type"></a>output_type</h3><p>LLM 응답을 문자열로만 받으면 후처리가 귀찮아질 때가 많다.</p>
 <p>예를 들어 가격 안내 결과에서 최종 금액, 할인 금액, 안내 문구를 따로 쓰고 싶다고 해보자. 문자열 하나로 받으면 다시 파싱해야 한다.</p>
 <p>그럴 때 <code>output_type</code>을 지정하면 최종 응답을 Pydantic 모델 형태로 받을 수 있다.</p>
@@ -816,7 +816,7 @@ result <span class="token operator">=</span> agent<span class="token punctuation
                 <div class="related-posts-container">
                     <h2 class="related-posts-title">📌 관련 글</h2>
                     <div class="related-posts-grid">
-                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/03/26/Etc/Discord-Bot/" title="타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기" rel="bookmark">타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기</a></h3></div></li></ul>
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/07/12/AI/Pydantic-AI-Core-Concepts/" title="Pydantic AI Core Concepts 정리" rel="bookmark">Pydantic AI Core Concepts 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/03/26/Etc/Discord-Bot/" title="타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기" rel="bookmark">타입폼 보고서 제출 자동화를 위한 Discord Bot 구축기</a></h3></div></li></ul>
                     </div>
                 </div>
             
@@ -942,29 +942,28 @@ result <span class="token operator">=</span> agent<span class="token punctuation
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2026/07/11/AI/Pydantic-AI/">
+                <a href="/2026/07/12/AI/Pydantic-AI-Core-Concepts/">
                     <div class="card-image">
                         
-                        <img src="/coverImages/python.png" class="responsive-img" alt="Pydantic AI 기본 정리">
+                        <img src="/coverImages/python.png" class="responsive-img" alt="Pydantic AI Core Concepts 정리">
                         
-                        <span class="card-title">Pydantic AI 기본 정리</span>
+                        <span class="card-title">Pydantic AI Core Concepts 정리</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Pydantic AI가 뭔지, 기본 세팅은 어떻게 하는지 정리
+                            Pydantic AI의 핵심 개념을 Agent 중심으로 정리
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-07-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-07-12
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -977,7 +976,6 @@ result <span class="token operator">=</span> agent<span class="token punctuation
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
