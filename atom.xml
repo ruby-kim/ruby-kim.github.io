@@ -10,7 +10,26 @@
   <rights>All rights reserved 2026, Ruby Kim</rights>
   <subtitle>AI Platform Engineer</subtitle>
   <title>잡동사니</title>
-  <updated>2026-07-20T22:02:59.670Z</updated>
+  <updated>2026-07-26T16:18:44.443Z</updated>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="💡 Tips" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%A1-Tips/"/>
+    <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
+    <category term="Cockpit" scheme="https://ruby-kim.github.io/tags/Cockpit/"/>
+    <category term="Ubuntu" scheme="https://ruby-kim.github.io/tags/Ubuntu/"/>
+    <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
+    <category term="Tailscale" scheme="https://ruby-kim.github.io/tags/Tailscale/"/>
+    <id>https://ruby-kim.github.io/2026/07/27/Tips/Cockpit-Setup/</id>
+    <link href="https://ruby-kim.github.io/2026/07/27/Tips/Cockpit-Setup/"/>
+    <published>2026-07-26T15:46:00.000Z</published>
+    <summary>
+      <![CDATA[<p>이전에 <a href="/2026/02/28/Tips/UbuntuServer-Setting/" title="안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기)">안쓰는 노트북을 홈서버로]]>
+    </summary>
+    <title>Ubuntu Server에 Cockpit 올려서 브라우저로 서버 관리하기</title>
+    <updated>2026-07-26T16:18:44.443Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Ruby Kim</name>
@@ -164,11 +183,11 @@
     <category term="🔐 Security" scheme="https://ruby-kim.github.io/categories/%F0%9F%94%90-Security/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
     <category term="Network" scheme="https://ruby-kim.github.io/tags/Network/"/>
-    <category term="Proxmox" scheme="https://ruby-kim.github.io/tags/Proxmox/"/>
+    <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
     <category term="Tailscale" scheme="https://ruby-kim.github.io/tags/Tailscale/"/>
+    <category term="Proxmox" scheme="https://ruby-kim.github.io/tags/Proxmox/"/>
     <category term="ZeroTrust" scheme="https://ruby-kim.github.io/tags/ZeroTrust/"/>
     <category term="WOL" scheme="https://ruby-kim.github.io/tags/WOL/"/>
-    <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
     <id>https://ruby-kim.github.io/2026/03/15/Security/ZeroTrustHomeInfra/</id>
     <link href="https://ruby-kim.github.io/2026/03/15/Security/ZeroTrustHomeInfra/"/>
     <published>2026-03-15T14:44:35.000Z</published>
@@ -184,8 +203,8 @@
     </author>
     <category term="💡 Tips" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%A1-Tips/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
-    <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
     <category term="Ubuntu" scheme="https://ruby-kim.github.io/tags/Ubuntu/"/>
+    <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
     <category term="Windows" scheme="https://ruby-kim.github.io/tags/Windows/"/>
     <id>https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/</id>
     <link href="https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/"/>
@@ -223,8 +242,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="FHIR" scheme="https://ruby-kim.github.io/tags/FHIR/"/>
     <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="FHIR" scheme="https://ruby-kim.github.io/tags/FHIR/"/>
     <id>https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/</id>
     <link href="https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/"/>
     <published>2025-08-25T11:00:00.000Z</published>
@@ -243,8 +262,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <id>https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/</id>
     <link href="https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/"/>
     <published>2025-08-02T11:30:00.000Z</published>
@@ -301,8 +320,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <id>https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/</id>
     <link href="https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/"/>
     <published>2025-03-05T12:10:00.000Z</published>
@@ -363,8 +382,8 @@
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
     <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
-    <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
     <category term="IEEE" scheme="https://ruby-kim.github.io/tags/IEEE/"/>
+    <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
     <id>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</id>
     <link href="https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/"/>
     <published>2025-01-10T14:44:35.000Z</published>
@@ -393,26 +412,5 @@
     </summary>
     <title>[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)</title>
     <updated>2026-07-20T22:02:59.680Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Ruby Kim</name>
-    </author>
-    <category term="✨ Frontend" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
-    <category term="Next.js" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/Next-js/"/>
-    <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
-    <category term="NextJS" scheme="https://ruby-kim.github.io/tags/NextJS/"/>
-    <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
-    <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
-    <id>https://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</id>
-    <link href="https://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/"/>
-    <published>2024-12-29T14:44:35.000Z</published>
-    <summary>
-      <![CDATA[<p>프로젝트를 하다보면 언젠가 배포를 해야 하는 순간이 온다.</p>
-<p>필자 또한 최근 nextJS로 간단한 홈페이지를 만들었는데, 막상 배포를 하려니 nextJS라 고려해야할 점이 많아서 한 번 정리해보고자 한다.</p>
-<p>결론만 볼]]>
-    </summary>
-    <title>[Next.js] 배포하기: AWS Amplify vs Github pages vs fly.io vs Vercel vs Netlify</title>
-    <updated>2026-07-20T22:02:59.681Z</updated>
   </entry>
 </feed>

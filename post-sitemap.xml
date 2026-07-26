@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://ruby-kim.github.io/2026/07/27/Tips/Cockpit-Setup/</loc>
+        <lastmod>2026-07-26T16:18:44.443Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2024/12/29/Frontend/Nextjs/Deployment/</loc>
         <lastmod>2026-07-20T22:02:59.681Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -57,22 +65,6 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/12/Projects/Blog/InitTheme/</loc>
-        <lastmod>2026-07-20T22:02:59.679Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ruby-kim.github.io/2022/04/15/Projects/Blog/Backup/</loc>
-        <lastmod>2026-07-20T22:02:59.679Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
         <lastmod>2026-07-20T22:02:59.679Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,6 +81,22 @@
     </url>
 
     <url>
+        <loc>https://ruby-kim.github.io/2022/04/12/Projects/Blog/InitTheme/</loc>
+        <lastmod>2026-07-20T22:02:59.679Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ruby-kim.github.io/2022/04/15/Projects/Blog/Backup/</loc>
+        <lastmod>2026-07-20T22:02:59.679Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2022/04/07/Projects/Blog/Install/</loc>
         <lastmod>2026-07-20T22:02:59.679Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -97,7 +105,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/</loc>
+        <loc>https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/</loc>
         <lastmod>2026-07-20T22:02:59.678Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -105,7 +113,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/</loc>
+        <loc>https://ruby-kim.github.io/2025/08/25/HealthCare/HL7/fhir/</loc>
         <lastmod>2026-07-20T22:02:59.678Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -121,7 +129,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/</loc>
+        <loc>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</loc>
         <lastmod>2026-07-20T22:02:59.677Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -129,7 +137,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</loc>
+        <loc>https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/</loc>
         <lastmod>2026-07-20T22:02:59.677Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -177,14 +185,6 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2024/06/21/Retrospect/Conference/24-silicon-valley-1/</loc>
-        <lastmod>2026-07-20T22:02:59.674Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://ruby-kim.github.io/2024/06/22/Retrospect/Conference/24-silicon-valley-2/</loc>
         <lastmod>2026-07-20T22:02:59.674Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -201,8 +201,8 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2026/03/30/Tips/Git/Initial-Main-Branch/</loc>
-        <lastmod>2026-07-20T22:02:59.673Z</lastmod>
+        <loc>https://ruby-kim.github.io/2024/06/21/Retrospect/Conference/24-silicon-valley-1/</loc>
+        <lastmod>2026-07-20T22:02:59.674Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -217,7 +217,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/03/18/Tips/Git/Github-PAT/</loc>
+        <loc>https://ruby-kim.github.io/2026/03/30/Tips/Git/Initial-Main-Branch/</loc>
         <lastmod>2026-07-20T22:02:59.673Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -233,15 +233,15 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
-        <lastmod>2026-07-20T22:02:59.672Z</lastmod>
+        <loc>https://ruby-kim.github.io/2022/03/18/Tips/Git/Github-PAT/</loc>
+        <lastmod>2026-07-20T22:02:59.673Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2024/11/23/Tips/Tool/</loc>
+        <loc>https://ruby-kim.github.io/2022/04/23/Retrospect/Junior/</loc>
         <lastmod>2026-07-20T22:02:59.672Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -257,7 +257,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/05/17/Tips/Windows-Mac-Osx-Nvm-Install/</loc>
+        <loc>https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/</loc>
         <lastmod>2026-07-20T22:02:59.672Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -265,7 +265,15 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2026/02/28/Tips/UbuntuServer-Setting/</loc>
+        <loc>https://ruby-kim.github.io/2024/11/23/Tips/Tool/</loc>
+        <lastmod>2026-07-20T22:02:59.672Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ruby-kim.github.io/2022/05/17/Tips/Windows-Mac-Osx-Nvm-Install/</loc>
         <lastmod>2026-07-20T22:02:59.672Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -337,7 +345,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/03/16/Language/Python-env/</loc>
+        <loc>https://ruby-kim.github.io/2025/07/10/Projects/Build-Site-Adsense/</loc>
         <lastmod>2026-07-20T22:02:59.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -345,7 +353,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2025/07/10/Projects/Build-Site-Adsense/</loc>
+        <loc>https://ruby-kim.github.io/2022/03/16/Language/Python-env/</loc>
         <lastmod>2026-07-20T22:02:59.668Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -369,7 +377,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/03/30/Security/SSLTSL/</loc>
+        <loc>https://ruby-kim.github.io/2024/08/20/Security/Oauth2/</loc>
         <lastmod>2026-07-20T22:02:59.667Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -377,7 +385,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2024/08/20/Security/Oauth2/</loc>
+        <loc>https://ruby-kim.github.io/2022/03/30/Security/SSLTSL/</loc>
         <lastmod>2026-07-20T22:02:59.667Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -409,14 +417,6 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2024/07/12/DevOps/Container/</loc>
-        <lastmod>2026-07-20T22:02:59.665Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://ruby-kim.github.io/2022/05/12/DevOps/Intro/</loc>
         <lastmod>2026-07-20T22:02:59.665Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -425,7 +425,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/</loc>
+        <loc>https://ruby-kim.github.io/2024/07/12/DevOps/Container/</loc>
         <lastmod>2026-07-20T22:02:59.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -434,6 +434,14 @@
 
     <url>
         <loc>https://ruby-kim.github.io/2024/10/12/DevOps/Kubernetes/</loc>
+        <lastmod>2026-07-20T22:02:59.665Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ruby-kim.github.io/2026/02/28/DevOps/K8S-Easy/</loc>
         <lastmod>2026-07-20T22:02:59.665Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

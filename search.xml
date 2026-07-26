@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Ubuntu Server에 Cockpit 올려서 브라우저로 서버 관리하기</title>
+      <link href="/2026/07/27/Tips/Cockpit-Setup/"/>
+      <url>/2026/07/27/Tips/Cockpit-Setup/</url>
+      
+        <content type="html"><![CDATA[<p>이전에 <a href="/2026/02/28/Tips/UbuntuServer-Setting/" title="안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기)">안쓰는 노트북을 홈서버로 개조해보자 (feat. Windows를 밀고 Ubuntu Server 세팅하기)</a> 으로 안 쓰는 노트북에 Ubuntu Server를 올려 홈서버 베이스는 잡아뒀다.</p><p>매번 자원이 어느 정도 남았는지 <code>htop</code>, <code>df -h</code> 같은 걸 SSH로 치는데… 역시나 나는 게으른 사람인지라 너무… 힘들다 ^^….</p><p>그래서 브라우저로 서버 상태/웹 터미널까지 보는 <strong>Cockpit</strong>을 올렸다.<br>(Proxmox 호스트가 아니라 <strong>개인 노트북 Ubuntu Server</strong> 기준)</p><h2 id="SSH로-자원-확인"><a href="#SSH로-자원-확인" class="headerlink" title="SSH로 자원 확인"></a>SSH로 자원 확인</h2><p>그래도 ssh로도 자원 확인 방법은 세팅해두면 좋으니 한 번 정리해봤다.</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">uptime</span>                                    <span class="token comment"># 가동시간 + CPU 부하</span>nproc                                     <span class="token comment"># CPU 코어 수</span>lscpu                                     <span class="token comment"># CPU 상세</span><span class="token function">top</span>                                       <span class="token comment"># CPU/메모리 실시간 (q로 종료)</span><span class="token function">htop</span>                                      <span class="token comment"># top 업그레이드판 (설치 필요)</span><span class="token function">free</span> <span class="token parameter variable">-h</span>                                   <span class="token comment"># 메모리 남은 양</span><span class="token function">df</span> <span class="token parameter variable">-h</span>                                     <span class="token comment"># 디스크 남은 양</span><span class="token function">df</span> <span class="token parameter variable">-ih</span>                                    <span class="token comment"># inode 사용량</span>lsblk <span class="token parameter variable">-f</span>                                  <span class="token comment"># 디스크/파티션</span><span class="token function">sudo</span> <span class="token function">du</span> <span class="token parameter variable">-xhd1</span> / <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-h</span>     <span class="token comment"># 용량 많이 먹는 경로</span>systemctl <span class="token parameter variable">--failed</span>                        <span class="token comment"># 죽은 서비스</span><span class="token function">sudo</span> journalctl <span class="token parameter variable">-p</span> err <span class="token parameter variable">-b</span>                 <span class="token comment"># 이번 부팅 에러 로그</span>nvidia-smi                                <span class="token comment"># NVIDIA GPU 있을 때만</span></code></pre><p>평소엔 <code>uptime</code>, <code>free -h</code>, <code>df -h</code>, <code>htop</code> 정도면 충분하다.</p><h2 id="Cockpit-설치"><a href="#Cockpit-설치" class="headerlink" title="Cockpit 설치"></a>Cockpit 설치</h2><p>전제: Ubuntu Server + SSH + sudo 계정</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> cockpit<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> cockpit-pcp           <span class="token comment"># (선택) 성능 그래프</span><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> cockpit-podman        <span class="token comment"># (선택) 컨테이너 쓸 때</span><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> <span class="token parameter variable">--now</span> cockpit.socket<span class="token function">sudo</span> systemctl status cockpit.socket      <span class="token comment"># active (listening) 이면 OK</span><span class="token function">sudo</span> ss <span class="token parameter variable">-tlnp</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token number">9090</span>                 <span class="token comment"># 기본 포트 9090</span><span class="token function">sudo</span> ufw allow <span class="token number">9090</span>/tcp                   <span class="token comment"># 포트 열기 (ufw 쓸 때만)</span><span class="token function">sudo</span> ufw status</code></pre><h3 id="집에서-접속하기"><a href="#집에서-접속하기" class="headerlink" title="집에서 접속하기"></a>집에서 접속하기</h3><p>일단 서버 주소를 알아야 하기에, 다음의 명령어로 LAN IP를 확인 후 9090포트로 이동하면 된다.<br>아마 여러 IP주소가 나올텐데, 거기서 맨 처음으로 나오는 값을 입력하면 된다.</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">hostname</span> <span class="token parameter variable">-I</span>                               <span class="token comment"># 서버 LAN IP 확인</span><span class="token function">ip</span> <span class="token parameter variable">-4</span> addr show                           <span class="token comment"># 인터페이스별 IP 상세</span></code></pre><p>브라우저:</p><pre class="language-text" data-language="text"><code class="language-text">https://192.168.x.x:9090                  # 위에서 나온 IP 사용</code></pre><img src="/2026/07/27/Tips/Cockpit-Setup/1.png" class="" title="cockpit 로그인"><p>이 때 이미지처럼 사이트에 접속하면 비밀번호를 입력하라고 나오는데, <strong>SSH 쓰는 리눅스 계정</strong> 그대로 입력하면 된다.</p><p>만약 로그인 계정을 잘 모르겠으면 터미널에서 아래 명령어로 확인해보자.</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">groups</span>                                    <span class="token comment"># sudo 있는지 확인</span><span class="token function">sudo</span> <span class="token function">usermod</span> <span class="token parameter variable">-aG</span> <span class="token function">sudo</span> <span class="token operator">&lt;</span>username<span class="token operator">&gt;</span>          <span class="token comment"># 없으면 추가 후 재로그인</span></code></pre><h2 id="Tailscale로-밖에서-접속"><a href="#Tailscale로-밖에서-접속" class="headerlink" title="Tailscale로 밖에서 접속"></a>Tailscale로 밖에서 접속</h2><p>개발자들이라면 보통은 로컬 세팅만 하지 않는다. 위의 세팅으로 하게 된다면 집 밖으로 나갔을 때는 해당 페이지에 접속할 수 없기 때문이다.</p><p>따라서 밖에서도 자유롭게 쓰고 싶은 사람은 Tailscale처럼 VPN을 붙이는 것도 추천한다.</p><h3 id="홈서버-세팅하기"><a href="#홈서버-세팅하기" class="headerlink" title="홈서버 세팅하기"></a>홈서버 세팅하기</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://tailscale.com/install.sh <span class="token operator">|</span> <span class="token function">sh</span><span class="token function">sudo</span> tailscale up                         <span class="token comment"># 나온 URL로 로그인</span>tailscale statustailscale <span class="token function">ip</span> <span class="token parameter variable">-4</span>                           <span class="token comment"># 100.x.x.x</span></code></pre><h3 id="접속하기"><a href="#접속하기" class="headerlink" title="접속하기"></a>접속하기</h3><pre class="language-text" data-language="text"><code class="language-text">https://100.x.x.x:9090https://&lt;머신이름&gt;:9090                   # MagicDNS 켠 경우</code></pre><h3 id="방화벽-권장"><a href="#방화벽-권장" class="headerlink" title="방화벽 (권장)"></a>방화벽 (권장)</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> ufw delete allow <span class="token number">9090</span>/tcp            <span class="token comment"># 전체 개방 제거</span><span class="token function">sudo</span> ufw allow from <span class="token number">100.64</span>.0.0/10 to any port <span class="token number">9090</span> proto tcp   <span class="token comment"># Tailscale만</span><span class="token function">sudo</span> ufw allow from <span class="token number">192.168</span>.0.0/16 to any port <span class="token number">9090</span> proto tcp  <span class="token comment"># (선택) 집 LAN도</span><span class="token function">sudo</span> ufw status</code></pre><h3 id="선택-Serve"><a href="#선택-Serve" class="headerlink" title="(선택) Serve"></a>(선택) Serve</h3><p><code>:9090</code> 없이 쓰려면:</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> tailscale serve <span class="token parameter variable">--bg</span> https+insecure://127.0.0.1:9090<span class="token function">sudo</span> tailscale serve status               <span class="token comment"># 접속 URL 확인</span><span class="token function">sudo</span> tailscale serve reset                <span class="token comment"># 끌 때</span></code></pre><p>Serve = Tailnet 안만 / Funnel = 인터넷 공개 → Cockpit은 Funnel 쓰지 말 것!!</p><h2 id="로그인-후"><a href="#로그인-후" class="headerlink" title="로그인 후"></a>로그인 후</h2><img src="/2026/07/27/Tips/Cockpit-Setup/2.png" class="" title="cockpit 대시보드"><p>대시보드까지 접속을 성공했다면 이제 웹 UI로 모든 것을 확인할 수 있다!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 💡 Tips </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 실습 </tag>
+            
+            <tag> Cockpit </tag>
+            
+            <tag> Ubuntu </tag>
+            
+            <tag> Infrastructure </tag>
+            
+            <tag> Tailscale </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Pydantic AI Core Concepts 정리</title>
       <link href="/2026/07/12/AI/Pydantic-AI-Core-Concepts/"/>
       <url>/2026/07/12/AI/Pydantic-AI-Core-Concepts/</url>
@@ -271,15 +304,15 @@
             
             <tag> Network </tag>
             
-            <tag> Proxmox </tag>
+            <tag> Infrastructure </tag>
             
             <tag> Tailscale </tag>
+            
+            <tag> Proxmox </tag>
             
             <tag> ZeroTrust </tag>
             
             <tag> WOL </tag>
-            
-            <tag> Infrastructure </tag>
             
         </tags>
       
@@ -306,9 +339,9 @@
             
             <tag> 실습 </tag>
             
-            <tag> Infrastructure </tag>
-            
             <tag> Ubuntu </tag>
+            
+            <tag> Infrastructure </tag>
             
             <tag> Windows </tag>
             
@@ -372,9 +405,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> FHIR </tag>
-            
             <tag> HealthCare </tag>
+            
+            <tag> FHIR </tag>
             
         </tags>
       
@@ -407,9 +440,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> HealthCare </tag>
-            
             <tag> CDA </tag>
+            
+            <tag> HealthCare </tag>
             
         </tags>
       
@@ -504,9 +537,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> HealthCare </tag>
-            
             <tag> CDA </tag>
+            
+            <tag> HealthCare </tag>
             
         </tags>
       
@@ -613,9 +646,9 @@
             
             <tag> HealthCare </tag>
             
-            <tag> SDC </tag>
-            
             <tag> IEEE </tag>
+            
+            <tag> SDC </tag>
             
         </tags>
       
@@ -677,9 +710,9 @@
       
         <tags>
             
-            <tag> 실습 </tag>
-            
             <tag> NextJS </tag>
+            
+            <tag> 실습 </tag>
             
             <tag> Javascript </tag>
             
