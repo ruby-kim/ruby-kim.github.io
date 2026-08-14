@@ -10,7 +10,24 @@
   <rights>All rights reserved 2026, Ruby Kim</rights>
   <subtitle>AI Platform Engineer</subtitle>
   <title>잡동사니</title>
-  <updated>2026-07-26T16:18:44.443Z</updated>
+  <updated>2026-08-14T16:49:27.572Z</updated>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="🎈 Retrospect" scheme="https://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
+    <category term="해커톤" scheme="https://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/%ED%95%B4%EC%BB%A4%ED%86%A4/"/>
+    <category term="후기" scheme="https://ruby-kim.github.io/tags/%ED%9B%84%EA%B8%B0/"/>
+    <category term="해커톤" scheme="https://ruby-kim.github.io/tags/%ED%95%B4%EC%BB%A4%ED%86%A4/"/>
+    <id>https://ruby-kim.github.io/2026/08/15/Retrospect/Hackathon/26-nailro/</id>
+    <link href="https://ruby-kim.github.io/2026/08/15/Retrospect/Hackathon/26-nailro/"/>
+    <published>2026-08-14T15:20:00.000Z</published>
+    <summary>
+      <![CDATA[<h2 id="참여-계기"><a href="#참여-계기" class="headerlink" title="참여 계기"></a>참여 계기</h2><p>개인 블로그니까 아주 솔직히 적어보자면,,, 맨날 재택근무만 주구장창 돌리다보니 N년 전에 받은 해커톤]]>
+    </summary>
+    <title>[해커톤] 내일路 해커톤 2026 후기 (한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026)</title>
+    <updated>2026-08-14T16:49:27.572Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Ruby Kim</name>
@@ -142,10 +159,10 @@
       <name>Ruby Kim</name>
     </author>
     <category term="⚒ Projects" scheme="https://ruby-kim.github.io/categories/%E2%9A%92-Projects/"/>
-    <category term="Python" scheme="https://ruby-kim.github.io/tags/Python/"/>
     <category term="프로젝트" scheme="https://ruby-kim.github.io/tags/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/"/>
     <category term="Bot" scheme="https://ruby-kim.github.io/tags/Bot/"/>
     <category term="Discord" scheme="https://ruby-kim.github.io/tags/Discord/"/>
+    <category term="Python" scheme="https://ruby-kim.github.io/tags/Python/"/>
     <id>https://ruby-kim.github.io/2026/03/26/Projects/Discord-Bot/</id>
     <link href="https://ruby-kim.github.io/2026/03/26/Projects/Discord-Bot/"/>
     <published>2026-03-26T03:44:35.000Z</published>
@@ -262,8 +279,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <id>https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/</id>
     <link href="https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/"/>
     <published>2025-08-02T11:30:00.000Z</published>
@@ -296,11 +313,11 @@
       <name>Ruby Kim</name>
     </author>
     <category term="🎈 Retrospect" scheme="https://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
-    <category term="Certificate" scheme="https://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/Certificate/"/>
+    <category term="자격증" scheme="https://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/%EC%9E%90%EA%B2%A9%EC%A6%9D/"/>
     <category term="후기" scheme="https://ruby-kim.github.io/tags/%ED%9B%84%EA%B8%B0/"/>
-    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="자격증" scheme="https://ruby-kim.github.io/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/"/>
     <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
-    <category term="Certificate" scheme="https://ruby-kim.github.io/tags/Certificate/"/>
+    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
     <id>https://ruby-kim.github.io/2025/06/10/Retrospect/Certificate/GCP-PCA/</id>
     <link href="https://ruby-kim.github.io/2025/06/10/Retrospect/Certificate/GCP-PCA/"/>
     <published>2025-06-10T14:44:35.000Z</published>
@@ -309,7 +326,7 @@
 <li>없음. 대충 들은건 있어가지고 어떤 서비스가 있는지는 아는데,]]>
     </summary>
     <title>[GCP] GCP Professional Cloud Architect(PCA) 자격증 시험 준비 및 합격 후기</title>
-    <updated>2026-07-20T22:02:59.675Z</updated>
+    <updated>2026-08-14T15:25:36.848Z</updated>
   </entry>
   <entry>
     <author>
@@ -320,8 +337,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <id>https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/</id>
     <link href="https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/"/>
     <published>2025-03-05T12:10:00.000Z</published>
@@ -361,8 +378,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <id>https://ruby-kim.github.io/2025/02/20/HealthCare/HL7/v2/</id>
     <link href="https://ruby-kim.github.io/2025/02/20/HealthCare/HL7/v2/"/>
     <published>2025-02-20T14:44:35.000Z</published>
@@ -381,9 +398,9 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <category term="IEEE" scheme="https://ruby-kim.github.io/tags/IEEE/"/>
     <category term="SDC" scheme="https://ruby-kim.github.io/tags/SDC/"/>
+    <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
     <id>https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/</id>
     <link href="https://ruby-kim.github.io/2025/01/10/HealthCare/EHR-FHIR-SDC/standard/"/>
     <published>2025-01-10T14:44:35.000Z</published>
@@ -392,25 +409,5 @@
     </summary>
     <title>[HealthCare] EHR 연동: HL7 / IEEE 11073 SDC 총정리</title>
     <updated>2026-07-20T22:02:59.677Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Ruby Kim</name>
-    </author>
-    <category term="✨ Frontend" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/"/>
-    <category term="Vue" scheme="https://ruby-kim.github.io/categories/%E2%9C%A8-Frontend/Vue/"/>
-    <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
-    <category term="Javascript" scheme="https://ruby-kim.github.io/tags/Javascript/"/>
-    <category term="Frontend" scheme="https://ruby-kim.github.io/tags/Frontend/"/>
-    <category term="Vue" scheme="https://ruby-kim.github.io/tags/Vue/"/>
-    <category term="SEO" scheme="https://ruby-kim.github.io/tags/SEO/"/>
-    <id>https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/</id>
-    <link href="https://ruby-kim.github.io/2025/01/01/Frontend/Vuejs/SEO/"/>
-    <published>2025-01-01T14:44:35.000Z</published>
-    <summary>
-      <![CDATA[<p>개발 포트폴리오 사이트를 만들었는데, 배포는 성공했다만 생각해보니 검색 유입을 위한 SEO(Search Engine Optimization) 최적화를 하지 않았음을 깨달았다..<br>따라서 Vue3로 하는 방법을 간략히 정리해보고자]]>
-    </summary>
-    <title>[Vue.js] Vue3 SEO 최적화하기 (sitemap.map, robots.txt)</title>
-    <updated>2026-07-20T22:02:59.680Z</updated>
   </entry>
 </feed>

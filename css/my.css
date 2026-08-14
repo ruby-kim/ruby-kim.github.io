@@ -55,13 +55,24 @@ body {
    NAV / HEADER
    ================================================================ */
 
-/* Scrolled state — override theme's flat blue with dark navy */
+/* Scrolled state — override theme's flat blue with dark navy.
+   backdrop-filter stays on ::before: putting it on #headNav itself
+   makes the nav a containing block and clips the mobile sidenav. */
 #headNav.bg-color {
     background-color: rgba(26, 37, 53, 0.97) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 4px 24px rgba(0,0,0,.18) !important;
     transition: background 0.3s, box-shadow 0.3s;
+    overflow: visible;
+}
+
+#headNav.bg-color::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 /* Transparent state — subtle top gradient so white text stays legible */
@@ -71,12 +82,63 @@ body {
 }
 
 /* Brand / logo */
+header .brand-logo .waves-effect {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+}
+
+header .brand-logo .logo-img {
+    height: 32px;
+    width: 32px;
+    padding-bottom: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
 header .brand-logo .logo-span {
     font-family: var(--font-sans);
     font-weight: 800;
     font-size: 1.15rem;
     letter-spacing: -0.03em;
     color: #fff;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Sidenav header: theme used negative margin to fake a side-by-side
+   layout, which stacked the avatar on top of the site title. */
+header .side-nav .mobile-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 28px 20px 18px;
+}
+
+header .side-nav .mobile-head img {
+    margin-top: 0;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
+
+header .side-nav .mobile-head .logo-name {
+    margin-top: 0;
+    padding-left: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+header .side-nav .mobile-head .logo-desc {
+    margin-top: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    line-height: 1.45;
 }
 
 /* Nav links */
@@ -113,6 +175,39 @@ header .brand-logo .logo-span {
 header .button-collapse i {
     color: rgba(255,255,255,.9);
     font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 992px) {
+    header.navbar-fixed {
+        overflow: visible;
+    }
+
+    /* .container is 95% wide, so the 18px trigger margin sits off-canvas */
+    #navContainer.nav-wrapper.container {
+        width: 100% !important;
+        max-width: 100%;
+        padding-left: max(4px, env(safe-area-inset-left));
+        padding-right: max(8px, env(safe-area-inset-right));
+        box-sizing: border-box;
+    }
+
+    nav .sidenav-trigger,
+    header .button-collapse {
+        margin: 0 !important;
+        padding: 0 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav .sidenav-trigger i,
+    header .button-collapse i {
+        display: inline-block;
+        width: auto;
+        height: auto;
+        line-height: 1;
+        font-size: 1.4rem;
+    }
 }
 
 /* ================================================================

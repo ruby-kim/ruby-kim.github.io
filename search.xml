@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>[해커톤] 내일路 해커톤 2026 후기 (한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026)</title>
+      <link href="/2026/08/15/Retrospect/Hackathon/26-nailro/"/>
+      <url>/2026/08/15/Retrospect/Hackathon/26-nailro/</url>
+      
+        <content type="html"><![CDATA[<h2 id="참여-계기"><a href="#참여-계기" class="headerlink" title="참여 계기"></a>참여 계기</h2><p>개인 블로그니까 아주 솔직히 적어보자면,,, 맨날 재택근무만 주구장창 돌리다보니 N년 전에 받은 해커톤 및 개발자 행사 관련 옷들이 전부 구멍이 송송 나기 시작했다.</p><p>옷 퀄리티를 생각하면 사실 오래 버티긴 한건데, 그래도 엄마의 눈에는 딸이 돈을 벌면서 막상 이런 곳에 돈을 안쓰니 속상해 보였던걸까? 옷을 자꾸 사라고 하는 것이었다.</p><p>그래서 옷받으려고,,, 해커톤을 참가했다. 어차피 해커톤 나가면 각종 생필품과 옷이 나오는데 왜 사 엄마? (진짜모름)</p><p><del>이미 잡혀있는 국내외의 수많은 일정을 고려하기도 했다만</del> 내 급한 성격을 고려하면 거의 마감직전인 해커톤이 맞겠다 싶어 뒤져보니까  <strong>한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026</strong> 밖에 없더라….</p><p>그래서 마감 3일 전인가에 주제를 잡고 자료조사와 함께 기획서를 제출했다.</p><br><h2 id="주제-선정"><a href="#주제-선정" class="headerlink" title="주제 선정"></a>주제 선정</h2><p>그렇게 모든 업무를 끝내고 마감 직전 새벽, 이제 계획서를 써야하는데… 아 사람의 마음은 갈대인지라 막상 자리잡고 앉으니 하고 싶지 않더라고 ㅎ…<br>근데 지금 생각해보면 어쩔 수 없는 상황이긴 했다. 나 하루에 회사+개인업무로 최소 14시간은 일만 한다고? 심지어 나머지 시간도 노는게 아니라 공부하느라 잠도 못자 <em>사람살려주세요</em></p><p>고로 더 이상 생각을 하기 싫은 나머지, AI 여러 개를 강제로 싸움 붙어서 주제를 선정하게 해봤다. 그래 내가 왜 머리를 써야겠니 AI들이 움직이면 되는 것이지,, 이런 점에선 AI의 시대에서 살고 있다는 점에 따봉추추추</p><p>어쨌든 AI들은 그렇게 서로 머리를 맞대더니, 좌석 재배정이라는 주제로 가면 좋을 것 같다는 결론을 내놨다.<br>듣고보니 꽤 괜찮다고 생각이 되어서, 구현 난이도와 방법에 대해서는 나도 같이 낑겨서 대화를 계속 진행을 해봤다. 나름 미국 스타트업에서 굴렀다고… 지금의 내 수준에서 커버를 할 수 있을 것 같다고 견적이 나오더라.</p><p>무엇보다 이 주제가 마음에 들었던게,<br>어차피 나 혼자서 진행하는거다보니 데이터 직접 수집은 무리일 것 같았고 + 난 발표 엄청 못하는 사람인지라 그냥 데이터로 박치기 시전하는게 편하다고 생각이 들었기 때문이다.</p><br><h2 id="프로젝트-내용-및-설명"><a href="#프로젝트-내용-및-설명" class="headerlink" title="프로젝트 내용 및 설명"></a>프로젝트 내용 및 설명</h2><ul><li>한문장 요약: 비행기가 지연되면 KTX를 놓치고, 좌석은 빈채로 출발함 -&gt; 자동으로 원하는 시간대로 재배정 + 환불된 티켓은 땡처리로 처리</li><li>Github: <a href="https://github.com/ruby-kim/delay-thang">https://github.com/ruby-kim/delay-thang</a></li><li>데모영상: <a href="https://youtu.be/4jd99P-l72M">https://youtu.be/4jd99P-l72M</a></li></ul><p>내용을 하나하나 설명하기엔 손가락이 아프기에 링크로 대처합니다 ^_^…</p><br><h2 id="해커톤-후기"><a href="#해커톤-후기" class="headerlink" title="해커톤 후기"></a>해커톤 후기</h2><ol><li>인천공항이랑 같이 진행한다고 공항 관련 여러 장소를 견학할 수 있었는데, 뉴스에서만 간혹 봤던 그런 보안관련 장소까지 데려다주셔서 재밌게 잘 구경했다. 한편으로는 이런걸 우리한테 보여줘도 되나 하고 걱정되기도 하고 ㅎㅎ.. 뭐 다들 어른이니 알아서들 잘 하시겠다만</li><li>밥이… 밥이 너무 맛있었다. 맨날 일이 하도 바빠서 밥 시간도 불규칙하고, 먹을 것도 너무 부실해서 내 자신이 좀 불쌍하다는 생각도 들었는데, 아 오랜만에 이렇게 균형잡히고 건강하고 맛있는 반찬과 밥을 먹을 수 있다니 너무 좋았다. 흑흑 이모님들 벌써 당신들이 그립읍니다</li><li>근데 주변에 재밌는거 없음.. 제일 재밌는게 뭔가 생각해봤는데 아무리봐도 무인 24시간 편의점임; 개인적으로 밥이 맛이 없었으면 직원들이 궐기할 것 같은 느낌이랄까 ㅎㅎ….</li><li>간식거리도 짱 많이 챙겨주셨다. 와 소화 안됐는데 음식 왔다고 가져가래 ㅋㅎㅋㅎㅋㅎㅎ;; 열심히 받아먹다가 패배를 인정하고 결국에는 주변 팀 분들한테 나눠드렸다. 아 돼지파티 이럴 때 즐겨야하는데 받아먹질 못하네…</li><li>가는 날이 장날이라고, 수요일 오후부터 해커톤이 시작됐는데 회사가 바빠서 반차쓰려다가 말았더니 에이씨 업무가 수요일 오후 9시 즈음에 끝났다. 개인일도 해야하는데 어째서 내게 이런 시련이 ㄴㅇㄱ</li><li>사실 내게 가장 큰 시련은 이 프로그램을 혼자서 구현하라는 것이었다. 기획이야 뭐 대충 했다지만… 내가??? 이걸??? 다 만들라고??? 그것도 하루만에??? 진짜????? <del>그렇게 과거의 나를 욕함</del> 근데 또 했네 어..어케했누 ㅋㅋㅋㅋㅋㅋㅋ;;</li><li>시간이 매우 부족한 관계로 ai 돌리기 + 직접코딩을 1시간 정도 하니, 와 못해먹겠다는 생각이 들었다. 가뜩이나 코딩 안맞고 싫어하는 사람인데 갑자기 괜히 참여했나 현타오길래 첫날 오후 10시 즈음에 숙소행을 선택하고 말았다. 1인이라 다른 팀이랑 묶어서 주나 싶었는데 개인배정을 해주셔서 너무 편안하게 지냈다 히히. 물론 숙소가서 개인일을 한건 안비밀 ^^…………</li><li>이튿날은 매우 빡세게 프로그램을 만들었다. AI를 막 돌리고 내가 구현할 수 있는 부분은 구현하고… streamlit으로 프론트엔드 개발 선택을 너무 잘한 것 같다. nextjs로 했으면 좀 시간 걸렸을텐데 그냥 막 바로 뚜따뚜따리 가능한게 매우 좋았다. 사람들이 agent skill 만들어둔 것도 적극적으로 써먹어서 가능한 것 같았다.</li><li>사실 그 이후로 시간이 더 남긴 했는데… 아 아무리 생각해도 이렇게 시작하면 나는 더 이상 돌아올 수 없는 강을 건너게 되는 그런 느낌이 들어, 오후 7시 즈음에 개발을 그만두고 발표자료를 만들기 시작했다. 남들과 다르게 혼자서 뚜따리 해야하다보니 1분 1초가 너무 소중하더라… 시간 아끼려고 skill 만들어서 발표자료도 뚝딱뚝딱 만들었다. 그렇게 발표자료를 완성하고 오후 11시 30분에 퇴근할 수 있었다.</li><li>그리고 대망의 발표날, 나는 그냥 에라 모르겠다 심정으로 발표자료 내고 ppt를 보고있는데.. 어? 다들 발표하시는거 보니 대본을 갖고 있으시네?? 나 그런거 준비 1도 안했는데???? 예전에 창업대회 했던거 생각하고 대본안했는데 해도 되는거였어?????? 급후회가 밀려오기 시작했다. 그런데 뭐 어떻게해 그냥 해야지 알아채는 순간 난 이미 늦은거야…….</li><li>그렇게 사람들 앞에 섰는데… 생각해보면 나는 모든 업무를 재택으로 하는 사람이기 때문에… 아니 몇 년간 사람을 많이 만나봤자 최대 8명 정도 되는데 갑자기 약 40명 앞에 서니까 와 미칠 것 같았다. 뭔가 사회 재데뷔를 하는 느낌이랄까? 예전에 1200명 정도 되는 곳 발표에서도 이렇게 안떨렸는데 너무 무섭더라 ㅠㅠㅠㅠ 사람을 앞으로 잘 만나러 다니겠습니다… 근데 이럴려면 일이 줄어야 가능할 것 같은데 그게…가능….? <del>동네 친구도 하도 바빠서 새벽 2시에 만나는 사람임</del></li><li>11번의 이유로 발표도 너무 긴장해서 했고, 끝나고 질문 받았을떼 엄청 우왕좌왕했다.. 하 아직도 실수한거 수치사할 것 같음ㅋㅋㅋㅋ큐ㅠㅠㅠㅠㅠㅠㅠㅠ 그나마 위안을 받았던 것이, 발표할 때 다들 고개 끄덕이면서 잘 들어주신 점이었다. 혼자서 많이 개발 했다고 칭찬도 해주시고,,, 흑흑 네 저 짱 힘들었어요 ㅠㅠㅠㅠㅠㅠ</li><li>행사가 끝나고 여러 팀들과 대화를 나눴는데, 아니 내가 종종 강의 뛰는 곳의 수강생 분들이라고 하심…! 아 1일차에 간단히 주제 말씀하시면서 자기소기하실 때 설마설마 했는데 이럴수가 진짜였네;; 어째 세상 인연은 이렇게 좁을까? 제발 그쪽으로 저에 대해서 말씀하지 말아주세요 저 상탄거 모르게 해주세요 저 부끄러워요 제발ㅋ큐ㅠㅠㅠㅠㅠㅠㅠ</li><li>다음엔 회사 사람들이라도 꼬셔서 팀으로 해커톤 해야지 혼자하려니 힘들어 죽겠다 ㄴㅇㄱ</li></ol><br><h2 id="최종-최우수상"><a href="#최종-최우수상" class="headerlink" title="최종: 최우수상"></a>최종: 최우수상</h2><img src="/2026/08/15/Retrospect/Hackathon/26-nailro/award.png" class="" title="최우수상 따잇"><p>사실 올해 연봉협상을 너무 잘해서, 올해치 돈복은 다 썼다 생각하고 이번에 받는 돈은 좋은 곳에 쓰자 싶었는데… 그래 좋은 일에 많이 쓰라고 상을 이렇게 큰걸 받은 것 같다 ㅎㅎ</p><p>해커톤 참여팀 분들, 서포트해주신 분들, 그리고 행사 열어주신 코레일과 인천공항 관계자분들 모두모두 감사합니다~!<br>그리고 해커톤 본선 팀 모두 수상 축하드려요~~~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 🎈 Retrospect </category>
+          
+          <category> 해커톤 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 후기 </tag>
+            
+            <tag> 해커톤 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu Server에 Cockpit 올려서 브라우저로 서버 관리하기</title>
       <link href="/2026/07/27/Tips/Cockpit-Setup/"/>
       <url>/2026/07/27/Tips/Cockpit-Setup/</url>
@@ -236,13 +265,13 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 프로젝트 </tag>
             
             <tag> Bot </tag>
             
             <tag> Discord </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -440,9 +469,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> CDA </tag>
-            
             <tag> HealthCare </tag>
+            
+            <tag> CDA </tag>
             
         </tags>
       
@@ -491,7 +520,7 @@
           
           <category> 🎈 Retrospect </category>
           
-          <category> Certificate </category>
+          <category> 자격증 </category>
           
       </categories>
       
@@ -500,11 +529,11 @@
             
             <tag> 후기 </tag>
             
-            <tag> Cloud </tag>
+            <tag> 자격증 </tag>
             
             <tag> GCP </tag>
             
-            <tag> Certificate </tag>
+            <tag> Cloud </tag>
             
         </tags>
       
@@ -537,9 +566,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> CDA </tag>
-            
             <tag> HealthCare </tag>
+            
+            <tag> CDA </tag>
             
         </tags>
       
@@ -609,9 +638,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> HealthCare </tag>
-            
             <tag> SDC </tag>
+            
+            <tag> HealthCare </tag>
             
         </tags>
       
@@ -644,11 +673,11 @@
             
             <tag> HL7 </tag>
             
-            <tag> HealthCare </tag>
-            
             <tag> IEEE </tag>
             
             <tag> SDC </tag>
+            
+            <tag> HealthCare </tag>
             
         </tags>
       
@@ -747,9 +776,9 @@
             
             <tag> OAuth2 </tag>
             
-            <tag> Cloud </tag>
-            
             <tag> GCP </tag>
+            
+            <tag> Cloud </tag>
             
         </tags>
       
@@ -897,7 +926,7 @@
           
           <category> 🎈 Retrospect </category>
           
-          <category> Certificate </category>
+          <category> 자격증 </category>
           
       </categories>
       
@@ -908,9 +937,9 @@
             
             <tag> AWS </tag>
             
-            <tag> Cloud </tag>
+            <tag> 자격증 </tag>
             
-            <tag> Certificate </tag>
+            <tag> Cloud </tag>
             
         </tags>
       
@@ -937,9 +966,7 @@
             
             <tag> 후기 </tag>
             
-            <tag> Retrospect </tag>
-            
-            <tag> Job </tag>
+            <tag> 취업 </tag>
             
         </tags>
       
@@ -1019,7 +1046,7 @@
           
           <category> 🎈 Retrospect </category>
           
-          <category> Conference </category>
+          <category> 컨퍼런스 </category>
           
       </categories>
       
@@ -1028,7 +1055,7 @@
             
             <tag> 후기 </tag>
             
-            <tag> Conference </tag>
+            <tag> 컨퍼런스 </tag>
             
         </tags>
       
@@ -1048,7 +1075,7 @@
           
           <category> 🎈 Retrospect </category>
           
-          <category> Conference </category>
+          <category> 컨퍼런스 </category>
           
       </categories>
       
@@ -1057,7 +1084,7 @@
             
             <tag> 후기 </tag>
             
-            <tag> Conference </tag>
+            <tag> 컨퍼런스 </tag>
             
         </tags>
       
@@ -1206,9 +1233,7 @@
             
             <tag> 후기 </tag>
             
-            <tag> Retrospect </tag>
-            
-            <tag> Job </tag>
+            <tag> 취업 </tag>
             
             <tag> 42SEOUL </tag>
             
@@ -1334,9 +1359,7 @@
             
             <tag> 후기 </tag>
             
-            <tag> Retrospect </tag>
-            
-            <tag> Job </tag>
+            <tag> 취업 </tag>
             
         </tags>
       
@@ -1367,9 +1390,9 @@
             
             <tag> Javascript </tag>
             
-            <tag> Frontend </tag>
-            
             <tag> React </tag>
+            
+            <tag> Frontend </tag>
             
         </tags>
       
@@ -1431,11 +1454,11 @@
             
             <tag> 실습 </tag>
             
-            <tag> Github </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1466,11 +1489,11 @@
             
             <tag> 실습 </tag>
             
-            <tag> Github </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1501,11 +1524,11 @@
             
             <tag> 팁 </tag>
             
-            <tag> Github </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1536,11 +1559,11 @@
             
             <tag> 실습 </tag>
             
-            <tag> Github </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1811,8 +1834,6 @@
             <tag> Parsing </tag>
             
             <tag> Crawling </tag>
-            
-            <tag> Project </tag>
             
             <tag> Github </tag>
             
