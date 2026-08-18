@@ -4,11 +4,83 @@
   
     
     <entry>
+      <title>[Google Skill] Professional Cloud Architect Certification 재갱신을 위한 Google Skills 마스터하기</title>
+      <link href="/2026/08/18/Cloud/GCP/Skills/PCA-Renewal/"/>
+      <url>/2026/08/18/Cloud/GCP/Skills/PCA-Renewal/</url>
+      
+        <content type="html"><![CDATA[<h2 id="시작하기"><a href="#시작하기" class="headerlink" title="시작하기"></a>시작하기</h2><blockquote><p>이 글은 앞으로도 계속 업데이트 될 예정입니다. </p></blockquote><p>구글의 자격증은 매우 비싸다. 그런데 유효기간은 2년밖에 안된다. 아 클라우드… 소프트웨어는 왜 자고 일어나면 휙휙 바뀌어있는건데 ㅡㅡ<br>만료되면 또 공부를 해야하나 해서 두려움에 떨고 있었는데, 그런 나를 구원해주는 것을 발견했다. 그건 바로 <strong>Google Skills</strong>였다고…</p><p><del>그놈의 티셔츠를 받으려고</del> Google StudyJam에 들어가서 개인적으로 공부하고 있는데, 자격증 목록에 들어가보니까 수업을 들으면 재갱신을 해준다고 하더라…!</p><p>참고로 다음 옵션 중 하나를 선택하고 완료해야 한다고 한다.</p><p>전제조건: 만료 12개월 내에</p><ul><li>기술 배지 2개</li><li>기술 배지 1개 + 과정 2개</li><li>과정 4개 완료</li></ul><h2 id="자격증-재갱신-코스"><a href="#자격증-재갱신-코스" class="headerlink" title="자격증 재갱신 코스"></a>자격증 재갱신 코스</h2><p><a href="https://www.skills.google/paths/4302">Professional Cloud Architect Certification Renewal via Google Skills</a></p><img src="/2026/08/18/Cloud/GCP/Skills/PCA-Renewal/pca-renewal-course.png" class="" title="Professional Cloud Archirect Certification 재갱신 코스"><p>나는 기술 배지 2개로 자격증을 갱신했는데, 최대 1년만 연장을 해주는 듯 하다. 근데 AI한테 물어보니까 기간만 잘 지키면 시험을 안보고도 계속 연장 할 수 있다고 한다. 스터디잼 신청해서 크래딧 공짜로 받고 공부하면 될 듯?</p><h2 id="Google-Cloud에서-Terraform으로-인프라-빌드"><a href="#Google-Cloud에서-Terraform으로-인프라-빌드" class="headerlink" title="Google Cloud에서 Terraform으로 인프라 빌드"></a>Google Cloud에서 Terraform으로 인프라 빌드</h2><ul><li>LAB: <a href="https://www.skills.google/paths/4302/course_templates/636">Google Cloud에서 Terraform으로 인프라 빌드: 챌린지 실습</a>  </li><li>5 Credits</li></ul><h3 id="작업-0-Terraform-설치"><a href="#작업-0-Terraform-설치" class="headerlink" title="작업 0. Terraform 설치"></a>작업 0. Terraform 설치</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. Terraform 설치</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">'EOF'<span class="token bash punctuation"> <span class="token operator">&gt;</span> ~/.customize_environment</span>wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpgecho "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?&lt;=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.listsudo apt update &amp;&amp; sudo apt install -y terraformEOF</span><span class="token function">bash</span> ~/.customize_environment<span class="token comment"># 2. 버전 확인</span>terraform <span class="token parameter variable">--version</span></code></pre><h3 id="작업-1-구성-파일-만들기"><a href="#작업-1-구성-파일-만들기" class="headerlink" title="작업 1. 구성 파일 만들기"></a>작업 1. 구성 파일 만들기</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 프로젝트/존</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">ZONE</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud compute instances list <span class="token parameter variable">--filter</span><span class="token operator">=</span><span class="token string">"name=tf-instance-1"</span> <span class="token parameter variable">--format</span><span class="token operator">=</span>"value<span class="token punctuation">(</span>zone.basename<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token variable">)</span></span>"<span class="token punctuation">)</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">ZONE</span><span class="token operator">=</span><span class="token variable">${ZONE<span class="token operator">:-</span>$(gcloud config get-value compute<span class="token operator">/</span>zone)}</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">REGION</span><span class="token operator">=</span><span class="token variable">${ZONE<span class="token operator">%</span>-*}</span><span class="token builtin class-name">echo</span> <span class="token string">"PROJECT_ID=<span class="token variable">$PROJECT_ID</span> ZONE=<span class="token variable">$ZONE</span> REGION=<span class="token variable">$REGION</span>"</span><span class="token comment"># 2. 디렉터리</span><span class="token function">mkdir</span> <span class="token parameter variable">-p</span> modules/instances modules/storage<span class="token comment"># 3. variables.tf</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> variables.tf</span>variable "region" {  type    = string  default = "<span class="token variable">${REGION}</span>"}variable "zone" {  type    = string  default = "<span class="token variable">${ZONE}</span>"}variable "project_id" {  type    = string  default = "<span class="token variable">${PROJECT_ID}</span>"}EOF</span><span class="token function">cp</span> variables.tf modules/instances/variables.tf<span class="token function">cp</span> variables.tf modules/storage/variables.tf<span class="token comment"># 4. main.tf</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> main.tf</span>terraform {  required_providers {    google = {      source = "hashicorp/google"    }  }}provider "google" {  project = var.project_id  region  = var.region  zone    = var.zone}module "instances" {  source     = "./modules/instances"  region     = var.region  zone       = var.zone  project_id = var.project_id}EOF</span><span class="token comment"># 5. 빈 모듈 파일</span><span class="token function">touch</span> modules/instances/instances.tf modules/instances/outputs.tf<span class="token function">touch</span> modules/storage/storage.tf modules/storage/outputs.tf<span class="token comment"># 6. 초기화</span>terraform init <span class="token parameter variable">-upgrade</span></code></pre><h3 id="작업-2-인프라-가져오기"><a href="#작업-2-인프라-가져오기" class="headerlink" title="작업 2. 인프라 가져오기"></a>작업 2. 인프라 가져오기</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 기존 인스턴스 확인</span>gcloud compute instances list <span class="token parameter variable">--filter</span><span class="token operator">=</span><span class="token string">"name=tf-instance-1 OR name=tf-instance-2"</span><span class="token comment"># 2. instances.tf</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">'EOF'<span class="token bash punctuation"> <span class="token operator">&gt;</span> modules/instances/instances.tf</span>resource "google_compute_instance" "tf-instance-1" {  name         = "tf-instance-1"  machine_type = "e2-micro"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network = "default"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}resource "google_compute_instance" "tf-instance-2" {  name         = "tf-instance-2"  machine_type = "e2-micro"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network = "default"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}EOF</span><span class="token comment"># 3. import</span>terraform <span class="token function">import</span> module.instances.google_compute_instance.tf-instance-1 <span class="token variable">${PROJECT_ID}</span>/<span class="token variable">${ZONE}</span>/tf-instance-1terraform <span class="token function">import</span> module.instances.google_compute_instance.tf-instance-2 <span class="token variable">${PROJECT_ID}</span>/<span class="token variable">${ZONE}</span>/tf-instance-2<span class="token comment"># 4. apply</span>terraform planterraform apply -auto-approve</code></pre><h3 id="작업-3-원격-백엔드-구성"><a href="#작업-3-원격-백엔드-구성" class="headerlink" title="작업 3. 원격 백엔드 구성"></a>작업 3. 원격 백엔드 구성</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 버킷 이름</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BUCKET_NAME</span><span class="token operator">=</span>tf-bucket-298731<span class="token comment"># 2. storage.tf</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> modules/storage/storage.tf</span>resource "google_storage_bucket" "tf-bucket" {  name                        = "<span class="token variable">${BUCKET_NAME}</span>"  location                    = "US"  force_destroy               = true  uniform_bucket_level_access = true}EOF</span><span class="token comment"># 3. storage 모듈 추가</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;&gt;</span> main.tf</span>module "storage" {  source     = "./modules/storage"  region     = var.region  zone       = var.zone  project_id = var.project_id}EOF</span>terraform initterraform apply -auto-approve<span class="token comment"># 4. GCS 백엔드</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> main.tf</span>terraform {  backend "gcs" {    bucket = "<span class="token variable">${BUCKET_NAME}</span>"    prefix = "terraform/state"  }  required_providers {    google = {      source = "hashicorp/google"    }  }}provider "google" {  project = var.project_id  region  = var.region  zone    = var.zone}module "instances" {  source     = "./modules/instances"  region     = var.region  zone       = var.zone  project_id = var.project_id}module "storage" {  source     = "./modules/storage"  region     = var.region  zone       = var.zone  project_id = var.project_id}EOF</span><span class="token comment"># 5. state 마이그레이션 (yes)</span>terraform init -migrate-state</code></pre><h3 id="작업-4-인프라-수정-및-업데이트"><a href="#작업-4-인프라-수정-및-업데이트" class="headerlink" title="작업 4. 인프라 수정 및 업데이트"></a>작업 4. 인프라 수정 및 업데이트</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. instances.tf — e2-standard-2 + 세 번째 VM (랩 정보 패널 Instance Name)</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">INSTANCE_3</span><span class="token operator">=</span>tf-instance-782551<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> modules/instances/instances.tf</span>resource "google_compute_instance" "tf-instance-1" {  name         = "tf-instance-1"  machine_type = "e2-standard-2"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network = "default"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}resource "google_compute_instance" "tf-instance-2" {  name         = "tf-instance-2"  machine_type = "e2-standard-2"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network = "default"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}resource "google_compute_instance" "tf-instance-3" {  name         = "<span class="token variable">${INSTANCE_3}</span>"  machine_type = "e2-standard-2"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network = "default"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}EOF</span><span class="token comment"># 2. apply</span>terraform apply -auto-approve</code></pre><h3 id="작업-5-리소스-폐기"><a href="#작업-5-리소스-폐기" class="headerlink" title="작업 5. 리소스 폐기"></a>작업 5. 리소스 폐기</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 세 번째 인스턴스만 빼고 instances.tf 다시 작성</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">'EOF'<span class="token bash punctuation"> <span class="token operator">&gt;</span> modules/instances/instances.tf</span>resource "google_compute_instance" "tf-instance-1" {  name         = "tf-instance-1"  machine_type = "e2-standard-2"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network = "default"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}resource "google_compute_instance" "tf-instance-2" {  name         = "tf-instance-2"  machine_type = "e2-standard-2"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network = "default"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}EOF</span><span class="token comment"># 2. apply</span>terraform apply -auto-approve</code></pre><h3 id="작업-6-레지스트리의-모듈-사용"><a href="#작업-6-레지스트리의-모듈-사용" class="headerlink" title="작업 6. 레지스트리의 모듈 사용"></a>작업 6. 레지스트리의 모듈 사용</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. main.tf — vpc 모듈 추가 (랩 정보 패널 VPC Name)</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">VPC_NAME</span><span class="token operator">=</span>tf-vpc-741951<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> main.tf</span>terraform {  backend "gcs" {    bucket = "<span class="token variable">${BUCKET_NAME}</span>"    prefix = "terraform/state"  }  required_providers {    google = {      source = "hashicorp/google"    }  }}provider "google" {  project = var.project_id  region  = var.region  zone    = var.zone}module "instances" {  source     = "./modules/instances"  region     = var.region  zone       = var.zone  project_id = var.project_id}module "storage" {  source     = "./modules/storage"  region     = var.region  zone       = var.zone  project_id = var.project_id}module "vpc" {  source  = "terraform-google-modules/network/google"  version = "10.0.0"  project_id   = var.project_id  network_name = "<span class="token variable">${VPC_NAME}</span>"  routing_mode = "GLOBAL"  subnets = [    {      subnet_name   = "subnet-01"      subnet_ip     = "10.10.10.0/24"      subnet_region = var.region    },    {      subnet_name   = "subnet-02"      subnet_ip     = "10.10.20.0/24"      subnet_region = var.region    }  ]}EOF</span><span class="token comment"># 2. VPC 생성</span>terraform initterraform apply -auto-approve<span class="token comment"># 3. instances.tf — tf-instance-1 → subnet-01, tf-instance-2 → subnet-02</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> modules/instances/instances.tf</span>resource "google_compute_instance" "tf-instance-1" {  name         = "tf-instance-1"  machine_type = "e2-standard-2"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network    = "<span class="token variable">${VPC_NAME}</span>"    subnetwork = "subnet-01"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}resource "google_compute_instance" "tf-instance-2" {  name         = "tf-instance-2"  machine_type = "e2-standard-2"  zone         = var.zone  boot_disk {    initialize_params {      image = "debian-cloud/debian-12"    }  }  network_interface {    network    = "<span class="token variable">${VPC_NAME}</span>"    subnetwork = "subnet-02"  }  metadata_startup_script = &lt;&lt;-EOT        #!/bin/bash    EOT  allow_stopping_for_update = true}EOF</span><span class="token comment"># 4. apply</span>terraform apply -auto-approve</code></pre><h3 id="작업-7-방화벽-구성"><a href="#작업-7-방화벽-구성" class="headerlink" title="작업 7. 방화벽 구성"></a>작업 7. 방화벽 구성</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. tf-firewall</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;&gt;</span> main.tf</span>resource "google_compute_firewall" "tf-firewall" {  name    = "tf-firewall"  network = "projects/<span class="token variable">${PROJECT_ID}</span>/global/networks/<span class="token variable">${VPC_NAME}</span>"  allow {    protocol = "tcp"    ports    = ["80"]  }  source_ranges = ["0.0.0.0/0"]}EOF</span><span class="token comment"># 2. apply</span>terraform apply -auto-approve</code></pre><h2 id="Google-Cloud에서-Cloud-보안-기본사항-구현하기"><a href="#Google-Cloud에서-Cloud-보안-기본사항-구현하기" class="headerlink" title="Google Cloud에서 Cloud 보안 기본사항 구현하기"></a>Google Cloud에서 Cloud 보안 기본사항 구현하기</h2><ul><li>LAB: <a href="https://www.skills.google/paths/4302/course_templates/645">Google Cloud에서 Cloud 보안 기본사항 구현하기</a></li><li>5 Credits</li></ul><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 0. 환경 변수</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">REGION</span><span class="token operator">=</span><span class="token string">"us-east1"</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">ZONE</span><span class="token operator">=</span><span class="token string">"us-east1-b"</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">SUBNET_NAME</span><span class="token operator">=</span><span class="token string">"orca-build-subnet"</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">JUMPHOST_INTERNAL_IP</span><span class="token operator">=</span><span class="token string">"192.168.10.2"</span></code></pre><h3 id="작업-1-커스텀-보안-역할-만들기"><a href="#작업-1-커스텀-보안-역할-만들기" class="headerlink" title="작업 1. 커스텀 보안 역할 만들기"></a>작업 1. 커스텀 보안 역할 만들기</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 커스텀 역할</span>gcloud iam roles create orca_storage_editor_975 <span class="token punctuation">\</span>    <span class="token parameter variable">--project</span><span class="token operator">=</span><span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--title</span><span class="token operator">=</span><span class="token string">"Orca Storage Editor"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--description</span><span class="token operator">=</span><span class="token string">"Custom storage editor role for Orca team"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--permissions</span><span class="token operator">=</span><span class="token string">"storage.buckets.get,storage.objects.get,storage.objects.list,storage.objects.update,storage.objects.create"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--stage</span><span class="token operator">=</span><span class="token string">"GA"</span></code></pre><h3 id="작업-2-서비스-계정-만들기"><a href="#작업-2-서비스-계정-만들기" class="headerlink" title="작업 2. 서비스 계정 만들기"></a>작업 2. 서비스 계정 만들기</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 클러스터용 SA</span>gcloud iam service-accounts create orca-private-cluster-791-sa <span class="token punctuation">\</span>    --display-name<span class="token operator">=</span><span class="token string">"Orca Private Cluster Service Account"</span></code></pre><h3 id="작업-3-커스텀-보안-역할을-서비스-계정에-바인딩"><a href="#작업-3-커스텀-보안-역할을-서비스-계정에-바인딩" class="headerlink" title="작업 3. 커스텀 보안 역할을 서비스 계정에 바인딩"></a>작업 3. 커스텀 보안 역할을 서비스 계정에 바인딩</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. SA 이메일</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">SA</span><span class="token operator">=</span><span class="token string">"orca-private-cluster-791-sa@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span><span class="token comment"># 2. 모니터링/로깅 + 커스텀 역할</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/monitoring.viewer"</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/monitoring.metricWriter"</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/logging.logWriter"</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"projects/<span class="token variable">$PROJECT_ID</span>/roles/orca_storage_editor_975"</span></code></pre><h3 id="작업-4-새-Kubernetes-Engine-비공개-클러스터-만들기-및-구성"><a href="#작업-4-새-Kubernetes-Engine-비공개-클러스터-만들기-및-구성" class="headerlink" title="작업 4. 새 Kubernetes Engine 비공개 클러스터 만들기 및 구성"></a>작업 4. 새 Kubernetes Engine 비공개 클러스터 만들기 및 구성</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 비공개 클러스터</span>gcloud container clusters create orca-cluster-794 <span class="token punctuation">\</span>    <span class="token parameter variable">--project</span><span class="token operator">=</span><span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span><span class="token variable">$ZONE</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--network</span><span class="token operator">=</span><span class="token string">"orca-build-vpc"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--subnetwork</span><span class="token operator">=</span><span class="token variable">$SUBNET_NAME</span> <span class="token punctuation">\</span>    --service-account<span class="token operator">=</span><span class="token string">"orca-private-cluster-791-sa@<span class="token variable">$PROJECT_ID</span>.iam.gserviceaccount.com"</span> <span class="token punctuation">\</span>    --enable-ip-alias <span class="token punctuation">\</span>    --enable-private-nodes <span class="token punctuation">\</span>    --enable-private-endpoint <span class="token punctuation">\</span>    --enable-master-authorized-networks <span class="token punctuation">\</span>    --master-authorized-networks<span class="token operator">=</span><span class="token string">"<span class="token variable">$JUMPHOST_INTERNAL_IP</span>/32"</span></code></pre><h3 id="작업-5-비공개-Kubernetes-Engine-클러스터에-애플리케이션-배포"><a href="#작업-5-비공개-Kubernetes-Engine-클러스터에-애플리케이션-배포" class="headerlink" title="작업 5. 비공개 Kubernetes Engine 클러스터에 애플리케이션 배포"></a>작업 5. 비공개 Kubernetes Engine 클러스터에 애플리케이션 배포</h3><p>Cloud Shell이 아니라 <strong>orca-jumphost SSH 안</strong>에서 실행.</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. jumphost SSH</span>gcloud compute <span class="token function">ssh</span> orca-jumphost <span class="token parameter variable">--zone</span><span class="token operator">=</span><span class="token variable">$ZONE</span><span class="token comment"># 2. jumphost 안에서 — 플러그인 + 클러스터 인증 (--internal-ip)</span><span class="token function">sudo</span> <span class="token function">apt-get</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> google-cloud-sdk-gke-gcloud-auth-plugin<span class="token builtin class-name">echo</span> <span class="token string">"export USE_GKE_GCLOUD_AUTH_PLUGIN=True"</span> <span class="token operator">&gt;&gt;</span> ~/.bashrc<span class="token builtin class-name">source</span> ~/.bashrcgcloud container clusters get-credentials orca-cluster-794 <span class="token punctuation">\</span>    --internal-ip <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span><span class="token variable">$ZONE</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--project</span><span class="token operator">=</span><span class="token variable">$PROJECT_ID</span><span class="token comment"># 3. 배포 확인</span>kubectl create deployment hello-server <span class="token parameter variable">--image</span><span class="token operator">=</span>gcr.io/google-samples/hello-app:1.0kubectl get pods</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ☁ Cloud </category>
+          
+          <category> GCP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 실습 </tag>
+            
+            <tag> GCP </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> Terraform </tag>
+            
+            <tag> gcloud </tag>
+            
+            <tag> PCA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Google Skill] 서비스 계정과 IAM 역할 설정하기</title>
+      <link href="/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount/"/>
+      <url>/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount/</url>
+      
+        <content type="html"><![CDATA[<ul><li>LAB: <a href="https://www.skills.google/course_templates/702">Google Cloud의 서비스 계정과 IAM 역할 설정하기: 챌린지 실습</a></li><li>1 Credit</li></ul><h2 id="작업-1-Gemini-사용-설정-및-살펴보기-선택"><a href="#작업-1-Gemini-사용-설정-및-살펴보기-선택" class="headerlink" title="작업 1. Gemini 사용 설정 및 살펴보기 (선택)"></a>작업 1. Gemini 사용 설정 및 살펴보기 (선택)</h2><p>패스</p><h2 id="작업-2-gcloud-CLI로-서비스-계정-만들기"><a href="#작업-2-gcloud-CLI로-서비스-계정-만들기" class="headerlink" title="작업 2. gcloud CLI로 서비스 계정 만들기"></a>작업 2. gcloud CLI로 서비스 계정 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. gcloud 인증</span>gcloud auth login --no-launch-browser   <span class="token comment"># 문서 기본은 --no-browser. 시크릿 창이 아니라 일반 브라우저로 가서 이걸로 함. URL 열고 인증코드 붙여넣기</span><span class="token comment"># 2. lab-vm SSH 접속 후 환경 확인</span>gcloud compute <span class="token function">ssh</span> lab-vm <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-cgcloud config list   <span class="token comment"># account는 VM 기본 서비스 계정</span><span class="token comment"># 3. devops 서비스 계정 만들기</span>gcloud iam service-accounts create devops <span class="token punctuation">\</span>    --display-name<span class="token operator">=</span><span class="token string">"DevOps Service Account"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--description</span><span class="token operator">=</span><span class="token string">"DevOps 작업을 위한 서비스 계정"</span>   <span class="token comment"># 이메일은 devops@{PROJECT_ID}.iam.gserviceaccount.com</span></code></pre><h2 id="작업-3-gcloud-CLI로-서비스-계정에-IAM-권한-부여"><a href="#작업-3-gcloud-CLI로-서비스-계정에-IAM-권한-부여" class="headerlink" title="작업 3. gcloud CLI로 서비스 계정에 IAM 권한 부여"></a>작업 3. gcloud CLI로 서비스 계정에 IAM 권한 부여</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 프로젝트 ID 저장</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token comment"># 2. devops 서비스 계정 이메일 저장</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">SA</span><span class="token operator">=</span><span class="token string">"devops@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span><span class="token comment"># 3. IAM 역할 부여</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/iam.serviceAccountUser"</span>   <span class="token comment"># Service Account User. 다른 SA로 actAs</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/compute.instanceAdmin"</span>   <span class="token comment"># Compute Instance Admin. VM 생성/수정/삭제</span></code></pre><h2 id="작업-4-서비스-계정이-연결된-컴퓨팅-인스턴스-만들기"><a href="#작업-4-서비스-계정이-연결된-컴퓨팅-인스턴스-만들기" class="headerlink" title="작업 4. 서비스 계정이 연결된 컴퓨팅 인스턴스 만들기"></a>작업 4. 서비스 계정이 연결된 컴퓨팅 인스턴스 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. devops SA를 붙인 vm-2 만들기</span><span class="token comment"># lab-vm SSH에서 $PROJECT_ID, $SA 유지. zone은 us-east1-c</span>gcloud compute instances create vm-2 <span class="token punctuation">\</span>    --service-account<span class="token operator">=</span><span class="token string">"<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--scopes</span><span class="token operator">=</span><span class="token string">"cloud-platform"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># cloud-platform = API 접근 범위 전체</span><span class="token comment"># 2. vm-2 SSH 접속</span>gcloud compute <span class="token function">ssh</span> vm-2 <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># 여기부터 devops 자격 증명</span><span class="token comment"># 3. 권한 확인</span>gcloud compute instances list   <span class="token comment"># lab-vm, vm-2 보이면 instanceAdmin 조회 권한 OK</span></code></pre><h2 id="작업-5-YAML로-커스텀-역할-만들기"><a href="#작업-5-YAML로-커스텀-역할-만들기" class="headerlink" title="작업 5. YAML로 커스텀 역할 만들기"></a>작업 5. YAML로 커스텀 역할 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. role-definition.yaml 만들기</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span>   <span class="token comment"># 세션에 없으면. lab-vm에서 실행</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> role-definition.yaml</span>title: "Custom SQL Role"description: "Allows connecting and getting Cloud SQL instances"stage: "GA"includedPermissions:- cloudsql.instances.connect- cloudsql.instances.getEOF</span>   <span class="token comment"># 역할 ID는 아래 CustomSqlRole</span><span class="token comment"># 2. YAML로 커스텀 역할 만들기</span>gcloud iam roles create CustomSqlRole <span class="token punctuation">\</span>    <span class="token parameter variable">--project</span><span class="token operator">=</span><span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--file</span><span class="token operator">=</span>role-definition.yaml   <span class="token comment"># 프로젝트 수준 커스텀 역할 생성</span><span class="token comment"># 3. 채점용으로 홈 디렉터리에 복사</span><span class="token comment"># 채점이 파일 위치/소유권을 봄. student-01-..., sa_... 는 랩마다 다름. ls /home 하고 맞추기</span><span class="token function">sudo</span> <span class="token function">cp</span> ~/role-definition.yaml /home/student-01-98f6829d5332/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">cp</span> ~/role-definition.yaml /home/sa_100279010484714384218/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">644</span> /home/student-01-98f6829d5332/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">644</span> /home/sa_100279010484714384218/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span></code></pre><h2 id="작업-6-서비스-계정으로-BigQuery-액세스"><a href="#작업-6-서비스-계정으로-BigQuery-액세스" class="headerlink" title="작업 6. 서비스 계정으로 BigQuery 액세스"></a>작업 6. 서비스 계정으로 BigQuery 액세스</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. bigquery-qwiklab 서비스 계정 만들고 역할 부여</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BQ_SA</span><span class="token operator">=</span><span class="token string">"bigquery-qwiklab@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span>gcloud iam service-accounts create bigquery-qwiklab <span class="token punctuation">\</span>    --display-name<span class="token operator">=</span><span class="token string">"BigQuery Qwiklab Service Account"</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/bigquery.user"</span>   <span class="token comment"># BigQuery 사용자</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/bigquery.dataViewer"</span>   <span class="token comment"># BigQuery 데이터 뷰어</span><span class="token comment"># 2. bigquery-instance VM 만들기</span>gcloud compute instances create bigquery-instance <span class="token punctuation">\</span>    --service-account<span class="token operator">=</span><span class="token string">"<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--scopes</span><span class="token operator">=</span><span class="token string">"cloud-platform"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># bigquery-qwiklab SA를 붙인 VM</span><span class="token comment"># 3. SSH 접속 후 패키지 설치</span>gcloud compute <span class="token function">ssh</span> bigquery-instance <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># 키 질문 나오면 Y, 엔터 연타</span><span class="token function">sudo</span> <span class="token function">apt-get</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> python3-pippip3 <span class="token function">install</span> google-cloud-bigquery pandas db-dtypes --break-system-packages<span class="token comment"># 4. query.py 만들고 실행</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BQ_SA</span><span class="token operator">=</span><span class="token string">"bigquery-qwiklab@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span><span class="token builtin class-name">echo</span> <span class="token string">"from google.auth import compute_enginefrom google.cloud import bigquerycredentials = compute_engine.Credentials(    service_account_email='<span class="token variable">${BQ_SA}</span>')query = '''SELECT name, SUM(number) as total_peopleFROM \<span class="token variable"><span class="token variable">`</span>bigquery-public-data.usa_names.usa_1910_2013<span class="token punctuation">\</span><span class="token variable">`</span></span>WHERE state = 'TX'GROUP BY name, stateORDER BY total_people DESCLIMIT 20'''client = bigquery.Client(    project='<span class="token variable">${PROJECT_ID}</span>',    credentials=credentials)print(client.query(query).to_dataframe())"</span> <span class="token operator">&gt;</span> query.py   <span class="token comment"># 테이블명은 echo 깨지지 않게 백틱</span>python3 query.py</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ☁ Cloud </category>
+          
+          <category> GCP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 실습 </tag>
+            
+            <tag> IAM </tag>
+            
+            <tag> GCP </tag>
+            
+            <tag> Cloud </tag>
+            
+            <tag> gcloud </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[해커톤] 내일路 해커톤 2026 후기 (한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026)</title>
       <link href="/2026/08/15/Retrospect/Hackathon/26-nailro/"/>
       <url>/2026/08/15/Retrospect/Hackathon/26-nailro/</url>
       
-        <content type="html"><![CDATA[<h2 id="참여-계기"><a href="#참여-계기" class="headerlink" title="참여 계기"></a>참여 계기</h2><p>개인 블로그니까 아주 솔직히 적어보자면,,, 맨날 재택근무만 주구장창 돌리다보니 N년 전에 받은 해커톤 및 개발자 행사 관련 옷들이 전부 구멍이 송송 나기 시작했다.</p><p>옷 퀄리티를 생각하면 사실 오래 버티긴 한건데, 그래도 엄마의 눈에는 딸이 돈을 벌면서 막상 이런 곳에 돈을 안쓰니 속상해 보였던걸까? 옷을 자꾸 사라고 하는 것이었다.</p><p>그래서 옷받으려고,,, 해커톤을 참가했다. 어차피 해커톤 나가면 각종 생필품과 옷이 나오는데 왜 사 엄마? (진짜모름)</p><p><del>이미 잡혀있는 국내외의 수많은 일정을 고려하기도 했다만</del> 내 급한 성격을 고려하면 거의 마감직전인 해커톤이 맞겠다 싶어 뒤져보니까  <strong>한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026</strong> 밖에 없더라….</p><p>그래서 마감 3일 전인가에 주제를 잡고 자료조사와 함께 기획서를 제출했다.</p><br><h2 id="주제-선정"><a href="#주제-선정" class="headerlink" title="주제 선정"></a>주제 선정</h2><p>그렇게 모든 업무를 끝내고 마감 직전 새벽, 이제 계획서를 써야하는데… 아 사람의 마음은 갈대인지라 막상 자리잡고 앉으니 하고 싶지 않더라고 ㅎ…<br>근데 지금 생각해보면 어쩔 수 없는 상황이긴 했다. 나 하루에 회사+개인업무로 최소 14시간은 일만 한다고? 심지어 나머지 시간도 노는게 아니라 공부하느라 잠도 못자 <em>사람살려주세요</em></p><p>고로 더 이상 생각을 하기 싫은 나머지, AI 여러 개를 강제로 싸움 붙어서 주제를 선정하게 해봤다. 그래 내가 왜 머리를 써야겠니 AI들이 움직이면 되는 것이지,, 이런 점에선 AI의 시대에서 살고 있다는 점에 따봉추추추</p><p>어쨌든 AI들은 그렇게 서로 머리를 맞대더니, 좌석 재배정이라는 주제로 가면 좋을 것 같다는 결론을 내놨다.<br>듣고보니 꽤 괜찮다고 생각이 되어서, 구현 난이도와 방법에 대해서는 나도 같이 낑겨서 대화를 계속 진행을 해봤다. 나름 미국 스타트업에서 굴렀다고… 지금의 내 수준에서 커버를 할 수 있을 것 같다고 견적이 나오더라.</p><p>무엇보다 이 주제가 마음에 들었던게,<br>어차피 나 혼자서 진행하는거다보니 데이터 직접 수집은 무리일 것 같았고 + 난 발표 엄청 못하는 사람인지라 그냥 데이터로 박치기 시전하는게 편하다고 생각이 들었기 때문이다.</p><br><h2 id="프로젝트-내용-및-설명"><a href="#프로젝트-내용-및-설명" class="headerlink" title="프로젝트 내용 및 설명"></a>프로젝트 내용 및 설명</h2><ul><li>한문장 요약: 비행기가 지연되면 KTX를 놓치고, 좌석은 빈채로 출발함 -&gt; 자동으로 원하는 시간대로 재배정 + 환불된 티켓은 땡처리로 처리</li><li>Github: <a href="https://github.com/ruby-kim/delay-thang">https://github.com/ruby-kim/delay-thang</a></li><li>데모영상: <a href="https://youtu.be/4jd99P-l72M">https://youtu.be/4jd99P-l72M</a></li></ul><p>내용을 하나하나 설명하기엔 손가락이 아프기에 링크로 대처합니다 ^_^…</p><br><h2 id="해커톤-후기"><a href="#해커톤-후기" class="headerlink" title="해커톤 후기"></a>해커톤 후기</h2><ol><li>인천공항이랑 같이 진행한다고 공항 관련 여러 장소를 견학할 수 있었는데, 뉴스에서만 간혹 봤던 그런 보안관련 장소까지 데려다주셔서 재밌게 잘 구경했다. 한편으로는 이런걸 우리한테 보여줘도 되나 하고 걱정되기도 하고 ㅎㅎ.. 뭐 다들 어른이니 알아서들 잘 하시겠다만</li><li>밥이… 밥이 너무 맛있었다. 맨날 일이 하도 바빠서 밥 시간도 불규칙하고, 먹을 것도 너무 부실해서 내 자신이 좀 불쌍하다는 생각도 들었는데, 아 오랜만에 이렇게 균형잡히고 건강하고 맛있는 반찬과 밥을 먹을 수 있다니 너무 좋았다. 흑흑 이모님들 벌써 당신들이 그립읍니다</li><li>근데 주변에 재밌는거 없음.. 제일 재밌는게 뭔가 생각해봤는데 아무리봐도 무인 24시간 편의점임; 개인적으로 밥이 맛이 없었으면 직원들이 궐기할 것 같은 느낌이랄까 ㅎㅎ….</li><li>간식거리도 짱 많이 챙겨주셨다. 와 소화 안됐는데 음식 왔다고 가져가래 ㅋㅎㅋㅎㅋㅎㅎ;; 열심히 받아먹다가 패배를 인정하고 결국에는 주변 팀 분들한테 나눠드렸다. 아 돼지파티 이럴 때 즐겨야하는데 받아먹질 못하네…</li><li>가는 날이 장날이라고, 수요일 오후부터 해커톤이 시작됐는데 회사가 바빠서 반차쓰려다가 말았더니 에이씨 업무가 수요일 오후 9시 즈음에 끝났다. 개인일도 해야하는데 어째서 내게 이런 시련이 ㄴㅇㄱ</li><li>사실 내게 가장 큰 시련은 이 프로그램을 혼자서 구현하라는 것이었다. 기획이야 뭐 대충 했다지만… 내가??? 이걸??? 다 만들라고??? 그것도 하루만에??? 진짜????? <del>그렇게 과거의 나를 욕함</del> 근데 또 했네 어..어케했누 ㅋㅋㅋㅋㅋㅋㅋ;;</li><li>시간이 매우 부족한 관계로 ai 돌리기 + 직접코딩을 1시간 정도 하니, 와 못해먹겠다는 생각이 들었다. 가뜩이나 코딩 안맞고 싫어하는 사람인데 갑자기 괜히 참여했나 현타오길래 첫날 오후 10시 즈음에 숙소행을 선택하고 말았다. 1인이라 다른 팀이랑 묶어서 주나 싶었는데 개인배정을 해주셔서 너무 편안하게 지냈다 히히. 물론 숙소가서 개인일을 한건 안비밀 ^^…………</li><li>이튿날은 매우 빡세게 프로그램을 만들었다. AI를 막 돌리고 내가 구현할 수 있는 부분은 구현하고… streamlit으로 프론트엔드 개발 선택을 너무 잘한 것 같다. nextjs로 했으면 좀 시간 걸렸을텐데 그냥 막 바로 뚜따뚜따리 가능한게 매우 좋았다. 사람들이 agent skill 만들어둔 것도 적극적으로 써먹어서 가능한 것 같았다.</li><li>사실 그 이후로 시간이 더 남긴 했는데… 아 아무리 생각해도 이렇게 시작하면 나는 더 이상 돌아올 수 없는 강을 건너게 되는 그런 느낌이 들어, 오후 7시 즈음에 개발을 그만두고 발표자료를 만들기 시작했다. 남들과 다르게 혼자서 뚜따리 해야하다보니 1분 1초가 너무 소중하더라… 시간 아끼려고 skill 만들어서 발표자료도 뚝딱뚝딱 만들었다. 그렇게 발표자료를 완성하고 오후 11시 30분에 퇴근할 수 있었다.</li><li>그리고 대망의 발표날, 나는 그냥 에라 모르겠다 심정으로 발표자료 내고 ppt를 보고있는데.. 어? 다들 발표하시는거 보니 대본을 갖고 있으시네?? 나 그런거 준비 1도 안했는데???? 예전에 창업대회 했던거 생각하고 대본안했는데 해도 되는거였어?????? 급후회가 밀려오기 시작했다. 그런데 뭐 어떻게해 그냥 해야지 알아채는 순간 난 이미 늦은거야…….</li><li>그렇게 사람들 앞에 섰는데… 생각해보면 나는 모든 업무를 재택으로 하는 사람이기 때문에… 아니 몇 년간 사람을 많이 만나봤자 최대 8명 정도 되는데 갑자기 약 40명 앞에 서니까 와 미칠 것 같았다. 뭔가 사회 재데뷔를 하는 느낌이랄까? 예전에 1200명 정도 되는 곳 발표에서도 이렇게 안떨렸는데 너무 무섭더라 ㅠㅠㅠㅠ 사람을 앞으로 잘 만나러 다니겠습니다… 근데 이럴려면 일이 줄어야 가능할 것 같은데 그게…가능….? <del>동네 친구도 하도 바빠서 새벽 2시에 만나는 사람임</del></li><li>11번의 이유로 발표도 너무 긴장해서 했고, 끝나고 질문 받았을떼 엄청 우왕좌왕했다.. 하 아직도 실수한거 수치사할 것 같음ㅋㅋㅋㅋ큐ㅠㅠㅠㅠㅠㅠㅠㅠ 그나마 위안을 받았던 것이, 발표할 때 다들 고개 끄덕이면서 잘 들어주신 점이었다. 혼자서 많이 개발 했다고 칭찬도 해주시고,,, 흑흑 네 저 짱 힘들었어요 ㅠㅠㅠㅠㅠㅠ</li><li>행사가 끝나고 여러 팀들과 대화를 나눴는데, 아니 내가 종종 강의 뛰는 곳의 수강생 분들이라고 하심…! 아 1일차에 간단히 주제 말씀하시면서 자기소기하실 때 설마설마 했는데 이럴수가 진짜였네;; 어째 세상 인연은 이렇게 좁을까? 제발 그쪽으로 저에 대해서 말씀하지 말아주세요 저 상탄거 모르게 해주세요 저 부끄러워요 제발ㅋ큐ㅠㅠㅠㅠㅠㅠㅠ</li><li>다음엔 회사 사람들이라도 꼬셔서 팀으로 해커톤 해야지 혼자하려니 힘들어 죽겠다 ㄴㅇㄱ</li></ol><br><h2 id="최종-최우수상"><a href="#최종-최우수상" class="headerlink" title="최종: 최우수상"></a>최종: 최우수상</h2><img src="/2026/08/15/Retrospect/Hackathon/26-nailro/award.png" class="" title="최우수상 따잇"><p>사실 올해 연봉협상을 너무 잘해서, 올해치 돈복은 다 썼다 생각하고 이번에 받는 돈은 좋은 곳에 쓰자 싶었는데… 그래 좋은 일에 많이 쓰라고 상을 이렇게 큰걸 받은 것 같다 ㅎㅎ</p><p>해커톤 참여팀 분들, 서포트해주신 분들, 그리고 행사 열어주신 코레일과 인천공항 관계자분들 모두모두 감사합니다~!<br>그리고 해커톤 본선 팀 모두 수상 축하드려요~~~</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="참여-계기"><a href="#참여-계기" class="headerlink" title="참여 계기"></a>참여 계기</h2><p>개인 블로그니까 아주 솔직히 적어보자면,,, 맨날 재택근무만 주구장창 돌리다보니 N년 전에 받은 해커톤 및 개발자 행사 관련 옷들이 전부 구멍이 송송 나기 시작했다.</p><p>옷 퀄리티를 생각하면 사실 오래 버티긴 한건데, 그래도 엄마의 눈에는 딸이 돈을 벌면서 막상 이런 곳에 돈을 안쓰니 속상해 보였던걸까? 옷을 자꾸 사라고 하는 것이었다.</p><p>그래서 옷받으려고,,, 해커톤을 참가했다. 어차피 해커톤 나가면 각종 생필품과 옷이 나오는데 왜 사 엄마? (진짜모름)</p><p><del>이미 잡혀있는 국내외의 수많은 일정을 고려하기도 했다만</del> 내 급한 성격을 고려하면 거의 마감직전인 해커톤이 맞겠다 싶어 뒤져보니까  <strong>한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026</strong> 밖에 없더라….</p><p>그래서 마감 3일 전인가에 주제를 잡고 자료조사와 함께 기획서를 제출했다.</p><br><h2 id="주제-선정"><a href="#주제-선정" class="headerlink" title="주제 선정"></a>주제 선정</h2><p>그렇게 모든 업무를 끝내고 마감 직전 새벽, 이제 계획서를 써야하는데… 아 사람의 마음은 갈대인지라 막상 자리잡고 앉으니 하고 싶지 않더라고 ㅎ…<br>근데 지금 생각해보면 어쩔 수 없는 상황이긴 했다. 나 하루에 회사+개인업무로 최소 14시간은 일만 한다고? 심지어 나머지 시간도 노는게 아니라 공부하느라 잠도 못자 <em>사람살려주세요</em></p><p>고로 더 이상 생각을 하기 싫은 나머지, AI 여러 개를 강제로 싸움 붙어서 주제를 선정하게 해봤다. 그래 내가 왜 머리를 써야겠니 AI들이 움직이면 되는 것이지,, 이런 점에선 AI의 시대에서 살고 있다는 점에 따봉추추추</p><p>어쨌든 AI들은 그렇게 서로 머리를 맞대더니, 좌석 재배정이라는 주제로 가면 좋을 것 같다는 결론을 내놨다.<br>듣고보니 꽤 괜찮다고 생각이 되어서, 구현 난이도와 방법에 대해서는 나도 같이 낑겨서 대화를 계속 진행을 해봤다. 나름 미국 스타트업에서 굴렀다고… 지금의 내 수준에서 커버를 할 수 있을 것 같다고 견적이 나오더라.</p><p>무엇보다 이 주제가 마음에 들었던게,<br>어차피 나 혼자서 진행하는거다보니 데이터 직접 수집은 무리일 것 같았고 + 난 발표 엄청 못하는 사람인지라 그냥 데이터로 박치기 시전하는게 편하다고 생각이 들었기 때문이다.</p><br><h2 id="프로젝트-내용-및-설명"><a href="#프로젝트-내용-및-설명" class="headerlink" title="프로젝트 내용 및 설명"></a>프로젝트 내용 및 설명</h2><ul><li>한문장 요약: 비행기가 지연되면 KTX를 놓치고, 좌석은 빈채로 출발함 -&gt; 자동으로 원하는 시간대로 재배정 + 환불된 티켓은 땡처리로 처리</li><li>Github: <a href="https://github.com/ruby-kim/delay-thang">https://github.com/ruby-kim/delay-thang</a></li><li>데모영상: <a href="https://youtu.be/4jd99P-l72M">https://youtu.be/4jd99P-l72M</a></li></ul><p>내용을 하나하나 설명하기엔 손가락이 아프기에 링크로 대처합니다 ^_^…</p><br><h2 id="해커톤-후기"><a href="#해커톤-후기" class="headerlink" title="해커톤 후기"></a>해커톤 후기</h2><ol><li>인천공항이랑 같이 진행한다고 공항 관련 여러 장소를 견학할 수 있었는데, 뉴스에서만 간혹 봤던 그런 보안관련 장소까지 데려다주셔서 재밌게 잘 구경했다. 한편으로는 이런걸 우리한테 보여줘도 되나 하고 걱정되기도 하고 ㅎㅎ.. 뭐 다들 어른이니 알아서들 잘 하시겠다만</li><li>밥이… 밥이 너무 맛있었다. 맨날 일이 하도 바빠서 밥 시간도 불규칙하고, 먹을 것도 너무 부실해서 내 자신이 좀 불쌍하다는 생각도 들었는데, 아 오랜만에 이렇게 균형잡히고 건강하고 맛있는 반찬과 밥을 먹을 수 있다니 너무 좋았다. 흑흑 이모님들 벌써 당신들이 그립읍니다</li><li>근데 주변에 재밌는거 없음.. 제일 재밌는게 뭔가 생각해봤는데 아무리봐도 무인 24시간 편의점임; 개인적으로 밥이 맛이 없었으면 직원들이 궐기할 것 같은 느낌이랄까 ㅎㅎ….</li><li>간식거리도 짱 많이 챙겨주셨다. 와 소화 안됐는데 음식 왔다고 가져가래 ㅋㅎㅋㅎㅋㅎㅎ;; 열심히 받아먹다가 패배를 인정하고 결국에는 주변 팀 분들한테 나눠드렸다. 아 돼지파티 이럴 때 즐겨야하는데 받아먹질 못하네…</li><li>가는 날이 장날이라고, 수요일 오후부터 해커톤이 시작됐는데 회사가 바빠서 반차쓰려다가 말았더니 에이씨 업무가 수요일 오후 9시 즈음에 끝났다. 개인일도 해야하는데 어째서 내게 이런 시련이 ㄴㅇㄱ</li><li>사실 내게 가장 큰 시련은 이 프로그램을 혼자서 구현하라는 것이었다. 기획이야 뭐 대충 했다지만… 내가??? 이걸??? 다 만들라고??? 그것도 하루만에??? 진짜????? <del>그렇게 과거의 나를 욕함</del> 근데 또 했네 어..어케했누 ㅋㅋㅋㅋㅋㅋㅋ;;</li><li>시간이 매우 부족한 관계로 ai 돌리기 + 직접코딩을 1시간 정도 하니, 와 못해먹겠다는 생각이 들었다. 가뜩이나 코딩 안맞고 싫어하는 사람인데 갑자기 괜히 참여했나 현타오길래 첫날 오후 10시 즈음에 숙소행을 선택하고 말았다. 1인이라 다른 팀이랑 묶어서 주나 싶었는데 개인배정을 해주셔서 너무 편안하게 지냈다 히히. 물론 숙소가서 개인일을 한건 안비밀 ^^…………</li><li>이튿날은 매우 빡세게 프로그램을 만들었다. AI를 막 돌리고 내가 구현할 수 있는 부분은 구현하고… streamlit으로 프론트엔드 개발 선택을 너무 잘한 것 같다. nextjs로 했으면 좀 시간 걸렸을텐데 그냥 막 바로 뚜따뚜따리 가능한게 매우 좋았다. 사람들이 agent skill 만들어둔 것도 적극적으로 써먹어서 가능한 것 같았다.</li><li>사실 그 이후로 시간이 더 남긴 했는데… 아 아무리 생각해도 이렇게 시작하면 나는 더 이상 돌아올 수 없는 강을 건너게 되는 그런 느낌이 들어, 오후 7시 즈음에 개발을 그만두고 발표자료를 만들기 시작했다. 남들과 다르게 혼자서 뚜따리 해야하다보니 1분 1초가 너무 소중하더라… 시간 아끼려고 skill 만들어서 발표자료도 뚝딱뚝딱 만들었다. 그렇게 발표자료를 완성하고 오후 11시 30분에 퇴근할 수 있었다.</li><li>그리고 대망의 발표날, 나는 그냥 에라 모르겠다 심정으로 발표자료 내고 ppt를 보고있는데.. 어? 다들 발표하시는거 보니 대본을 갖고 있으시네?? 나 그런거 준비 1도 안했는데???? 예전에 창업대회 했던거 생각하고 대본안했는데 해도 되는거였어?????? 급후회가 밀려오기 시작했다. 그런데 뭐 어떻게해 그냥 해야지 알아채는 순간 난 이미 늦은거야…….</li><li>그렇게 사람들 앞에 섰는데… 생각해보면 나는 모든 업무를 재택으로 하는 사람이기 때문에… 아니 몇 년간 사람을 많이 만나봤자 최대 8명 정도 되는데 갑자기 약 40명 앞에 서니까 와 미칠 것 같았다. 뭔가 사회 재데뷔를 하는 느낌이랄까? 예전에 1200명 정도 되는 곳 발표에서도 이렇게 안떨렸는데 너무 무섭더라 ㅠㅠㅠㅠ 사람을 앞으로 잘 만나러 다니겠습니다… 근데 이럴려면 일이 줄어야 가능할 것 같은데 그게…가능….? <del>동네 친구도 하도 바빠서 새벽 2시에 만나는 사람임</del></li><li>11번의 이유로 발표도 너무 긴장해서 했고, 끝나고 질문 받았을떼 엄청 우왕좌왕했다.. 하 아직도 실수한거 수치사할 것 같음ㅋㅋㅋㅋ큐ㅠㅠㅠㅠㅠㅠㅠㅠ 그나마 위안을 받았던 것이, 발표할 때 다들 고개 끄덕이면서 잘 들어주신 점이었다. 혼자서 많이 개발 했다고 칭찬도 해주시고,,, 흑흑 네 저 짱 힘들었어요 ㅠㅠㅠㅠㅠㅠ</li><li>행사가 끝나고 여러 팀들과 대화를 나눴는데, 아니 내가 종종 강의 뛰는 곳의 수강생 분들이라고 하심…! 아 1일차에 간단히 주제 말씀하시면서 자기소기하실 때 설마설마 했는데 이럴수가 진짜였네;; 어째 세상 인연은 이렇게 좁을까? 제발 그쪽으로 저에 대해서 말씀하지 말아주세요 저 상탄거 모르게 해주세요 저 부끄러워요 제발ㅋ큐ㅠㅠㅠㅠㅠㅠㅠ</li><li>다음엔 회사 사람들이라도 꼬셔서 팀으로 해커톤 해야지 혼자하려니 힘들어 죽겠다 ㄴㅇㄱ 그래도 상받은거 생각하면 혼자한게 잘한 선택일지도 ㅎㅎ</li></ol><br><h2 id="최종-최우수상"><a href="#최종-최우수상" class="headerlink" title="최종: 최우수상"></a>최종: 최우수상</h2><img src="/2026/08/15/Retrospect/Hackathon/26-nailro/award.png" class="" title="최우수상 따잇"><p>사실 올해 연봉협상을 너무 잘해서, 올해치 돈복은 다 썼다 생각하고 이번에 받는 돈은 좋은 곳에 쓰자 싶었는데… 그래 좋은 일에 많이 쓰라고 상을 이렇게 큰걸 받은 것 같다 ㅎㅎ</p><p>해커톤 참여팀 분들, 서포트해주신 분들, 그리고 행사 열어주신 코레일과 인천공항 관계자분들 모두모두 감사합니다~!<br>그리고 해커톤 본선 팀 모두 수상 축하드려요~~~</p>]]></content>
       
       
       <categories>
@@ -152,8 +224,6 @@
             
             <tag> 실습 </tag>
             
-            <tag> GCP </tag>
-            
             <tag> Firebase Hosting </tag>
             
             <tag> Cloud Run </tag>
@@ -167,6 +237,8 @@
             <tag> CDN </tag>
             
             <tag> Serverless </tag>
+            
+            <tag> GCP </tag>
             
         </tags>
       
@@ -265,13 +337,13 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> 프로젝트 </tag>
             
             <tag> Bot </tag>
             
             <tag> Discord </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -298,9 +370,9 @@
       
         <tags>
             
-            <tag> Architecture </tag>
-            
             <tag> 실습 </tag>
+            
+            <tag> Architecture </tag>
             
             <tag> Cloud </tag>
             
@@ -469,9 +541,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> HealthCare </tag>
-            
             <tag> CDA </tag>
+            
+            <tag> HealthCare </tag>
             
         </tags>
       
@@ -529,11 +601,11 @@
             
             <tag> 후기 </tag>
             
-            <tag> 자격증 </tag>
-            
             <tag> GCP </tag>
             
             <tag> Cloud </tag>
+            
+            <tag> 자격증 </tag>
             
         </tags>
       
@@ -566,9 +638,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> HealthCare </tag>
-            
             <tag> CDA </tag>
+            
+            <tag> HealthCare </tag>
             
         </tags>
       
@@ -638,9 +710,9 @@
             
             <tag> HL7 </tag>
             
-            <tag> SDC </tag>
-            
             <tag> HealthCare </tag>
+            
+            <tag> SDC </tag>
             
         </tags>
       
@@ -673,11 +745,11 @@
             
             <tag> HL7 </tag>
             
+            <tag> HealthCare </tag>
+            
             <tag> IEEE </tag>
             
             <tag> SDC </tag>
-            
-            <tag> HealthCare </tag>
             
         </tags>
       
@@ -739,9 +811,9 @@
       
         <tags>
             
-            <tag> NextJS </tag>
-            
             <tag> 실습 </tag>
+            
+            <tag> NextJS </tag>
             
             <tag> Javascript </tag>
             
@@ -937,9 +1009,9 @@
             
             <tag> AWS </tag>
             
-            <tag> 자격증 </tag>
-            
             <tag> Cloud </tag>
+            
+            <tag> 자격증 </tag>
             
         </tags>
       
@@ -1390,9 +1462,9 @@
             
             <tag> Javascript </tag>
             
-            <tag> React </tag>
-            
             <tag> Frontend </tag>
+            
+            <tag> React </tag>
             
         </tags>
       
@@ -1454,11 +1526,11 @@
             
             <tag> 실습 </tag>
             
+            <tag> Github </tag>
+            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
-            
-            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1489,11 +1561,11 @@
             
             <tag> 실습 </tag>
             
+            <tag> Github </tag>
+            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
-            
-            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1524,11 +1596,11 @@
             
             <tag> 팁 </tag>
             
+            <tag> Github </tag>
+            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
-            
-            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1559,11 +1631,11 @@
             
             <tag> 실습 </tag>
             
+            <tag> Github </tag>
+            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
-            
-            <tag> Github </tag>
             
             <tag> Markdown </tag>
             
@@ -1592,9 +1664,9 @@
             
             <tag> 이론 </tag>
             
-            <tag> Security </tag>
-            
             <tag> Network </tag>
+            
+            <tag> Security </tag>
             
             <tag> SSL </tag>
             
@@ -1625,9 +1697,9 @@
       
         <tags>
             
-            <tag> API </tag>
-            
             <tag> 프로젝트 </tag>
+            
+            <tag> API </tag>
             
             <tag> Parsing </tag>
             
@@ -1658,9 +1730,9 @@
       
         <tags>
             
-            <tag> API </tag>
-            
             <tag> 프로젝트 </tag>
+            
+            <tag> API </tag>
             
             <tag> Parsing </tag>
             
@@ -1763,9 +1835,9 @@
       
         <tags>
             
-            <tag> API </tag>
-            
             <tag> 프로젝트 </tag>
+            
+            <tag> API </tag>
             
             <tag> Parsing </tag>
             
@@ -1827,9 +1899,9 @@
       
         <tags>
             
-            <tag> API </tag>
-            
             <tag> 프로젝트 </tag>
+            
+            <tag> API </tag>
             
             <tag> Parsing </tag>
             
