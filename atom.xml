@@ -10,7 +10,32 @@
   <rights>All rights reserved 2026, Ruby Kim</rights>
   <subtitle>AI Platform Engineer</subtitle>
   <title>잡동사니</title>
-  <updated>2026-08-18T05:35:32.414Z</updated>
+  <updated>2026-08-19T23:13:38.407Z</updated>
+  <entry>
+    <author>
+      <name>Ruby Kim</name>
+    </author>
+    <category term="☁ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/GCP/"/>
+    <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
+    <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="gcloud" scheme="https://ruby-kim.github.io/tags/gcloud/"/>
+    <category term="Vision API" scheme="https://ruby-kim.github.io/tags/Vision-API/"/>
+    <id>https://ruby-kim.github.io/2026/08/20/Cloud/GCP/Skills/CloudVision-ARC122/</id>
+    <link href="https://ruby-kim.github.io/2026/08/20/Cloud/GCP/Skills/CloudVision-ARC122/"/>
+    <published>2026-08-19T22:40:00.000Z</published>
+    <summary>
+      <![CDATA[<ul>
+<li>LAB: Cloud Vision API로 이미지 분석: 챌린지 실습</li>
+<li>ID: ARC122</li>
+<li>1 Credit</li>
+</ul>
+<h2 id="작업-1-리소스-확인"><a href="#작업-1-리소스-확인"]]>
+    </summary>
+    <title>[Google Skills] Cloud Vision API로 이미지 분석</title>
+    <updated>2026-08-19T23:13:38.407Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Ruby Kim</name>
@@ -31,7 +56,7 @@
 <p>이 글은 앞으로도 계속 업데이트 될 예정입니다.]]>
     </summary>
     <title>[Google Skills] Professional Cloud Architect Certification 재갱신을 위한 Google Skills 마스터하기</title>
-    <updated>2026-08-18T05:35:32.414Z</updated>
+    <updated>2026-08-19T22:48:00.049Z</updated>
   </entry>
   <entry>
     <author>
@@ -44,16 +69,16 @@
     <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
     <category term="gcloud" scheme="https://ruby-kim.github.io/tags/gcloud/"/>
-    <id>https://ruby-kim.github.io/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount/</id>
-    <link href="https://ruby-kim.github.io/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount/"/>
+    <id>https://ruby-kim.github.io/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount-ARC134/</id>
+    <link href="https://ruby-kim.github.io/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount-ARC134/"/>
     <published>2026-08-17T14:16:00.000Z</published>
     <summary>
       <![CDATA[<ul>
 <li>LAB: <a href="https://www.skills.google/course_templates/702">Google Cloud의 서비스 계정과 IAM 역할 설정하기: 챌린지 실습</a></li>
-<li>1]]>
+<li>ID:]]>
     </summary>
     <title>[Google Skills] 서비스 계정과 IAM 역할 설정하기</title>
-    <updated>2026-08-18T05:35:36.143Z</updated>
+    <updated>2026-08-19T23:15:21.546Z</updated>
   </entry>
   <entry>
     <author>
@@ -162,6 +187,7 @@
     <category term="🔐 Security" scheme="https://ruby-kim.github.io/categories/%F0%9F%94%90-Security/"/>
     <category term="DevOps" scheme="https://ruby-kim.github.io/tags/DevOps/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
+    <category term="Security" scheme="https://ruby-kim.github.io/tags/Security/"/>
     <category term="AWS" scheme="https://ruby-kim.github.io/tags/AWS/"/>
     <category term="SSM" scheme="https://ruby-kim.github.io/tags/SSM/"/>
     <category term="Session Manager" scheme="https://ruby-kim.github.io/tags/Session-Manager/"/>
@@ -169,7 +195,6 @@
     <category term="EC2" scheme="https://ruby-kim.github.io/tags/EC2/"/>
     <category term="Bastion" scheme="https://ruby-kim.github.io/tags/Bastion/"/>
     <category term="IAM" scheme="https://ruby-kim.github.io/tags/IAM/"/>
-    <category term="Security" scheme="https://ruby-kim.github.io/tags/Security/"/>
     <category term="CloudFormation" scheme="https://ruby-kim.github.io/tags/CloudFormation/"/>
     <id>https://ruby-kim.github.io/2026/06/27/Security/AWS-SSM-ZeroTrust-RDS/</id>
     <link href="https://ruby-kim.github.io/2026/06/27/Security/AWS-SSM-ZeroTrust-RDS/"/>
@@ -222,8 +247,8 @@
     </author>
     <category term="☁ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/"/>
     <category term="AWS" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/AWS/"/>
-    <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
     <category term="Architecture" scheme="https://ruby-kim.github.io/tags/Architecture/"/>
+    <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
     <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
     <category term="Terraform" scheme="https://ruby-kim.github.io/tags/Terraform/"/>
     <id>https://ruby-kim.github.io/2026/03/17/Cloud/AWS/CrossAccountDNS/</id>
@@ -243,9 +268,9 @@
     </author>
     <category term="🔐 Security" scheme="https://ruby-kim.github.io/categories/%F0%9F%94%90-Security/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
-    <category term="Network" scheme="https://ruby-kim.github.io/tags/Network/"/>
     <category term="Infrastructure" scheme="https://ruby-kim.github.io/tags/Infrastructure/"/>
     <category term="Tailscale" scheme="https://ruby-kim.github.io/tags/Tailscale/"/>
+    <category term="Network" scheme="https://ruby-kim.github.io/tags/Network/"/>
     <category term="Proxmox" scheme="https://ruby-kim.github.io/tags/Proxmox/"/>
     <category term="ZeroTrust" scheme="https://ruby-kim.github.io/tags/ZeroTrust/"/>
     <category term="WOL" scheme="https://ruby-kim.github.io/tags/WOL/"/>
@@ -323,8 +348,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <id>https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/</id>
     <link href="https://ruby-kim.github.io/2025/08/02/HealthCare/HL7/cda/"/>
     <published>2025-08-02T11:30:00.000Z</published>
@@ -381,8 +406,8 @@
     <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
     <category term="EHR" scheme="https://ruby-kim.github.io/tags/EHR/"/>
     <category term="HL7" scheme="https://ruby-kim.github.io/tags/HL7/"/>
-    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <category term="HealthCare" scheme="https://ruby-kim.github.io/tags/HealthCare/"/>
+    <category term="CDA" scheme="https://ruby-kim.github.io/tags/CDA/"/>
     <id>https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/</id>
     <link href="https://ruby-kim.github.io/2025/03/05/HealthCare/HL7/v3/"/>
     <published>2025-03-05T12:10:00.000Z</published>
@@ -391,26 +416,5 @@
     </summary>
     <title>[HealthCare] HL7 v3의 실패 이유 정리</title>
     <updated>2026-07-20T22:02:59.677Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Ruby Kim</name>
-    </author>
-    <category term="💻 Language" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BB-Language/"/>
-    <category term="Java" scheme="https://ruby-kim.github.io/categories/%F0%9F%92%BB-Language/Java/"/>
-    <category term="이론" scheme="https://ruby-kim.github.io/tags/%EC%9D%B4%EB%A1%A0/"/>
-    <category term="Java" scheme="https://ruby-kim.github.io/tags/Java/"/>
-    <category term="Spring" scheme="https://ruby-kim.github.io/tags/Spring/"/>
-    <category term="Gradle" scheme="https://ruby-kim.github.io/tags/Gradle/"/>
-    <category term="Maven" scheme="https://ruby-kim.github.io/tags/Maven/"/>
-    <category term="IntelliJ" scheme="https://ruby-kim.github.io/tags/IntelliJ/"/>
-    <id>https://ruby-kim.github.io/2025/02/28/Language/Java-faq/</id>
-    <link href="https://ruby-kim.github.io/2025/02/28/Language/Java-faq/"/>
-    <published>2025-02-28T13:10:00.000Z</published>
-    <summary>
-      <![CDATA[<p>스프링(Spring)이나 자바(Java)를 공부하다 보면 가장 먼저 부딪히는 부분이 있다.<br>바로 <strong>JDK 버전 차이</strong>, <strong>javac/java 명령어</strong>, 그리고]]>
-    </summary>
-    <title>[Java] JDK 버전, javac와 java 차이, 그리고 IDE 빌드 시스템 정리</title>
-    <updated>2026-07-20T22:02:59.668Z</updated>
   </entry>
 </feed>
