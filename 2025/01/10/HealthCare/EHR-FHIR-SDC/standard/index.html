@@ -31,6 +31,17 @@
 </script>
 
 
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2159344226108747"
+     crossorigin="anonymous"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2159344226108747",
+    enable_page_level_ads: true
+  });
+</script>
+
+    
     <title>[HealthCare] EHR 연동: HL7 / IEEE 11073 SDC 총정리 | 잡동사니</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -55,9 +66,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
 </head>
 
 
@@ -86,7 +97,7 @@
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>Index</span>
+      <span>홈</span>
     </a>
     
   </li>
@@ -97,7 +108,7 @@
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
-      <span>Tags</span>
+      <span>태그</span>
     </a>
     
   </li>
@@ -108,7 +119,7 @@
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>카테고리</span>
     </a>
     
   </li>
@@ -119,7 +130,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>Archives</span>
+      <span>아카이브</span>
     </a>
     
   </li>
@@ -130,14 +141,25 @@
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>About</span>
+      <span>소개</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>문의</span>
     </a>
     
   </li>
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="검색" style="zoom: 0.85;"></i>
     </a>
   </li>
 </ul>
@@ -160,7 +182,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #1a2535;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -204,17 +226,14 @@
     </nav>
     
 <div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
+    <div class="mobile-head">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" alt="">
         
         <div class="logo-name">잡동사니</div>
-        <div class="logo-desc">
-            
-            AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록
-            
-        </div>
+        
+        <div class="logo-desc">AI Platform Engineer</div>
+        
     </div>
 
     <ul class="menu-list mobile-menu-list">
@@ -225,7 +244,7 @@
 			
 			    <i class="fa-fw fas fa-home"></i>
 			
-			Index
+			홈
 		</a>
           
         </li>
@@ -236,7 +255,7 @@
 			
 			    <i class="fa-fw fas fa-tags"></i>
 			
-			Tags
+			태그
 		</a>
           
         </li>
@@ -247,7 +266,7 @@
 			
 			    <i class="fa-fw fas fa-bookmark"></i>
 			
-			Categories
+			카테고리
 		</a>
           
         </li>
@@ -258,7 +277,7 @@
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
-			Archives
+			아카이브
 		</a>
           
         </li>
@@ -269,16 +288,26 @@
 			
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
-			About
+			소개
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			문의
 		</a>
           
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Github
+        <li class="m-nav-item">
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank" rel="noopener">
+                <i class="fab fa-fw fa-github"></i>Github
             </a>
         </li>
         
@@ -475,7 +504,7 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>작성일:&nbsp;&nbsp;
                     2025-01-10
                 </div>
                 
@@ -484,15 +513,15 @@
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    <i class="far fa-file-word fa-fw"></i>글자 수:&nbsp;&nbsp;
                     478
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    <i class="far fa-clock fa-fw"></i>읽기 시간:&nbsp;&nbsp;
+                    2 분
                 </div>
                 
 
@@ -601,7 +630,7 @@ Unit: mmHg</code></pre>
                 <div class="related-posts-container">
                     <h2 class="related-posts-title">📌 관련 글</h2>
                     <div class="related-posts-grid">
-                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/02/20/HealthCare/HL7/v2/" title="[HealthCare] HL7 v2 정리" rel="bookmark">[HealthCare] HL7 v2 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/08/02/HealthCare/HL7/cda/" title="[HealthCare] HL7 CDA 표준 정리" rel="bookmark">[HealthCare] HL7 CDA 표준 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/08/25/HealthCare/HL7/fhir/" title="[HealthCare] HL7 FHIR 완전 정리" rel="bookmark">[HealthCare] HL7 FHIR 완전 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/03/05/HealthCare/HL7/v3/" title="[HealthCare] HL7 v3의 실패 이유 정리" rel="bookmark">[HealthCare] HL7 v3의 실패 이유 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/04/26/Architecture/MSA-Intro/" title="[MSA] Micro Service Architecture 개요" rel="bookmark">[MSA] Micro Service Architecture 개요</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/07/12/AI/Pydantic-AI-Core-Concepts/" title="Pydantic AI Core Concepts 정리" rel="bookmark">Pydantic AI Core Concepts 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/07/11/AI/Pydantic-AI/" title="Pydantic AI 기본 정리" rel="bookmark">Pydantic AI 기본 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/04/28/Architecture/MSA-outer-gateway/" title="[MSA] Micro Service Architecture: Outer - External Gateway" rel="bookmark">[MSA] Micro Service Architecture: Outer - External Gateway</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/04/30/Architecture/MSA-outer-service-mesh/" title="[MSA] Micro Service Architecture: Outer - Service Mesh" rel="bookmark">[MSA] Micro Service Architecture: Outer - Service Mesh</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/05/12/DevOps/Intro/" title="DevOps 개요" rel="bookmark">DevOps 개요</a></h3></div></li></ul>
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/02/20/HealthCare/HL7/v2/" title="[HealthCare] HL7 v2 정리" rel="bookmark">[HealthCare] HL7 v2 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/08/02/HealthCare/HL7/cda/" title="[HealthCare] HL7 CDA 표준 정리" rel="bookmark">[HealthCare] HL7 CDA 표준 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/08/25/HealthCare/HL7/fhir/" title="[HealthCare] HL7 FHIR 완전 정리" rel="bookmark">[HealthCare] HL7 FHIR 완전 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/03/05/HealthCare/HL7/v3/" title="[HealthCare] HL7 v3의 실패 이유 정리" rel="bookmark">[HealthCare] HL7 v3의 실패 이유 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/07/12/AI/Pydantic-AI-Core-Concepts/" title="Pydantic AI Core Concepts 정리" rel="bookmark">Pydantic AI Core Concepts 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/07/11/AI/Pydantic-AI/" title="Pydantic AI 기본 정리" rel="bookmark">Pydantic AI 기본 정리</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/04/28/Architecture/MSA-outer-gateway/" title="[MSA] Micro Service Architecture: Outer - External Gateway" rel="bookmark">[MSA] Micro Service Architecture: Outer - External Gateway</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/04/26/Architecture/MSA-Intro/" title="[MSA] Micro Service Architecture 개요" rel="bookmark">[MSA] Micro Service Architecture 개요</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/04/30/Architecture/MSA-outer-service-mesh/" title="[MSA] Micro Service Architecture: Outer - Service Mesh" rel="bookmark">[MSA] Micro Service Architecture: Outer - Service Mesh</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/07/12/DevOps/Container/" title="Container 정리" rel="bookmark">Container 정리</a></h3></div></li></ul>
                     </div>
                 </div>
             
@@ -613,7 +642,7 @@ Unit: mmHg</code></pre>
             <div class="reprint__author">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-user">
-                        Author:
+                        작성자:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -623,7 +652,7 @@ Unit: mmHg</code></pre>
             <div class="reprint__type">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-link">
-                        Link:
+                        링크:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -633,13 +662,13 @@ Unit: mmHg</code></pre>
             <div class="reprint__notice">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-copyright">
-                        Reprint policy:
+                        저작권:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    별도 표시가 없는 한 이 블로그의 글은
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint policy. If reproduced, please indicate source
+                    라이선스를 따릅니다. 재사용 시 출처를 밝혀 주세요.
                     <a href="/about" target="_blank">Ruby Kim</a>
                     !
                 </span>
@@ -649,7 +678,7 @@ Unit: mmHg</code></pre>
 
     <script async defer>
       document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        let toastHTML = '<span>복사했습니다. 이 글의 저작권 정책을 지켜 주세요.</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">자세히</a>';
         M.toast({html: toastHTML})
       });
 
@@ -729,7 +758,7 @@ Unit: mmHg</code></pre>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fas fa-chevron-left"></i>&nbsp;이전</div>
             <div class="card">
                 <a href="/2025/02/20/HealthCare/HL7/v2/">
                     <div class="card-image">
@@ -796,7 +825,7 @@ Unit: mmHg</code></pre>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                다음&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2025/01/01/Frontend/Vuejs/SEO/">
@@ -894,10 +923,10 @@ Unit: mmHg</code></pre>
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + 'From: 잡동사니<br />'
-            + 'Author: Ruby Kim<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + 'All articles in this blog are licensed under <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a> unless otherwise stated.';
+            + '출처: 잡동사니<br />'
+            + '작성자: Ruby Kim<br />'
+            + '링크: <a href="' + url + '">' + url + '</a><br />'
+            + '별도 표시가 없는 한 이 블로그의 글은 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a>을 따릅니다.';
 
         selection.selectAllChildren(newdiv);
         window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
@@ -924,7 +953,7 @@ Unit: mmHg</code></pre>
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
         <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;목차</div>
             <div id="toc-content"></div>
         </div>
     </div>
@@ -1029,7 +1058,7 @@ Unit: mmHg</code></pre>
         <!-- Col 1: Blog info -->
         <div class="footer-col footer-col--brand">
             <a href="/" class="footer-brand">잡동사니</a>
-            <p class="footer-desc">AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록</p>
+            <p class="footer-desc">AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록 일지</p>
             
                 <p class="footer-runtime" id="sitetime"></p>
                 <script>
@@ -1054,30 +1083,33 @@ Unit: mmHg</code></pre>
 
         <!-- Col 2: Navigation -->
         <div class="footer-col footer-col--nav">
-            <h6 class="footer-heading">Menu</h6>
+            <h6 class="footer-heading">메뉴</h6>
             <ul class="footer-nav-list">
                 
                     
-                    <li><a href="/">Index</a></li>
+                    <li><a href="/">홈</a></li>
                 
                     
-                    <li><a href="/tags">Tags</a></li>
+                    <li><a href="/tags">태그</a></li>
                 
                     
-                    <li><a href="/categories">Categories</a></li>
+                    <li><a href="/categories">카테고리</a></li>
                 
                     
-                    <li><a href="/archives">Archives</a></li>
+                    <li><a href="/archives">아카이브</a></li>
                 
                     
-                    <li><a href="/about">About</a></li>
+                    <li><a href="/about">소개</a></li>
+                
+                    
+                    <li><a href="/contact">문의</a></li>
                 
             </ul>
         </div>
 
         <!-- Col 3: Social -->
         <div class="footer-col footer-col--social">
-            <h6 class="footer-heading">Connect</h6>
+            <h6 class="footer-heading">연결</h6>
             <div class="footer-social-icons">
                 
                     <a href="https://github.com/ruby-kim" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -1090,20 +1122,26 @@ Unit: mmHg</code></pre>
                     <a href="/atom.xml" target="_blank" aria-label="RSS"><i class="fas fa-rss"></i></a>
                 
             </div>
+            <ul class="footer-legal">
+                <li><a href="/privacy">개인정보처리방침</a></li>
+                <li><a href="/terms">이용약관</a></li>
+                <li><a href="/contact">문의</a></li>
+            </ul>
         </div>
     </div>
 
     <div class="footer-bottom">
         <div class="container footer-bottom-inner">
-            <span>
+            <span class="footer-copy">
                 &copy;
                 
                     2022–2026
                 
                 <a href="/about">Ruby Kim</a>
             </span>
-            <span class="footer-bottom-stack">
-                Built with <a href="https://hexo.io/" target="_blank">Hexo</a>
+            <span class="footer-built">
+                제작
+                <a href="https://hexo.io/" target="_blank">Hexo</a>
                 &amp; <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             </span>
         </div>
@@ -1117,8 +1155,8 @@ Unit: mmHg</code></pre>
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;검색</span>
+            <input type="search" id="searchInput" name="s" placeholder="검색어를 입력하세요"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
@@ -1231,6 +1269,14 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
     
 
     

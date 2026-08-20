@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, Ruby Kim</rights>
   <subtitle>AI Platform Engineer</subtitle>
   <title>잡동사니</title>
-  <updated>2026-08-19T23:13:38.407Z</updated>
+  <updated>2026-08-19T23:39:00.870Z</updated>
   <entry>
     <author>
       <name>Ruby Kim</name>
@@ -18,8 +18,8 @@
     <category term="☁ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/"/>
     <category term="GCP" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/GCP/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
-    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="gcloud" scheme="https://ruby-kim.github.io/tags/gcloud/"/>
     <category term="Vision API" scheme="https://ruby-kim.github.io/tags/Vision-API/"/>
     <id>https://ruby-kim.github.io/2026/08/20/Cloud/GCP/Skills/CloudVision-ARC122/</id>
@@ -31,10 +31,10 @@
 <li>ID: ARC122</li>
 <li>1 Credit</li>
 </ul>
-<h2 id="작업-1-리소스-확인"><a href="#작업-1-리소스-확인"]]>
+<p>사진 던져주면 글자가 뭔지, 어디 랜드마크인지 등 이미지를 분석해서]]>
     </summary>
     <title>[Google Skills] Cloud Vision API로 이미지 분석</title>
-    <updated>2026-08-19T23:13:38.407Z</updated>
+    <updated>2026-08-19T23:39:00.870Z</updated>
   </entry>
   <entry>
     <author>
@@ -43,9 +43,9 @@
     <category term="☁ Cloud" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/"/>
     <category term="GCP" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/GCP/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
-    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
     <category term="Terraform" scheme="https://ruby-kim.github.io/tags/Terraform/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="gcloud" scheme="https://ruby-kim.github.io/tags/gcloud/"/>
     <category term="PCA" scheme="https://ruby-kim.github.io/tags/PCA/"/>
     <id>https://ruby-kim.github.io/2026/08/18/Cloud/GCP/Skills/PCA-Renewal/</id>
@@ -66,8 +66,8 @@
     <category term="GCP" scheme="https://ruby-kim.github.io/categories/%E2%98%81-Cloud/GCP/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
     <category term="IAM" scheme="https://ruby-kim.github.io/tags/IAM/"/>
-    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="gcloud" scheme="https://ruby-kim.github.io/tags/gcloud/"/>
     <id>https://ruby-kim.github.io/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount-ARC134/</id>
     <link href="https://ruby-kim.github.io/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount-ARC134/"/>
@@ -78,7 +78,7 @@
 <li>ID:]]>
     </summary>
     <title>[Google Skills] 서비스 계정과 IAM 역할 설정하기</title>
-    <updated>2026-08-19T23:15:21.546Z</updated>
+    <updated>2026-08-19T23:42:26.107Z</updated>
   </entry>
   <entry>
     <author>
@@ -187,7 +187,6 @@
     <category term="🔐 Security" scheme="https://ruby-kim.github.io/categories/%F0%9F%94%90-Security/"/>
     <category term="DevOps" scheme="https://ruby-kim.github.io/tags/DevOps/"/>
     <category term="실습" scheme="https://ruby-kim.github.io/tags/%EC%8B%A4%EC%8A%B5/"/>
-    <category term="Security" scheme="https://ruby-kim.github.io/tags/Security/"/>
     <category term="AWS" scheme="https://ruby-kim.github.io/tags/AWS/"/>
     <category term="SSM" scheme="https://ruby-kim.github.io/tags/SSM/"/>
     <category term="Session Manager" scheme="https://ruby-kim.github.io/tags/Session-Manager/"/>
@@ -195,6 +194,7 @@
     <category term="EC2" scheme="https://ruby-kim.github.io/tags/EC2/"/>
     <category term="Bastion" scheme="https://ruby-kim.github.io/tags/Bastion/"/>
     <category term="IAM" scheme="https://ruby-kim.github.io/tags/IAM/"/>
+    <category term="Security" scheme="https://ruby-kim.github.io/tags/Security/"/>
     <category term="CloudFormation" scheme="https://ruby-kim.github.io/tags/CloudFormation/"/>
     <id>https://ruby-kim.github.io/2026/06/27/Security/AWS-SSM-ZeroTrust-RDS/</id>
     <link href="https://ruby-kim.github.io/2026/06/27/Security/AWS-SSM-ZeroTrust-RDS/"/>
@@ -384,8 +384,8 @@
     <category term="🎈 Retrospect" scheme="https://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/"/>
     <category term="자격증" scheme="https://ruby-kim.github.io/categories/%F0%9F%8E%88-Retrospect/%EC%9E%90%EA%B2%A9%EC%A6%9D/"/>
     <category term="후기" scheme="https://ruby-kim.github.io/tags/%ED%9B%84%EA%B8%B0/"/>
-    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="Cloud" scheme="https://ruby-kim.github.io/tags/Cloud/"/>
+    <category term="GCP" scheme="https://ruby-kim.github.io/tags/GCP/"/>
     <category term="자격증" scheme="https://ruby-kim.github.io/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/"/>
     <id>https://ruby-kim.github.io/2025/06/10/Retrospect/Certificate/GCP-PCA/</id>
     <link href="https://ruby-kim.github.io/2025/06/10/Retrospect/Certificate/GCP-PCA/"/>

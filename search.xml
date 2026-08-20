@@ -8,7 +8,7 @@
       <link href="/2026/08/20/Cloud/GCP/Skills/CloudVision-ARC122/"/>
       <url>/2026/08/20/Cloud/GCP/Skills/CloudVision-ARC122/</url>
       
-        <content type="html"><![CDATA[<ul><li>LAB: Cloud Vision API로 이미지 분석: 챌린지 실습</li><li>ID: ARC122</li><li>1 Credit</li></ul><h2 id="작업-1-리소스-확인"><a href="#작업-1-리소스-확인" class="headerlink" title="작업 1. 리소스 확인"></a>작업 1. 리소스 확인</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 프로젝트 / 버킷</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BUCKET</span><span class="token operator">=</span><span class="token variable">${PROJECT_ID}</span>-bucketgcloud services <span class="token builtin class-name">enable</span> vision.googleapis.comgcloud storage <span class="token function">ls</span> gs://<span class="token variable">$BUCKET</span><span class="token comment"># 2. API 키 (APIs &amp; Services &gt; Credentials &gt; Create credentials &gt; API key)</span><span class="token comment">## Name: vision-api-key (기본값 그대로도 OK)</span><span class="token comment">## APIs that can be accessed using this key: Cloud Vision API 검색 후 체크 (필수)</span><span class="token comment">## Authenticate API calls through a service account: 비움</span><span class="token comment">## Application restrictions: None</span><span class="token comment">## 저장/만들기 후 키 복사</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">API_KEY</span><span class="token operator">=</span><span class="token comment"># 3. 버킷 객체 공개</span>gcloud storage buckets add-iam-policy-binding gs://<span class="token variable">$BUCKET</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span>allUsers <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span>roles/storage.objectViewergsutil iam ch allUsers:objectViewer gs://<span class="token variable">$BUCKET</span></code></pre><h2 id="작업-2-request-json-만들기"><a href="#작업-2-request-json-만들기" class="headerlink" title="작업 2. request.json 만들기"></a>작업 2. request.json 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">IMAGE</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud storage <span class="token function">ls</span> gs://$<span class="token punctuation">{</span>BUCKET<span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-E</span> <span class="token string">'\.(jpg|jpeg|png)$'</span> <span class="token operator">|</span> <span class="token function">head</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> -F<span class="token string">'/'</span> <span class="token string">'{print $NF}'</span><span class="token variable">)</span></span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> request.json</span>{  "requests": [      {        "image": {          "source": {              "gcsImageUri": "gs://<span class="token variable">${BUCKET}</span>/<span class="token variable">${IMAGE}</span>"          }        },        "features": [          {            "type": "TEXT_DETECTION",            "maxResults": 10          }        ]      }  ]}EOF</span><span class="token function">cat</span> text-response.json</code></pre><h2 id="작업-3-json-파일-업데이트"><a href="#작업-3-json-파일-업데이트" class="headerlink" title="작업 3. json 파일 업데이트"></a>작업 3. json 파일 업데이트</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 작업 2의 파일 결과물 보내기</span><span class="token function">curl</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">-X</span> POST <span class="token parameter variable">-H</span> <span class="token string">"Content-Type: application/json"</span> --data-binary @request.json <span class="token string">"https://vision.googleapis.com/v1/images:annotate?key=<span class="token variable">${API_KEY}</span>"</span> <span class="token parameter variable">-o</span> text-response.jsongcloud storage <span class="token function">cp</span> text-response.json gs://<span class="token variable">${BUCKET}</span><span class="token comment"># LANDMARK_DETECTION 메서드 사용</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> request.json</span>{  "requests": [      {        "image": {          "source": {              "gcsImageUri": "gs://<span class="token variable">${BUCKET}</span>/<span class="token variable">${IMAGE}</span>"          }        },        "features": [          {            "type": "LANDMARK_DETECTION",            "maxResults": 10          }        ]      }  ]}EOF</span><span class="token function">curl</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">-X</span> POST <span class="token parameter variable">-H</span> <span class="token string">"Content-Type: application/json"</span> <span class="token punctuation">\</span>    --data-binary @request.json <span class="token punctuation">\</span>    <span class="token string">"https://vision.googleapis.com/v1/images:annotate?key=<span class="token variable">${API_KEY}</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">-o</span> landmark-response.json<span class="token function">cat</span> landmark-response.jsongcloud storage <span class="token function">cp</span> landmark-response.json gs://<span class="token variable">$BUCKET</span></code></pre>]]></content>
+        <content type="html"><![CDATA[<ul><li>LAB: Cloud Vision API로 이미지 분석: 챌린지 실습</li><li>ID: ARC122</li><li>1 Credit</li></ul><p>사진 던져주면 글자가 뭔지, 어디 랜드마크인지 등 이미지를 분석해서 알려주는 게 Cloud Vision API다. 모델 학습은 우리가 안 하고, 구글이 이미 만들어둔 거에 JSON만 보내면 된다.</p><p>그래서 파이썬 SDK 깔 필요 없이, 콘솔에서 API 키 하나 따고 <code>request.json</code>에 이미지 GCS 경로랑 감지 종류(<code>TEXT_DETECTION</code> / <code>LANDMARK_DETECTION</code>)만 적은 다음 curl로 POST 하면 끝이다. 인증도 서비스 계정 붙이는 게 아니라 <code>?key=</code>에 그 키만 넣으면 되고, 채점도 그 JSON이랑 응답 파일을 버킷에 올렸는지 본다.</p><h2 id="작업-1-리소스-확인"><a href="#작업-1-리소스-확인" class="headerlink" title="작업 1. 리소스 확인"></a>작업 1. 리소스 확인</h2><p>API키를 생성할 때 주의할 점이, 최근 API access를 세부설정하는 부분이 생겼는데 교안에서는 안내를 제대로 해주지 않는다…<br>사실 보안을 생각하면 이게 맞는데 이제서야 적용한 듯?</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 프로젝트 / 버킷</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BUCKET</span><span class="token operator">=</span><span class="token variable">${PROJECT_ID}</span>-bucketgcloud services <span class="token builtin class-name">enable</span> vision.googleapis.comgcloud storage <span class="token function">ls</span> gs://<span class="token variable">$BUCKET</span><span class="token comment"># 2. API 키 (APIs &amp; Services &gt; Credentials &gt; Create credentials &gt; API key)</span><span class="token comment">## Name: vision-api-key (기본값 그대로도 OK)</span><span class="token comment">## APIs that can be accessed using this key: Cloud Vision API 검색 후 체크 (필수)</span><span class="token comment">## Authenticate API calls through a service account: 비움</span><span class="token comment">## Application restrictions: None</span><span class="token comment">## 저장/만들기 후 키 복사</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">API_KEY</span><span class="token operator">=</span><span class="token comment"># 3. 버킷 객체 공개</span>gcloud storage buckets add-iam-policy-binding gs://<span class="token variable">$BUCKET</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span>allUsers <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span>roles/storage.objectViewergsutil iam ch allUsers:objectViewer gs://<span class="token variable">$BUCKET</span></code></pre><h2 id="작업-2-request-json-만들기"><a href="#작업-2-request-json-만들기" class="headerlink" title="작업 2. request.json 만들기"></a>작업 2. request.json 만들기</h2><p>물론 storage에서 url을 복붙해서 해도 되지만.. 귀찮았던 관계로 필자는 url을 추출해서 자동세팅을 해놨다 ㅎㅎ</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">IMAGE</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud storage <span class="token function">ls</span> gs://$<span class="token punctuation">{</span>BUCKET<span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-E</span> <span class="token string">'\.(jpg|jpeg|png)$'</span> <span class="token operator">|</span> <span class="token function">head</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">awk</span> -F<span class="token string">'/'</span> <span class="token string">'{print $NF}'</span><span class="token variable">)</span></span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> request.json</span>{  "requests": [      {        "image": {          "source": {              "gcsImageUri": "gs://<span class="token variable">${BUCKET}</span>/<span class="token variable">${IMAGE}</span>"          }        },        "features": [          {            "type": "TEXT_DETECTION",            "maxResults": 10          }        ]      }  ]}EOF</span><span class="token function">cat</span> request.json</code></pre><h2 id="작업-3-json-파일-업데이트"><a href="#작업-3-json-파일-업데이트" class="headerlink" title="작업 3. json 파일 업데이트"></a>작업 3. json 파일 업데이트</h2><p>텍스트 돌리고 올린 다음, 같은 파일 type만 <code>LANDMARK_DETECTION</code>으로 바꿔서 다시 호출한다. 마지막 <code>request.json</code>이 랜드마크여야 채점 통과한다.</p><p>그리고 채점하기 전에 cat 명령어를 실행해서 잘 되는지 꼭 확인을 하자. 안됐을 경우 에러가 자세히 나오니 잘 확인해보자. 필자는 storage read access를 제대로 확인을 안해 에러가 계속 났었다…</p><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 작업 2의 파일 결과물 보내기</span><span class="token function">curl</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">-X</span> POST <span class="token parameter variable">-H</span> <span class="token string">"Content-Type: application/json"</span> --data-binary @request.json <span class="token string">"https://vision.googleapis.com/v1/images:annotate?key=<span class="token variable">${API_KEY}</span>"</span> <span class="token parameter variable">-o</span> text-response.jsongcloud storage <span class="token function">cp</span> text-response.json gs://<span class="token variable">${BUCKET}</span><span class="token comment"># LANDMARK_DETECTION 메서드 사용</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> request.json</span>{  "requests": [      {        "image": {          "source": {              "gcsImageUri": "gs://<span class="token variable">${BUCKET}</span>/<span class="token variable">${IMAGE}</span>"          }        },        "features": [          {            "type": "LANDMARK_DETECTION",            "maxResults": 10          }        ]      }  ]}EOF</span><span class="token function">curl</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">-X</span> POST <span class="token parameter variable">-H</span> <span class="token string">"Content-Type: application/json"</span> <span class="token punctuation">\</span>    --data-binary @request.json <span class="token punctuation">\</span>    <span class="token string">"https://vision.googleapis.com/v1/images:annotate?key=<span class="token variable">${API_KEY}</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">-o</span> landmark-response.json<span class="token function">cat</span> landmark-response.jsongcloud storage <span class="token function">cp</span> landmark-response.json gs://<span class="token variable">$BUCKET</span></code></pre>]]></content>
       
       
       <categories>
@@ -24,9 +24,9 @@
             
             <tag> 실습 </tag>
             
-            <tag> GCP </tag>
-            
             <tag> Cloud </tag>
+            
+            <tag> GCP </tag>
             
             <tag> gcloud </tag>
             
@@ -59,11 +59,11 @@
             
             <tag> 실습 </tag>
             
-            <tag> GCP </tag>
-            
             <tag> Cloud </tag>
             
             <tag> Terraform </tag>
+            
+            <tag> GCP </tag>
             
             <tag> gcloud </tag>
             
@@ -80,7 +80,7 @@
       <link href="/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount-ARC134/"/>
       <url>/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount-ARC134/</url>
       
-        <content type="html"><![CDATA[<ul><li>LAB: <a href="https://www.skills.google/course_templates/702">Google Cloud의 서비스 계정과 IAM 역할 설정하기: 챌린지 실습</a></li><li>ID: ARC134</li><li>1 Credit</li></ul><h2 id="작업-1-Gemini-사용-설정-및-살펴보기-선택"><a href="#작업-1-Gemini-사용-설정-및-살펴보기-선택" class="headerlink" title="작업 1. Gemini 사용 설정 및 살펴보기 (선택)"></a>작업 1. Gemini 사용 설정 및 살펴보기 (선택)</h2><p>패스</p><h2 id="작업-2-gcloud-CLI로-서비스-계정-만들기"><a href="#작업-2-gcloud-CLI로-서비스-계정-만들기" class="headerlink" title="작업 2. gcloud CLI로 서비스 계정 만들기"></a>작업 2. gcloud CLI로 서비스 계정 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. gcloud 인증</span>gcloud auth login --no-launch-browser   <span class="token comment"># 문서 기본은 --no-browser. 시크릿 창이 아니라 일반 브라우저로 가서 이걸로 함. URL 열고 인증코드 붙여넣기</span><span class="token comment"># 2. lab-vm SSH 접속 후 환경 확인</span>gcloud compute <span class="token function">ssh</span> lab-vm <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-cgcloud config list   <span class="token comment"># account는 VM 기본 서비스 계정</span><span class="token comment"># 3. devops 서비스 계정 만들기</span>gcloud iam service-accounts create devops <span class="token punctuation">\</span>    --display-name<span class="token operator">=</span><span class="token string">"DevOps Service Account"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--description</span><span class="token operator">=</span><span class="token string">"DevOps 작업을 위한 서비스 계정"</span>   <span class="token comment"># 이메일은 devops@{PROJECT_ID}.iam.gserviceaccount.com</span></code></pre><h2 id="작업-3-gcloud-CLI로-서비스-계정에-IAM-권한-부여"><a href="#작업-3-gcloud-CLI로-서비스-계정에-IAM-권한-부여" class="headerlink" title="작업 3. gcloud CLI로 서비스 계정에 IAM 권한 부여"></a>작업 3. gcloud CLI로 서비스 계정에 IAM 권한 부여</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 프로젝트 ID 저장</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token comment"># 2. devops 서비스 계정 이메일 저장</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">SA</span><span class="token operator">=</span><span class="token string">"devops@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span><span class="token comment"># 3. IAM 역할 부여</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/iam.serviceAccountUser"</span>   <span class="token comment"># Service Account User. 다른 SA로 actAs</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/compute.instanceAdmin"</span>   <span class="token comment"># Compute Instance Admin. VM 생성/수정/삭제</span></code></pre><h2 id="작업-4-서비스-계정이-연결된-컴퓨팅-인스턴스-만들기"><a href="#작업-4-서비스-계정이-연결된-컴퓨팅-인스턴스-만들기" class="headerlink" title="작업 4. 서비스 계정이 연결된 컴퓨팅 인스턴스 만들기"></a>작업 4. 서비스 계정이 연결된 컴퓨팅 인스턴스 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. devops SA를 붙인 vm-2 만들기</span><span class="token comment"># lab-vm SSH에서 $PROJECT_ID, $SA 유지. zone은 us-east1-c</span>gcloud compute instances create vm-2 <span class="token punctuation">\</span>    --service-account<span class="token operator">=</span><span class="token string">"<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--scopes</span><span class="token operator">=</span><span class="token string">"cloud-platform"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># cloud-platform = API 접근 범위 전체</span><span class="token comment"># 2. vm-2 SSH 접속</span>gcloud compute <span class="token function">ssh</span> vm-2 <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># 여기부터 devops 자격 증명</span><span class="token comment"># 3. 권한 확인</span>gcloud compute instances list   <span class="token comment"># lab-vm, vm-2 보이면 instanceAdmin 조회 권한 OK</span></code></pre><h2 id="작업-5-YAML로-커스텀-역할-만들기"><a href="#작업-5-YAML로-커스텀-역할-만들기" class="headerlink" title="작업 5. YAML로 커스텀 역할 만들기"></a>작업 5. YAML로 커스텀 역할 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. role-definition.yaml 만들기</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span>   <span class="token comment"># 세션에 없으면. lab-vm에서 실행</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> role-definition.yaml</span>title: "Custom SQL Role"description: "Allows connecting and getting Cloud SQL instances"stage: "GA"includedPermissions:- cloudsql.instances.connect- cloudsql.instances.getEOF</span>   <span class="token comment"># 역할 ID는 아래 CustomSqlRole</span><span class="token comment"># 2. YAML로 커스텀 역할 만들기</span>gcloud iam roles create CustomSqlRole <span class="token punctuation">\</span>    <span class="token parameter variable">--project</span><span class="token operator">=</span><span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--file</span><span class="token operator">=</span>role-definition.yaml   <span class="token comment"># 프로젝트 수준 커스텀 역할 생성</span><span class="token comment"># 3. 채점용으로 홈 디렉터리에 복사</span><span class="token comment"># 채점이 파일 위치/소유권을 봄. student-01-..., sa_... 는 랩마다 다름. ls /home 하고 맞추기</span><span class="token function">sudo</span> <span class="token function">cp</span> ~/role-definition.yaml /home/student-01-98f6829d5332/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">cp</span> ~/role-definition.yaml /home/sa_100279010484714384218/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">644</span> /home/student-01-98f6829d5332/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">644</span> /home/sa_100279010484714384218/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span></code></pre><h2 id="작업-6-서비스-계정으로-BigQuery-액세스"><a href="#작업-6-서비스-계정으로-BigQuery-액세스" class="headerlink" title="작업 6. 서비스 계정으로 BigQuery 액세스"></a>작업 6. 서비스 계정으로 BigQuery 액세스</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. bigquery-qwiklab 서비스 계정 만들고 역할 부여</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BQ_SA</span><span class="token operator">=</span><span class="token string">"bigquery-qwiklab@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span>gcloud iam service-accounts create bigquery-qwiklab <span class="token punctuation">\</span>    --display-name<span class="token operator">=</span><span class="token string">"BigQuery Qwiklab Service Account"</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/bigquery.user"</span>   <span class="token comment"># BigQuery 사용자</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/bigquery.dataViewer"</span>   <span class="token comment"># BigQuery 데이터 뷰어</span><span class="token comment"># 2. bigquery-instance VM 만들기</span>gcloud compute instances create bigquery-instance <span class="token punctuation">\</span>    --service-account<span class="token operator">=</span><span class="token string">"<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--scopes</span><span class="token operator">=</span><span class="token string">"cloud-platform"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># bigquery-qwiklab SA를 붙인 VM</span><span class="token comment"># 3. SSH 접속 후 패키지 설치</span>gcloud compute <span class="token function">ssh</span> bigquery-instance <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># 키 질문 나오면 Y, 엔터 연타</span><span class="token function">sudo</span> <span class="token function">apt-get</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> python3-pippip3 <span class="token function">install</span> google-cloud-bigquery pandas db-dtypes --break-system-packages<span class="token comment"># 4. query.py 만들고 실행</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BQ_SA</span><span class="token operator">=</span><span class="token string">"bigquery-qwiklab@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span><span class="token builtin class-name">echo</span> <span class="token string">"from google.auth import compute_enginefrom google.cloud import bigquerycredentials = compute_engine.Credentials(    service_account_email='<span class="token variable">${BQ_SA}</span>')query = '''SELECT name, SUM(number) as total_peopleFROM \<span class="token variable"><span class="token variable">`</span>bigquery-public-data.usa_names.usa_1910_2013<span class="token punctuation">\</span><span class="token variable">`</span></span>WHERE state = 'TX'GROUP BY name, stateORDER BY total_people DESCLIMIT 20'''client = bigquery.Client(    project='<span class="token variable">${PROJECT_ID}</span>',    credentials=credentials)print(client.query(query).to_dataframe())"</span> <span class="token operator">&gt;</span> query.py   <span class="token comment"># 테이블명은 echo 깨지지 않게 백틱</span>python3 query.py</code></pre>]]></content>
+        <content type="html"><![CDATA[<ul><li>LAB: <a href="https://www.skills.google/course_templates/702">Google Cloud의 서비스 계정과 IAM 역할 설정하기: 챌린지 실습</a></li><li>ID: ARC134</li><li>1 Credit</li></ul><h2 id="작업-1-Gemini-사용-설정-및-살펴보기-선택"><a href="#작업-1-Gemini-사용-설정-및-살펴보기-선택" class="headerlink" title="작업 1. Gemini 사용 설정 및 살펴보기 (선택)"></a>작업 1. Gemini 사용 설정 및 살펴보기 (선택)</h2><p>보니까 여기 부분은 모든 google skills에 나오는 기본적인 내용인지라 딱히 건들지는 않고 패스함</p><h2 id="작업-2-gcloud-CLI로-서비스-계정-만들기"><a href="#작업-2-gcloud-CLI로-서비스-계정-만들기" class="headerlink" title="작업 2. gcloud CLI로 서비스 계정 만들기"></a>작업 2. gcloud CLI로 서비스 계정 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. gcloud 인증</span>gcloud auth login --no-launch-browser   <span class="token comment"># 문서 기본은 --no-browser. 시크릿 창이 아니라 일반 브라우저로 가서 이걸로 함. URL 열고 인증코드 붙여넣기</span><span class="token comment"># 2. lab-vm SSH 접속 후 환경 확인</span>gcloud compute <span class="token function">ssh</span> lab-vm <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-cgcloud config list   <span class="token comment"># account는 VM 기본 서비스 계정</span><span class="token comment"># 3. devops 서비스 계정 만들기</span>gcloud iam service-accounts create devops <span class="token punctuation">\</span>    --display-name<span class="token operator">=</span><span class="token string">"DevOps Service Account"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--description</span><span class="token operator">=</span><span class="token string">"DevOps 작업을 위한 서비스 계정"</span>   <span class="token comment"># 이메일은 devops@{PROJECT_ID}.iam.gserviceaccount.com</span></code></pre><h2 id="작업-3-gcloud-CLI로-서비스-계정에-IAM-권한-부여"><a href="#작업-3-gcloud-CLI로-서비스-계정에-IAM-권한-부여" class="headerlink" title="작업 3. gcloud CLI로 서비스 계정에 IAM 권한 부여"></a>작업 3. gcloud CLI로 서비스 계정에 IAM 권한 부여</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. 프로젝트 ID 저장</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token comment"># 2. devops 서비스 계정 이메일 저장</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">SA</span><span class="token operator">=</span><span class="token string">"devops@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span><span class="token comment"># 3. IAM 역할 부여</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/iam.serviceAccountUser"</span>   <span class="token comment"># Service Account User. 다른 SA로 actAs</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/compute.instanceAdmin"</span>   <span class="token comment"># Compute Instance Admin. VM 생성/수정/삭제</span></code></pre><h2 id="작업-4-서비스-계정이-연결된-컴퓨팅-인스턴스-만들기"><a href="#작업-4-서비스-계정이-연결된-컴퓨팅-인스턴스-만들기" class="headerlink" title="작업 4. 서비스 계정이 연결된 컴퓨팅 인스턴스 만들기"></a>작업 4. 서비스 계정이 연결된 컴퓨팅 인스턴스 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. devops SA를 붙인 vm-2 만들기</span><span class="token comment"># lab-vm SSH에서 $PROJECT_ID, $SA 유지. zone은 us-east1-c</span>gcloud compute instances create vm-2 <span class="token punctuation">\</span>    --service-account<span class="token operator">=</span><span class="token string">"<span class="token variable">$SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--scopes</span><span class="token operator">=</span><span class="token string">"cloud-platform"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># cloud-platform = API 접근 범위 전체</span><span class="token comment"># 2. vm-2 SSH 접속</span>gcloud compute <span class="token function">ssh</span> vm-2 <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># 여기부터 devops 자격 증명</span><span class="token comment"># 3. 권한 확인</span>gcloud compute instances list   <span class="token comment"># lab-vm, vm-2 보이면 instanceAdmin 조회 권한 OK</span></code></pre><h2 id="작업-5-YAML로-커스텀-역할-만들기"><a href="#작업-5-YAML로-커스텀-역할-만들기" class="headerlink" title="작업 5. YAML로 커스텀 역할 만들기"></a>작업 5. YAML로 커스텀 역할 만들기</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. role-definition.yaml 만들기</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span>   <span class="token comment"># 세션에 없으면. lab-vm에서 실행</span><span class="token function">cat</span> <span class="token operator">&lt;&lt;</span><span class="token string">EOF<span class="token bash punctuation"> <span class="token operator">&gt;</span> role-definition.yaml</span>title: "Custom SQL Role"description: "Allows connecting and getting Cloud SQL instances"stage: "GA"includedPermissions:- cloudsql.instances.connect- cloudsql.instances.getEOF</span>   <span class="token comment"># 역할 ID는 아래 CustomSqlRole</span><span class="token comment"># 2. YAML로 커스텀 역할 만들기</span>gcloud iam roles create CustomSqlRole <span class="token punctuation">\</span>    <span class="token parameter variable">--project</span><span class="token operator">=</span><span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--file</span><span class="token operator">=</span>role-definition.yaml   <span class="token comment"># 프로젝트 수준 커스텀 역할 생성</span><span class="token comment"># 3. 채점용으로 홈 디렉터리에 복사</span><span class="token comment"># 채점이 파일 위치/소유권을 봄. student-01-..., sa_... 는 랩마다 다름. ls /home 하고 맞추기</span><span class="token function">sudo</span> <span class="token function">cp</span> ~/role-definition.yaml /home/student-01-98f6829d5332/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">cp</span> ~/role-definition.yaml /home/sa_100279010484714384218/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">644</span> /home/student-01-98f6829d5332/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span><span class="token function">sudo</span> <span class="token function">chmod</span> <span class="token number">644</span> /home/sa_100279010484714384218/role-definition.yaml <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>/dev/null <span class="token operator">||</span> <span class="token boolean">true</span></code></pre><h2 id="작업-6-서비스-계정으로-BigQuery-액세스"><a href="#작업-6-서비스-계정으로-BigQuery-액세스" class="headerlink" title="작업 6. 서비스 계정으로 BigQuery 액세스"></a>작업 6. 서비스 계정으로 BigQuery 액세스</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 1. bigquery-qwiklab 서비스 계정 만들고 역할 부여</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BQ_SA</span><span class="token operator">=</span><span class="token string">"bigquery-qwiklab@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span>gcloud iam service-accounts create bigquery-qwiklab <span class="token punctuation">\</span>    --display-name<span class="token operator">=</span><span class="token string">"BigQuery Qwiklab Service Account"</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/bigquery.user"</span>   <span class="token comment"># BigQuery 사용자</span>gcloud projects add-iam-policy-binding <span class="token variable">$PROJECT_ID</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--member</span><span class="token operator">=</span><span class="token string">"serviceAccount:<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--role</span><span class="token operator">=</span><span class="token string">"roles/bigquery.dataViewer"</span>   <span class="token comment"># BigQuery 데이터 뷰어</span><span class="token comment"># 2. bigquery-instance VM 만들기</span>gcloud compute instances create bigquery-instance <span class="token punctuation">\</span>    --service-account<span class="token operator">=</span><span class="token string">"<span class="token variable">$BQ_SA</span>"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--scopes</span><span class="token operator">=</span><span class="token string">"cloud-platform"</span> <span class="token punctuation">\</span>    <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># bigquery-qwiklab SA를 붙인 VM</span><span class="token comment"># 3. SSH 접속 후 패키지 설치</span>gcloud compute <span class="token function">ssh</span> bigquery-instance <span class="token parameter variable">--zone</span><span class="token operator">=</span>us-east1-c   <span class="token comment"># 키 질문 나오면 Y, 엔터 연타</span><span class="token function">sudo</span> <span class="token function">apt-get</span> update <span class="token operator">&amp;&amp;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token parameter variable">-y</span> python3-pippip3 <span class="token function">install</span> google-cloud-bigquery pandas db-dtypes --break-system-packages<span class="token comment"># 4. query.py 만들고 실행</span><span class="token builtin class-name">export</span> <span class="token assign-left variable">PROJECT_ID</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>gcloud config get-value project<span class="token variable">)</span></span><span class="token builtin class-name">export</span> <span class="token assign-left variable">BQ_SA</span><span class="token operator">=</span><span class="token string">"bigquery-qwiklab@<span class="token variable">${PROJECT_ID}</span>.iam.gserviceaccount.com"</span><span class="token builtin class-name">echo</span> <span class="token string">"from google.auth import compute_enginefrom google.cloud import bigquerycredentials = compute_engine.Credentials(    service_account_email='<span class="token variable">${BQ_SA}</span>')query = '''SELECT name, SUM(number) as total_peopleFROM \<span class="token variable"><span class="token variable">`</span>bigquery-public-data.usa_names.usa_1910_2013<span class="token punctuation">\</span><span class="token variable">`</span></span>WHERE state = 'TX'GROUP BY name, stateORDER BY total_people DESCLIMIT 20'''client = bigquery.Client(    project='<span class="token variable">${PROJECT_ID}</span>',    credentials=credentials)print(client.query(query).to_dataframe())"</span> <span class="token operator">&gt;</span> query.py   <span class="token comment"># 테이블명은 echo 깨지지 않게 백틱</span>python3 query.py</code></pre>]]></content>
       
       
       <categories>
@@ -98,9 +98,9 @@
             
             <tag> IAM </tag>
             
-            <tag> GCP </tag>
-            
             <tag> Cloud </tag>
+            
+            <tag> GCP </tag>
             
             <tag> gcloud </tag>
             
@@ -302,8 +302,6 @@
             
             <tag> 실습 </tag>
             
-            <tag> Security </tag>
-            
             <tag> AWS </tag>
             
             <tag> SSM </tag>
@@ -317,6 +315,8 @@
             <tag> Bastion </tag>
             
             <tag> IAM </tag>
+            
+            <tag> Security </tag>
             
             <tag> CloudFormation </tag>
             
@@ -636,9 +636,9 @@
             
             <tag> 후기 </tag>
             
-            <tag> GCP </tag>
-            
             <tag> Cloud </tag>
+            
+            <tag> GCP </tag>
             
             <tag> 자격증 </tag>
             
@@ -846,11 +846,11 @@
       
         <tags>
             
+            <tag> NextJS </tag>
+            
             <tag> 실습 </tag>
             
             <tag> Javascript </tag>
-            
-            <tag> NextJS </tag>
             
             <tag> Frontend </tag>
             
@@ -883,9 +883,9 @@
             
             <tag> OAuth2 </tag>
             
-            <tag> GCP </tag>
-            
             <tag> Cloud </tag>
+            
+            <tag> GCP </tag>
             
         </tags>
       
@@ -914,9 +914,9 @@
             
             <tag> Container </tag>
             
-            <tag> 실습 </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> 실습 </tag>
             
             <tag> Network </tag>
             
@@ -1216,9 +1216,9 @@
       
         <tags>
             
-            <tag> Python3 </tag>
-            
             <tag> 팁 </tag>
+            
+            <tag> Python3 </tag>
             
             <tag> Regex </tag>
             
@@ -1497,9 +1497,9 @@
             
             <tag> Javascript </tag>
             
-            <tag> Frontend </tag>
-            
             <tag> React </tag>
+            
+            <tag> Frontend </tag>
             
         </tags>
       
@@ -1528,11 +1528,11 @@
             
             <tag> 팁 </tag>
             
-            <tag> Git </tag>
-            
             <tag> Github </tag>
             
             <tag> Markdown </tag>
+            
+            <tag> Git </tag>
             
         </tags>
       
@@ -1563,11 +1563,11 @@
             
             <tag> Github </tag>
             
-            <tag> Markdown </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -1598,11 +1598,11 @@
             
             <tag> Github </tag>
             
-            <tag> Markdown </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -1633,11 +1633,11 @@
             
             <tag> Github </tag>
             
-            <tag> Markdown </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -1668,11 +1668,11 @@
             
             <tag> Github </tag>
             
-            <tag> Markdown </tag>
-            
             <tag> Hexo </tag>
             
             <tag> Blog </tag>
+            
+            <tag> Markdown </tag>
             
         </tags>
       
@@ -1699,9 +1699,9 @@
             
             <tag> 이론 </tag>
             
-            <tag> Network </tag>
-            
             <tag> Security </tag>
+            
+            <tag> Network </tag>
             
             <tag> SSL </tag>
             
@@ -1802,9 +1802,9 @@
             
             <tag> Python3 </tag>
             
-            <tag> Git </tag>
-            
             <tag> Github </tag>
+            
+            <tag> Git </tag>
             
             <tag> Personal Access Token </tag>
             
@@ -1839,11 +1839,11 @@
             
             <tag> .env </tag>
             
-            <tag> Git </tag>
+            <tag> Github </tag>
             
             <tag> Github Actions </tag>
             
-            <tag> Github </tag>
+            <tag> Git </tag>
             
         </tags>
       
@@ -1938,13 +1938,13 @@
             
             <tag> 프로젝트 </tag>
             
-            <tag> Github Actions </tag>
-            
-            <tag> Github </tag>
-            
             <tag> Parsing </tag>
             
             <tag> Crawling </tag>
+            
+            <tag> Github </tag>
+            
+            <tag> Github Actions </tag>
             
         </tags>
       
