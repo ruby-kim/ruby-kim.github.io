@@ -1,0 +1,1267 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="[해커톤] SK AI 해커톤 후기, 잡동사니">
+    <meta name="description" content="상금보다 내 AI 활용 실력이 궁금해서 들어갔다가, 1차부터 모델이랑 감독관이랑 싸운 썰">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="naver-site-verification" content="f4d0e3c893b2d90712d39536761907478c1ec622" />
+    <meta name="google-adsense-account" content="ca-pub-2159344226108747">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22Z5MEFCP7"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-22Z5MEFCP7');
+</script>
+
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2159344226108747"
+     crossorigin="anonymous"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2159344226108747",
+    enable_page_level_ads: true
+  });
+</script>
+
+    
+    <title>[해커톤] SK AI 해커톤 후기 | 잡동사니</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <!-- Typography: Pretendard (Korean) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="잡동사니" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">잡동사니</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>홈</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>태그</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>카테고리</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>아카이브</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>소개</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>문의</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="검색" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #1a2535;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/ruby-kim/ruby-kim.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Github" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+    
+<div id="mobile-nav" class="side-nav sidenav">
+    <div class="mobile-head">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" alt="">
+        
+        <div class="logo-name">잡동사니</div>
+        
+        <div class="logo-desc">AI Platform Engineer</div>
+        
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			홈
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			태그
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			카테고리
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			아카이브
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			소개
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			문의
+		</a>
+          
+        </li>
+        
+        
+        <li class="m-nav-item">
+            <a href="https://github.com/ruby-kim/ruby-kim.github.io" class="waves-effect waves-light" target="_blank" rel="noopener">
+                <i class="fab fa-fw fa-github"></i>Github
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        // TODO: Need to implement SHA256
+        if (pwd && pwd.length > 0) {
+            if (pwd !== prompt('비밀번호를 입력해주세요.')) {
+            // if (pwd !== CryptoJS.SHA256(prompt('비밀번호를 입력해주세요.')).toString(CryptoJS.enc.Hex)) {
+                alert('잘못된 비밀번호 입니다. 홈페이지로 돌아갑니다.');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">[해커톤] SK AI 해커톤 후기</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%ED%9B%84%EA%B8%B0/">
+                                <span class="chip bg-color">후기</span>
+                            </a>
+                        
+                            <a href="/tags/%ED%95%B4%EC%BB%A4%ED%86%A4/">
+                                <span class="chip bg-color">해커톤</span>
+                            </a>
+                        
+                            <a href="/tags/AI/">
+                                <span class="chip bg-color">AI</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%F0%9F%8E%88-Retrospect/" class="post-category">
+                                🎈 Retrospect
+                            </a>
+                        
+                            <a href="/categories/%F0%9F%8E%88-Retrospect/%ED%95%B4%EC%BB%A4%ED%86%A4/" class="post-category">
+                                해커톤
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>작성일:&nbsp;&nbsp;
+                    2026-10-18
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>글자 수:&nbsp;&nbsp;
+                    641
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>읽기 시간:&nbsp;&nbsp;
+                    4 분
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>이 글은 해커톤 진행하면서 계속 업데이트할 예정입니다.<br>(현재: 서류 합격 → 1차 시험)</p>
+</blockquote>
+<br>
+
+<h2 id="참여-계기"><a href="#참여-계기" class="headerlink" title="참여 계기"></a>참여 계기</h2><p>상금만 보면 혹하지만, 솔직히 대한민국에 똑똑이들이 얼마나 많은데 내가 될 수 있을까? 아니 전혀 아니야… 나는 내 머리를 잘 안다. 열심히는 하되 똑똑하지는 않걸랑<br>그래서 상금을 목표하기 보다는 <strong>지금 내 AI 활용 능력이 어느 정도인지</strong> 객관적으로 뜯어보고 싶어서 지원했다.</p>
+<p><del>이왕 하는거 내 잠옷이 될 해커톤 옷도 주시면 감사하고요</del></p>
+<br>
+
+<h2 id="서류-후기"><a href="#서류-후기" class="headerlink" title="서류 후기"></a>서류 후기</h2><img src="/2026/10/18/Retrospect/Hackathon/26-sk-ai/cv-pass.png" class="" title="서류 합격">
+
+<p>서류는… 그냥 단순 서류였다.</p>
+<p>우연히도 모집 접수 1주일 전에 CV 정리해둔 게 있어서, 그걸 복붙해서 넣었다.<br>아무래도 해커톤이다 보니 수월하게 합격하더라. 딱히 할 말이 없다…</p>
+<br>
+
+<h2 id="1차-시험-후기"><a href="#1차-시험-후기" class="headerlink" title="1차 시험 후기"></a>1차 시험 후기</h2><img src="/2026/10/18/Retrospect/Hackathon/26-sk-ai/test1.png" class="" title="1차 시험 이메일">
+
+<ul>
+<li>일시: 2026.10.18 (일)  <ul>
+<li>오후 2:00 ~ 2:30  </li>
+<li>오후 3:00 ~ 4:30</li>
+</ul>
+</li>
+<li>장소: 모니토 (온라인)</li>
+</ul>
+<p>그냥 일하면서 멍하지 지냈는데, SK에서 1차 시험 관련 메일을 보냈다고, 안보이면 알려달라는 안내 메시지를 받았다.<br>안내메시지를 까보니까 시험을 <strong>모니토</strong>에서 본다고 하더라.</p>
+<p>모니토는 내게 꽤 친숙한 이름이다. 코로나 시절에 모니토 감독관 알바를 꽤 했었기 때문이다.<br>진짜 별 진상들 다 봤었는데 내가 이제 반대 입장으로 들어가게 되는구나.. 싶었다.</p>
+<p>수험생 입장에서도 물론, 감독관 입장에서도 시험 세팅에 있어 꽤 빡셌던 기억이 있어 2시부터 시험이지만 1시 10분에 들어가서 프로그램을 알잘딱깔센으로 깔고 세팅을 맞췄다. 원래 1시에 들어가서 하려고 했는데 지금 몸살+구순염/구강염+목감기+턱아픔 스택에 걸려서 그런지 힘들더라고 ^^…</p>
+<p>물론 그 다음 시험도 쉬는시간 없이 바로 들어가서 그냥 대기하다가 봤다.</p>
+<h3 id="감독관"><a href="#감독관" class="headerlink" title="감독관"></a>감독관</h3><p>상식적으로 그 많은 인원들을 한 번에 관리하는건 매우 어렵다.<br>따라서 모니토는 여러 감독관을 모집해 모니터링을 하면서 서로 정기보고를 하는 편이다. 모니터링을 하는 범위도 각자 다르며, 인원 또한 1차 2차 전부 다르게 되어있다.<br>그렇기 때문에 우리는 모르겠지만 우리를 감시하는 1차, 2차 감독관은 거의 다른 사람일 확률이 매우 높다.</p>
+<p>이번에 나를 맡은 감독관이 다른걸 확실히 느꼈던게, 1차에서 깐깐한 감독관이 걸리고 2차에서는 편한 감독관이 걸렸기 때문이다.</p>
+<p>맥미니에서 캠을 연결한지라 캠이 노트북보다는 살짝 불안정한지 정면 모습에서 1초정도? 에러나다가 다시 복구 되는 경우가 있는데, 그거 가지고 자꾸 나한테 와서 너무 뭐라 하는 것이다…<br>아니 심지어 나는 앞에 책상 + 뒤에 바로 벽이 있는데 점점 뒤로가지말고 책상 가까이 앉으래… 아니 애초에 뒤로 갈 공간이 없는데 어떻게 가는거임 뭘본거야; 오죽하면 네네 하다가 “무조건 책상을 가슴에 붙여야 하나요?”했더니 괜찮다고 하더라.</p>
+<p>안그래도 지문 길어서 읽기도 힘든데 채팅으로 자꾸 뭐라하고 다시 돌아오면 어디까지 읽었지? 하는 경우가 너무 많았다. 아니 관리하는 사람 꽤 많을텐데 왜 나한테만 그러는건데…<br>어쨌든 고나리하는게 너무 심해서 한 번만 더 건들면 바로 감독관 매니저한테 쏴붙이려고 했는데 1차 시험 시간이 짧아서인지 금방 끝나버려서 그냥 넘어가기로 했다…</p>
+<p>3시에 진행된 시험에서는 감독관이 조용해서 큰 문제없이 집중해서 풀 수 있었다.</p>
+<br>
+
+<h3 id="문제-후기"><a href="#문제-후기" class="headerlink" title="문제 후기"></a>문제 후기</h3><p>첫 교시에 본 시험은 거의 <strong>인적성</strong> 인 것 같았다. AI에 대해서 얼마나 잘 아냐 였는데.. 음 굳이 이걸 이렇게까지 해야할까? 하는 생각도 솔직히 들었다.<br>대기업은 이런거까지 해야하는걸까? 이래서 요즘 대기업 다니는 사람들이 스타트업으로 뛰쳐나가는 경우가 있나 싶기도… (물론 미국 한정임 한국은 잘 몰라요)</p>
+<p>두 번째에 본 시험은 실제 제공되는 AI모델을 활용하여 푸는 문제였다.</p>
+<p>분명 가이드에 <strong>최근 대화 10개까지는 기억한다</strong>는 문구를 몇 번이나 확인했는데… 응 아니고요~ 첨부파일주고 계속 줄테니 받아놔 x3 한다음에 지금까지 준 파일 분석해서 답 도출하라니까 파일이 없다는데? ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 내가 지금까지 보낸거 뭐가 되는거임?</p>
+<p>그래 모델 좋은거 주면 변별력 떨어지니까 쓰레기를 준건 이해를 한다. 근데 가이드라인은 지켜야하는거 아닌가? <strong>최근 대화 10개까지 기억 / 문제 선택 시 문제 맞춤형으로 분석</strong> 인걸로 기억하는데 문제 포커싱도 안하던데요? 문제 선택해서 프롬프트 넣었더니 목록에 없던거로 새로 지어서 답안도출함; 가이드라인 이럴거면 왜 있나요…?<br>분명 지원자가 많은 만큼 AI돌려서 합불 낼 가능성도 높을텐데 이거 진짜 괜찮은건가 신빙성이 좀…(이하생략)</p>
+<p>오죽하면 내가 잘못된걸 받았나싶어 바로 관리자한테 돌려서 물어봤더니, 문제 자체에는 이상이 없으니 진행하라고 해서 할 때마다 일일이 물어봐서 문제를 풀었다. (지금 글 끄적이면서 생각난건데 사실 이번 AI문제는 이 모델을 채찍질해서 성능 좋게 개선하는게 목표였던 것일까…?)</p>
+<p>참고로 질문은 총 70번 할 수 있었으며, 1번 입력 시 다음 질문까지 30초 정도 대기시간을 가져야 한다.</p>
+<p>그렇게 대충 다 풀었더니 딱 4시길래 검토는 개뿔 그냥 던지고 나왔다. 나 싱가포르 갔다온 이후로 지금까지 몸이 너무 안좋아… 아니 사람이 1달 넘게 병든 닭마냥 골골대고 아픈게 말이 됩니까 껄껄쓰,,,,</p>
+<br>
+
+<h2 id="2차-시험"><a href="#2차-시험" class="headerlink" title="2차 시험"></a>2차 시험</h2><p>은 하게 된다면 리뷰할 예정</p>
+
+                
+            </div>
+            <hr/>
+
+            
+                
+                <div class="related-posts-container">
+                    <h2 class="related-posts-title">📌 관련 글</h2>
+                    <div class="related-posts-grid">
+                        <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2026/08/15/Retrospect/Hackathon/26-nailro/" title="[해커톤] 내일路 해커톤 2026 후기 (한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026)" rel="bookmark">[해커톤] 내일路 해커톤 2026 후기 (한국철도공사 × 인천국제공항공사 주최 내일路 해커톤 2026)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/07/10/Projects/Build-Site-Adsense/" title="직접 개발한 사이트, 애드센스 등록 성공!" rel="bookmark">직접 개발한 사이트, 애드센스 등록 성공!</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/05/10/Retrospect/Bachelor/" title="대학생 때 알았다면 좋았을 SW 팁" rel="bookmark">대학생 때 알았다면 좋았을 SW 팁</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2022/04/23/Retrospect/Junior/" title="[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정" rel="bookmark">[후기] 스타트업/중소기업/대기업 인턴 및 정규직 준비 과정</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/09/12/Retrospect/Portfolio/" title="개발자 포트폴리오, 이렇게 준비해보자" rel="bookmark">개발자 포트폴리오, 이렇게 준비해보자</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/09/30/Retrospect/Certificate/AWS-CloudPractitioner/" title="[AWS] Cloud Practitioner 시험 준비 및 후기" rel="bookmark">[AWS] Cloud Practitioner 시험 준비 및 후기</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2025/06/10/Retrospect/Certificate/GCP-PCA/" title="[GCP] GCP Professional Cloud Architect(PCA) 자격증 시험 준비 및 합격 후기" rel="bookmark">[GCP] GCP Professional Cloud Architect(PCA) 자격증 시험 준비 및 합격 후기</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/06/22/Retrospect/Conference/24-silicon-valley-2/" title="[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 2일차" rel="bookmark">[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 2일차</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2024/06/21/Retrospect/Conference/24-silicon-valley-1/" title="[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 1일차" rel="bookmark">[컨퍼런스] Tech Summit Silicon Valley 2024 후기 - 1일차</a></h3></div></li></ul>
+                    </div>
+                </div>
+            
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        작성자:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Ruby Kim</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        링크:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://ruby-kim.github.io/2026/10/18/Retrospect/Hackathon/26-sk-ai/">https://ruby-kim.github.io/2026/10/18/Retrospect/Hackathon/26-sk-ai/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        저작권:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    별도 표시가 없는 한 이 블로그의 글은
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    라이선스를 따릅니다. 재사용 시 출처를 밝혀 주세요.
+                    <a href="/about" target="_blank">Ruby Kim</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>복사했습니다. 이 글의 저작권 정책을 지켜 주세요.</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">자세히</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>Comments</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c12f8521b335e062742b',
+        clientSecret: '4055e81aad344987f1b5f608c83e6827f77ea431',
+        repo: 'ruby-kim.github.io',
+        owner: 'ruby-kim',
+        admin: ["ruby-kim"],
+        id: '2026-10-18T18-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;현재
+            </div>
+            <div class="card">
+                <a href="/2026/10/18/Retrospect/Hackathon/26-sk-ai/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="[해커톤] SK AI 해커톤 후기">
+                        
+                        <span class="card-title">[해커톤] SK AI 해커톤 후기</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            상금보다 내 AI 활용 실력이 궁금해서 들어갔다가, 1차부터 모델이랑 감독관이랑 싸운 썰
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-10-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%F0%9F%8E%88-Retrospect/" class="post-category">
+                                    🎈 Retrospect
+                                </a>
+                            
+                            <a href="/categories/%F0%9F%8E%88-Retrospect/%ED%95%B4%EC%BB%A4%ED%86%A4/" class="post-category">
+                                    해커톤
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%ED%9B%84%EA%B8%B0/">
+                        <span class="chip bg-color">후기</span>
+                    </a>
+                    
+                    <a href="/tags/%ED%95%B4%EC%BB%A4%ED%86%A4/">
+                        <span class="chip bg-color">해커톤</span>
+                    </a>
+                    
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                다음&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/08/20/Cloud/GCP/Skills/CloudVision-ARC122/">
+                    <div class="card-image">
+                        
+                        <img src="/coverImages/gcp.png" class="responsive-img" alt="[Google Skills] Cloud Vision API로 이미지 분석">
+                        
+                        <span class="card-title">[Google Skills] Cloud Vision API로 이미지 분석</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Vision API로 텍스트/랜드마크 감지하는 챌린지 실습 정리
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-08-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E2%98%81-Cloud/" class="post-category">
+                                    ☁ Cloud
+                                </a>
+                            
+                            <a href="/categories/%E2%98%81-Cloud/GCP/" class="post-category">
+                                    GCP
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%EC%8B%A4%EC%8A%B5/">
+                        <span class="chip bg-color">실습</span>
+                    </a>
+                    
+                    <a href="/tags/GCP/">
+                        <span class="chip bg-color">GCP</span>
+                    </a>
+                    
+                    <a href="/tags/Cloud/">
+                        <span class="chip bg-color">Cloud</span>
+                    </a>
+                    
+                    <a href="/tags/gcloud/">
+                        <span class="chip bg-color">gcloud</span>
+                    </a>
+                    
+                    <a href="/tags/Vision-API/">
+                        <span class="chip bg-color">Vision API</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '출처: 잡동사니<br />'
+            + '작성자: Ruby Kim<br />'
+            + '링크: <a href="' + url + '">' + url + '</a><br />'
+            + '별도 표시가 없는 한 이 블로그의 글은 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" rel="nofollow noopener">CC BY-SA 4.0</a>을 따릅니다.';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;목차</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="site-footer">
+    
+
+    <div class="footer-inner container">
+        <!-- Col 1: Blog info -->
+        <div class="footer-col footer-col--brand">
+            <a href="/" class="footer-brand">잡동사니</a>
+            <p class="footer-desc">AI 플랫폼 엔지니어 Ruby Kim의 개인 기술 블로그 — 인프라, 보안, DevOps 기록 일지</p>
+            
+                <p class="footer-runtime" id="sitetime"></p>
+                <script>
+                    (function () {
+                        var t1 = Date.UTC(
+                            "2022", "3",
+                            "16",  "0",
+                            "0","0"
+                        );
+                        var diff  = Date.now() - t1;
+                        var days  = Math.floor(diff / 86400000);
+                        var years = Math.floor(days / 365);
+                        var rem   = days - years * 365;
+                        var txt   = years > 0
+                            ? years + '년 ' + rem + '일째 운영 중'
+                            : rem + '일째 운영 중';
+                        document.getElementById('sitetime').textContent = txt;
+                    })();
+                </script>
+            
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col footer-col--nav">
+            <h6 class="footer-heading">메뉴</h6>
+            <ul class="footer-nav-list">
+                
+                    
+                    <li><a href="/">홈</a></li>
+                
+                    
+                    <li><a href="/tags">태그</a></li>
+                
+                    
+                    <li><a href="/categories">카테고리</a></li>
+                
+                    
+                    <li><a href="/archives">아카이브</a></li>
+                
+                    
+                    <li><a href="/about">소개</a></li>
+                
+                    
+                    <li><a href="/contact">문의</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Col 3: Social -->
+        <div class="footer-col footer-col--social">
+            <h6 class="footer-heading">연결</h6>
+            <div class="footer-social-icons">
+                
+                    <a href="https://github.com/ruby-kim" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                
+                
+                    <a href="mailto:dev.rubykim@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                
+                
+                
+                    <a href="/atom.xml" target="_blank" aria-label="RSS"><i class="fas fa-rss"></i></a>
+                
+            </div>
+            <ul class="footer-legal">
+                <li><a href="/privacy">개인정보처리방침</a></li>
+                <li><a href="/terms">이용약관</a></li>
+                <li><a href="/contact">문의</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+            <span class="footer-copy">
+                &copy;
+                
+                    2022–2026
+                
+                <a href="/about">Ruby Kim</a>
+            </span>
+            <span class="footer-built">
+                제작
+                <a href="https://hexo.io/" target="_blank">Hexo</a>
+                &amp; <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;검색</span>
+            <input type="search" id="searchInput" name="s" placeholder="검색어를 입력하세요"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <div id="backTop" class="top-scroll">
+    <a class="back-top-btn" href="#!" aria-label="맨 위로">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+        <!-- <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script> -->
+        <script src='/libs/mermaid/mermaid.min.js'></script>
+        <script>
+          if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+          }
+        </script>
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://ruby-kim.github.io/2026/10/18/Retrospect/Hackathon/26-sk-ai/</loc>
+        <lastmod>2026-10-18T10:03:32.628Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2026/08/17/Cloud/GCP/Skills/IAM-ServiceAccount-ARC134/</loc>
         <lastmod>2026-08-19T23:42:26.107Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -121,6 +129,14 @@
     </url>
 
     <url>
+        <loc>https://ruby-kim.github.io/2022/04/11/Projects/Blog/RecommendTheme/</loc>
+        <lastmod>2026-07-20T22:02:59.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2022/04/22/Frontend/Reactjs/ReactLifeCycle/</loc>
         <lastmod>2026-07-20T22:02:59.680Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -137,15 +153,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/11/Projects/Blog/RecommendTheme/</loc>
-        <lastmod>2026-07-20T22:02:59.680Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</loc>
+        <loc>https://ruby-kim.github.io/2022/04/15/Projects/Blog/Backup/</loc>
         <lastmod>2026-07-20T22:02:59.679Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -153,7 +161,15 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
+        <loc>https://ruby-kim.github.io/2022/04/12/Projects/Blog/InitTheme/</loc>
+        <lastmod>2026-07-20T22:02:59.679Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ruby-kim.github.io/2022/03/19/Projects/AutomaticTechBlogManagement/Gitblog-Analyze/</loc>
         <lastmod>2026-07-20T22:02:59.679Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -177,15 +193,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/12/Projects/Blog/InitTheme/</loc>
-        <lastmod>2026-07-20T22:02:59.679Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ruby-kim.github.io/2022/04/15/Projects/Blog/Backup/</loc>
+        <loc>https://ruby-kim.github.io/2022/03/17/Projects/AutomaticTechBlogManagement/Tistory-API-Generate/</loc>
         <lastmod>2026-07-20T22:02:59.679Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -233,6 +241,14 @@
     </url>
 
     <url>
+        <loc>https://ruby-kim.github.io/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/</loc>
+        <lastmod>2026-07-20T22:02:59.676Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2026/03/17/Cloud/AWS/CrossAccountDNS/</loc>
         <lastmod>2026-07-20T22:02:59.676Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -242,14 +258,6 @@
 
     <url>
         <loc>https://ruby-kim.github.io/2024/11/25/Cloud/NCP/NKS-NCR/</loc>
-        <lastmod>2026-07-20T22:02:59.676Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ruby-kim.github.io/2026/06/28/Cloud/GCP/Firebase-Nextjs-Cache-Invalidation/</loc>
         <lastmod>2026-07-20T22:02:59.676Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -273,6 +281,14 @@
     </url>
 
     <url>
+        <loc>https://ruby-kim.github.io/2026/03/30/Tips/Git/Initial-Main-Branch/</loc>
+        <lastmod>2026-07-20T22:02:59.673Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ruby-kim.github.io/2022/03/17/Tips/Git/Github-Actions-env/</loc>
         <lastmod>2026-07-20T22:02:59.673Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -289,8 +305,8 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2026/03/30/Tips/Git/Initial-Main-Branch/</loc>
-        <lastmod>2026-07-20T22:02:59.673Z</lastmod>
+        <loc>https://ruby-kim.github.io/2022/11/25/Tips/Regex/</loc>
+        <lastmod>2026-07-20T22:02:59.672Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -306,14 +322,6 @@
 
     <url>
         <loc>https://ruby-kim.github.io/2022/05/17/Tips/Windows-Mac-Osx-Nvm-Install/</loc>
-        <lastmod>2026-07-20T22:02:59.672Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ruby-kim.github.io/2022/11/25/Tips/Regex/</loc>
         <lastmod>2026-07-20T22:02:59.672Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -345,7 +353,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</loc>
+        <loc>https://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
         <lastmod>2026-07-20T22:02:59.669Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -353,7 +361,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/04/26/Architecture/MSA-Intro/</loc>
+        <loc>https://ruby-kim.github.io/2022/04/28/Architecture/MSA-outer-gateway/</loc>
         <lastmod>2026-07-20T22:02:59.669Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -409,7 +417,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2024/08/20/Security/Oauth2/</loc>
+        <loc>https://ruby-kim.github.io/2022/03/30/Security/SSLTSL/</loc>
         <lastmod>2026-07-20T22:02:59.667Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -417,7 +425,7 @@
     </url>
 
     <url>
-        <loc>https://ruby-kim.github.io/2022/03/30/Security/SSLTSL/</loc>
+        <loc>https://ruby-kim.github.io/2024/08/20/Security/Oauth2/</loc>
         <lastmod>2026-07-20T22:02:59.667Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

@@ -46,7 +46,7 @@
     
     
     <url>
-        <loc>https://ruby-kim.github.io/tags/</loc>
+        <loc>https://ruby-kim.github.io/categories/</loc>
         <lastmod>2026-05-31T08:35:33.218Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -55,7 +55,7 @@
     
     
     <url>
-        <loc>https://ruby-kim.github.io/categories/</loc>
+        <loc>https://ruby-kim.github.io/tags/</loc>
         <lastmod>2026-05-31T08:35:33.218Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
